@@ -1,0 +1,13 @@
+# frozen_string_literal: true
+
+source "https://rubygems.org"
+
+gem 'rest-client'
+gem 'json'
+gem 'linkeddata'
+gem 'rdf'
+gem 'sparql'
+gem 'ffi'
+gem 'webrick'
+gem 'http'
+gem 'sinatra'

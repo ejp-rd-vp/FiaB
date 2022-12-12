@@ -1,0 +1,16 @@
+version: "3"
+services:
+
+  updater:
+    image: markw/fdp-metadata-updater:0.0.1
+    restart: always
+    hostname: updater
+    ports:
+      - 4567:4567
+    environment:
+      DATA_SPARQL_ENDPOINT: ${DATA_SPARQL_ENDPOINT}
+      DIST_RECORDID: ${DIST_RECORDID}
+      DATASET_RECORDID: ${DATASET_RECORDID}
+      DOMAIN: ${DOMAIN}
+      FDP_USERNAME: ${FDP_USERNAME}
+      FDP_PASSWORD: ${FDP_PASSWORD}

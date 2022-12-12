@@ -1,0 +1,197 @@
+prefixes:
+  rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
+  rdfs: http://www.w3.org/2000/01/rdf-schema#
+  ex: http://ejp-rd.eu/ids/
+  obo: http://purl.obolibrary.org/obo/
+  sio: https://semanticscience.org/resource/
+  vocab: https://ejp-rd.eu/vocab/
+  pico: http://data.cochrane.org/ontologies/pico/
+  ndfrt: http://purl.bioontology.org/ontology/NDFRT/
+  this: |||BASE|||
+  
+sources:
+  weight-source:
+    access: |||DATA|||
+    referenceFormulation: |||FORMULATION|||
+    iterator: $  
+
+mappings:
+
+  identifier_has_value: 
+    sources: 
+      - weight-source 
+    s: this:individual_$(pid)_$(uniqid)#ID 
+    po: 
+      - [sio:SIO_000300, $(pid)]
+      
+  identifier_SIO_000020: 
+    sources: 
+      - weight-source 
+    s: this:individual_$(pid)_$(uniqid)#ID 
+    po: 
+      - predicates: a 
+        objects: 
+            value: https://ejp-rd.eu/vocab/identifier 
+            type: iri 
+      - predicates: sio:SIO_000020 
+        objects: 
+            value: this:individual_$(pid)_$(uniqid)#patientRole 
+            type: iri 
+
+  person_has_role: 
+    sources: 
+      - weight-source 
+    s: this:individual_$(pid)#Person 
+    po: 
+      - predicates: a 
+        objects: 
+            value: https://ejp-rd.eu/vocab/Person
+            type: iri 
+      - predicates: sio:SIO_000228 
+        objects: 
+            value: this:individual_$(pid)_$(uniqid)#patientRole
+            type: iri 
+
+  patientRole_annotation: 
+    sources: 
+      - weight-source 
+    s: this:individual_$(pid)_$(uniqid)#patientRole 
+    po: 
+      - [a, obo:OBI_0000093] 
+      - [rdfs:label, "Patient"] 
+
+
+
+
+# Role in Process
+       
+  role_realized_proces:
+    sources:
+      - weight-source
+    s: this:individual_$(pid)_$(uniqid)#patientRole
+    po:
+      - predicates: sio:SIO_000356
+        objects:
+            value:  this:individual_$(pid)_$(uniqid)#weight_measurement_Process
+            type: iri
+
+  process_annotation:
+    sources:
+      - weight-source
+    s: this:individual_$(pid)_$(uniqid)#weight_measurement_Process
+    po:
+      - predicates: rdf:type
+        objects:
+            value:  $(processURI)
+            type: iri
+      - predicates: rdfs:label
+        objects:
+            value:  $(processLabel)
+            datatype: xsd:string
+      - predicates: sio:SIO_000669
+        objects:
+            value:  $(date)
+            datatype: xsd:dateTime
+            
+            
+# Person has Quality
+  person_has_quality:
+    sources:
+      - weight-source
+    s: this:individual_$(pid)#Person
+    po:
+      - predicates: sio:SIO_000217
+        objects:
+            value:  this:individual__$(pid)_$(uniqid)#weight_Quality
+            type: iri
+
+  quality_annotation:
+    sources:
+      - weight-source
+    s: this:individual__$(pid)_$(uniqid)#weight_Quality
+    po:
+      - predicates: rdf:type
+        objects:
+            value:  $(qualityURI)
+            type: iri
+      - predicates: rdfs:label
+        objects:
+            value:  $(qualityLabel)
+            datatype: xsd:string
+
+
+
+
+# Process has Output
+
+  process_has_output:
+    sources:
+      - weight-source
+    s: this:individual_$(pid)_$(uniqid)#weight_measurement_Process
+    po:
+      - predicates: sio:SIO_000229
+        objects:
+            value:  this:individual__$(pid)_$(uniqid)#weight_MeasVal
+            type: iri
+
+
+  quality_basis_for_meas:
+    sources:
+      - weight-source
+    s: this:individual__$(pid)_$(uniqid)#weight_Quality
+    po:
+      - predicates: sio:SIO_000642
+        objects:
+            value:  this:individual__$(pid)_$(uniqid)#weight_MeasVal
+            type: iri
+
+
+  measval_value:
+    sources:
+      - weight-source
+    s: this:individual__$(pid)_$(uniqid)#weight_MeasVal
+    po:
+      - predicates: rdf:type
+        objects:
+            value:  sio:SIO_000070
+            type: iri
+      - predicates: rdf:type
+        objects:
+            value:  $(measurementURI)
+            type: iri
+      - predicates: rdfs:label
+        objects:
+            value:  $(measurementLabel)
+            datatype: xsd:string
+      - predicates: sio:SIO_000300
+        objects:
+            value:  $(weight)
+            datatype: xsd:float
+      - predicates: rdfs:comment
+        objects:
+            value:  $(comments)
+            datatype: xsd:string
+
+  weight_hasunit_unit:
+    sources: 
+      - weight-source 
+    s: this:individual__$(pid)_$(uniqid)#weight_MeasVal
+    po: 
+      - predicates: sio:SIO_000221
+        objects: 
+            value: this:individual__$(pid)_$(uniqid)#weight_MeasVal_unit
+            type: iri
+
+  unit_annotation:
+    sources: 
+      - weight-source 
+    s: this:individual__$(pid)_$(uniqid)#weight_MeasVal_unit
+    po: 
+      - predicates: rdf:type
+        objects: 
+            value: http://purl.obolibrary.org/obo/UO_0000009
+            type: iri
+      - predicates: rdfs:label
+        objects: 
+            value: "kilogram"
+            datatype: xsd:string

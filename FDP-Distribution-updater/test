@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF
+	xmlns:dcterms="http://purl.org/dc/terms/"
+	xmlns:dcat="http://www.w3.org/ns/dcat#"
+	xmlns:foaf="http://xmlns.com/foaf/0.1/"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+	xmlns:ldp="http://www.w3.org/ns/ldp#"
+	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+
+<rdf:Description rdf:about="https://en.wikipedia.org/wiki/All_rights_reserved">
+	<rdf:type rdf:resource="http://purl.org/dc/terms/RightsStatement"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://w3id.org/duchenne-fdp/distribution/d959bbdd-7e20-453a-b8ad-0d1897bdb287">
+	<rdf:type rdf:resource="http://www.w3.org/ns/dcat#Resource"/>
+	<rdf:type rdf:resource="http://www.w3.org/ns/dcat#Distribution"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://w3id.org/duchenne-fdp/distribution/d959bbdd-7e20-453a-b8ad-0d1897bdb287#identifier">
+	<rdf:type rdf:resource="http://purl.org/spar/datacite/Identifier"/>
+</rdf:Description>
+
+<rdf:Description rdf:nodeID="node1fmdj3p8ex82920">
+	<rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://w3id.org/duchenne-fdp/distribution/d959bbdd-7e20-453a-b8ad-0d1897bdb287#access">
+	<rdf:type rdf:resource="http://www.w3.org/ns/dcat#DataService"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://w3id.org/duchenne-fdp/distribution/d959bbdd-7e20-453a-b8ad-0d1897bdb287#contact">
+	<rdf:type rdf:resource="http://www.w3.org/2006/vcard/ns#Individual"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://w3id.org/duchenne-fdp/distribution/d959bbdd-7e20-453a-b8ad-0d1897bdb287">
+	<label xmlns="http://www.w3.org/2000/01/rdf-schema#">Patient Clinical Data</label>
+	<dcterms:title>Patient Clinical Data</dcterms:title>
+	<dcterms:hasVersion>2021-12-09T07:11:59.385</dcterms:hasVersion>
+	<metadataIssued xmlns="http://rdf.biosemantics.org/ontologies/fdp-o#" rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2021-12-09T12:12:02.855090015Z</metadataIssued>
+	<metadataModified xmlns="http://rdf.biosemantics.org/ontologies/fdp-o#" rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2021-12-09T12:12:03.353957483Z</metadataModified>
+	<dcterms:license rdf:resource="http://rdflicense.appspot.com/rdflicense/cc-by-nc-nd3.0/rdf"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://en.wikipedia.org/wiki/All_rights_reserved">
+	<dcterms:description>All rights reserved</dcterms:description>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://w3id.org/duchenne-fdp/distribution/d959bbdd-7e20-453a-b8ad-0d1897bdb287">
+	<dcterms:description>Database the Common Data Elements (CDEs) for Rare Diseases Registrations produced by the European Commission, Joint Research Centre, and additional clinical observations of patients in the Duchenne Parent Project.</dcterms:description>
+	<dcterms:language rdf:resource="http://id.loc.gov/vocabulary/iso639-1/en"/>
+	<metadataIdentifier xmlns="http://rdf.biosemantics.org/ontologies/fdp-o#" rdf:resource="https://w3id.org/duchenne-fdp/distribution/d959bbdd-7e20-453a-b8ad-0d1897bdb287#identifier"/>
+	<dcterms:identifier>https://w3id.org/duchenne-fdp/distribution/d959bbdd-7e20-453a-b8ad-0d1897bdb287</dcterms:identifier>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://w3id.org/duchenne-fdp/distribution/d959bbdd-7e20-453a-b8ad-0d1897bdb287#identifier">
+	<dcterms:identifier>https://w3id.org/duchenne-fdp/distribution/d959bbdd-7e20-453a-b8ad-0d1897bdb287</dcterms:identifier>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://w3id.org/duchenne-fdp/distribution/d959bbdd-7e20-453a-b8ad-0d1897bdb287">
+	<dcterms:accessRights rdf:resource="https://w3id.org/duchenne-fdp/distribution/d959bbdd-7e20-453a-b8ad-0d1897bdb287#accessRights"/>
+	<dcterms:accessRights rdf:resource="https://some.location.that.explains/howtogetaccess/"/>
+	<dcterms:publisher rdf:nodeID="node1fmdj3p8ex82920"/>
+</rdf:Description>
+
+<rdf:Description rdf:nodeID="node1fmdj3p8ex82920">
+	<foaf:name>Stichting Parent Project Productions</foaf:name>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://w3id.org/duchenne-fdp/distribution/d959bbdd-7e20-453a-b8ad-0d1897bdb287">
+	<dcterms:isPartOf rdf:resource="https://w3id.org/duchenne-fdp/dataset/63141d1c-34e5-4c50-84ef-f1b33724a838"/>
+	<SIO_000628 xmlns="http://semanticscience.org/resource/" rdf:resource="https://w3id.org/duchenne-fdp/distribution/d959bbdd-7e20-453a-b8ad-0d1897bdb287/metrics/445c0a70d1e214e545b261559e2842f4"/>
+	<SIO_000628 xmlns="http://semanticscience.org/resource/" rdf:resource="https://w3id.org/duchenne-fdp/distribution/d959bbdd-7e20-453a-b8ad-0d1897bdb287/metrics/5d27e854a9e78eb3f663331cd47cdc13"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://w3id.org/duchenne-fdp/distribution/d959bbdd-7e20-453a-b8ad-0d1897bdb287/metrics/445c0a70d1e214e545b261559e2842f4">
+	<SIO_000628 xmlns="http://semanticscience.org/resource/" rdf:resource="https://www.ietf.org/rfc/rfc3986.txt"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://w3id.org/duchenne-fdp/distribution/d959bbdd-7e20-453a-b8ad-0d1897bdb287/metrics/5d27e854a9e78eb3f663331cd47cdc13">
+	<SIO_000628 xmlns="http://semanticscience.org/resource/" rdf:resource="https://www.wikidata.org/wiki/Q8777"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://w3id.org/duchenne-fdp/distribution/d959bbdd-7e20-453a-b8ad-0d1897bdb287/metrics/445c0a70d1e214e545b261559e2842f4">
+	<SIO_000332 xmlns="http://semanticscience.org/resource/" rdf:resource="https://www.ietf.org/rfc/rfc3986.txt"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://w3id.org/duchenne-fdp/distribution/d959bbdd-7e20-453a-b8ad-0d1897bdb287/metrics/5d27e854a9e78eb3f663331cd47cdc13">
+	<SIO_000332 xmlns="http://semanticscience.org/resource/" rdf:resource="https://www.wikidata.org/wiki/Q8777"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://w3id.org/duchenne-fdp/distribution/d959bbdd-7e20-453a-b8ad-0d1897bdb287">
+	<dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2021-12-09T07:11:59.385</dcterms:issued>
+	<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2021-12-09T07:11:59.385</dcterms:modified>
+	<dcterms:rights rdf:resource="https://en.wikipedia.org/wiki/All_rights_reserved"/>
+	<dcat:contactPoint rdf:resource="https://w3id.org/duchenne-fdp/distribution/d959bbdd-7e20-453a-b8ad-0d1897bdb287#contact"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://w3id.org/duchenne-fdp/distribution/d959bbdd-7e20-453a-b8ad-0d1897bdb287#contact">
+	<fn xmlns="http://www.w3.org/2006/vcard/ns#" xml:lang="en">Roos de Jonge</fn>
+	<hasEmail xmlns="http://www.w3.org/2006/vcard/ns#" rdf:resource="mailto:info@duchenne.nl"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://w3id.org/duchenne-fdp/distribution/d959bbdd-7e20-453a-b8ad-0d1897bdb287">
+	<dcat:mediaType>application/sparql-results+json</dcat:mediaType>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://w3id.org/duchenne-fdp/distribution/d959bbdd-7e20-453a-b8ad-0d1897bdb287#access">
+	<dcat:endpointDescription rdf:resource="https://some.location.that.explains/how.to.query/"/>
+	<dcat:endpointURL rdf:resource="http://fdp.duchennedatafoundation.org:7200/sparql"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://w3id.org/duchenne-fdp/distribution/d959bbdd-7e20-453a-b8ad-0d1897bdb287">
+	<dcterms:format>application/sparql-results+json</dcterms:format>
+	<dcat:accessService rdf:resource="https://w3id.org/duchenne-fdp/distribution/d959bbdd-7e20-453a-b8ad-0d1897bdb287#access"/>
+	<dcterms:conformsTo rdf:resource="https://w3id.org/duchenne-fdp/profile/02c649de-c579-43bb-b470-306abdc808c7"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://w3id.org/duchenne-fdp/profile/02c649de-c579-43bb-b470-306abdc808c7">
+	<label xmlns="http://www.w3.org/2000/01/rdf-schema#">Distribution Profile</label>
+</rdf:Description>
+
+</rdf:RDF>

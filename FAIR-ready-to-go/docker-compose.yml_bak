@@ -1,0 +1,145 @@
+version: "3"
+services:
+
+  # hitch:
+  #   image: markw/hitch-f-i-a-b:0.0.1
+  #   hostname: "hitch"
+  #   container_name: "hitch"
+  #   restart: always
+  #   volumes:
+  #   - $PWD/proxy.conf:/etc/hitch/hitch.conf
+  #   - $PWD/combined.pem:/etc/hitch/cert.pem  # this is YOUR cert + key pem file
+  #   ports:
+  #    - "7070:8443" # the left is what is exposed to the web.  The right must match the "frontend" port in proxy.comf
+  #   depends_on:
+  #     - "varnish"
+  #   networks:
+  #     - default
+
+  # FAIR Data Point client	
+  fdp_client:
+    image: fairdata/fairdatapoint-client:1.15.0
+    hostname: fdpclient
+    restart: always
+    environment:
+      FDP_HOST: fdp
+    volumes:
+      - ./fdp/variables.scss:/src/scss/custom/_variables.scss:ro
+      - ./fdp/assets:/usr/share/nginx/html/assets:ro
+      - ./fdp/favicon.ico:/usr/share/nginx/html/favicon.ico:ro
+    depends_on:
+      - fdp
+    ports:
+      - 7070:80  # You should/must close this port, if you are using hitch
+    networks:
+      - default
+
+
+  graphdb:
+    image: ontotext/graphdb:10.1.2
+    restart: always
+    hostname: graphdb
+    ports:
+      - 7200:7200
+    volumes:
+      - fair-data-point:/opt/graphdb/home
+    networks:
+      - default
+
+  fdp:
+    image: fairdata/fairdatapoint:1.15.0
+    restart: always
+    volumes:
+      - ./fdp/application.yml:/fdp/application.yml:ro
+    depends_on:
+      - mongo
+      - graphdb
+    networks:
+      - default
+        
+  updater:
+    image: markw/fdp-metadata-updater:0.0.1
+    restart: always
+    hostname: updater
+    environment:
+      DATA_SPARQL_ENDPOINT: ${DATA_SPARQL_ENDPOINT}
+      DIST_RECORDID: ${DIST_RECORDID}
+      DATASET_RECORDID: ${DATASET_RECORDID}
+      DOMAIN: ${DOMAIN}
+      FDP_USERNAME: ${FDP_USERNAME}
+      FDP_PASSWORD: ${FDP_PASSWORD}
+      
+  # Mongo for FDP server    
+  mongo:
+    image: mongo:4.2.3
+    restart: always
+    volumes:
+      - mongo-data:/data/db
+      - mongo-init:/docker-entrypoint-initdb.d/
+    networks:
+      - default
+
+
+  cde-box-daemon: 
+#    image: markw/cde-box-daemon:0.3.0  # for the Version 1 CDE models
+    image: markw/cde-box-daemon:0.4.0   # for the Version 2 CDE models
+    container_name: cde-box-daemon
+    restart: always
+    depends_on:
+      - yarrrml_transform
+      - rdfizer
+    ports:
+      - 4567:4567
+    environment:
+      GraphDB_User: ${GraphDB_User}
+      GraphDB_Pass: ${GraphDB_Pass}
+      baseURI: ${baseURI}
+    volumes:
+        - ./data:/data
+        - ./config:/config
+    networks:
+      - default
+
+        
+  yarrrml_transform: 
+    image: markw/yarrrml-parser-ejp:latest
+    container_name: yarrrml_transform_FiaB
+    hostname: yarrrml_transform
+    restart: always
+    volumes:
+      - ./data:/data
+    environment:
+      baseURI: ${baseURI}
+  
+  rdfizer: 
+    image: markw/sdmrdfizer_ejp:0.5.0
+    container_name: rdfizer_FiaB
+    hostname: rdfizer
+    restart: always
+    volumes:
+      - ./data:/data
+      - ./config:/config
+
+  beacon_count:
+    image: pabloalarconm/ejprd-counting-api:0.0.2
+    container_name: beacon_count_FiaB
+    hostname: beacon_count
+    restart: always
+    ports:
+      - "7071:8000"
+    environment:
+      - TRIPLESTORE_URL=${DATA_SPARQL_ENDPOINT}
+      - TRIPLESTORE_USERNAME=${GraphDB_User}
+      - TRIPLESTORE_PASSWORD=${GraphDB_Pass}
+
+
+volumes:
+  fair-data-point:
+    external: true
+  mongo-data:
+    external: true
+  mongo-init:
+    external: true
+  fdp-server:
+    external: true
+

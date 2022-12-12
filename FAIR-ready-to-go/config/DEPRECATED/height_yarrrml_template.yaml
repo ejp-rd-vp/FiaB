@@ -1,0 +1,190 @@
+---
+prefixes:
+  rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
+  rdfs: http://www.w3.org/2000/01/rdf-schema#
+  ex: http://ejp-rd.eu/ids/
+  obo: http://purl.obolibrary.org/obo/
+  sio: https://semanticscience.org/resource/
+  vocab: https://ejp-rd.eu/vocab/
+  pico: http://data.cochrane.org/ontologies/pico/
+  ndfrt: http://purl.bioontology.org/ontology/NDFRT/
+  this: |||BASE|||
+sources:
+  patient_height_experimental-source:
+    access: "|||DATA|||"
+    referenceFormulation: "|||FORMULATION|||"
+    iterator: "$"
+mappings:
+  identifier_has_value:
+    sources:
+    - patient_height_experimental-source
+    s: this:individual_$(pid)_$(uniqid)#ID
+    po:
+    - predicates: sio:has-value
+      objects:
+        value: "$(pid)"
+        datatype: xsd:string
+  identifier_denotes:
+    sources:
+    - patient_height_experimental-source
+    s: this:individual_$(pid)_$(uniqid)#ID
+    po:
+    - predicates: a
+      objects:
+        value: https://ejp-rd.eu/vocab/identifier
+        type: iri
+    - predicates: sio:denotes
+      objects:
+        value: this:individual_$(pid)_$(uniqid)#thisRole
+        type: iri
+  person_has_role:
+    sources:
+    - patient_height_experimental-source
+    s: this:individual_$(pid)#Person
+    po:
+    - predicates: a
+      objects:
+        value: https://ejp-rd.eu/vocab/Person
+        type: iri
+    - predicates: sio:has-role
+      objects:
+        value: this:individual_$(pid)_$(uniqid)#thisRole
+        type: iri
+  thisRole_annotation:
+    sources:
+    - patient_height_experimental-source
+    s: this:individual_$(pid)_$(uniqid)#thisRole
+    po:
+    - predicates: a
+      objects:
+        value: obo:OBI_0000093
+        type: iri
+    - predicates: rdfs:label
+      objects:
+        value: Patient
+        datatype: xsd:string
+  thisRole_realized_some_height_measuring_process:
+    sources:
+    - patient_height_experimental-source
+    s: this:individual_$(pid)_$(uniqid)#thisRole
+    po:
+    - predicates: sio:is-realized-in
+      objects:
+        value: this:individual_$(pid)_$(uniqid)#some_height_measuring_process
+        type: iri
+  some_height_measuring_process_process_annotation:
+    sources:
+    - patient_height_experimental-source
+    s: this:individual_$(pid)_$(uniqid)#some_height_measuring_process
+    po:
+    - predicates: rdf:type
+      objects:
+        value: "$(processURI)"
+        type: iri
+    - predicates: rdfs:label
+      objects:
+        value: "$(processLabel)"
+        datatype: xsd:string
+  some_height_measuring_process_process_annotation_start:
+    sources:
+    - patient_height_experimental-source
+    s: this:individual_$(pid)_$(uniqid)#some_height_measuring_process
+    po:
+    - predicates: sio:start-time
+      objects:
+        value: "$(date)"
+        datatype: xsd:dateTime
+  person_has_height_quality_quality:
+    sources:
+    - patient_height_experimental-source
+    s: this:individual_$(pid)#Person
+    po:
+    - predicates: sio:has-quality
+      objects:
+        value: this:individual__$(pid)_$(uniqid)#height_quality
+        type: iri
+  height_quality_quality_annotation:
+    sources:
+    - patient_height_experimental-source
+    s: this:individual__$(pid)_$(uniqid)#height_quality
+    po:
+    - predicates: rdf:type
+      objects:
+        value: "$(qualityURI)"
+        type: iri
+    - predicates: rdfs:label
+      objects:
+        value: "$(qualityLabel)"
+        datatype: xsd:string
+  some_height_measuring_process_process_has_output:
+    sources:
+    - patient_height_experimental-source
+    s: this:individual_$(pid)_$(uniqid)#some_height_measuring_process
+    po:
+    - predicates: sio:has-output
+      objects:
+        value: this:individual__$(pid)_$(uniqid)#some_height_measuring_process_Output
+        type: iri
+  some_height_measuring_process_Output_annotation:
+    sources:
+    - patient_height_experimental-source
+    s: this:individual__$(pid)_$(uniqid)#some_height_measuring_process_Output
+    po:
+    - predicates: rdf:type
+      objects:
+        value: sio:measurement-value
+        type: iri
+  some_height_measuring_process_Output_type_annotation:
+    sources:
+    - patient_height_experimental-source
+    s: this:individual__$(pid)_$(uniqid)#some_height_measuring_process_Output
+    po:
+    - predicates: rdf:type
+      objects:
+        value: "$(measurementURI)"
+        type: iri
+  some_height_measuring_process_Output_type_label_annotation:
+    sources:
+    - patient_height_experimental-source
+    s: this:individual__$(pid)_$(uniqid)#some_height_measuring_process_Output
+    po:
+    - predicates: rdfs:label
+      objects:
+        value: "$(measurementLabel)"
+        datatype: xsd:string
+  some_height_measuring_process_Output_value_annotation:
+    sources:
+    - patient_height_experimental-source
+    s: this:individual__$(pid)_$(uniqid)#some_height_measuring_process_Output
+    po:
+    - predicates: sio:has-value
+      objects:
+        value: "$(height)"
+        datatype: xsd:float
+  some_height_measuring_process_Output_value_comments:
+    sources:
+    - patient_height_experimental-source
+    s: this:individual__$(pid)_$(uniqid)#some_height_measuring_process_Output
+    po:
+    - predicates: rdfs:comment
+      objects:
+        value: "$(comments)"
+        datatype: xsd:string
+  some_height_measuring_process_Output_hasunit_unit:
+    sources:
+    - patient_height_experimental-source
+    s: this:individual__$(pid)_$(uniqid)#some_height_measuring_process_Output
+    po:
+    - predicates: sio:has-unit
+      objects:
+        value: this:individual__$(pid)_$(uniqid)#some_height_measuring_process_Output_unit
+        type: iri
+  some_height_measuring_process_Output_unit_annotation:
+    sources:
+    - patient_height_experimental-source
+    s: this:individual__$(pid)_$(uniqid)#some_height_measuring_process_Output_unit
+    po:
+    - predicates: rdfs:label
+      objects:
+        value: "$(unitLabel)"
+        datatype: xsd:string

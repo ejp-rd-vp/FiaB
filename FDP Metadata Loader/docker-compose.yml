@@ -1,0 +1,18 @@
+version: "2.0"
+services:
+  
+  filler: 
+    image: markw/fdp_metadata_filler:latest
+    container_name: fdp_filler
+    environment:
+      EXCEL: "./myrecord.xls"
+      SERVER: "http://fdp:80"
+      BASE_URI: "http://localhost:7070"
+      FDPUSER: "albert.einstein@example.com"
+      FDPPASS: "password"
+    networks:
+      - fairreadytogo_fdp
+
+networks:
+  fairreadytogo_fdp:
+    external: true

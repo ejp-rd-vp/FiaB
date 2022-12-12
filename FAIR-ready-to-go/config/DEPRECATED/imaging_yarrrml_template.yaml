@@ -1,0 +1,280 @@
+---
+prefixes:
+  rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
+  rdfs: http://www.w3.org/2000/01/rdf-schema#
+  ex: https://ejp-rd.eu/ids/
+  obo: http://purl.obolibrary.org/obo/
+  sio: http://semanticscience.org/resource/
+  vocab: https://ejp-rd.eu/vocab/
+  pico: https://data.cochrane.org/ontologies/pico/
+  ndfrt: http://purl.bioontology.org/ontology/NDFRT/
+  edam: http://purl.bioontology.org/ontology/EDAM/
+  ordo: http://www.orpha.net/ORDO/
+  this: "|||BASE|||"
+sources:
+  imaging-source:
+    access: "|||DATA|||"
+    referenceFormulation: "|||FORMULATION|||"
+    iterator: "$"
+mappings:
+  identifier_has_value_for_thisPerson_thisRole:
+    sources:
+    - imaging-source
+    s: this:individual_thisPerson_$(pid)#ID
+    po:
+    - predicates: http://semanticscience.org/resource/has-value
+      objects:
+        value: "$(pid)"
+        datatype: xsd:string
+  identifier_denotes_role_thisRole:
+    sources:
+    - imaging-source
+    s: this:individual_thisPerson_$(pid)#ID
+    po:
+    - predicates: a
+      objects:
+        value: http://semanticscience.org/resource/identifier
+        type: iri
+    - predicates: a
+      objects:
+        value: http://semanticscience.org/resource/identifier
+        type: iri
+    - predicates: http://semanticscience.org/resource/denotes
+      objects:
+        value: this:individual_thisPerson_$(pid)_$(uniqid)#thisRole
+        type: iri
+  entity_has_role_thisRole:
+    sources:
+    - imaging-source
+    s: this:individual_thisPerson_$(pid)#Entity
+    po:
+    - predicates: a
+      objects:
+        value: http://semanticscience.org/resource/person
+        type: iri
+    - predicates: a
+      objects:
+        value: http://semanticscience.org/resource/object
+        type: iri
+    - predicates: http://semanticscience.org/resource/has-role
+      objects:
+        value: this:individual_thisPerson_$(pid)_$(uniqid)#thisRole
+        type: iri
+  thisRole_annotation:
+    sources:
+    - imaging-source
+    s: this:individual_thisPerson_$(pid)_$(uniqid)#thisRole
+    po:
+    - predicates: a
+      objects:
+        value: obo:OBI_0000093
+        type: iri
+    - predicates: a
+      objects:
+        value: http://semanticscience.org/resource/role
+        type: iri
+    - predicates: rdfs:label
+      objects:
+        value: " Role: Patient"
+        datatype: xsd:string
+  thisRole_realized_some_imaging_process:
+    sources:
+    - imaging-source
+    s: this:individual_$(pid)_$(uniqid)#thisRole
+    po:
+    - predicates: http://semanticscience.org/resource/is-realized-in
+      objects:
+        value: this:individual_$(pid)_$(uniqid)_process#process_some_imaging_process
+        type: iri
+  process_some_imaging_process_process_annotation:
+    sources:
+    - imaging-source
+    s: this:individual_$(pid)_$(uniqid)_process#process_some_imaging_process
+    po:
+    - predicates: rdf:type
+      objects:
+        value: http://semanticscience.org/resource/process
+        type: iri
+    - predicates: rdf:type
+      objects:
+        value: "$(processURI)"
+        type: iri
+    - predicates: rdfs:label
+      objects:
+        value: 'Process: $(processLabel)'
+        datatype: xsd:string
+  process_some_imaging_process_process_annotation_start:
+    sources:
+    - imaging-source
+    s: this:individual_$(pid)_$(uniqid)_process#process_some_imaging_process
+    po:
+    - predicates: http://semanticscience.org/resource/has-start-time
+      objects:
+        value: this:individual_$(pid)_$(uniqid)_process#process_some_imaging_process_startdate_$(date)
+        type: iri
+  process_some_imaging_process_process_annotation_start_value:
+    sources:
+    - imaging-source
+    s: this:individual_$(pid)_$(uniqid)_process#process_some_imaging_process_startdate_$(date)
+    po:
+    - predicates: http://semanticscience.org/resource/has-value
+      objects:
+        value: "$(date)"
+        datatype: xsd:date
+    - predicates: rdf:type
+      objects:
+        value: http://semanticscience.org/resource/start-date
+        type: iri
+    - predicates: rdfs:label
+      objects:
+        value: 'Start Date: $(date)'
+        datatype: xsd:string
+  process_some_imaging_process_process_annotation_end:
+    sources:
+    - imaging-source
+    s: this:individual_$(pid)_$(uniqid)_process#process_some_imaging_process
+    po:
+    - predicates: http://semanticscience.org/resource/has-end-time
+      objects:
+        value: this:individual_$(pid)_$(uniqid)_process#process_some_imaging_process_enddate_$(date)
+        type: iri
+  process_some_imaging_process_process_annotation_end_value:
+    sources:
+    - imaging-source
+    s: this:individual_$(pid)_$(uniqid)_process#process_some_imaging_process_enddate_$(date)
+    po:
+    - predicates: http://semanticscience.org/resource/has-value
+      objects:
+        value: "$(date)"
+        datatype: xsd:date
+    - predicates: rdf:type
+      objects:
+        value: http://semanticscience.org/resource/end-date
+        type: iri
+    - predicates: rdfs:label
+      objects:
+        value: 'End Date: $(date)'
+        datatype: xsd:string
+  thisprocess_specified_by_process_protocol_specifictype_annotation:
+    sources:
+    - imaging-source
+    s: this:individual_$(pid)_$(uniqid)_process#thisprocess
+    po:
+    - predicates: rdf:type
+      objects:
+        value: http://semanticscience.org/resource/process
+        type: iri
+    - predicates: rdfs:label
+      objects:
+        value: 'Protocol: Process'
+        datatype: xsd:string
+  thisprocess_specified_by_process_protocol:
+    sources:
+    - imaging-source
+    s: this:individual_$(pid)_$(uniqid)_process#thisprocess
+    po:
+    - predicates: http://semanticscience.org/resource/is-specified-by
+      objects:
+        value: "$(protocolURI)"
+        type: iri
+  thisprocess_specified_by_process_protocol_annotation:
+    sources:
+    - imaging-source
+    s: "$(protocolURI)"
+    po:
+    - predicates: rdf:type
+      objects:
+        value: http://semanticscience.org/resource/information-content-entity
+        type: iri
+    - predicates: rdf:type
+      objects:
+        value: http://purl.obolibrary.org/obo/NCIT_C42651
+        type: iri
+    - predicates: rdf:type
+      objects:
+        value: http://purl.obolibrary.org/obo/NCIT_C42651
+        type: iri
+    - predicates: rdfs:label
+      objects:
+        value: 'Protocol: $(protocolURI)'
+        datatype: xsd:string
+  process_some_imaging_process_has_target_target_entity:
+    sources:
+    - imaging-source
+    s: this:individual_$(pid)_$(uniqid)_process#process_some_imaging_process
+    po:
+    - predicates: http://semanticscience.org/resource/has-target
+      objects:
+        value: this:individual_$(pid)_$(uniqid)#process_some_imaging_process_Target
+        type: iri
+  process_some_imaging_process_has_target_target_entity_annotation:
+    sources:
+    - imaging-source
+    s: this:individual_$(pid)_$(uniqid)#process_some_imaging_process_Target
+    po:
+    - predicates: rdf:type
+      objects:
+        value: http://semanticscience.org/resource/information-content-entity
+        type: iri
+    - predicates: rdf:type
+      objects:
+        value: "$(target)"
+        type: iri
+    - predicates: rdfs:label
+      objects:
+        value: 'Process Target: $(target_label)'
+        datatype: xsd:string
+  process_some_imaging_process_process_has_output:
+    sources:
+    - imaging-source
+    s: this:individual_$(pid)_$(uniqid)_process#process_some_imaging_process
+    po:
+    - predicates: http://semanticscience.org/resource/has-output
+      objects:
+        value: this:individual_$(pid)_$(uniqid)#process_some_imaging_process_Output
+        type: iri
+  process_some_imaging_process_Output_annotation:
+    sources:
+    - imaging-source
+    s: this:individual_$(pid)_$(uniqid)#process_some_imaging_process_Output
+    po:
+    - predicates: rdf:type
+      objects:
+        value: http://semanticscience.org/resource/information-content-entity
+        type: iri
+  process_some_imaging_process_Output_type_annotation:
+    sources:
+    - imaging-source
+    s: this:individual_$(pid)_$(uniqid)#process_some_imaging_process_Output
+    po:
+    - predicates: rdf:type
+      objects:
+        value: http://semanticscience.org/resource/information-content-entity
+        type: iri
+  process_some_imaging_process_Output_type_label_annotation:
+    sources:
+    - imaging-source
+    s: this:individual_$(pid)_$(uniqid)#process_some_imaging_process_Output
+    po:
+    - predicates: rdfs:label
+      objects:
+        value: 'Output Type: measurement-value'
+        datatype: xsd:string
+  process_some_imaging_process_Output_value_comments:
+    sources:
+    - imaging-source
+    s: this:individual_$(pid)_$(uniqid)#process_some_imaging_process_Output
+    po:
+    - predicates: rdfs:comment
+      objects:
+        value: "$(comments)"
+        datatype: xsd:string
+  1638258495749789_output_custom_annotation:
+    sources:
+    - imaging-source
+    s: this:individual_$(pid)_$(uniqid)#process_some_imaging_process_Output
+    po:
+    - predicates: "$(http://semanticscience.org/resource/SIO_000205)"
+      objects:
+        value: "$(imageID)"
+        datatype: xsd:anyURI
