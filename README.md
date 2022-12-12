@@ -8,10 +8,7 @@ FAIR in a box is an offshoot of the original [CDE-in-a-box](https://github.com/e
 - [Downloading](#downloading)
 - [Installing](#installing)
 - [Testing your installation](#testing)
-<<<<<<< HEAD
-=======
 - [Fixing the "can't edit via the web page" problem](#repair_installation)
->>>>>>> f6975f81386c344c7793033ba100bc3fbb47eba7
 - [Using your FAIR-in-a-Box](#using)
 - [Customizing your FAIR-in-a-Box](#customizing)
 
@@ -43,46 +40,7 @@ In order to use the FAIR-in-a-box solution you `have to` meet following requirem
 To get the FAIR in a box code clone this repository to your machine.
 
 ```sh
-git clone https://github.com/markwilkinson/FAIR-in-a-box
-```
-
-#### GraphDB
-
-To use FAIR-in-a-box you also need to download the _standalone_ graphDB triple store free edition. Follow the steps below to get free edition of graphdb.
-
-**Step 1:** GO to this [url](https://www.ontotext.com/products/graphdb/graphdb-free/) and register to download GraphDB free edition.
-
-**Step 2:** The download link will be sent to your email. From the email follow link to download page and `click` on _"GraphDB platform independent"_. This step will download "graphdb-{version}-dist.zip" file to your machine.
-
-**Step 3:** Move "graphdb-{version}-dist.zip" file to the following location
-
-```sh
-mv graphdb-{version}-dist.zip FAIR-in-a-box/bootstrap/graph-db
-```
-
-**Step 4:** If your `graphdb version` is different from `10.1.0` then change the version number of graph DB in the ./FAIR-in-a-box/bootstrap/docker-compose file.
-
-```sh
-graph_db:
-    build:
-      context: ./graph-db
-      dockerfile: Dockerfile
-      args:
-        version: 10.1.0    <-----------
-```
-
-**Step 5:** If your `graphdb version` is different from `10.1.0` then change the version number of graph DB in the ./FAIR-in-a-box/bootstrap/graph-db/Docker file
-
-```sh
-FROM adoptopenjdk/openjdk11:alpine
-
-# Build time arguments
-<<<<<<< HEAD
-ARG version=10.1.0   <-----------
-=======
-ARG version=9.9.1   <-----------
->>>>>>> f6975f81386c344c7793033ba100bc3fbb47eba7
-
+git clone https://github.com/ejp-rd-vp/FiaB
 ```
 
 ---
