@@ -200,7 +200,7 @@ Make sure the following folder structure, relative to where you plan to keep you
 ```
         .
         .FAIR-ready-to-go/data/
-        .FAIR-ready-to-go/data/mydataX.csv  (input csv files, e.g. "height.csv")
+        .FAIR-ready-to-go/data/mydataX.csv  (input csv files, e.g. "CDE.csv")
         .FAIR-ready-to-go/data/mydataY.csv...
         .FAIR-ready-to-go/data/triples   (this is where the output data will be written, and loaded from here into Graphdb)
         .FAIR-ready-to-go/config/   (this is the folder where yarrrml templates will be automatically loaded from the EJP repository)
@@ -247,7 +247,7 @@ Make sure the `YARRRML` templates files are matching your `CSV` files names `XXX
 Call the url: http://localhost:4567 or http://SERVER-IP:4567 to trigger the transformation of each CSV file, and auto-load into graphDB (this will over-write what is currrently loaded! We will make this behaviour more flexible later)
 **Note:** If you deploy `FAIR in a box` solution in your laptop then check only for **localhost** url.
 
-**There is sample data (height.csv) in the "FAIR-ready-to-go/data" folder that can be used to test your installation.**
+**There is sample data (CDE.csv) in the "FAIR-ready-to-go/data" folder that can be used to test your installation.  Models will be automatically installed when you start the transformation**
 
 ### How to modify semantic model in data transformation service
 
