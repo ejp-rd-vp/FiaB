@@ -11,6 +11,7 @@ FAIR in a box is an offshoot of the original [CDE-in-a-box](https://github.com/e
 - [Fixing the "can't edit via the web page" problem](#repair_installation)
 - [Using your FAIR-in-a-Box](#using)
 - [Customizing your FAIR-in-a-Box](#customizing)
+- [Connecting your FAIR-in-a-Box to the Virtual Platform](#connecting)
 
 <a name="requirements"></a>
 
@@ -315,3 +316,18 @@ MOLGENIS EDC provider also provides a complete set of `CDE in a box` with EDC sy
 - to change the default colors, edit the first two lines to select the primary and secondary colors (the horizontal bar on the default http://localhost:7070 homepage shows the primary color on the left and the secondary color on the right)
 - if you have a preferred favicon, replace the one in that folder with your preferred one.
 - now go back to the FAIR-ready-to-go folder and bring the docker-compose back up. Your FDP client will now be customized with your preferred icons and colors
+
+
+<a name="connecting"></a>
+
+## Connect to the Virtual Platform
+
+Dataset descriptor - add the following ontology terms to the "theme"
+
+http://purl.org/ejp-rd/vocabulary/VPQueryable
+http://purl.org/ejp-rd/vocabulary/VPDiscoverable
+
+VP Discoverable = Level 1
+VP Queryable = Level 2
+
+
