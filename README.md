@@ -234,13 +234,13 @@ docker-compose up -d
 
 **Step 4:** Input CSV files
 
-Put an appropriately columned `XXXX.csv` into the `FAIR-in-a-box/FAIR-ready-to-go/data`. Please look into [this](https://github.com/ejp-rd-vp/CDE-semantic-model-implementations/tree/master/YARRRML_Transform_Templates) github repository for examples of CDEs `CSV` files.
+Put an appropriately columned `XXXX.csv` into the `FAIR-in-a-box/FAIR-ready-to-go/data`. Please look into [this](https://github.com/ejp-rd-vp/CDE-semantic-model-implementations/tree/master/CDE_version_2.0.0/CSV_template_doc) github repository for examples of CDEs `CSV` files.
 
 **Step 5:** Input YARRRML templates
 
 The `YARRRML` templates are always loaded from GitHub automatically on step 5, so they stay up-to-date as we change the models in EJP-RD.
 
-Make sure the `YARRRML` templates files are matching your `CSV` files names `XXXX_yarrrml_template.yaml` and are in the `FAIR-in-box/FAIR-ready-to-go/config` folder. Please look into [this](https://github.com/ejp-rd-vp/CDE-semantic-model-implementations/tree/master/YARRRML_Transform_Templates) github repository for CDEs `YARRRML` templates.
+Make sure the `YARRRML` templates files are matching your `CSV` files names `XXXX_yarrrml_template.yaml` and are in the `FAIR-in-box/FAIR-ready-to-go/config` folder. Please look into [this](https://github.com/ejp-rd-vp/CDE-semantic-model-implementations/tree/master/CDE_version_2.0.0/YARRRML) github repository for CDEs `YARRRML` templates.
 
 **Step 6:** Executing transformations
 
