@@ -82,7 +82,8 @@ services:
 
   cde-box-daemon: 
 #    image: markw/cde-box-daemon:0.3.0  # for the Version 1 CDE models
-    image: markw/cde-box-daemon:0.4.0   # for the Version 2 CDE models
+#    image: markw/cde-box-daemon:0.4.0   # for the Version 2 CDE models
+    image: markw/cde-box-daemon:0.5.0   # for the Version 2 CDE models
     container_name: cde-box-daemon
     restart: always
     depends_on:
@@ -114,6 +115,7 @@ services:
   
   rdfizer: 
     image: markw/sdmrdfizer_ejp:0.5.0
+    # image: markw/rmlstreamer-server-ejprd:0.0.1  # use this if you need to limit the memory allocation to this container
     container_name: rdfizer_FiaB
     hostname: rdfizer
     restart: always

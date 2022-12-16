@@ -39,7 +39,7 @@ echo -e "${NC}"
 echo ""
 
 docker-compose up --build -d
-sleep 200
+sleep 30
 
 echo ""
 echo -e "${GREEN}Setting up FAIR Data Point client and server${NC}"
@@ -47,7 +47,7 @@ echo ""
 cd ../metadata
 
 docker-compose up --build -d
-sleep 200
+sleep 30
 docker-compose down
 
 
@@ -64,12 +64,12 @@ docker rm helper
 echo ""
 echo ""
 docker-compose up -d
-sleep 20
+sleep 30
 docker-compose down
 docker volume remove -f mongo-data
 docker volume create mongo-data
 docker-compose up -d
-sleep 20
+sleep 30
 
 echo ""
 echo ""

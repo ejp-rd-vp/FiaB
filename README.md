@@ -184,12 +184,15 @@ the folder structure is:
 
 ```
 
-- The /data folder contains CSV, with each CSV file representing one data element that should be transformed.
+- The /data folder contains CSV, with each CSV file representing one category of data that should be transformed (e.g. CDE or DCDE)
 - The /config folder contains [YARRRML Templates](https://github.com/ejp-rd-vp/CDE-semantic-model-implementations/tree/master/YARRRML_Transform_Templates), one for each of the CSVs. You may add new YARRRML templates into this folder, and the associated CSV into the /data folder, so long as they follow the naming conventions that allow them to be automatically matched.
+- The /config folder WILL BE AUTOMATICALLY POPULATED with EJP version 2 models when you initiate a transformation.  Any identically-named template files will be over-written, but your own custom-designed templates will be left alone.
+- *NOTA BENE*:  Please execute `chmod a+w ./data/triples` prior to executing a transformation.  The transformation tool in this container runs with very limited permissions, and cannot write to a folder that is mounted with default permissions.
+
 
 #### Preparing input data
 
-The transformation services take `CSV` as input files. We provide `CSVs` with example data and `YARRRML` templates for each of the European Rare Disease CDEs [here](https://github.com/ejp-rd-vp/CDE-semantic-model-implementations/tree/master/YARRRML_Transform_Templates).
+The transformation services take `CSV` as input files. We provide `CSVs` with example data and `YARRRML` templates for each of the European Rare Disease CDEs.
 The `YARRRML` templates are always loaded from GitHub automatically, so they stay up-to-date as we change the models in EJP-RD, but the `CSV` files must be added by the user.
 
 #### Configuring configuration and data folders
