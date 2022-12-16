@@ -115,7 +115,7 @@ services:
   
   rdfizer: 
     image: markw/sdmrdfizer_ejp:0.5.0
-    # image: markw/rmlstreamer-server-ejprd:0.0.1  # use this if you need to limit the memory allocation to this container
+    # image: markw/rmlstreamer-server-ejprd:0.0.2  # use this if you need to limit the memory allocation to this container
     container_name: rdfizer_FiaB
     hostname: rdfizer
     restart: always
