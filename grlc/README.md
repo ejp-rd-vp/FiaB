@@ -9,9 +9,9 @@ You should see a Swagger interface for your queries.
 
 ## NOTA BENE
 
-You should never run this grlc server using `api-git`!!  This would allow anyone to send their own query to your back-end.  ONLY RUN THIS AS `api-local`, and only after initializing and manually checking the queries in the `grlc-queries` folder (see below) to ensure they are acceptable to run on your FAIR data.
+Unlike legacy Grlc, this version cannot use `api-git` and will ONLY RUN as `api-local`, and should only be used after initializing and manually checking the queries in the `grlc-queries` folder (see below) to ensure they are acceptable to run on your own FAIR data.
 
-You must also **_NEVER PROVIDE A VALID GITHUB TOKEN_** in the configuration file!  If you do, someone could use api-git to compromise your server.
+Unlike legacy Grlc, it is impossible to provide a GitHub token in the configuration file!  The only allowed repository is that provided by the World Duchenne Organization.
 
 <br/>
 
