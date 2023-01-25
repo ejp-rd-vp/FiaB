@@ -1,0 +1,3 @@
+[submodule "shallot/shared-queries"]
+	path = shallot/shared-queries
+	url = https://github.com/World-Duchenne-Organization/shared-queries.git
