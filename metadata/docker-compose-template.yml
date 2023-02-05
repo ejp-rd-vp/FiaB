@@ -4,15 +4,13 @@ services:
   # FAIR Data Point server    
   fdp:
     image: fairdata/fairdatapoint:1.15
-#    volumes:
-#      - fdp-server:/fdp/
     volumes:
-      - ./fdp/application.yml:/fdp/application.yml:ro
+      - ./fdp/application-{PREFIX}.yml:/fdp/application.yml:ro
     depends_on:
       - mongo
     networks:
       - default
-      - bootstrap_graphdb_net    
+      - bootstrap_default    
         
   # FAIR Data Point client	
   fdp_client:
@@ -20,10 +18,6 @@ services:
     hostname: fdpclient
     environment:
       FDP_HOST: fdp
-#      FDP_HOST: fdp
-#    volumes:
-#      - fdp-client-scss:/src/scss/custom/
-#      - fdp-client-assets:/usr/share/nginx/html/
     volumes:
       - ./fdp-client/variables.scss:/src/scss/custom/_variables.scss:ro
       - ./fdp-client/assets:/usr/share/nginx/html/assets:ro
@@ -31,7 +25,7 @@ services:
     depends_on:
       - fdp
     ports:
-      - 7070:80
+      - {FDP_PORT}:80
     networks:
       - default
       
@@ -40,25 +34,19 @@ services:
     image: mongo:4.2.3
     restart: always
     volumes:
-      - mongo-data:/data/db
-      - mongo-init:/docker-entrypoint-initdb.d/
+      - {PREFIX}-mongo-data:/data/db
+      - {PREFIX}-mongo-init:/docker-entrypoint-initdb.d/
     networks:
       - default
       
 # Define networks here
 networks:
-  bootstrap_graphdb_net:
+  bootstrap_default:
     external: true
 
 volumes:
-  mongo-data:
+  {PREFIX}-mongo-data:
     external: true
-  mongo-init:
-    external: true
-  fdp-client-assets:
-    external: true
-  fdp-client-scss:
-    external: true
-  fdp-server:
+  {PREFIX}-mongo-init:
     external: true
 

@@ -1,10 +1,10 @@
 instance:
     # (!) Change clientUrl
     # clientUrl: <fdp-url>
-    clientUrl: http://localhost:7071
+    clientUrl: http://localhost:{FDP_PORT}
     # (!) Change persistentUrl
     # persistentUrl: <fdp-persistent-url>
-    persistentUrl: http://localhost:7071
+    persistentUrl: {GUID}
 
 security:
     jwt:
