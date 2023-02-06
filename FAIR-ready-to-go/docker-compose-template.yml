@@ -9,7 +9,7 @@ services:
   #   - $PWD/proxy.conf:/etc/hitch/hitch.conf
   #   - $PWD/combined.pem:/etc/hitch/cert.pem  # this is YOUR cert + key pem file
   #   ports:
-  #    - "7070:8443" # the left is what is exposed to the web.  The right must match the "frontend" port in proxy.comf
+  #    - {FDP_PORT}:8443 # the left is what is exposed to the web.  The right must match the "frontend" port in proxy.comf
   #   networks:
   #     - {PREFIX}-default
 
