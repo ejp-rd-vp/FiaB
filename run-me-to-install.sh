@@ -21,6 +21,10 @@ function ctrl_c() {
           rm -rf "$CWD/test-ready-to-go"
           docker volume remove -f $P-graphdb $P-fdp-client-assets $P-fdp-client-css $P-fdp-client-scss $P-fdp-server $P-mongo-data $P-mongo-init
         fi
+        rm "${CWD}/metadata/docker-compose-${P}.yml"
+        rm "${CWD}/bootstrap/docker-compose-${P}.yml"
+        rm "${CWD}metadata/fdp/application-${P}.yml"
+
         exit 2
 }
 
@@ -185,9 +189,9 @@ echo -e  "${GREEN}you now have 10 minutes to test things."
 echo -e  "${GREEN}If GraphDB is working, you should be able to access it at: http://localhost:7200  (NOTE: this is NOT the port that will serve GraphDB in your production service!  This is only used for the test phase you are currently doing..."
 echo -e  "${GREEN}If Your FAIR Data Point is working, you should be able to access it at: $uri"
 echo ""
-echo -e  "${GREEN}NOTE: If you see the message:
+echo -e  "${GREEN}NOTE: If you see the message:"
 echo ""
-echo -e  "${RED}                 unable to get data 
+echo -e  "${RED}                 unable to get data "
 echo ""
 echo -e  "${GREEN}      in your FAIR Data Point web page, "
 echo -e  "${GREEN}      it is likely because GraphDB hasn't finished setting itself up."
