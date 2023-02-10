@@ -5,7 +5,7 @@ services:
   fdp:
     image: fairdata/fairdatapoint:1.15
     volumes:
-      - ./fdp/application-{PREFIX}.yml:/fdp/application.yml:ro
+      - ./fdp/application-test.yml:/fdp/application.yml:ro
     restart: always
     depends_on:
       - mongo
@@ -27,7 +27,7 @@ services:
     depends_on:
       - fdp
     ports:
-      - {FDP_PORT}:80
+      - 7070:80
     networks:
       - default
       - bootstrap_graphdb_net    
@@ -38,8 +38,8 @@ services:
     image: mongo:4.2.3
     restart: always
     volumes:
-      - {PREFIX}-mongo-data:/data/db
-      - {PREFIX}-mongo-init:/docker-entrypoint-initdb.d/
+      - test-mongo-data:/data/db
+      - test-mongo-init:/docker-entrypoint-initdb.d/
     networks:
       - default
       
@@ -49,8 +49,8 @@ networks:
     external: true
 
 volumes:
-  {PREFIX}-mongo-data:
+  test-mongo-data:
     external: true
-  {PREFIX}-mongo-init:
+  test-mongo-init:
     external: true
 

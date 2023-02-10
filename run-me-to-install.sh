@@ -1,8 +1,31 @@
 #!/bin/bash
 
 GREEN='\033[0;32m'
+RED='\033[0;31m'
 NC='\033[0m' # No Color
 CWD=$PWD
+
+
+function ctrl_c() {
+        docker-compose -f "$CWD/metadata/docker-compose-${P}.yml" down
+        docker-compose -f "$CWD/bootstrap/docker-compose-${P}.yml" down
+        docker-compose rm -f "$CWD/metadata/docker-compose-${P}.yml" -s
+        docker-compose rm -f "$CWD/bootstrap/docker-compose-${P}.yml" -s
+        docker network rm bootstrap_default bootstrap_graphdb_net
+        docker rmi -f bootstrap_graph_db_repo_manager:latest
+
+        if [ $production = "false" ]; then
+          echo ""
+          echo -e "${GREEN}because this is NOT a production server, I will now delete all assets and volumes.  You must re-run this installation script as a production server to recover.$NC"
+          echo ""
+          rm -rf "$CWD/test-ready-to-go"
+          docker volume remove -f $P-graphdb $P-fdp-client-assets $P-fdp-client-css $P-fdp-client-scss $P-fdp-server $P-mongo-data $P-mongo-init
+        fi
+        exit 2
+}
+
+trap ctrl_c 2
+
 
 
 echo -e "${GREEN}Is this a production installation, or are you just trying the installer?"
@@ -88,7 +111,7 @@ export TMPDIR=$HOME/tmp
 export FDP_PREFIX=$P
 
 docker network rm bootstrap_default
-docker rm  bootstrap_graphdb_1 metadata_fdp_1 metadata_fdp_client_1
+docker rm -f  bootstrap_graphdb_1 metadata_fdp_1 metadata_fdp_client_1
 docker volume remove -f "${P}-graphdb ${P}-fdp-client-assets ${P}-fdp-client-css ${P}-fdp-client-scss ${P}-fdp-server ${P}-mongo-data ${P}-mongo-init"
 
 docker volume create "${P}-graphdb"
@@ -97,24 +120,6 @@ docker volume create "${P}-fdp-client-assets"
 docker volume create "${P}-fdp-client-scss"
 docker volume create "${P}-mongo-data"
 docker volume create "${P}-mongo-init"
-
-
-function ctrl_c() {
-        docker-compose -f "$CWD/metadata/docker-compose-${P}.yml" down
-        docker-compose -f "$CWD/bootstrap/docker-compose-${P}.yml" down
-        docker network rm bootstrap_default
-        docker rm  bootstrap_graphdb_1 metadata_fdp_1 metadata_fdp_client_1
-        if [ $production = "false" ]; then
-          echo ""
-          echo -e "${GREEN}because this is NOT a production server, I will now delete all assets and volumes.  You must re-run this installation script as a production server to recover.$NC"
-          echo ""
-          docker volume remove -f $P-graphdb $P-fdp-client-assets $P-fdp-client-css $P-fdp-client-scss $P-fdp-server $P-mongo-data $P-mongo-init
-          docker volume remove -f $P-graphdb
-        fi
-        exit 2
-}
-
-trap ctrl_c 2
 
 
 echo ""
@@ -149,28 +154,8 @@ sed -i s%{GUID}%$uri% "./fdp/application-${P}.yml"
 
 
 docker-compose -f "docker-compose-${P}.yml" up --build -d
-#sleep 30
-#docker-compose down
 
 
-# docker run -v mongo-data:/data/db --name helper busybox true
-# docker cp ./mongo/data helper:/data/db
-# docker rm helper
-
-
-# docker run -v mongo-init:/docker-entrypoint-initdb.d/ --name helper busybox true
-# docker cp ./mongo/init-mongo.js helper:/docker-entrypoint-initdb.d/init-mongo.js
-# docker rm helper 
-
-
-# echo ""
-# echo ""
-# docker-compose up -d
-# sleep 30
-# docker-compose down
-# docker volume remove -f mongo-data
-# docker volume create mongo-data
-#docker-compose up -d
 sleep 15
 
 echo ""
@@ -200,6 +185,15 @@ echo -e  "${GREEN}you now have 10 minutes to test things."
 echo -e  "${GREEN}If GraphDB is working, you should be able to access it at: http://localhost:7200  (NOTE: this is NOT the port that will serve GraphDB in your production service!  This is only used for the test phase you are currently doing..."
 echo -e  "${GREEN}If Your FAIR Data Point is working, you should be able to access it at: $uri"
 echo ""
+echo -e  "${GREEN}NOTE: If you see the message:
+echo ""
+echo -e  "${RED}                 unable to get data 
+echo ""
+echo -e  "${GREEN}      in your FAIR Data Point web page, "
+echo -e  "${GREEN}      it is likely because GraphDB hasn't finished setting itself up."
+echo -e  "${GREEN}      wait until you are able to connect to http://localhost:7200 and then try again!"
+echo -e  "${GREEN}      It can take up to a minute after GraphDB comes alive before the FDP completes its initialization..."
+echo ""
 echo -e  "${GREEN}For further instructions and tests, read the documentation on the FAIR-in-a-box GitHub page${NC}"
 echo ""
 echo -e  "${GREEN}You can stop this test phase at any time with CTRL-C, then wait for the docker images to shut down cleanly before continuing${NC}"
@@ -210,16 +204,21 @@ fi
 sleep 600
 docker-compose -f "${CWD}/metadata/docker-compose-${P}.yml" down
 docker-compose -f "${CWD}/bootstrap/docker-compose-${P}.yml" down
-docker network rm bootstrap_default
-docker rm  bootstrap_graphdb_1 metadata_fdp_1 metadata_fdp_client_1
+docker-compose -f "${CWD}/metadata/docker-compose-${P}.yml" rm -s -f
+docker-compose -f "${CWD}/bootstrap/docker-compose-${P}.yml" rm -s -f
+docker network rm bootstrap_default bootstrap_graphdb_net
+docker rmi -f bootstrap_graph_db_repo_manager:latest
+
 if [ $production = "false" ]; then
   echo ""
   echo -e "${GREEN}because this is NOT a production server, I will now delete all assets and volumes.  You must re-run this installation script as a production server to recover.$NC"
   echo ""
   docker volume remove -f $P-graphdb $P-fdp-client-assets $P-fdp-client-css $P-fdp-client-scss $P-fdp-server $P-mongo-data $P-mongo-init
-  docker volume remove -f $P-graphdb
 fi
 
+rm "${CWD}/metadata/docker-compose-${P}.yml"
+rm "${CWD}/bootstrap/docker-compose-${P}.yml"
+rm "${CWD}metadata/fdp/application-${P}.yml"
 
 echo ""
 echo -e "${GREEN}Shutdown Complete.  Please now move into the ${NC} ./${P}-ready-to-go/ ${GREEN} folder where the full version of the docker-compose-{P}.yml file lives."

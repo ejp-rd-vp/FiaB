@@ -8,13 +8,12 @@ services:
     ports:
       - 7200:7200
     volumes:
-      - {PREFIX}-graphdb:/opt/graphdb/home
-    networks:
-      - graphdb_net
+      - htad-graphdb:/opt/graphdb/home
     
   #  This service create's `cde` and `fdp` repositories in graphdb	
   graph_db_repo_manager:
     build: ./graph-db-repo-manager
+    image: htad-graph-db-repo-manager:latest
     depends_on:
       - graphdb
     environment:
@@ -22,12 +21,7 @@ services:
       - "GRAPH_DB_ADMIN_USERNAME=admin"
       - "GRAPH_DB_ADMIN_PASSWORD=root"
       - FDP_PREFIX=$FDP_PREFIX
-    networks:
-      - graphdb_net
 
 volumes:
-  {PREFIX}-graphdb:
+  htad-graphdb:
     external: true
-
-networks:
-  graphdb_net:

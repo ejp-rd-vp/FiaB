@@ -1,4 +1,4 @@
-# FAIR-in-a-box
+# FiaB: FAIR-in-a-box
 
 FAIR in a box is an offshoot of the original [CDE-in-a-box](https://github.com/ejp-rd-vp/cde-in-box) created by [Rajaram Kaliyaperumal](https://github.com/rajaram5). It differs primarily in the installation process (now fully automated) and adds the ability to do YARRRML-based transformations from CSV into RDF.
 
@@ -50,69 +50,86 @@ git clone https://github.com/ejp-rd-vp/FiaB
 
 ## Installing
 
-### Initial Test (default installation to localhost)
-
 Once you have done above downloads and configurations you can run "run-me-to-install.sh" in the ./FAIR-in-a-box/ folder
 
 ```sh
 ./run-me-to-install.sh
 ```
 
-After several minutes, the installer will send a message to the screen asking you to check that the installation was successful. This message will last for 10 minutes, giving you enough time to explore the links below. After 10 minutes, the services will all automatically shut down. You can stop the installer by CTRL-C anytime.
+### How to answer the questions
 
-If installation is successful on localhost, then you should move on to a "production" installation.
+You will then get prompted as to whether you are doing a production installation (i.e. you haves a GUID already created - for example, using [W3ID](https://github.com/perma-id/w3id)) and you have already selected ports for your FDP, GraphDB, and Beacon (optional)). In addition, you must have an available port for the "RDFization trigger" - this port must be available on the server, but SHOULD NOT be exposed through the firewall.
 
+If you say "no", the installer will install your FDP onto localhost using defaults"
+
+
+   - installation prefix 'test'
+   - port 7070 for the FDP
+   - port 7200 for the GraphDB
+   - port 4567 for the RDFization trigger
+   - port 8000 for Beacon2
+
+If you say "yes", you will need to answer these questions yourself.   
+
+The installation prefix is simply a short-name for your database.  NO SPACES, and better as lower-case letters.  For example:
+   - crampdb
+   - euronmd
+   - dpp
+   - htad
+   - crag
+
+This prefix is used to isolate one installation of FDP from another, if you are hosting multiple FDPs on the same server.
+
+After abpout a minute, the installer will send a message to the screen asking you to check that the installation was successful. This message will last for 10 minutes, giving you enough time to explore the links in the message. After 10 minutes, the services will all automatically shut down. You can stop the installer by CTRL-C anytime.
+
+If installation is successful using "test", then may then restart the `run-me-to-install`, this time answering the questions using your production information.
+
+### Find the folder with your final server config... Ready-To-Go!
+
+The installer will create a folder containing all of your server configuration files.  You can copy this folder anywhere on your system, e.g. to keep your servers all in one folder outside of your GitHub copy of FiaB.
+
+The folder will be called "prefix-ready-to-go"  (e.g. "cramp-ready-to-go").  Inside of that folder is a customized docker-compose file (docker-compose-prefix.yml) for your deployment.  So for example, you would issue the commands:
+
+```
+
+cp -r cramp-ready-to-go ~/.SERVERS/
+cd ~/SERVERS/cramp-ready-to-go
+docker-compose -f docker-compose-cramp.yml up
+
+```
+
+Your FDP is now running at whatever port you selected for the FDP (default 7070)
 
 ### Production Installation (using your domain or purl)
 
-#### Without SSL Certificate
+When you are happy with your (production) installation, and you have created the metadata records (following the instructions below for creating a read/write user for the FDP and closing the default root account "albert.einstein"), you are then ready to register yourself with the central index of FAIR Data Points.  
 
-You need to edit two files:
-
-```
-./metadata/fdp/application.yml
-./FAIR-ready-to-go/fdp/application.yml
+To do this, you need to edit one file"
 
 ```
+~/SERVERS/cramp-ready-to-go/fdp/application.yml
 
-The lines you need to edit in both files are:
+```
+
+The line you need to edit is:
 
 ```
     clientUrl: http://localhost:7070
-    persistentUrl: http://localhost:7070
 
 ```
 
-Replace the localhost URL with your own URL (note that you should NOT include a trailing slash!). These will form the base of all auto-generated URLs from the FAIR Data Point.
+Replace the `localhost:7070` URL with your own production URL (note that you should NOT include a trailing slash!).  The next time you docker-compose up, the system will register itself using the URL that you put as the value of clientUrl
 
-Once you have done the edits re-run "run-me-to-install.sh" in the ./FAIR-in-a-box/ folder
-
-```sh
-./run-me-to-install.sh
-```
-
-This will now set-up your FAIR Data Point with production URLs.
-
-Once that installation is complete. CTRL-C to shut it down.
-
-The folder `FAIR-ready-to-go` contains your production FAIR Data Point. To run it:
-
-```
-cd FAIR-ready-to-go
-docker-compose up -d
-```
-
-Give it a few minutes to startup, then browse to your root URL (the one you set as persistentUrl in the application.yml file). Voila!
 
 #### With SSL Certificate and HTTPS Proxy
 
-1.  Make sure you have updated the URLs in `./metadata/fdp/applicaton.yml` to match what the new address/port will be. If you do not change the defaults, it will be https://your-domain:8443. If you edit `FAIR-ready-to-go/proxy.conf` then you have to synchronize those changes before running the installer!
-2.  Run the installation steps above (the steps without an SSL certificate)
-3.  Uncomment the "hitch" service in the docker-compose file.  **NOTE: Hitch and Varnish are often used together... I found that Varnish has a frustrating habit of caching... I no longer recommend that you use it for this application.   MDW**
-4.  If you need to, you can edit the "frontend" line in the `FAIR-ready-to-go/proxy.conf` file. If you leave it as-is, your FDP will run on https port 8443, which will generally be OK
-5.  Edit the `FAIR-ready-to-go/docker-compose.yml` "hitch" service configuration so that `./combined.pem:/etc/hitch/cert.pem` is mapping YOUR certificate+key .pem file to the /etc/hitch/cert.pem inside the docker image (do not edit this filename!!)
-6.  If you wish, you can remove the exposed non-SSL port from the fdp_client service in the docker-compose file, as it is no longer needed
-7. *NOTE* There are situations where Hitch will cache an old copy of your certificate, casing "expired certificate" errors in people's browsers.  To fix this, docker-compose down and docker-compose up again.
+NOTE:  You can ONLY do this with a production installation!  Your FDP URL must match your certificate!
+
+1.  Uncomment the "hitch" service in the docker-compose file.  **NOTE: Hitch and Varnish are often used together... I found that Varnish has a frustrating habit of caching... I no longer recommend that you use Varnish for this application.   MDW**
+2.  If you need to (YOU DON'T!), you can edit the "frontend" line in the `FAIR-ready-to-go/proxy.conf` file. If you leave it as-is, your FDP will run on https port 8443, which will generally be OK
+3.  Edit the `prefix-ready-to-go/docker-compose-prefix.yml` "hitch" service configuration so that `./combined.pem:/etc/hitch/cert.pem` is mapping YOUR certificate+key .pem file to the /etc/hitch/cert.pem inside the docker image (do not edit this filename!!)
+4.  You SHOULD now remove the exposed non-SSL port from the fdp_client service in the docker-compose file, as it is no longer needed
+5. *NOTE* There are situations where Hitch will cache an old copy of your certificate, casuing "expired certificate" errors in people's browsers.  To fix this, docker-compose down and docker-compose up again.
 
 Additional customization options are described below.
 
