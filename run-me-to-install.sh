@@ -4,7 +4,8 @@ GREEN='\033[0;32m'
 RED='\033[0;31m'
 NC='\033[0m' # No Color
 CWD=$PWD
-
+export DOCKER_BUILDKIT=0
+export COMPOSE_DOCKER_CLI_BUILD=0
 
 function ctrl_c() {
         docker-compose -f "$CWD/metadata/docker-compose-${P}.yml" down
