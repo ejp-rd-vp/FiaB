@@ -6,9 +6,10 @@ require 'rest-client'
 require 'json'
 
 get '/update' do
-  headers = get_token
-  update_distribution_date(headers)
-  update_dataset_date_theme(headers)
+
+  #headers = get_token
+  #update_distribution_date(headers)
+  #update_dataset_date_theme(headers)
 end
 
 def get_token

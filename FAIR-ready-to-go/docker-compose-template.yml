@@ -56,7 +56,7 @@ services:
       - {PREFIX}-default
         
   updater:
-    image: markw/fdp-metadata-updater:0.0.1
+    image: markw/fdp-metadata-updater:0.0.2
     restart: always
     hostname: updater
     environment:
@@ -66,6 +66,8 @@ services:
       DOMAIN: ${DOMAIN}
       FDP_USERNAME: ${FDP_USERNAME}
       FDP_PASSWORD: ${FDP_PASSWORD}
+    networks:
+      - {PREFIX}-default
       
   # Mongo for FDP server    
   mongo:
@@ -80,7 +82,7 @@ services:
 
 
   cde-box-daemon: 
-    image: markw/cde-box-daemon:0.3.0  # for the Version 1 CDE models
+    image: markw/cde-box-daemon:0.3.1  # for the Version 1 CDE models
 #    image: markw/cde-box-daemon:0.6.0   # for the Version 2 CDE models
     restart: always
     depends_on:
