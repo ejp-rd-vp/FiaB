@@ -82,7 +82,7 @@ services:
 
 
   cde-box-daemon: 
-    image: markw/cde-box-daemon:0.3.1  # for the Version 1 CDE models
+    image: markw/cde-box-daemon:0.3.2  # for the Version 1 CDE models
 #    image: markw/cde-box-daemon:0.6.0   # for the Version 2 CDE models
     restart: always
     depends_on:
