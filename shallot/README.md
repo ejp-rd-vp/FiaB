@@ -45,17 +45,24 @@ In the `shared-queries` folder that was created during the initialization (above
 Assuming you are running the default FAIR-in-a-box, it will expose a network called `xxx_graphdb`.  To discover what it is called on your instance issue the command:
 
 ```
-   $ docker network ls | grep graphdb
+   $ docker network ls | grep default
 ```
 
-Whatever it's name is (e.g. `abc_graphdb`), edit the docker-compose file in this folder and change the network name to `abc_graphdb`:
+Whatever it's name is (e.g. `some_filder-ACME_default_1`), edit the docker-compose file in this folder and change the network name to `abc_graphdb`:
 
 ```
 networks:
   default:
-    name: abc_graphdb
+    name: some_filder-ACME_default_1
     external: true
 ```
+
+in the same file, edit the environment variable to point to your graphdb port, and the name of your graphdb CDE database:
+
+```
+     GRLC_SPARQL_ENDPOINT=http://graphdb:XXXX/repositories/ACME-cde
+```
+
 
 This will allow your Shallot server to talk to graphdb over the docker internal network.
 
