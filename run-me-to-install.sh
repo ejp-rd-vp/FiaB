@@ -24,7 +24,7 @@ function ctrl_c() {
         fi
         rm "${CWD}/metadata/docker-compose-${P}.yml"
         rm "${CWD}/bootstrap/docker-compose-${P}.yml"
-        rm "${CWD}metadata/fdp/application-${P}.yml"
+        rm "${CWD}/metadata/fdp/application-${P}.yml"
 
         exit 2
 }
@@ -223,7 +223,7 @@ fi
 
 rm "${CWD}/metadata/docker-compose-${P}.yml"
 rm "${CWD}/bootstrap/docker-compose-${P}.yml"
-rm "${CWD}metadata/fdp/application-${P}.yml"
+rm "${CWD}/metadata/fdp/application-${P}.yml"
 
 echo ""
 echo -e "${GREEN}Shutdown Complete.  Please now move into the ${NC} ./${P}-ready-to-go/ ${GREEN} folder where the full version of the docker-compose-{P}.yml file lives."
