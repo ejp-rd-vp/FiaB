@@ -221,12 +221,11 @@ The `YARRRML` templates are always loaded from GitHub automatically, so they sta
 Make sure the following folder structure, relative to where you plan to keep your pre and post-transformed data, is available:
 
 ```
-        .
-        .FAIR-ready-to-go/data/
-        .FAIR-ready-to-go/data/mydataX.csv  (input csv files, e.g. "CDE.csv")
-        .FAIR-ready-to-go/data/mydataY.csv...
-        .FAIR-ready-to-go/data/triples   (this is where the output data will be written, and loaded from here into Graphdb)
-        .FAIR-ready-to-go/config/   (this is the folder where yarrrml templates will be automatically loaded from the EJP repository)
+        ./ACME-ready-to-go/data/
+        ./ACME-ready-to-go/data/mydataX.csv  (input csv files, e.g. "CDE.csv")
+        ./ACME-ready-to-go/data/mydataY.csv...
+        ./ACME-ready-to-go/data/triples   (this is where the output data will be written, and loaded from here into Graphdb)
+        ./ACME-ready-to-go/config/   (this is the folder where yarrrml templates will be automatically loaded from the EJP repository)
 ```
 
 **Step 2:** Edit the .env file
