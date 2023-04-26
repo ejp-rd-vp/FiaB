@@ -4,6 +4,7 @@ FAIR in a box is an offshoot of the original [CDE-in-a-box](https://github.com/e
 
 ## CONTENTS
 
+- *NEW* [Update Alert Mailing List](https://groups.google.com/g/fair-in-a-box-alerts/)
 - [Installation requirements](#requirements)
 - [Downloading](#downloading)
 - [Installing](#installing)
