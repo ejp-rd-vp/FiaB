@@ -338,12 +338,25 @@ MOLGENIS EDC provider also provides a complete set of `CDE in a box` with EDC sy
 
 ## Connect to the Virtual Platform
 
-Dataset descriptor - add the following ontology terms to the "theme"
+To connect to the VP Index, you need to add the indexer "ping" function to your FAIR Data Point.  To do this:
+
+- Login to your FDP via the Web page
+- Go to "settings"
+- About half-way down the settings there is a "Ping" section.  Add the following URL to the "Ping":
+    - https://index.vp.ejprarediseases.org/
+
+Once you have done this, your site will become registered in the VP Index on the next "ping" cycle (should be daily, by default).
+
+If you want to force the registration, you can shut-down (docker-compose down) and restart your FDP.  Alternatively, you can force a re-indexing by making the following `curl` command:
+
+```
+curl -X POST https://index.vp.ejprarediseases.org/ -H "Content-Type: application/json" -d
+{"clientUrl": "https://my.fdp.address.here/}
+```
+
+*IF YOU HAVE SWITCHED-ON AND CONFIGURED Beacon2*, then in the Dataset descriptor, add the following ontology term to the "theme" of the Dataset (manually edit via the FAIR Data Point Web page)
 
 http://purl.org/ejp-rd/vocabulary/VPQueryable
-http://purl.org/ejp-rd/vocabulary/VPDiscoverable
 
-VP Discoverable = Level 1
-VP Queryable = Level 2
 
 
