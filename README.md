@@ -338,6 +338,8 @@ MOLGENIS EDC provider also provides a complete set of `CDE in a box` with EDC sy
 
 ## Connect to the Virtual Platform
 
+Full instructions for modifying your default FAIR-in-a-box to match the schema requirements for the Virtual Platform can be found here:  https://github.com/ejp-rd-vp/FDP-Configuration
+
 To connect to the VP Index, you need to add the indexer "ping" function to your FAIR Data Point.  To do this:
 
 - Login to your FDP via the Web page
@@ -345,7 +347,7 @@ To connect to the VP Index, you need to add the indexer "ping" function to your 
 - About half-way down the settings there is a "Ping" section.  Add the following URL to the "Ping":
     - https://index.vp.ejprarediseases.org/
 
-Once you have done this, your site will become registered in the VP Index on the next "ping" cycle (should be daily, by default).
+Once you have done this, your site will become registered in the VP Index on the next "ping" cycle (should be weekly, by default).
 
 If you want to force the registration, you can shut-down (docker-compose down) and restart your FDP.  Alternatively, you can force a re-indexing by making the following `curl` command:
 
@@ -354,9 +356,11 @@ curl -X POST https://index.vp.ejprarediseases.org/ -H "Content-Type: application
 {"clientUrl": "https://my.fdp.address.here/}
 ```
 
-*IF YOU HAVE SWITCHED-ON AND CONFIGURED Beacon2*, then in the Dataset descriptor, add the following ontology term to the "theme" of the Dataset (manually edit via the FAIR Data Point Web page)
+*IF YOU HAVE SWITCHED-ON AND CONFIGURED Beacon2*, then in the Dataset descriptor, you need to add the "VPQueryable" flag to the *vp Connection* property - go to your dataset record in the FDP web page, and add:
 
 http://purl.org/ejp-rd/vocabulary/VPQueryable
+
+As an additional value of vpConnection
 
 
 
