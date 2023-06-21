@@ -347,9 +347,9 @@ To connect to the VP Index, you need to add the indexer "ping" function to your 
 - About half-way down the settings there is a "Ping" section.  Add the following URL to the "Ping":
     - https://index.vp.ejprarediseases.org/
 
-Once you have done this, your site will become registered in the VP Index on the next "ping" cycle (should be weekly, by default).
+Once you have done this, your site will be indexed in the VP Index on the next "ping" cycle (should be weekly, by default).  THE INDEX WILL LOOK FOR THE "VPDiscoverable" tag in the vpConnection property of whatever resource(s) you want to be indexed by the platform.  e.g. if you have 5 datasets, but you only want 3 of them to be indexed by the VP, then you set the vpConnection property to "VPDiscoverable" for ONLY those three datasets (the others have no value for that property). In the metadata editor of the FDP web page, this is done via a dropdown menu.
 
-If you want to force the registration, you can shut-down (docker-compose down) and restart your FDP.  Alternatively, you can force a re-indexing by making the following `curl` command:
+If you want to force re-indexing, you can shut-down (docker-compose down) and restart your FDP.  Alternatively, you can force a re-indexing by making the following `curl` command:
 
 ```
 curl -X POST https://index.vp.ejprarediseases.org/ -H "Content-Type: application/json" -d
