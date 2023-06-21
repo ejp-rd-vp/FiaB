@@ -356,10 +356,9 @@ curl -X POST https://index.vp.ejprarediseases.org/ -H "Content-Type: application
 {"clientUrl": "https://my.fdp.address.here/}
 ```
 
-*IF YOU HAVE SWITCHED-ON AND CONFIGURED Beacon2*, then in the Dataset descriptor, you need to add the "VPQueryable" flag to the *vp Connection* property - go to your dataset record in the FDP web page, and add:
+*IF YOU HAVE SWITCHED-ON AND CONFIGURED Beacon2*, then in the Dataset descriptor, you need to add the "VPContentDiscovery" flag to the *vp Connection* property - go to your dataset record in the FDP web page, and add:
 
-http://purl.org/ejp-rd/vocabulary/VPQueryable
-
+http://purl.org/ejp-rd/vocabulary/VPContentDiscovery
 As an additional value of vpConnection
 
 
