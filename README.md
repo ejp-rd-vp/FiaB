@@ -310,7 +310,7 @@ MOLGENIS EDC provider also provides a complete set of `CDE in a box` with EDC sy
 - Go to http://localhost:7200 and login with the default username and password ("admin"/"root").
 - Enter the "settings" for the admin account, and update the password. Note that this account will have access to both the metadata and the data (!!) so make the password strong!
 - at the terminal, shut down the system (docker-compose down)
-- go to the ./metadata/fdp folder and edit the file "application.yml"
+- go to the ./ACME-ready-to-go/fdp folder and edit the file "application-ACME.yml"
 - in the repository settings, update the username and password to whatever you selected above
 - now you need to edit the configuration file in the FDP docker image. To do this, shut-down your FAIR-ready-to-go (`docker-compose down`) then edit the `./metadata/fdp/application.yml` file to update the graphdb authentication username/password.
 
