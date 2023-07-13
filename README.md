@@ -305,7 +305,7 @@ MOLGENIS EDC provider also provides a complete set of `CDE in a box` with EDC sy
 
 # Customization of your installation
 
-## Update username and password for the FDP
+## Update username and password for the GraphDB
 
 - Go to http://localhost:7200 and login with the default username and password ("admin"/"root").
 - Enter the "settings" for the admin account, and update the password. Note that this account will have access to both the metadata and the data (!!) so make the password strong!
