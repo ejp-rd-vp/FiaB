@@ -170,7 +170,9 @@ echo ""
 cd ..
 cp -r ./FAIR-ready-to-go ./${P}-ready-to-go
 cp ./${P}-ready-to-go/docker-compose-template.yml "./${P}-ready-to-go/docker-compose-${P}.yml"
+rm ./${P}-ready-to-go/docker-compose-template.yml
 cp ./${P}-ready-to-go/fdp/application-template.yml "./${P}-ready-to-go/fdp/application-${P}.yml"
+rm ./${P}-ready-to-go/fdp/application-template.yml
 cp ./${P}-ready-to-go/.env_template "./${P}-ready-to-go/.env"
 sed -i s/{PREFIX}/${P}/ "./${P}-ready-to-go/docker-compose-${P}.yml"
 sed -i s/{FDP_PORT}/${FDP_PORT}/ "./${P}-ready-to-go/docker-compose-${P}.yml"

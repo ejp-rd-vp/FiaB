@@ -80,12 +80,6 @@ services:
     networks:
       - {PREFIX}-default
 
-
-
-
-
-
-
   cde-box-daemon: 
     image: markw/cde-box-daemon:0.5.0    # to use the version 2 CDE models with Hefesto
     container_name: cde-box-daemon
@@ -98,7 +92,7 @@ services:
       - hefesto
       - yarrrml-rdfizer
     ports:
-      - 4567:4567
+      - 127.0.0.1:{RDF_TRIGGER}:4567
     volumes:
       - ./data:/data
       - ./config:/config
@@ -110,6 +104,8 @@ services:
     hostname: hefesto
     volumes:
       - ./data:/code/data
+    networks:
+      - {PREFIX}-default
 
   yarrrml-rdfizer:
     image: markw/yarrrml-rml-ejp:0.0.3
