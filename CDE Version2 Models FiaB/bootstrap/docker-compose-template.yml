@@ -1,0 +1,33 @@
+version: '3'
+
+services:
+  graphdb:
+    image: ontotext/graphdb:10.1.2
+    restart: always
+    hostname: graphdb
+    ports:
+      - 7200:7200
+    volumes:
+      - {PREFIX}-graphdb:/opt/graphdb/home
+    networks:
+      - graphdb_net
+    
+  #  This service create's `cde` and `fdp` repositories in graphdb	
+  graph_db_repo_manager:
+    build: ./graph-db-repo-manager
+    depends_on:
+      - graphdb
+    environment:
+      - "GRAPH_DB_URL=http://graphdb:7200"
+      - "GRAPH_DB_ADMIN_USERNAME=admin"
+      - "GRAPH_DB_ADMIN_PASSWORD=root"
+      - FDP_PREFIX=$FDP_PREFIX
+    networks:
+      - graphdb_net
+
+volumes:
+  {PREFIX}-graphdb:
+    external: true
+
+networks:
+  graphdb_net:
