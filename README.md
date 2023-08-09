@@ -7,9 +7,10 @@ FAIR in a box is an offshoot of the original [CDE-in-a-box](https://github.com/e
 - *NEW* [Update Alert Mailing List](https://groups.google.com/g/fair-in-a-box-alerts/)
 - [Installation requirements](#requirements)
 - [Downloading](#downloading)
-- [Installing](#installing)
+- Installing
+  - [Upgrading from CDE v1 to CDE v2](#upgrading)
+  - [Installing from scratch](#installing)
 - [Testing your installation](#testing)
-- [Fixing the "can't edit via the web page" problem](#repair_installation)
 - [Using your FAIR-in-a-Box](#using)
 - [Customizing your FAIR-in-a-Box](#customizing)
 - [Connecting your FAIR-in-a-Box to the Virtual Platform](#connecting)
@@ -18,7 +19,7 @@ FAIR in a box is an offshoot of the original [CDE-in-a-box](https://github.com/e
 
 ## Requirements
 
-In order to use the FAIR-in-a-box solution you `have to` meet following requirements.
+In order to use the FAIR-in-a-box solution you `must` meet following requirements.
 
 **User requirements (Person who is deploying this solution)**
 
@@ -47,14 +48,91 @@ git clone https://github.com/ejp-rd-vp/FiaB
 
 ---
 
-<a name="installing"></a>
+
 
 ## Installing
 
-Once you have done above downloads and configurations you can run "run-me-to-install.sh" in the ./FAIR-in-a-box/ folder
+<a name="upgrading"></a>
 
-```sh
-./run-me-to-install.sh
+### NOTE:   versions of FiaB
+
+There are two versions of FiaB.  One of them is compatible with Version 1 of the CDE models, the other is compatible with Version 2 of the CDE models. Version 1 **is deprecated** and should no longer be used.
+
+NOTE THAT THE TWO VERSIONS ARE MUTUALLY INCOMPATIBLE!  You cannot run them in parallel.  They have different Docker components for the transformation, and different YARRRML templates.
+
+If you have already installed FiaB, it is possible to upgrade from V1 to V2 by changing the docker-compose file as follows:
+
+FROM docker-compose VERSION 1:  remove the components:
+   * cde-box-daemon  (version 0.3.2)
+   * yarrrml_transform
+   * rdfizer
+  
+TO UPGRADE to docker-compose VERSION 2:  add the components (see sample below)
+   * cde-box-daemon (version 0.5.0)
+   * Add clause hefesto
+   * Add clause yarrrml-rdfizer
+
+#### REPLACEMENT CODE for docker-compose.yml
+
+Note:  replace all instances of {PREFIX} with your local installation prefix, e.g. "ACME-default"
+
+Note:  replace {RDF_TRIGGER} with the port number that you have selected for your RDF transformation
+```
+  cde-box-daemon: 
+    image: markw/cde-box-daemon:0.5.0    # to use the version 2 CDE models with Hefesto
+    container_name: cde-box-daemon
+    environment:
+      GraphDB_User: ${GraphDB_User}
+      GraphDB_Pass: ${GraphDB_Pass}
+      baseURI: ${baseURI}
+      GRAPHDB_REPONAME: ${GRAPHDB_REPONAME}
+    depends_on:
+      - hefesto
+      - yarrrml-rdfizer
+    ports:
+      - 127.0.0.1:{RDF_TRIGGER}:4567
+    volumes:
+      - ./data:/data
+      - ./config:/config
+    networks:
+      - {PREFIX}-default
+                
+  hefesto:
+    image: pabloalarconm/hefesto_fiab:0.0.6
+    hostname: hefesto
+    volumes:
+      - ./data:/code/data
+    networks:
+      - {PREFIX}-default
+
+  yarrrml-rdfizer:
+    image: markw/yarrrml-rml-ejp:0.0.3
+    container_name: yarrrml-rdfizer
+    hostname: yarrrml-rdfizer
+    environment:
+      - SERIALIZATION=nquads
+    volumes:
+      - ./data:/mnt/data
+    networks:
+      - {PREFIX}-default
+
+```
+
+You should now be able to restart your docker-compose and be fully functional.  THERE IS NO NEED TO GO THROUGH THE "installing" section below!  Your FiaB is installed, and upgraded.
+
+---
+
+
+<a name="installing"></a>
+
+## Installing from scratch
+
+If you have never installed FiaB before, you `must` use the CDE Version 2 models - Version 1 models **are deprecated**!!!
+
+Once you have completed the "Downloading" section of this tutorial, you can run `run-me-to-install.sh` in the `./CDE Version2 Models FiaB/`` folder
+
+```
+sh ./run-me-to-install.sh
 ```
 
 ### How to answer the questions
@@ -136,16 +214,6 @@ NOTE:  You can ONLY do this with a production installation!  Your FDP URL must m
 5. *NOTE* There are situations where Hitch will cache an old copy of your certificate, casuing "expired certificate" errors in people's browsers.  To fix this, docker-compose down and docker-compose up again.  (This is incredibly frustrating... sorry!  Not my fault! MDW)
 
 Additional customization options are described below.
-
----
-
-<a name="repair_installation"></a>
-
-## Repair the "unable to edit" problem
-
-For unknown reasons, the `run-me-to-install.sh` script SOMETIMES results in an FDP that has a duplicate created and modified date.  This is invalid, according to the validation SHACL, and renders the FDP uneditable (even if you remove that data via the Web interface!).  
-
-The easiest way to fix it is to modify the SHACL (temporarily) to allow you to create/edit the record.  This process is described in [this slide deck](https://docs.google.com/presentation/d/1lR96U7nShJqx2wIytWKrNbmWLzr5EBEUE6OpuycZYqg/edit).  This works for me... your milage may vary!
 
 
 
