@@ -272,16 +272,24 @@ the folder structure is:
 
 ```
 
-- The /data folder will contain your CSV, with each CSV file representing one category of data that should be transformed (e.g. CDE or DCDE)
-- The /config folder will contain [YARRRML Templates](https://github.com/ejp-rd-vp/CDE-semantic-model-implementations/tree/master/YARRRML_Transform_Templates), one for each of the CSVs. You may add new YARRRML templates into this folder, and the associated CSV into the /data folder, so long as they follow the naming conventions that allow them to be automatically matched.
-- The /config folder WILL BE AUTOMATICALLY POPULATED with EJP version 1 or 2 models when you initiate a transformation (Version 1 models use the docker image cde-box-daemon:0.3.0; the Version 2 models use cde-box-daemon:0.6.0).  Any identically-named template files will be over-written, but your own custom-designed templates will be left alone.
+- The /data folder is where you will place your preCDE.csv file.  `Note that Version 1 CDE models are now deprecated!` There are [instructions on how to generate the (single!) Version 2 'preCDE.csv' file](./CDE%20Version2%20Models%20FiaB/README.md).
+- The /config folder will contain the [YARRRML Template](https://github.com/ejp-rd-vp/CDE-semantic-model-implementations/tree/master/CDE_version_2.0.0/YARRRML) that will be applied to the final CSV.
+- The /config folder WILL BE AUTOMATICALLY UPDATED with the latest EJP CDE Version 2 model when you initiate a transformation.
 - *NOTA BENE*:  Please execute `chmod a+w ./data/triples` prior to executing a transformation.  The transformation tool in this container runs with very limited permissions, and cannot write to a folder that is mounted with default permissions.
 
 
 #### Preparing input data
 
-The transformation services take `CSV` as input files. We provide `CSVs` with example data and `YARRRML` templates for each of the European Rare Disease CDEs.
-The `YARRRML` templates are always loaded from GitHub automatically, so they stay up-to-date as we change the models in EJP-RD, but the `CSV` files must be added by the user.
+The EJP-RD CDE Version 2 Transformation process has three steps:
+
+1) A simple "preCDE" CSV file is created by the data owner (`you must do this!`)
+2) The preCDE.csv is transformed into the final CDE.csv (`this is automated`)
+3) The final CDE.csv is processed by the YARRRML transformer, and RDF is output into the `./data/triples` folder
+  
+
+An exemplar [preCDE CSV](https://github.com/ejp-rd-vp/CDE-semantic-model-implementations/tree/master/CDE_version_2.0.0/CSV_docs/exemplar_data/preCDE.csv), and the [standard YARRRML template]((https://github.com/ejp-rd-vp/CDE-semantic-model-implementations/tree/master/CDE_version_2.0.0/YARRRML/CDE_yarrrml_template.yaml)), are provided for you to test your installation.  Copy/paste these into the appropriate folders (`./data` and `./config`)
+
+The YARRRML template is always loaded from GitHub automatically for every FiaB transformation, so it is always up-to-date with any model fixes/changes.  You are responsible for generating your own `preCDE.csv`.  *NOTA BENE* the filenames MUST NOT BE CHANGED!  The files are called `preCDE.csv`, and `CDE_yarrrml_template.yaml`!!  YOU CANNOT CHANGE THIS!
 
 #### Configuring configuration and data folders
 
@@ -291,10 +299,9 @@ Make sure the following folder structure, relative to where you plan to keep you
 
 ```
         ./ACME-ready-to-go/data/
-        ./ACME-ready-to-go/data/mydataX.csv  (input csv files, e.g. "CDE.csv")
-        ./ACME-ready-to-go/data/mydataY.csv...
+        ./ACME-ready-to-go/data/preCDE.csv
         ./ACME-ready-to-go/data/triples   (this is where the output data will be written, and loaded from here into Graphdb)
-        ./ACME-ready-to-go/config/   (this is the folder where yarrrml templates will be automatically loaded from the EJP repository)
+        ./ACME-ready-to-go/config/   (this is the folder where YARRRML template will be automatically loaded from the EJP repository)
 ```
 
 **Step 2:** Edit the .env file
@@ -307,36 +314,26 @@ this will result in Triple that look like this:
 
 `<http://my.database.org/my_rd_data/person_123345_asdssaewe#ID> <sio:has-value> <"123345">`
 
-optimally, these URLs will resolve...
+optimally, these URLs will resolve... but this is your responsibility - we cannot automate this.
 
 
 **Step 3:** Input CSV files
 
-_VERSION 1 CDEs_
+Put an appropriately generated `preCDE.csv` into the `ACME-ready-to-go/data`. 
 
-Put an appropriately columned `XXXX.csv` into the `ACME-ready-to-go/data`. Please look into [this](https://github.com/ejp-rd-vp/CDE-semantic-model-implementations/tree/master/CDE_version_2.0.0/CSV_template_doc) github repository for examples of CDEs `CSV` files.
-
-_VERSION 2 CDEs_
-
-Please wait for further instructions for how to use Version 2 of the CDE models.
+If you are unsure which columns to fill for each data type, see the [glossary](https://github.com/ejp-rd-vp/CDE-semantic-model-implementations/tree/master/CDE_version_2.0.0/CSV_docs/glossary.md)
 
 
 **Step 4:** Input YARRRML templates
 
-The `YARRRML` templates are always loaded from GitHub automatically on step 5, so they stay up-to-date as we change the models in EJP-RD.
+The `YARRRML` template is always loaded from GitHub automatically on step 5, so it stays up-to-date as we change the models in EJP-RD.
 
-Make sure the `YARRRML` templates files are matching your `CSV` files names `XXXX_yarrrml_template.yaml` and are in the `ACME-ready-to-go/config` folder. Please look into [this](https://github.com/ejp-rd-vp/CDE-semantic-model-implementations/tree/master/CDE_version_2.0.0/YARRRML) github repository for CDEs `YARRRML` templates.
 
 **Step 5:** Executing transformations
 
-Call the url: http://localhost:4567 or http://SERVER-IP:4567 to trigger the transformation of each CSV file, and auto-load into graphDB (this will over-write what is currrently loaded! We will make this behaviour more flexible later)
+Call the url: http://localhost:4567 or http://SERVER-IP:4567 (or whatever 'trigger' port number you selected when you answered the installation questions) to trigger the transformation of each CSV file, and auto-load into graphDB (*NOTA BENE* this will over-write what is currrently loaded!  i.e. the EJP pipeline can only be used to take snapshots, NOT incremental updates!)
 **Note:** If you deploy `FAIR in a box` solution in your laptop then check only for **localhost** url.
 
-**There is sample data (CDE.csv for Version 2 models, something else for Version 1 models) in the "ACME-ready-to-go/data" folder that can be used to test your installation.  Models will be automatically installed when you start the transformation**
-
-### How to modify semantic model in data transformation service
-
-YARRRML is one the core technology which has been used in our data transformation service. If you like to extend the exemplar CDE semantic models or add other semantic model to describe your data then, you have to provide custom YARRRML templates to the data transformation service. To learn more about building custom YARRRML templates please try [matey webapp](https://rml.io/yarrrml/matey/).
 
 <a name="Understanding"></a>
 
