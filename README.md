@@ -14,6 +14,7 @@ FAIR in a box is an offshoot of the original [CDE-in-a-box](https://github.com/e
 - [Using your FAIR-in-a-Box](#using)
 - [Customizing your FAIR-in-a-Box](#customizing)
 - [Connecting your FAIR-in-a-Box to the Virtual Platform](#connecting)
+- [Implementing Beacon2 and other services](#services)
 
 <a name="requirements"></a>
 
@@ -420,10 +421,42 @@ curl -X POST https://index.vp.ejprarediseases.org/ -H "Content-Type: application
 {"clientUrl": "https://my.fdp.address.here/}
 ```
 
-*IF YOU HAVE SWITCHED-ON AND CONFIGURED Beacon2*, then in the Dataset descriptor, you need to add the "VPContentDiscovery" flag to the *vp Connection* property - go to your dataset record in the FDP web page, and add:
 
-http://purl.org/ejp-rd/vocabulary/VPContentDiscovery
-As an additional value of vpConnection
+
+<a name="services"></a>
+
+## Implementing Beacon2 and other services
+
+
+The process for advertising content-discovery services (i.e. "Level 2", "Level 3", etc.) has changed since Release 1.0 of the VP.  In release 1.5, all access services are individually annotated for their functionality - the "VPContentDiscovery" flag has been deprecated.  _Note that the "VPDiscoverable" flag is still used, and should be set on any component of your FDP that you want the VP to pay attention to._
+
+The mechanism for publishing a data service is to create a dcat:DataService in your FAIR Data Point, and then annotate it according to its function.
+
+There are two "kinds" of DataService.  
+
+   1. "standalone" - the service does not serve a specific dataset in your FDP.  A plotting library or a statistical calculation service would be examples of this.
+   2. "dataset-dependent" - the service serves a dataset
+
+In the FIAB installation, there are separate DataService classes for each of these cases.  "standalone" is a child of dcat:Catalog. "dependent" is a child of dcat:distribution.
+
+They are annotated as follows:
+
+  1. "standalone" must have, at least, a dcat:landingPage.  This is the URL to the website that describes the service.  It may also have a dcat:endpointURL and dcat:endpointDescription, if it is an API.
+  2. "dataset-dependent" must haves, at least, a dcat:endpointURL and dcat:endpointDescription, and may have a dcat:landingPage
+  3. In all cases, there SHOULD be a dct:type property, with a value of one or more ontology terms that describe the functionality of that DataService.  We recommend "rooting" these ontology terms into EDAM:opereation.
+
+### ONLY IF YOU HAVE SWITCHED-ON AND CONFIGURED Beacon2
+
+In the case of Beacon2 services, we have added two new ontology terms to the EJP VP ontology:
+
+`http://purl.org/ejp-rd/vocabulary/VPBeacon2_individuals`
+
+This will be used to annotate a dcatDataService that implements the Beacon2 "individuals" endpoint.
+
+`http://purl.org/ejp-rd/vocabulary/VPBeacon2_catalog`
+
+This will be used to annotate a dcatDataService that implements the Beacon2 "catalog" endpoint, and become the value(s) of dct:type for those DataServices
+
 
 
 
