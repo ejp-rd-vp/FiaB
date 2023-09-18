@@ -403,7 +403,7 @@ MOLGENIS EDC provider also provides a complete set of `CDE in a box` with EDC sy
 
 ## Connect to the Virtual Platform
 
-Full instructions for modifying your default FAIR-in-a-box to match the schema requirements for the Virtual Platform can be found here:  https://github.com/ejp-rd-vp/FDP-Configuration
+__Full instructions for modifying your default FAIR-in-a-box to match the schema requirements for the Virtual Platform can be found here:  https://github.com/ejp-rd-vp/FDP-Configuration__
 
 To connect to the VP Index, you need to add the indexer "ping" function to your FAIR Data Point.  To do this:
 
