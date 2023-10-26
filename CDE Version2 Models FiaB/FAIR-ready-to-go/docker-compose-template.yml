@@ -81,7 +81,7 @@ services:
       - {PREFIX}-default
 
   cde-box-daemon: 
-    image: markw/cde-box-daemon:0.5.0    # to use the version 2 CDE models with Hefesto
+    image: markw/cde-box-daemon:0.5.1    # to use the CARE-SM models with teh care-sm-toolkit
     container_name: cde-box-daemon
     environment:
       GraphDB_User: ${GraphDB_User}
@@ -100,7 +100,7 @@ services:
       - {PREFIX}-default
                 
   hefesto:
-    image: pabloalarconm/hefesto_fiab:0.0.6
+    image: pabloalarconm/care-sm-toolkit:0.0.1
     hostname: hefesto
     volumes:
       - ./data:/code/data
