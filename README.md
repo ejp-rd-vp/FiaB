@@ -57,18 +57,18 @@ git clone https://github.com/ejp-rd-vp/FiaB
 
 ### NOTE:   versions of FiaB
 
-There are two versions of FiaB.  One of them is compatible with Version 1 of the CDE models, the other is compatible with Version 2 of the CDE models. Version 1 **is deprecated** and should no longer be used.
+There are two versions of FiaB.  One of them is compatible with Version 1 of the CDE models, the other is compatible with Version 2 CARE-SM models. Version 1 **is deprecated** and should no longer be used.  The installation folder for the CARE-SM FiaB is [CDE Version2 Models FiaB](https://github.com/ejp-rd-vp/FiaB/tree/main/CDE%20Version2%20Models%20FiaB) 
 
 NOTE THAT THE TWO VERSIONS ARE MUTUALLY INCOMPATIBLE!  You cannot run them in parallel.  They have different Docker components for the transformation, and different YARRRML templates.
 
-If you have already installed FiaB, it is possible to upgrade from V1 to V2 by changing the docker-compose file as follows:
+If you have already installed FiaB, it is possible to upgrade from CDE V1 to CARE-SM by changing the docker-compose file as follows:
 
-FROM docker-compose VERSION 1:  remove the components:
+FROM docker-compose CDE VERSION 1:  remove the components:
    * cde-box-daemon  (version 0.3.2)
    * yarrrml_transform
    * rdfizer
   
-TO UPGRADE to docker-compose VERSION 2:  add the components (see sample below)
+TO UPGRADE to docker-compose CARE-SM:  add the components (see sample below)
    * cde-box-daemon (version 0.5.0)
    * Add clause hefesto
    * Add clause yarrrml-rdfizer
@@ -99,7 +99,7 @@ Note:  replace {RDF_TRIGGER} with the port number that you have selected for you
       - {PREFIX}-default
                 
   hefesto:
-    image: pabloalarconm/hefesto_fiab:0.0.6
+    image: pabloalarconm/hefesto_fiab:0.0.7
     hostname: hefesto
     volumes:
       - ./data:/code/data
@@ -128,7 +128,7 @@ You should now be able to restart your docker-compose and be fully functional.  
 
 ## Installing from scratch
 
-If you have never installed FiaB before, you `must` use the CDE Version 2 models - Version 1 models **are deprecated**!!!
+If you have never installed FiaB before, you `must` use the CARE-SM models - Version 1 models **are deprecated**!!!
 
 Once you have completed the "Downloading" section of this tutorial, you can run `run-me-to-install.sh` in the `./CDE Version2 Models FiaB/`` folder
 
@@ -138,7 +138,7 @@ sh ./run-me-to-install.sh
 
 ### How to answer the questions
 
-You will then get prompted as to whether you are doing a production installation (i.e. you haves a GUID already created - for example, using [W3ID](https://github.com/perma-id/w3id)) and you have already selected ports for your FDP, GraphDB, and Beacon (optional)). In addition, you must have an available port for the "RDFization trigger" - this port must be available on the server, but SHOULD NOT be exposed through the firewall.
+You will then get prompted as to whether you are doing a production installation (i.e. you have a GUID already created - for example, using [W3ID](https://github.com/perma-id/w3id)) and you have already selected ports for your FDP, GraphDB, and Beacon (optional)). In addition, you must have an available port for the "RDFization trigger" - this port must be available on the server, but SHOULD NOT be exposed through the firewall.
 
 If you say "no", the installer will install your FDP onto localhost using defaults:
 
@@ -161,9 +161,9 @@ The installation prefix is simply a short-name for your database.  NO SPACES, an
 
 This prefix is used to isolate one installation of FDP from another, if you are hosting multiple FDPs on the same server.
 
-After about a minute, the installer will send a message to the screen asking you to check that the installation was successful. This message will last for 10 minutes, giving you enough time to explore the links in the message. After 10 minutes, the services will all automatically shut down. You can stop the installer by `CTRL-C` any time.
+After about a minute, the installer will send a message to the screen asking you to check that the installation was successful. This message will last for 10 minutes, giving you enough time to explore the links in the message. After 10 minutes, the services will all automatically shut down. You can stop the installer by `CTRL-C` at any time.
 
-If installation is successful using "test", you may then restart the `run-me-to-install`, this time answering the questions using your production information.
+If the installation is successful using "test", you may then restart the `run-me-to-install`, this time answering the questions using your production information.
 
 ### Find the folder with your final server config... Ready-To-Go!
 
@@ -231,7 +231,7 @@ Additional customization options are described below.
 | ------------ | ----------------------------------------------- | --------------------- |
 | GraphDB      | [http://localhost:7200](http://localhost:7200/) | http://SERVER-IP:7200 |
 
-By default GraphDB service is secured so you need credentials to login to the graphDB. Please find the default graphDB's credentials in the table below.
+By default the GraphDB service is secured so you need credentials to login to the graphDB. Please find the default graphDB's credentials in the table below.
 
 | Username | Password |
 | -------- | -------- |
@@ -307,11 +307,11 @@ Make sure the following folder structure, relative to where you plan to keep you
 
 **Step 2:** Edit the .env file
 
-the .env file will create the values for the environment variables in the docker compose file. The first of these `baseURI` is the base for all URLs that represent your transformed data. This should be set to something like:
+the .env file will create the values for the environment variables in the docker-compose file. The first of these `baseURI` is the base for all URLs that represent your transformed data. This should be set to something like:
 
 `http://my.database.org/my_rd_data/`
 
-this will result in Triple that look like this:
+this will result in a Triple that looks like this:
 
 `<http://my.database.org/my_rd_data/person_123345_asdssaewe#ID> <sio:has-value> <"123345">`
 
@@ -351,10 +351,10 @@ The image below gives an overview of software used in the `FAIR in a box` soluti
 </p>
 
 **Triple store:**
-To store the `rdf` documents generated by the `FAIR in a box` solution we need to have a triplestore which stores these document. In the `FAIR in a box` solution we use graphDB as a triplestore. To know more about the graphDB triplestore please visit this [link](https://graphdb.ontotext.com)
+To store the `rdf` documents generated by the `FAIR in a box` solution we need to have a triplestore that stores these documents. In the `FAIR in a box` solution we use graphDB as a triplestore. To know more about the graphDB triplestore please visit this [link](https://graphdb.ontotext.com)
 
 **FAIR Data Point:**
-To describe the content of your resource we need a `metadata provider` component. For the `FAIR in a box` solution we use `FAIR Data Point` software that provides description (metadata) of you resource. To learn more about the FAIR Data Point please visit this [link](https://fairdatapoint.readthedocs.io/en/latest/)
+To describe the content of your resource we need a `metadata provider` component. For the `FAIR in a box` solution we use `FAIR Data Point` software that provides a description (metadata) of your resource. To learn more about the FAIR Data Point please visit this [link](https://fairdatapoint.readthedocs.io/en/latest/)
 
 <a name="Alternatives"></a>
 
@@ -362,7 +362,7 @@ To describe the content of your resource we need a `metadata provider` component
 
 ## Related solutions
 
-In this section we list other related solutions.
+In this section, we list other related solutions.
 
 **MOLGENIS CDE in a box**  
 MOLGENIS EDC provider also provides a complete set of `CDE in a box` with EDC system. To learn more about MOLGENIS implementation of the `CDE in a box` solution please visit this [link](https://github.com/fdlk/cde-in-box/tree/feat/molgenis)
@@ -409,7 +409,7 @@ To connect to the VP Index, you need to add the indexer "ping" function to your 
 
 - Login to your FDP via the Web page
 - Go to "settings"
-- About half-way down the settings there is a "Ping" section.  Add the following URL to the "Ping":
+- About halfway down the settings there is a "Ping" section.  Add the following URL to the "Ping":
     - https://index.vp.ejprarediseases.org/
 
 Once you have done this, your site will be indexed in the VP Index on the next "ping" cycle (should be weekly, by default).  THE INDEX WILL LOOK FOR THE "VPDiscoverable" tag in the vpConnection property of whatever resource(s) you want to be indexed by the platform.  e.g. if you have 5 datasets, but you only want 3 of them to be indexed by the VP, then you set the vpConnection property to "VPDiscoverable" for ONLY those three datasets (the others have no value for that property). In the metadata editor of the FDP web page, this is done via a dropdown menu.
