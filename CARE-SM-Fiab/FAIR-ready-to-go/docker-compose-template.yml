@@ -81,7 +81,7 @@ services:
       - {PREFIX}-default
 
   cde-box-daemon: 
-    image: markw/cde-box-daemon:0.5.1    # to use the CARE-SM models with teh care-sm-toolkit
+    image: markw/cde-box-daemon:0.5.2    # to use the CARE-SM models with teh care-sm-toolkit
     container_name: cde-box-daemon
     environment:
       GraphDB_User: ${GraphDB_User}
@@ -89,7 +89,7 @@ services:
       baseURI: ${baseURI}
       GRAPHDB_REPONAME: ${GRAPHDB_REPONAME}
     depends_on:
-      - hefesto
+      - caresm
       - yarrrml-rdfizer
     ports:
       - 127.0.0.1:{RDF_TRIGGER}:4567
@@ -99,9 +99,9 @@ services:
     networks:
       - {PREFIX}-default
                 
-  hefesto:
+  caresm:
     image: pabloalarconm/care-sm-toolkit:0.0.1
-    hostname: hefesto
+    hostname: caresm
     volumes:
       - ./data:/code/data
     networks:
