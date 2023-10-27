@@ -1,0 +1,23 @@
+model,pid,event_id,value,age,value_datatype,valueIRI,process_type,unit_type,input_type,target_type,frequency_type,frequency_value,agent_id,route_type,startdate,enddate,comments
+Birthdate,30056,12345,1984-10-12,,,,,,,,,,,,1994-12-25,,
+Deathdate,30056,12345,2021-05-12,37.4,,,,,,,,,,,2021-05-12,,
+First_visit,30056,12345,1994-12-25,,,,,,,,,,,,1994-12-25,,
+First_visit,30056,12345,,29.5,,,,,,,,,,,,,
+Status,30056,12345,Dead,,,http://semanticscience.org/resource/SIO_010059,,,,,,,,,2021-05-12,,
+Sex,30056,12345,Male,,,http://purl.obolibrary.org/obo/NCIT_C20197,,,,,,,,,1994-12-25,,
+Diagnosis,30056,45678,Pediatric systemic lupus erythematosus,,,http://www.orpha.net/ORDO/Orphanet_93552,,,,,,,,,2006-01-19,,
+Symptom,30056,12345,Systemic lupus erythematosus,,,http://purl.obolibrary.org/obo/HP_0002725,,,,,,,,,2006-01-19,,
+Genetic,30056,12345,RCV000652057,,,https://www.ncbi.nlm.nih.gov/clinvar/RCV000652057/,,,,,,,,,2006-01-19,,
+Consent_contacted,30056,45678,Consent to be contacted,,,,,,,,,,,,1994-12-25,,Consent to be contacted
+Consent_used,30056,45678,Consent to reuse data for research,,,,,,,,,,,,1994-12-25,,Consent to reuse data for research
+Biobank,30056,45678,,,,,,,,,,,https://directory.bbmri-eric.eu/,,1994-12-25,,"Yes, its available"
+Disability,30056,12345,8,,xsd:float,,http://purl.obolibrary.org/obo/NCIT_C107391,,,,,,,,2006-01-19,,
+Body_measurement,30056,12345,72,,xsd:integer,http://purl.obolibrary.org/obo/NCIT_C25208,,http://purl.obolibrary.org/obo/NCIT_C81328,,,,,,,2006-01-19,,
+Lab_measurement,30056,12345,2.5,,xsd:float,,,http://purl.obolibrary.org/obo/UO_0000022,http://purl.obolibrary.org/obo/NCIT_C12219,http://purl.obolibrary.org/obo/NCIT_C399,,,,,2006-01-19,,
+Imaging,30056,12345,,,,http://somehosp.org/images/239238fh.tif,http://purl.obolibrary.org/obo/NCIT_C38101,,,http://purl.obolibrary.org/obo/NCIT_C33252,,,,,2006-01-19,,
+Medication,30056,45678,50,,xsd:float,,,http://purl.obolibrary.org/obo/UO_0000022,,,http://purl.obolibrary.org/obo/NCIT_C66968,1,https://www.whocc.no/atc_ddd_index/?code=A07EA01,http://purl.obolibrary.org/obo/NCIT_C38300,2010-11-12,,
+Intervention,30056,67891,,,,,http://purl.obolibrary.org/obo/NCIT_C164212,,,http://purl.obolibrary.org/obo/NCIT_C18009,,,,,2010-11-12,,
+Clinical_trial,30056,67891,,,,http://purl.obolibrary.org/obo/HP_0006557,,,,,,,https://ror.org/01s1q0w69,,2010-11-12,,
+Symptom,30056,12345,2006-01-19,,,http://purl.obolibrary.org/obo/HP_0002725,,,,,,,,,2006-01-19,,
+Symptoms_onset,30056,12345,,17,,,,,,,,,,,,,
+Birthyear,30056,12345,1984,,,,,,,,,,,,,,
