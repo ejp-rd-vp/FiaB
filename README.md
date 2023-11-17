@@ -69,7 +69,7 @@ FROM docker-compose CDE VERSION 1:  remove the components:
    * rdfizer
   
 TO UPGRADE to docker-compose CARE-SM:  add the components (see sample below)
-   * cde-box-daemon (version 0.5.0)
+   * cde-box-daemon (version 0.5.2)
    * Add clause hefesto
    * Add clause yarrrml-rdfizer
 
@@ -80,7 +80,7 @@ Note:  replace all instances of {PREFIX} with your local installation prefix, e.
 Note:  replace {RDF_TRIGGER} with the port number that you have selected for your RDF transformation
 ```
   cde-box-daemon: 
-    image: markw/cde-box-daemon:0.5.0    # to use the version 2 CDE models with Hefesto
+    image: markw/cde-box-daemon:0.5.2    # to use the version 2 CDE models with Hefesto
     container_name: cde-box-daemon
     environment:
       GraphDB_User: ${GraphDB_User}
