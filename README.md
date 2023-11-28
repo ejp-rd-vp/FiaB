@@ -449,11 +449,11 @@ They are annotated as follows:
 
 In the case of Beacon2 services, we have added two new ontology terms to the EJP VP ontology:
 
-`http://purl.org/ejp-rd/vocabulary/VPBeacon2_individuals`
+`https://w3id.org/ejp-rd/vocabulary#VPBeacon2_individuals`
 
 This will be used to annotate a dcatDataService that implements the Beacon2 "individuals" endpoint.
 
-`http://purl.org/ejp-rd/vocabulary/VPBeacon2_catalog`
+`https://w3id.org/ejp-rd/vocabulary#VPBeacon2_catalog`
 
 This will be used to annotate a dcatDataService that implements the Beacon2 "catalog" endpoint, and become the value(s) of dct:type for those DataServices
 
