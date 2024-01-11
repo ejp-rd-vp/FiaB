@@ -8,7 +8,7 @@ FAIR in a box is an offshoot of the original [CDE-in-a-box](https://github.com/e
 - [Installation requirements](#requirements)
 - [Downloading](#downloading)
 - Installing
-  - [Upgrading from CDE v1 to CDE v2](#upgrading)
+  - [Upgrading from CDE v1 to CARE-SM](#upgrading)
   - [Installing from scratch](#installing)
 - [Testing your installation](#testing)
 - [Using your FAIR-in-a-Box](#using)
@@ -20,13 +20,13 @@ FAIR in a box is an offshoot of the original [CDE-in-a-box](https://github.com/e
 
 ## Requirements
 
-In order to use the FAIR-in-a-box solution you `must` meet following requirements.
+To use the FAIR-in-a-box solution you `must` meet the following requirements.
 
 **User requirements (Person who is deploying this solution)**
 
 - Basic knowledge about Docker​
 - Basic GitHub knowledge​
-- (optional) Awareness of the EJP RD's CDE semantic model if you plan to create FAIR data
+- (optional) Awareness of the EJP RD's CDE/CARE-SM semantic model if you plan to create FAIR data
 
 **System requirements​ (Machine where this solution is being deployed)**
 
@@ -57,9 +57,9 @@ git clone https://github.com/ejp-rd-vp/FiaB
 
 ### NOTE:   versions of FiaB
 
-There are two versions of FiaB.  One of them is compatible with Version 1 of the CDE models, the other is compatible with Version 2 CARE-SM models. Version 1 **is deprecated** and should no longer be used.  The installation folder for the CARE-SM FiaB is [CDE Version2 Models FiaB](https://github.com/ejp-rd-vp/FiaB/tree/main/CDE%20Version2%20Models%20FiaB) 
+There are two versions of FiaB.  One of them is compatible with Version 1 of the CDE models, the other is compatible with Version 2 CARE-SM models. Version 1 **is deprecated** and should no longer be used.  The installation folder for the CARE-SM FiaB is [CDE Version2 Models FiaB](https://github.com/ejp-rd-vp/FiaB/tree/main/CARE-SM-Fiab) 
 
-NOTE THAT THE TWO VERSIONS ARE MUTUALLY INCOMPATIBLE!  You cannot run them in parallel.  They have different Docker components for the transformation, and different YARRRML templates.
+NOTE THAT THE TWO VERSIONS ARE MUTUALLY INCOMPATIBLE!  You cannot run them in parallel.  They have different Docker components for the transformation and different YARRRML templates.
 
 If you have already installed FiaB, it is possible to upgrade from CDE V1 to CARE-SM by changing the docker-compose file as follows:
 
@@ -70,7 +70,7 @@ FROM docker-compose CDE VERSION 1:  remove the components:
   
 TO UPGRADE to docker-compose CARE-SM:  add the components (see sample below)
    * cde-box-daemon (version 0.5.2)
-   * Add clause hefesto
+   * Add clause caresm
    * Add clause yarrrml-rdfizer
 
 #### REPLACEMENT CODE for docker-compose.yml
@@ -88,7 +88,7 @@ Note:  replace {RDF_TRIGGER} with the port number that you have selected for you
       baseURI: ${baseURI}
       GRAPHDB_REPONAME: ${GRAPHDB_REPONAME}
     depends_on:
-      - hefesto
+      - caresm
       - yarrrml-rdfizer
     ports:
       - 127.0.0.1:{RDF_TRIGGER}:4567
@@ -98,13 +98,14 @@ Note:  replace {RDF_TRIGGER} with the port number that you have selected for you
     networks:
       - {PREFIX}-default
                 
-  hefesto:
-    image: pabloalarconm/hefesto_fiab:0.0.7
-    hostname: hefesto
+  caresm:
+    image: pabloalarconm/care-sm-toolkit:0.0.3
+    hostname: caresm
     volumes:
       - ./data:/code/data
     networks:
       - {PREFIX}-default
+
 
   yarrrml-rdfizer:
     image: markw/yarrrml-rml-ejp:0.0.3
@@ -130,7 +131,7 @@ You should now be able to restart your docker-compose and be fully functional.  
 
 If you have never installed FiaB before, you `must` use the CARE-SM models - Version 1 models **are deprecated**!!!
 
-Once you have completed the "Downloading" section of this tutorial, you can run `run-me-to-install.sh` in the `./CDE Version2 Models FiaB/`` folder
+Once you have completed the "Downloading" section of this tutorial, you can run `run-me-to-install.sh` in the `./CARE-SM-Fiab/`` folder
 
 ```
 sh ./run-me-to-install.sh
@@ -169,7 +170,7 @@ If the installation is successful using "test", you may then restart the `run-me
 
 The installer will create a folder containing all of your server configuration files.  You can copy this folder anywhere on your system, e.g. to keep your servers all in one folder outside of your GitHub copy of FiaB.
 
-The folder will be called "prefix-ready-to-go"  (e.g. "ACME-ready-to-go").  Inside of that folder is a customized docker-compose file (docker-compose-prefix.yml) for your deployment.  So for example, you would issue the commands:
+The folder will be called "prefix-ready-to-go"  (e.g. "ACME-ready-to-go").  Inside that folder is a customized docker-compose file (docker-compose-prefix.yml) for your deployment.  So for example, you would issue the commands:
 
 ```
 
@@ -273,24 +274,36 @@ the folder structure is:
 
 ```
 
-- The /data folder is where you will place your preCDE.csv file.  `Note that Version 1 CDE models are now deprecated!` There are [instructions on how to generate the (single!) Version 2 'preCDE.csv' file](./CDE%20Version2%20Models%20FiaB/README.md).
-- The /config folder will contain the [YARRRML Template](https://github.com/ejp-rd-vp/CDE-semantic-model-implementations/tree/master/CDE_version_2.0.0/YARRRML) that will be applied to the final CSV.
-- The /config folder WILL BE AUTOMATICALLY UPDATED with the latest EJP CDE Version 2 model when you initiate a transformation.
+- The /data folder is where you will place your preCARE.csv file, according to the instructions provided above [instructions on how to generate the (single!) 'preCARE.csv' file](https://github.com/ejp-rd-vp/CARE-SM-Implementation/tree/main/CSV).
+- The /data folder will contain the [YARRRML Template](https://github.com/ejp-rd-vp/FiaB/blob/main/CARE-SM-Fiab/FAIR-ready-to-go/data/CARE_yarrrml_template.yaml) that will be applied to the final CSV.
 - *NOTA BENE*:  Please execute `chmod a+w ./data/triples` prior to executing a transformation.  The transformation tool in this container runs with very limited permissions, and cannot write to a folder that is mounted with default permissions.
+- *NOTA BENE*:  the CARE_yarrrml_template.yaml contains a placeholder for your installation's base URI.  This is passed as an environment variable `baseURI`, which appears in the cde-box-daemon clause of your docker-compose-ACME.yml file:
 
+```
+  cde-box-daemon: 
+    image: markw/cde-box-daemon:0.5.2    # to use the version 2 CDE models with Hefesto
+    container_name: cde-box-daemon
+    environment:
+      GraphDB_User: ${GraphDB_User}
+      GraphDB_Pass: ${GraphDB_Pass}
+ -->  baseURI: ${baseURI}
+      GRAPHDB_REPONAME: ${GRAPHDB_REPONAME}
+```
+
+If you set baseURI to be "http://my.domain.org/"   then all 'local' URLs in your resulting transformed data will use that as their prefix.
 
 #### Preparing input data
 
-The EJP-RD CDE Version 2 Transformation process has three steps:
+The EJP-RD CARE-SM Transformation process has three steps:
 
-1) A simple "preCDE" CSV file is created by the data owner (`you must do this!`)
-2) The preCDE.csv is transformed into the final CDE.csv (`this is automated`)
-3) The final CDE.csv is processed by the YARRRML transformer, and RDF is output into the `./data/triples` folder
+1) A simple "preCARE" CSV file is created by the data owner (`you must do this!`)
+2) The preCARE.csv is transformed into the final CARE.csv (`this is automated`) by the caresm toolkit (part of the docker-compose)
+3) The final CARE.csv is processed by the YARRRML transformer, and RDF is output into the `./data/triples` folder
   
 
-An exemplar [preCDE CSV](https://github.com/ejp-rd-vp/CDE-semantic-model-implementations/tree/master/CDE_version_2.0.0/CSV_docs/exemplar_data/preCDE.csv), and the [standard YARRRML template]((https://github.com/ejp-rd-vp/CDE-semantic-model-implementations/tree/master/CDE_version_2.0.0/YARRRML/CDE_yarrrml_template.yaml)), are provided for you to test your installation.  Copy/paste these into the appropriate folders (`./data` and `./config`)
+An exemplar [preCARE CSV](https://github.com/ejp-rd-vp/CARE-SM-Implementation/blob/main/CSV/exemplar_data/preCARE.csv), and the [standard YARRRML template](https://github.com/ejp-rd-vp/FiaB/blob/main/CARE-SM-Fiab/FAIR-ready-to-go/data/CARE_yarrrml_template.yaml), are provided for you to test your installation.  Copy/paste these into the appropriate folder (`./data`)
 
-The YARRRML template is always loaded from GitHub automatically for every FiaB transformation, so it is always up-to-date with any model fixes/changes.  You are responsible for generating your own `preCDE.csv`.  *NOTA BENE* the filenames MUST NOT BE CHANGED!  The files are called `preCDE.csv`, and `CDE_yarrrml_template.yaml`!!  YOU CANNOT CHANGE THIS!
+You are responsible for generating your own `preCARE.csv`.  *NOTA BENE* the filenames MUST NOT BE CHANGED!  The files are called `preCARE.csv`, and `CARE_yarrrml_template.yaml`!!  YOU CANNOT CHANGE THIS!
 
 #### Configuring configuration and data folders
 
@@ -300,9 +313,9 @@ Make sure the following folder structure, relative to where you plan to keep you
 
 ```
         ./ACME-ready-to-go/data/
-        ./ACME-ready-to-go/data/preCDE.csv
+        ./ACME-ready-to-go/data/preCARE.csv
         ./ACME-ready-to-go/data/triples   (this is where the output data will be written, and loaded from here into Graphdb)
-        ./ACME-ready-to-go/config/   (this is the folder where YARRRML template will be automatically loaded from the EJP repository)
+        ./ACME-ready-to-go/data/CARE_yarrrml_template.yaml
 ```
 
 **Step 2:** Edit the .env file
@@ -320,14 +333,14 @@ optimally, these URLs will resolve... but this is your responsibility - we canno
 
 **Step 3:** Input CSV files
 
-Put an appropriately generated `preCDE.csv` into the `ACME-ready-to-go/data`. 
+Put an appropriately generated `preCARE.csv` into the `ACME-ready-to-go/data`. 
 
-If you are unsure which columns to fill for each data type, see the [glossary](https://github.com/ejp-rd-vp/CDE-semantic-model-implementations/tree/master/CDE_version_2.0.0/CSV_docs/glossary.md)
+If you are unsure which columns to fill for each data type, see the [glossary](https://github.com/ejp-rd-vp/CARE-SM-Implementation/tree/main/CSV)
 
 
 **Step 4:** Input YARRRML templates
 
-The `YARRRML` template is always loaded from GitHub automatically on step 5, so it stays up-to-date as we change the models in EJP-RD.
+The `YARRRML` template is standardized
 
 
 **Step 5:** Executing transformations
