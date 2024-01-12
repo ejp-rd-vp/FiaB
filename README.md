@@ -398,9 +398,10 @@ MOLGENIS EDC provider also provides a complete set of `CDE in a box` with EDC sy
 
 - Go to http://localhost:7200 and login with the current username and password
 - Enter the "settings" and "users".
-- Create a new user and password, giving them read/write permission ONLY on the CDE database, and read-only permission on the FDP database.
+- Create a new user and password, giving them read/write permission ONLY on the FDP database, and read-only permission on the CDE database.
 - in the FAIR-ready-to-go folder, update the `.env` file with this new limited-permissions user
 - docker-compose down and up to restart the server
+- Consider closing the GraphDB external port in the docker-compose, or limiting it to localhost... there's no need for GraphDB to be exposed!
 
 ## Update the colors and logo
 
