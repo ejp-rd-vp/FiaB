@@ -459,7 +459,7 @@ mapping:
     predicateobject:
     - objects:
         type: iri
-        value: sio:SIO_001107
+        value: sio:SIO_000015
       predicate: rdf:type
     - objects:
         type: iri
