@@ -459,7 +459,7 @@ mapping:
     predicateobject:
     - objects:
         type: iri
-        value: sio:SIO_000015
+        value: sio:SIO_001107
       predicate: rdf:type
     - objects:
         type: iri
@@ -703,8 +703,7 @@ prefixes:
   idlab-fn: http://example.com/idlab/function/
 sources:
   source_cde_test:
-    access: /mnt/data/CARE.csv
+    access: /data/CARE.csv
     iterator: $
     referenceFormulation: csv
 
- 
