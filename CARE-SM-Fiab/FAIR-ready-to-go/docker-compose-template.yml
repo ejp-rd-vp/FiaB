@@ -94,7 +94,6 @@ services:
       - 127.0.0.1:{RDF_TRIGGER}:4567
     volumes:
       - ./data:/data
-      - ./config:/config
     networks:
       - {PREFIX}-default
                 
