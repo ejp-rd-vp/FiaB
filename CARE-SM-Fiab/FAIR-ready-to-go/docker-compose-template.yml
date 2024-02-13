@@ -109,7 +109,6 @@ services:
 
   yarrrml-rdfizer:
     image: markw/yarrrml-rml-ejp:0.0.3
-    container_name: yarrrml-rdfizer
     hostname: yarrrml-rdfizer
     environment:
       # (nquads (default), trig, trix, jsonld, hdt, turtle)
