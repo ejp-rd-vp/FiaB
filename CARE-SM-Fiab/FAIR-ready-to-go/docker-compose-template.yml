@@ -119,7 +119,7 @@ services:
       - {PREFIX}-default
 
   beacon_count:
-    image: pabloalarconm/ejprd-counting-api:0.0.7
+    image: pabloalarconm/beacon-api4care-sm:0.1.0 
     hostname: beacon_count
     restart: always
     ports:
@@ -135,6 +135,7 @@ services:
       - FILTER_BIRTHYEAR=True
       - FILTER_AGE_SYMPTOM_ONSET=True
       - FILTER_AGE_DIAGNOSIS=True
+      - URL_SERVER=http://my.server.org/beaconAPI/  # DO NOT include the path e.g. /individuals
     networks:
       - {PREFIX}-default
 
