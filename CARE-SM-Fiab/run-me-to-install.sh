@@ -136,7 +136,7 @@ echo ""
 
 cd bootstrap
 cp docker-compose-template.yml "docker-compose-${P}.yml"
-sed -i s/{PREFIX}/${P}/ "docker-compose-${P}.yml"
+sed -i'' -e "s/{PREFIX}/${P}/" "docker-compose-${P}.yml"
 
 docker-compose -f "docker-compose-${P}.yml" up --build -d
 sleep 13
@@ -151,11 +151,11 @@ cd ../metadata
 
 cp docker-compose-template.yml "docker-compose-${P}.yml"
 cp ./fdp/application-template.yml "./fdp/application-${P}.yml"
-sed -i s/{PREFIX}/$P/ "docker-compose-${P}.yml"
-sed -i s/{FDP_PORT}/$FDP_PORT/ "docker-compose-${P}.yml"
-sed -i s/{PREFIX}/$P/ "./fdp/application-${P}.yml"
-sed -i s/{FDP_PORT}/$FDP_PORT/ "./fdp/application-${P}.yml"
-sed -i s%{GUID}%$uri% "./fdp/application-${P}.yml"
+sed -i'' -e "s/{PREFIX}/$P/" "docker-compose-${P}.yml"
+sed -i'' -e "s/{FDP_PORT}/$FDP_PORT/" "docker-compose-${P}.yml"
+sed -i'' -e "s/{PREFIX}/$P/" "./fdp/application-${P}.yml"
+sed -i'' -e "s/{FDP_PORT}/$FDP_PORT/" "./fdp/application-${P}.yml"
+sed -i'' -e "s%{GUID}%$uri%" "./fdp/application-${P}.yml"
 
 
 docker-compose -f "docker-compose-${P}.yml" up --build -d
@@ -174,16 +174,16 @@ rm ./${P}-ready-to-go/docker-compose-template.yml
 cp ./${P}-ready-to-go/fdp/application-template.yml "./${P}-ready-to-go/fdp/application-${P}.yml"
 rm ./${P}-ready-to-go/fdp/application-template.yml
 cp ./${P}-ready-to-go/.env_template "./${P}-ready-to-go/.env"
-sed -i s/{PREFIX}/${P}/ "./${P}-ready-to-go/docker-compose-${P}.yml"
-sed -i s/{FDP_PORT}/${FDP_PORT}/ "./${P}-ready-to-go/docker-compose-${P}.yml"
-sed -i s/{GDB_PORT}/${GDB_PORT}/ "./${P}-ready-to-go/docker-compose-${P}.yml"
-sed -i s/{BEACON_PORT}/${BEACON_PORT}/ "./${P}-ready-to-go/docker-compose-${P}.yml"
-sed -i s/{RDF_TRIGGER}/${RDF_TRIGGER}/ "./${P}-ready-to-go/docker-compose-${P}.yml"
-sed -i s/{PREFIX}/${P}/ "./${P}-ready-to-go/fdp/application-${P}.yml"
-sed -i s/{FDP_PORT}/${FDP_PORT}/ "./${P}-ready-to-go/fdp/application-${P}.yml"
-sed -i s%{GUID}%${uri}% "./${P}-ready-to-go/fdp/application-${P}.yml"
-sed -i s/{CDE_DB_NAME}/${P}-cde/ "./${P}-ready-to-go/.env"
-sed -i s%{GUID}%$uri% "./${P}-ready-to-go/.env"
+sed -i'' -e "s/{PREFIX}/${P}/" "./${P}-ready-to-go/docker-compose-${P}.yml"
+sed -i'' -e "s/{FDP_PORT}/${FDP_PORT}/" "./${P}-ready-to-go/docker-compose-${P}.yml"
+sed -i'' -e "s/{GDB_PORT}/${GDB_PORT}/" "./${P}-ready-to-go/docker-compose-${P}.yml"
+sed -i'' -e "s/{BEACON_PORT}/${BEACON_PORT}/" "./${P}-ready-to-go/docker-compose-${P}.yml"
+sed -i'' -e "s/{RDF_TRIGGER}/${RDF_TRIGGER}/" "./${P}-ready-to-go/docker-compose-${P}.yml"
+sed -i'' -e "s/{PREFIX}/${P}/" "./${P}-ready-to-go/fdp/application-${P}.yml"
+sed -i'' -e "s/{FDP_PORT}/${FDP_PORT}/" "./${P}-ready-to-go/fdp/application-${P}.yml"
+sed -i'' -e "s%{GUID}%${uri}%" "./${P}-ready-to-go/fdp/application-${P}.yml"
+sed -i'' -e "s/{CDE_DB_NAME}/${P}-cde/" "./${P}-ready-to-go/.env"
+sed -i'' -e "s%{GUID}%$uri%" "./${P}-ready-to-go/.env"
 
 echo ""
 echo ""
