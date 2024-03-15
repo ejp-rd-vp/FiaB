@@ -98,7 +98,7 @@ services:
       - {PREFIX}-default
                 
   caresm:
-    image: pabloalarconm/care-sm-toolkit:0.0.12
+    image: pabloalarconm/care-sm-toolkit:0.0.13
     hostname: caresm
     volumes:
       - ./data:/code/data
