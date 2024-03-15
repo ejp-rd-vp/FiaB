@@ -94,7 +94,7 @@ services:
       - 127.0.0.1:{RDF_TRIGGER}:4567
     volumes:
       - ./data:/data
-          networks:
+    networks:
       - {PREFIX}-default
                 
   caresm:
@@ -107,7 +107,7 @@ services:
 
   yarrrml-rdfizer:
     image: markw/yarrrml-rml-ejp:0.0.3
-        hostname: yarrrml-rdfizer
+    hostname: yarrrml-rdfizer
     environment:
       # (nquads (default), trig, trix, jsonld, hdt, turtle)
       - SERIALIZATION=nquads
