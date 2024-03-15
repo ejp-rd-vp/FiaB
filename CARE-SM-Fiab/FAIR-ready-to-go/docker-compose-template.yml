@@ -94,11 +94,11 @@ services:
       - 127.0.0.1:{RDF_TRIGGER}:4567
     volumes:
       - ./data:/data
-    networks:
+          networks:
       - {PREFIX}-default
                 
   caresm:
-    image: pabloalarconm/care-sm-toolkit:0.0.10
+    image: pabloalarconm/care-sm-toolkit:0.0.12
     hostname: caresm
     volumes:
       - ./data:/code/data
@@ -107,7 +107,7 @@ services:
 
   yarrrml-rdfizer:
     image: markw/yarrrml-rml-ejp:0.0.3
-    hostname: yarrrml-rdfizer
+        hostname: yarrrml-rdfizer
     environment:
       # (nquads (default), trig, trix, jsonld, hdt, turtle)
       - SERIALIZATION=nquads
@@ -119,7 +119,7 @@ services:
       - {PREFIX}-default
 
   beacon_count:
-    image: pabloalarconm/beacon-api4care-sm:0.1.0 
+    image: pabloalarconm/beacon-api4care-sm:0.2.0
     hostname: beacon_count
     restart: always
     ports:
