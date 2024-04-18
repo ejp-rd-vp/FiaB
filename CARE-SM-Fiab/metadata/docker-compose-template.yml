@@ -3,7 +3,7 @@ version: '3'
 services:  
   # FAIR Data Point server    
   fdp:
-    image: fairdata/fairdatapoint:1.16.2
+    image: fairdata/fairdatapoint:1.17.1
     volumes:
       - ./fdp/application-{PREFIX}.yml:/fdp/application.yml:ro
     restart: always
@@ -15,7 +15,7 @@ services:
         
   # FAIR Data Point client	
   fdp_client:
-    image: fairdata/fairdatapoint-client:1.16.3
+    image: fairdata/fairdatapoint-client:1.17.0
     hostname: fdpclient
     restart: always
     environment:
@@ -35,7 +35,7 @@ services:
       
   # Mongo for FDP server    
   mongo:
-    image: mongo:4.2.3
+    image: mongo:7.0
     restart: always
     volumes:
       - {PREFIX}-mongo-data:/data/db
