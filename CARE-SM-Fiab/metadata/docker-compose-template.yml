@@ -3,11 +3,7 @@ version: '3'
 services:  
   # FAIR Data Point server    
   fdp:
-<<<<<<< HEAD
     image: markw/fdp:1.17.1
-=======
-    image: fairdata/fairdatapoint:1.17.1
->>>>>>> 0cf05d5e0e463e92b845a7f5d406a190a3d55dc8
     volumes:
       - ./fdp/application-{PREFIX}.yml:/fdp/application.yml:ro
     restart: always
@@ -19,11 +15,7 @@ services:
         
   # FAIR Data Point client	
   fdp_client:
-<<<<<<< HEAD
     image: markw/fdp_client:1.17.0
-=======
-    image: fairdata/fairdatapoint-client:1.17.0
->>>>>>> 0cf05d5e0e463e92b845a7f5d406a190a3d55dc8
     hostname: fdpclient
     restart: always
     environment:
