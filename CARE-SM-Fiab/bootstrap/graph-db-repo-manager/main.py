@@ -80,6 +80,7 @@ def main(graphdb_url):
     repo_id = FDP_PREFIX + "-cde"
     repo_description = "Repository to store CDEs RDF documents"
     create_repository(graphdb_url, repo_id, repo_description)
+    print(repo_id + " Created")
 
     '''
     Create fdp repository in graph DB
@@ -87,6 +88,7 @@ def main(graphdb_url):
     repo_id = FDP_PREFIX + "-fdp"
     repo_description = "Repository to store FAIR Data Point's metadata RDF documents"
     create_repository(graphdb_url, repo_id, repo_description)
+    print(repo_id + " Created")
 
     '''
     Secure graphdb so that only `admin` user access it 

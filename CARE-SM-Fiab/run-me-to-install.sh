@@ -7,6 +7,7 @@ CWD=$PWD
 export DOCKER_BUILDKIT=0
 export COMPOSE_DOCKER_CLI_BUILD=0
 
+
 function ctrl_c() {
         docker-compose -f "$CWD/metadata/docker-compose-${P}.yml" down
         docker-compose -f "$CWD/bootstrap/docker-compose-${P}.yml" down
@@ -203,7 +204,7 @@ echo -e  "${GREEN}      It can take up to a minute after GraphDB comes alive bef
 echo ""
 echo -e  "${GREEN}For further instructions and tests, read the documentation on the FAIR-in-a-box GitHub page${NC}"
 echo ""
-echo -e  "${GREEN}You can stop this test phase at any time with CTRL-C, then wait for the docker images to shut down cleanly before continuing${NC}"
+echo -e  "${GREEN}You can stop this test phase at any time with CTRL-C (ONLY ONCE!!!!!  Let the cleanup routine run, or you will be unhappy!), then wait for the docker images to shut down cleanly before continuing${NC}"
 if [ $production = "true" ]; then
   echo -e  "${GREEN}If you stop this test phase because it was successful, please note that you must cd into the ${NC}'${P}-ready-to-go'${GREEN} folder to start the production server ${NC}"
 fi
