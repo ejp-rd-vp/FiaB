@@ -3,7 +3,8 @@ version: '3'
 services:  
   # FAIR Data Point server    
   fdp:
-    image: markw/fdp:1.17.1
+#    image: markw/fdp:1.17.1  has a bug :-(
+    image: fairdata/fairdatapoint-client:1.16.3
     volumes:
       - ./fdp/application-{PREFIX}.yml:/fdp/application.yml:ro
     restart: always
@@ -15,7 +16,8 @@ services:
         
   # FAIR Data Point client	
   fdp_client:
-    image: markw/fdp_client:1.17.0
+#    image: markw/fdp_client:1.17.0
+    image: fairdata/fairdatapoint:1.16.2
     hostname: fdpclient
     restart: always
     environment:
