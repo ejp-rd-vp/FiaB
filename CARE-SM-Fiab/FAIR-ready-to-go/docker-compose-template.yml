@@ -2,10 +2,22 @@ version: "3"
 services:
 
 
+  fdp:
+    image: fairdata/fairdatapoint:1.16.2
+    restart: always
+    hostname: fdp
+    volumes:
+      - ./fdp/application-{PREFIX}.yml:/fdp/application.yml:ro
+    depends_on:
+      - mongo
+      - graphdb
+    networks:
+      - {PREFIX}-default
+
+
   # FAIR Data Point client
   fdp_client:
     image: fairdata/fairdatapoint-client:1.16.3
-    # image: fairdata/fairdatapoint-client:1.17.0
     hostname: fdpclient
     restart: always
     environment:
@@ -32,34 +44,6 @@ services:
       - {PREFIX}-graphdb:/opt/graphdb/home
     networks:
       - {PREFIX}-default
-
-  fdp:
-    #image: markw/fdp:1.17.1
-    image: fairdata/fairdatapoint:1.16.2
-    restart: always
-    hostname: fdp
-    volumes:
-      - ./fdp/application-{PREFIX}.yml:/fdp/application.yml:ro
-    depends_on:
-      - mongo
-      - graphdb
-    networks:
-      - {PREFIX}-default
-
-  # UPDATER HAS BEEN DEPRECATED   
-  # updater:
-  #   image: markw/fdp-metadata-updater:0.0.3
-  #   restart: always
-  #   hostname: updater
-  #   environment:
-  #     DATA_SPARQL_ENDPOINT: ${DATA_SPARQL_ENDPOINT}
-  #     DIST_RECORDID: ${DIST_RECORDID}
-  #     DATASET_RECORDID: ${DATASET_RECORDID}
-  #     DOMAIN: ${DOMAIN}
-  #     FDP_USERNAME: ${FDP_USERNAME}
-  #     FDP_PASSWORD: ${FDP_PASSWORD}
-  #   networks:
-  #     - {PREFIX}-default
 
       
   # Mongo for FDP server    
