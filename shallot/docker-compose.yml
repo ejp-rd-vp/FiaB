@@ -2,7 +2,7 @@ version: "3"
 services:
 
   shallot:
-    image: markw/shallot:0.0.1
+    image: markw/shallot:0.0.2
     hostname: "shallot"
     restart: always
     volumes:
