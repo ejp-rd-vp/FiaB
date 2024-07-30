@@ -1,10 +1,9 @@
 version: "3"
 services:
 
-  grlc:
+  shallot:
     image: markw/shallot:0.0.1
-    hostname: "grlc"
-    container_name: "grlc"
+    hostname: "shallot"
     restart: always
     volumes:
     - ./shared-queries/:/home/grlc/queries/
@@ -15,11 +14,11 @@ services:
       - default
     environment:
       - DEBUG=true
-      - GRLC_SPARQL_ENDPOINT=http://graphdb:7200/repositories/cde
+      - GRLC_SPARQL_ENDPOINT=http://graphdb:7200/repositories/ACME-cde
       - GRLC_SERVER_NAME=localhost:8088
 # this will be your server URL, if you want to serve from the outside.
 
 networks:
   default:
-    name: dpp_graphdb
+    name: ACME_graphdb
     external: true
