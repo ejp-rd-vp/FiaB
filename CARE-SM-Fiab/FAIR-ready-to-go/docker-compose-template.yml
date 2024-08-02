@@ -83,7 +83,7 @@ services:
       - {PREFIX}-default
 
   yarrrml-rdfizer:
-    image: markw/yarrrml-rml-ejp:0.1.0
+    image: markw/yarrrml-rml-ejp:0.1.1
     hostname: yarrrml-rdfizer
     environment:
       # (nquads (default), trig, trix, jsonld, hdt, turtle)
