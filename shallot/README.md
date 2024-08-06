@@ -19,7 +19,7 @@ Done!  (see "customization" below for more configuration you can do)
 
 # How to initialize the shared-queries folder
 
-Note that shared-queries is a Git submodule of https://github.com/World-Duchenne-Organization/grlc-queries.  This contains the default queries that will be used by the EJP Virtual Platform.
+Note that shared-queries is a Git submodule of [https://github.com/World-Duchenne-Organization/shared-queries](https://github.com/World-Duchenne-Organization/shared-queries).  This contains the default queries that will be used by the EJP Virtual Platform.
 
 To initialize it and fill it with the queries, you need to
 ```
@@ -37,7 +37,7 @@ Subsequently, you can update the queries at any time using
 
 ## Customizing the Shallot server
 
-In the `shared-queries` folder that was created during the initialization (above) there is a file called `local-api-config.ini`.  You should edit that to provide metadata about the dataset being served by this grlc instance.
+In the `shared-queries` folder that was created during the initialization (above) there is a file called `local-api-config.ini`.  You should edit that to provide metadata about the dataset being served by this Shallot instance.
 
 
 ## Starting the server
