@@ -72,7 +72,7 @@ if [ $production = "true" ]; then
 fi
 
 if [ -z $P ]; then
-  read -p "enter a prefix for your components (e.g. euronmd): " P
+  read -p "enter a prefix for your components (e.g. euronmd) NOTE: All existing installations with the same prefix will be obliterated!!!!: " P
   if [ -z $P ]; then
     echo "invalid..."
     exit 1
@@ -117,6 +117,7 @@ export TMPDIR=$HOME/tmp
 export FDP_PREFIX=$P
 
 docker network rm bootstrap_default
+docker ps -a | egrep -oh "${P}-ready-to-go.*" | xargs docker rm
 docker rm -f  bootstrap_graphdb_1 metadata_fdp_1 metadata_fdp_client_1
 docker volume remove -f "${P}-graphdb ${P}-fdp-client-assets ${P}-fdp-client-css ${P}-fdp-client-scss ${P}-fdp-server ${P}-mongo-data ${P}-mongo-init"
 
