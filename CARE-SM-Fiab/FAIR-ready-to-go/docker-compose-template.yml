@@ -96,7 +96,8 @@ services:
       - {PREFIX}-default
 
   beacon_count:
-    image: pabloalarconm/beacon-api4care-sm:0.2.2
+    image: pabloalarconm/beacon-api4care-sm:4.0.0 # beacon 4
+#    image: pabloalarconm/beacon-api4care-sm:0.2.2  # beacon 2
     hostname: beacon_count
     restart: always
     ports:
