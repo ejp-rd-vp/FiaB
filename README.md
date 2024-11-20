@@ -134,7 +134,7 @@ If you have never installed FiaB before, you `must` use the CARE-SM models - Ver
 Once you have completed the "Downloading" section of this tutorial, you can run `run-me-to-install.sh` in the `./CARE-SM-Fiab/`` folder
 
 ```
-sh ./run-me-to-install.sh
+bash ./run-me-to-install.sh
 ```
 
 ### How to answer the questions
