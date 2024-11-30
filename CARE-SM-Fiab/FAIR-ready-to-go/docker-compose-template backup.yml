@@ -3,7 +3,7 @@ services:
 
 
   fdp:
-    image: fairdatasystems/fdp:2024-11-30
+    image: fairdata/fairdatapoint:1.16.2
     restart: always
     hostname: fdp
     volumes:
@@ -17,7 +17,7 @@ services:
 
   # FAIR Data Point client
   fdp_client:
-    image: fairdatasystems/fdpclient:2024-11-30
+    image: fairdata/fairdatapoint-client:1.16.3
     hostname: fdpclient
     restart: always
     environment:
@@ -35,7 +35,7 @@ services:
 
 
   graphdb:
-    image: fairdatasystems/gdb:2024-11-30
+    image: ontotext/graphdb:10.4.4
     restart: always
     hostname: graphdb
     ports:
@@ -48,7 +48,7 @@ services:
       
   # Mongo for FDP server    
   mongo:
-    image: fairdatasystems/mdb:2024-11-30
+    image: mongo:7.0
     hostname: mongo
     restart: always
     volumes:
@@ -58,7 +58,7 @@ services:
       - {PREFIX}-default
 
   cde-box-daemon:
-    image:  fairdatasystems/cdeb:2024-11-30    # to use the CARE-SM models with teh care-sm-toolkit
+    image:  markw/cde-box-daemon:0.5.4    # to use the CARE-SM models with teh care-sm-toolkit
     environment:
       GraphDB_User: ${GraphDB_User}
       GraphDB_Pass: ${GraphDB_Pass}
@@ -75,7 +75,7 @@ services:
       - {PREFIX}-default
 
   caresm:
-    image: fairdatasystems/care:2024-11-30
+    image: pabloalarconm/care-sm-toolkit:0.0.19
     hostname: caresm
     volumes:
       - ./data:/code/data
@@ -83,7 +83,7 @@ services:
       - {PREFIX}-default
 
   yarrrml-rdfizer:
-    image: fairdatasystems/yrml:2024-11-30
+    image: markw/yarrrml-rml-ejp:0.1.1
     hostname: yarrrml-rdfizer
     environment:
       # (nquads (default), trig, trix, jsonld, hdt, turtle)
@@ -96,7 +96,7 @@ services:
       - {PREFIX}-default
 
   beacon_count:
-    image: fairdatasystems/beacon:2024-11-30
+    image: pabloalarconm/beacon-api4care-sm:4.0.0 # beacon 4
     hostname: beacon_count
     restart: always
     ports:

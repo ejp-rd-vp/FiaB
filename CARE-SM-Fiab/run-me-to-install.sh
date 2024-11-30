@@ -32,39 +32,39 @@ function ctrl_c() {
 
 trap ctrl_c 2
 
+production="true"
+
+# echo -e "${GREEN}Is this a production installation, or are you just trying the installer?"
+# read -p "Production? [y/n]:" production
+# echo -e "${NC}"
 
 
-echo -e "${GREEN}Is this a production installation, or are you just trying the installer?"
-read -p "Production? [y/n]:" production
-echo -e "${NC}"
+# case $production in
+#   y ) production="true";;
+#   Y ) production="true";;
+#   n ) production="false";;
+#   N ) production="false";;
+#   * ) echo "invalid response... exiting"; 
+#       exit 1;;
+# esac
 
 
-case $production in
-  y ) production="true";;
-  Y ) production="true";;
-  n ) production="false";;
-  N ) production="false";;
-  * ) echo "invalid response... exiting"; 
-      exit 1;;
-esac
-
-
-if [ $production = "false" ]; then
-  echo -e "${GREEN}Just trying things out!  Great!  Continuing with some sensible defaults for you..."
-  uri="http://localhost:7070"
-  echo -e "${GREEN}URI: $uri"
-  P="test"
-  echo -e "${GREEN}Component-prefix: $P"
-  FDP_PORT="7070"
-  echo -e "${GREEN}FDP Port: $FDP_PORT"
-  GDB_PORT="7200"
-  echo -e "${GREEN}GraphDB Port: $GDB_PORT"
-  BEACON_PORT="8000"
-  echo -e "${GREEN}Beacon2 Port: $BEACON_PORT"
-  RDF_TRIGGER="4567"
-  echo -e "${GREEN}RDF Transformation trigger port: $RDF_TRIGGER"
-  echo -e "${NC}"
-fi
+# if [ $production = "false" ]; then
+#   echo -e "${GREEN}Just trying things out!  Great!  Continuing with some sensible defaults for you..."
+#   uri="http://localhost:7070"
+#   echo -e "${GREEN}URI: $uri"
+#   P="test"
+#   echo -e "${GREEN}Component-prefix: $P"
+#   FDP_PORT="7070"
+#   echo -e "${GREEN}FDP Port: $FDP_PORT"
+#   GDB_PORT="7200"
+#   echo -e "${GREEN}GraphDB Port: $GDB_PORT"
+#   BEACON_PORT="8000"
+#   echo -e "${GREEN}Beacon2 Port: $BEACON_PORT"
+#   RDF_TRIGGER="4567"
+#   echo -e "${GREEN}RDF Transformation trigger port: $RDF_TRIGGER"
+#   echo -e "${NC}"
+# fi
 
 if [ $production = "true" ]; then
   echo "Production Installation"
