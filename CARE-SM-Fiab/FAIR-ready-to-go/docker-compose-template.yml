@@ -17,7 +17,7 @@ services:
 
   # FAIR Data Point client
   fdp_client:
-    image: fairdatasystems/fdpclient:2024-11-30
+    image: fairdatasystems/fdpclient:2024-12-05
     hostname: fdpclient
     restart: always
     environment:

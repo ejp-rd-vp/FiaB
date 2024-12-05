@@ -1,0 +1,11 @@
+FDPCLIENT\n\n
+FDPCLIENT\n\n
+FDPCLIENT\n\n
+FDPCLIENT\n\n
+FDPCLIENT\n\n
+
+fairdatasystems/fdpclient:2024-12-05 (alpine 3.17.2)
+====================================================
+Total: 0 (HIGH: 0, CRITICAL: 0)
+
+END OF FDPCLKIENT\n\n\n\n\n\n
