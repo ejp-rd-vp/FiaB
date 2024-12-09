@@ -30,6 +30,7 @@ services:
       - fdp
     ports:
       - {FDP_PORT}:80  # You should/must close this port, if you are using hitch
+    command: ./start.sh 
     networks:
       - {PREFIX}-default
 
