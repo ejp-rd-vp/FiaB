@@ -31,7 +31,7 @@ GDB="fairdatasystems/${name}:${timestamp}"
 echo "trivy"
 trivy image --scanners vuln --severity CRITICAL,HIGH -f table  --timeout 1800s fairdatasystems/${name}:${timestamp}  >> ${outputfile}
 echo "END\n\n"
-echo "END OF GRAPHDB\n\n\n\n\n\n" > ${outputfile}
+echo "END OF GRAPHDB\n\n\n\n\n\n" >> ${outputfile}
 
 
 # fairdata/fairdatapoint:1.16.2
@@ -181,7 +181,7 @@ echo "END OF CARE\n\n\n\n\n\n" >> ${outputfile}
 # markw/yarrrml-rml-ejp:0.1.1
 image="markw/yarrrml-rml-ejp:0.1.1"
 name="yrml"
-echo "YRML\n\n" > ${outputfile}
+echo "YRML\n\n" >> ${outputfile}
 docker run -d --name ${name} ${image}  tail -f /dev/null
 # use the appropriate distribution upgrade tool for that container’s operating system
 docker exec -it ${name} apk upgrade --no-cache
@@ -197,13 +197,13 @@ echo "pushed"
 YRDF="fairdatasystems/${name}:${timestamp}"
 # run a scan to determine success
 trivy image --scanners vuln --severity CRITICAL,HIGH -f table  --timeout 1800s fairdatasystems/${name}:${timestamp} >> ${outputfile}
-echo "END OF YRML\n\n\n\n\n\n" > ${outputfile}
+echo "END OF YRML\n\n\n\n\n\n" >> ${outputfile}
 
 
 # pabloalarconm/beacon-api4care-sm:4.0.0 
 image="pabloalarconm/beacon-api4care-sm:4.0.0"
 name="beacon"
-echo "BEACON\n\n" > ${outputfile}
+echo "BEACON\n\n" >> ${outputfile}
 docker run -d --name ${name} ${image}
 # use the appropriate distribution upgrade tool for that container’s operating system
 docker exec -it ${name} apk upgrade --no-cache
@@ -219,7 +219,7 @@ echo "pushed"
 BEACON="fairdatasystems/${name}:${timestamp}"
 # run a scan to determine success
 trivy image --scanners vuln --severity CRITICAL,HIGH -f table  --timeout 1800s fairdatasystems/${name}:${timestamp} >> ${outputfile}
-echo "END OF BEACON\n\n\n\n\n\n" > ${outputfile}
+echo "END OF BEACON\n\n\n\n\n\n" >> ${outputfile}
 
 cp docker-compose-template-template.yml docker-compose-template-tmp.yml
 sed -i'' -e "s!{FDP}!${FDP}!" "docker-compose-template-tmp.yml"
