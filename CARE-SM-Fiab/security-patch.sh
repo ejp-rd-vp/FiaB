@@ -123,7 +123,7 @@ echo "END OF MDB\n\n\n\n\n\n" >> ${outputfile}
 
 # markw/cde-box-daemon:0.5.4
 #image="markw/cde-box-daemon:0.5.4"
-image="markw/cde-box-daemon:0.6.0"
+image="markw/cde-box-daemon:0.7.0"
 name="cdeb"
 echo "CDEB\n\n" >> ${outputfile}
 docker run -d --name ${name} ${image}
