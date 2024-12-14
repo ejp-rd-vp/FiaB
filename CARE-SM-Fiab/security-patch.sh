@@ -122,7 +122,8 @@ echo "END OF MDB\n\n\n\n\n\n" >> ${outputfile}
 
 
 # markw/cde-box-daemon:0.5.4
-image="markw/cde-box-daemon:0.5.4"
+#image="markw/cde-box-daemon:0.5.4"
+image="markw/cde-box-daemon:0.6.0"
 name="cdeb"
 echo "CDEB\n\n" >> ${outputfile}
 docker run -d --name ${name} ${image}
@@ -200,8 +201,8 @@ trivy image --scanners vuln --severity CRITICAL,HIGH -f table  --timeout 1800s f
 echo "END OF YRML\n\n\n\n\n\n" >> ${outputfile}
 
 
-# pabloalarconm/beacon-api4care-sm:4.0.0 
-image="pabloalarconm/beacon-api4care-sm:4.0.0"
+# pabloalarconm/beacon-api4care-sm:4.1.0 
+image="pabloalarconm/beacon-api4care-sm:4.1.0"
 name="beacon"
 echo "BEACON\n\n" >> ${outputfile}
 docker run -d --name ${name} ${image}

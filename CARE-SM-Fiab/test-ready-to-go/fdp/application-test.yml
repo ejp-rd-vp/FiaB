@@ -1,10 +1,10 @@
 instance:
     # (!) Change clientUrl
     # clientUrl: <fdp-url>
-    clientUrl: http://localhost:{FDP_PORT}
+    clientUrl: http://localhost:9090
     # (!) Change persistentUrl
     # persistentUrl: <fdp-persistent-url>
-    persistentUrl: {GUID}
+    persistentUrl: http://localhost9090
 
 security:
     jwt:
@@ -18,6 +18,6 @@ repository:
   type: 4
   graphDb:
     url: http://graphdb:7200
-    repository: "{PREFIX}-fdp"
+    repository: "test-fdp"
     username: "admin"
     password: "root"

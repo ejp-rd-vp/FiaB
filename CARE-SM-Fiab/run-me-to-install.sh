@@ -141,7 +141,7 @@ cp docker-compose-template.yml "docker-compose-${P}.yml"
 sed -i'' -e "s/{PREFIX}/${P}/" "docker-compose-${P}.yml"
 
 docker-compose -f "docker-compose-${P}.yml" up --build -d
-sleep 50
+sleep 120
 
 echo ""
 echo -e "${GREEN}Setting up FAIR Data Point client and server${NC}"

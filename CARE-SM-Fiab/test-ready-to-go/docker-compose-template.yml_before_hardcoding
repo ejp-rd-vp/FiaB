@@ -59,7 +59,7 @@ services:
       - {PREFIX}-default
 
   cde-box-daemon:
-    image:  markw/cde-box-daemon:0.6.0
+    image:  fairdatasystems/cdeb:2024-12-12    # to use the CARE-SM models with teh care-sm-toolkit
     environment:
       GraphDB_User: ${GraphDB_User}
       GraphDB_Pass: ${GraphDB_Pass}
@@ -76,8 +76,7 @@ services:
       - {PREFIX}-default
 
   caresm:
-#    image: fairdatasystems/care:2024-12-12
-    image: pabloalarconm/care-sm-toolkit:0.1.6
+    image: fairdatasystems/care:2024-12-12
     hostname: caresm
     volumes:
       - ./data:/code/data
