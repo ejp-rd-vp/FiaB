@@ -180,7 +180,7 @@ echo "END OF CARE\n\n\n\n\n\n" >> ${outputfile}
 
 
 # markw/yarrrml-rml-ejp:0.1.1
-image="markw/yarrrml-rml-ejp:0.1.1"
+image="markw/yarrrml-rml-ejp:0.1.2"
 name="yrml"
 echo "YRML\n\n" >> ${outputfile}
 docker run -d --name ${name} ${image}  tail -f /dev/null

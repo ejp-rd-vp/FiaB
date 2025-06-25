@@ -1,0 +1,16 @@
+# AN EXAMPLE .env (DOT env) file for docker-compose
+# what the CDE transform will use as the base for all URLs it genereates
+baseURI=http://proof.of.life.for.sure/data/
+# user and password with write-permissions on the CDE database
+GraphDB_User=admin
+GraphDB_Pass=root
+# This is used by both Beacon and the Updater - must be active if you use either
+DATA_SPARQL_ENDPOINT=http://graphdb:7200/repositories/cde
+# comment-out these lines until you have fully created your FDP 
+# including catalog, dataset, distrubtion
+# this will then allow you to use teh automated metadata updating function
+#DIST_RECORDID=nnnn-nnnnnnn-nnn-nnnn-nnnnnnn
+#DATASET_RECORDID=nnnn-nnnnnnn-nnn-nnnn-nnnnnnn
+#DOMAIN=fdp.example.org:8080
+#FDP_USERNAME=albert.einstein@example.com
+#FDP_PASSWORD=password
