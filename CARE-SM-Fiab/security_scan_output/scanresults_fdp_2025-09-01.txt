@@ -1,0 +1,601 @@
+{
+  "SchemaVersion": 2,
+  "CreatedAt": "2025-09-01T14:02:56.366388117+02:00",
+  "ArtifactName": "fairdatasystems/fdp:2025-09-01",
+  "ArtifactType": "container_image",
+  "Metadata": {
+    "OS": {
+      "Family": "alpine",
+      "Name": "3.21.3"
+    },
+    "ImageID": "sha256:ae0018f91b9a1d13c3f2ea42a02ec5848ccc718f8cf424fbc64f3a00ad601f7a",
+    "DiffIDs": [
+      "sha256:08000c18d16dadf9553d747a58cf44023423a9ab010aab96cf263d2216b8b350",
+      "sha256:c6dd83b959a067bfbcec9e8e8077860513d3128edfe3de736639933df3f3cdbf",
+      "sha256:b79a4762dbfbcc0ecd91df51ba3aa7f709502882cfe8c5334aec06a325b43e81",
+      "sha256:33a84851963e71e7078496bce6e9a55013d73c9f1f52ab765dcce9f8b99d9b3c",
+      "sha256:6658b6f192538e3356af9bbee35a986460692b2aed33f61954c48e9303f7db72",
+      "sha256:c7df21f7a26b1fc3c5b6d82ba3e894a66d11b4987b40d78b684fe470e4c03f3c",
+      "sha256:7ddd679fb4b044fa9979c8b97a06e6427ef041ad8e8d5bd8b9d1a48686a170e0",
+      "sha256:d63c30d49d09ca7e045988813414e43c0bdc7d4d788e540fa827676b635c4876",
+      "sha256:5a83fe5a44062f13f165ebec877c0e72acf22a177399810584e9c2868ca41768"
+    ],
+    "RepoTags": [
+      "fairdatasystems/fdp:2025-09-01"
+    ],
+    "RepoDigests": [
+      "fairdatasystems/fdp@sha256:7f01948732600851869787abdde10552dd3316395465a3fb3b53560dafbeaebe"
+    ],
+    "ImageConfig": {
+      "architecture": "amd64",
+      "container": "b1853846afe59472531624f0507cbe477f1b9474156f79a29fb9662dd5f9b38c",
+      "created": "2025-09-01T12:02:20.84335737Z",
+      "docker_version": "26.1.3",
+      "history": [
+        {
+          "created": "2025-02-14T03:28:36Z",
+          "created_by": "ADD alpine-minirootfs-3.21.3-x86_64.tar.gz / # buildkit",
+          "comment": "buildkit.dockerfile.v0"
+        },
+        {
+          "created": "2025-02-14T03:28:36Z",
+          "created_by": "CMD [\"/bin/sh\"]",
+          "comment": "buildkit.dockerfile.v0",
+          "empty_layer": true
+        },
+        {
+          "created": "2025-04-23T14:48:05Z",
+          "created_by": "ENV JAVA_HOME=/opt/java/openjdk",
+          "comment": "buildkit.dockerfile.v0",
+          "empty_layer": true
+        },
+        {
+          "created": "2025-04-23T14:48:05Z",
+          "created_by": "ENV PATH=/opt/java/openjdk/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+          "comment": "buildkit.dockerfile.v0",
+          "empty_layer": true
+        },
+        {
+          "created": "2025-04-23T14:48:05Z",
+          "created_by": "ENV LANG=en_US.UTF-8 LANGUAGE=en_US:en LC_ALL=en_US.UTF-8",
+          "comment": "buildkit.dockerfile.v0",
+          "empty_layer": true
+        },
+        {
+          "created": "2025-04-23T14:48:05Z",
+          "created_by": "RUN /bin/sh -c set -eux;     apk add --no-cache         fontconfig ttf-dejavu         gnupg         ca-certificates p11-kit-trust         musl-locales musl-locales-lang         binutils         tzdata         coreutils         openssl     ;     rm -rf /var/cache/apk/* # buildkit",
+          "comment": "buildkit.dockerfile.v0"
+        },
+        {
+          "created": "2025-04-23T14:48:05Z",
+          "created_by": "ENV JAVA_VERSION=jdk-21.0.7+6",
+          "comment": "buildkit.dockerfile.v0",
+          "empty_layer": true
+        },
+        {
+          "created": "2025-04-23T14:48:05Z",
+          "created_by": "RUN /bin/sh -c set -eux;     ARCH=\"$(apk --print-arch)\";     case \"${ARCH}\" in        aarch64)          ESUM='76dbb5152f15e509a5fc965936b2b912f806bb977853ab028c362c5340b1c4e9';          BINARY_URL='https://github.com/adoptium/temurin21-binaries/releases/download/jdk-21.0.7%2B6/OpenJDK21U-jdk_aarch64_alpine-linux_hotspot_21.0.7_6.tar.gz';          ;;        x86_64)          ESUM='79ecc4b213d21ae5c389bea13c6ed23ca4804a45b7b076983356c28105580013';          BINARY_URL='https://github.com/adoptium/temurin21-binaries/releases/download/jdk-21.0.7%2B6/OpenJDK21U-jdk_x64_alpine-linux_hotspot_21.0.7_6.tar.gz';          ;;        *)          echo \"Unsupported arch: ${ARCH}\";          exit 1;          ;;     esac;     wget -O /tmp/openjdk.tar.gz ${BINARY_URL};     wget -O /tmp/openjdk.tar.gz.sig ${BINARY_URL}.sig;     export GNUPGHOME=\"$(mktemp -d)\";     gpg --batch --keyserver keyserver.ubuntu.com --recv-keys 3B04D753C9050D9A5D343F39843C48A565F8F04B;     gpg --batch --verify /tmp/openjdk.tar.gz.sig /tmp/openjdk.tar.gz;     rm -rf \"${GNUPGHOME}\" /tmp/openjdk.tar.gz.sig;     echo \"${ESUM} */tmp/openjdk.tar.gz\" | sha256sum -c -;     mkdir -p \"$JAVA_HOME\";     tar --extract         --file /tmp/openjdk.tar.gz         --directory \"$JAVA_HOME\"         --strip-components 1         --no-same-owner     ;     rm -f /tmp/openjdk.tar.gz ${JAVA_HOME}/lib/src.zip; # buildkit",
+          "comment": "buildkit.dockerfile.v0"
+        },
+        {
+          "created": "2025-04-23T14:48:05Z",
+          "created_by": "RUN /bin/sh -c set -eux;     echo \"Verifying install ...\";     fileEncoding=\"$(echo 'System.out.println(System.getProperty(\"file.encoding\"))' | jshell -s -)\"; [ \"$fileEncoding\" = 'UTF-8' ]; rm -rf ~/.java;     echo \"javac --version\"; javac --version;     echo \"java --version\"; java --version;     echo \"Complete.\" # buildkit",
+          "comment": "buildkit.dockerfile.v0"
+        },
+        {
+          "created": "2025-04-23T14:48:05Z",
+          "created_by": "COPY --chmod=755 entrypoint.sh /__cacert_entrypoint.sh # buildkit",
+          "comment": "buildkit.dockerfile.v0"
+        },
+        {
+          "created": "2025-04-23T14:48:05Z",
+          "created_by": "ENTRYPOINT [\"/__cacert_entrypoint.sh\"]",
+          "comment": "buildkit.dockerfile.v0",
+          "empty_layer": true
+        },
+        {
+          "created": "2025-04-23T14:48:05Z",
+          "created_by": "CMD [\"jshell\"]",
+          "comment": "buildkit.dockerfile.v0",
+          "empty_layer": true
+        },
+        {
+          "created": "2025-07-03T07:45:08Z",
+          "created_by": "RUN /bin/sh -c addgroup -S spring \u0026\u0026 adduser -S spring -G spring # buildkit",
+          "comment": "buildkit.dockerfile.v0"
+        },
+        {
+          "created": "2025-07-03T07:45:08Z",
+          "created_by": "USER spring:spring",
+          "comment": "buildkit.dockerfile.v0",
+          "empty_layer": true
+        },
+        {
+          "created": "2025-07-03T07:45:08Z",
+          "created_by": "WORKDIR /fdp",
+          "comment": "buildkit.dockerfile.v0"
+        },
+        {
+          "created": "2025-07-03T07:45:47Z",
+          "created_by": "COPY /builder/target/fdp-spring-boot.jar /fdp/app.jar # buildkit",
+          "comment": "buildkit.dockerfile.v0"
+        },
+        {
+          "created": "2025-07-03T07:45:47Z",
+          "created_by": "ENTRYPOINT [\"java\" \"-jar\" \"app.jar\"]",
+          "comment": "buildkit.dockerfile.v0",
+          "empty_layer": true
+        },
+        {
+          "created": "2025-09-01T12:02:20Z"
+        }
+      ],
+      "os": "linux",
+      "rootfs": {
+        "type": "layers",
+        "diff_ids": [
+          "sha256:08000c18d16dadf9553d747a58cf44023423a9ab010aab96cf263d2216b8b350",
+          "sha256:c6dd83b959a067bfbcec9e8e8077860513d3128edfe3de736639933df3f3cdbf",
+          "sha256:b79a4762dbfbcc0ecd91df51ba3aa7f709502882cfe8c5334aec06a325b43e81",
+          "sha256:33a84851963e71e7078496bce6e9a55013d73c9f1f52ab765dcce9f8b99d9b3c",
+          "sha256:6658b6f192538e3356af9bbee35a986460692b2aed33f61954c48e9303f7db72",
+          "sha256:c7df21f7a26b1fc3c5b6d82ba3e894a66d11b4987b40d78b684fe470e4c03f3c",
+          "sha256:7ddd679fb4b044fa9979c8b97a06e6427ef041ad8e8d5bd8b9d1a48686a170e0",
+          "sha256:d63c30d49d09ca7e045988813414e43c0bdc7d4d788e540fa827676b635c4876",
+          "sha256:5a83fe5a44062f13f165ebec877c0e72acf22a177399810584e9c2868ca41768"
+        ]
+      },
+      "config": {
+        "Entrypoint": [
+          "java",
+          "-jar",
+          "app.jar"
+        ],
+        "Env": [
+          "PATH=/opt/java/openjdk/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+          "JAVA_HOME=/opt/java/openjdk",
+          "LANG=en_US.UTF-8",
+          "LANGUAGE=en_US:en",
+          "LC_ALL=en_US.UTF-8",
+          "JAVA_VERSION=jdk-21.0.7+6"
+        ],
+        "Hostname": "b1853846afe5",
+        "Image": "fairdata/fairdatapoint:1.17.5",
+        "User": "spring:spring",
+        "WorkingDir": "/fdp"
+      }
+    }
+  },
+  "Results": [
+    {
+      "Target": "fairdatasystems/fdp:2025-09-01 (alpine 3.21.3)",
+      "Class": "os-pkgs",
+      "Type": "alpine"
+    },
+    {
+      "Target": "Java",
+      "Class": "lang-pkgs",
+      "Type": "jar",
+      "Vulnerabilities": [
+        {
+          "VulnerabilityID": "CVE-2025-48734",
+          "PkgName": "commons-beanutils:commons-beanutils",
+          "PkgPath": "fdp/app.jar/BOOT-INF/lib/commons-beanutils-1.9.4.jar",
+          "PkgIdentifier": {
+            "PURL": "pkg:maven/commons-beanutils/commons-beanutils@1.9.4"
+          },
+          "InstalledVersion": "1.9.4",
+          "FixedVersion": "1.11.0",
+          "Status": "fixed",
+          "Layer": {
+            "DiffID": "sha256:d63c30d49d09ca7e045988813414e43c0bdc7d4d788e540fa827676b635c4876"
+          },
+          "SeveritySource": "ghsa",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2025-48734",
+          "DataSource": {
+            "ID": "ghsa",
+            "Name": "GitHub Security Advisory Maven",
+            "URL": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Amaven"
+          },
+          "Title": "commons-beanutils: Apache Commons BeanUtils: PropertyUtilsBean does not suppresses an enum's declaredClass property by default",
+          "Description": "Improper Access Control vulnerability in Apache Commons.\n\n\n\nA special BeanIntrospector class was added in version 1.9.2. This can be used to stop attackers from using the declared class property of Java enum objects to get access to the classloader. However this protection was not enabled by default. PropertyUtilsBean (and consequently BeanUtilsBean) now disallows declared class level property access by default.\n\n\n\n\n\nReleases 1.11.0 and 2.0.0-M2 address a potential security issue when accessing enum properties in an uncontrolled way. If an application using Commons BeanUtils passes property paths from an external source directly to the getProperty() method of PropertyUtilsBean, an attacker can access the enum’s class loader via the “declaredClass” property available on all Java “enum” objects. Accessing the enum’s “declaredClass” allows remote attackers to access the ClassLoader and execute arbitrary code. The same issue exists with PropertyUtilsBean.getNestedProperty().\nStarting in versions 1.11.0 and 2.0.0-M2 a special BeanIntrospector suppresses the “declaredClass” property. Note that this new BeanIntrospector is enabled by default, but you can disable it to regain the old behavior; see section 2.5 of the user's guide and the unit tests.\n\nThis issue affects Apache Commons BeanUtils 1.x before 1.11.0, and 2.x before 2.0.0-M2.Users of the artifact commons-beanutils:commons-beanutils\n\n 1.x are recommended to upgrade to version 1.11.0, which fixes the issue.\n\n\nUsers of the artifact org.apache.commons:commons-beanutils2\n\n 2.x are recommended to upgrade to version 2.0.0-M2, which fixes the issue.",
+          "Severity": "HIGH",
+          "CweIDs": [
+            "CWE-284"
+          ],
+          "VendorSeverity": {
+            "alma": 3,
+            "amazon": 3,
+            "ghsa": 3,
+            "oracle-oval": 3,
+            "redhat": 3
+          },
+          "CVSS": {
+            "ghsa": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+              "V3Score": 8.8
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+              "V3Score": 8.8
+            }
+          },
+          "References": [
+            "http://www.openwall.com/lists/oss-security/2025/05/28/6",
+            "https://access.redhat.com/errata/RHSA-2025:9166",
+            "https://access.redhat.com/security/cve/CVE-2025-48734",
+            "https://bugzilla.redhat.com/2368956",
+            "https://errata.almalinux.org/10/ALSA-2025-9166.html",
+            "https://github.com/advisories/GHSA-wxr5-93ph-8wr9",
+            "https://github.com/apache/commons-beanutils",
+            "https://github.com/apache/commons-beanutils/commit/28ad955a1613ed5885870cc7da52093c1ce739dc",
+            "https://github.com/apache/commons-beanutils/commit/bd20740da25b69552ddef8523beec0837297eaf9",
+            "https://linux.oracle.com/cve/CVE-2025-48734.html",
+            "https://linux.oracle.com/errata/ELSA-2025-9318.html",
+            "https://lists.apache.org/thread/s0hb3jkfj5f3ryx6c57zqtfohb0of1g9",
+            "https://nvd.nist.gov/vuln/detail/CVE-2025-48734",
+            "https://www.cve.org/CVERecord?id=CVE-2025-48734",
+            "https://www.openwall.com/lists/oss-security/2025/05/28/6"
+          ],
+          "PublishedDate": "2025-05-28T14:15:34.07Z",
+          "LastModifiedDate": "2025-06-09T18:56:26.37Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2025-48988",
+          "PkgName": "org.apache.tomcat.embed:tomcat-embed-core",
+          "PkgPath": "fdp/app.jar/BOOT-INF/lib/tomcat-embed-core-10.1.41.jar",
+          "PkgIdentifier": {
+            "PURL": "pkg:maven/org.apache.tomcat.embed/tomcat-embed-core@10.1.41"
+          },
+          "InstalledVersion": "10.1.41",
+          "FixedVersion": "11.0.8, 10.1.42, 9.0.106",
+          "Status": "fixed",
+          "Layer": {
+            "DiffID": "sha256:d63c30d49d09ca7e045988813414e43c0bdc7d4d788e540fa827676b635c4876"
+          },
+          "SeveritySource": "ghsa",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2025-48988",
+          "DataSource": {
+            "ID": "ghsa",
+            "Name": "GitHub Security Advisory Maven",
+            "URL": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Amaven"
+          },
+          "Title": "tomcat: Apache Tomcat DoS in multipart upload",
+          "Description": "Allocation of Resources Without Limits or Throttling vulnerability in Apache Tomcat.\n\nThis issue affects Apache Tomcat: from 11.0.0-M1 through 11.0.7, from 10.1.0-M1 through 10.1.41, from 9.0.0.M1 through 9.0.105.\nThe following versions were EOL at the time the CVE was created but are \nknown to be affected: 8.5.0 though 8.5.100. Other, older, EOL versions \nmay also be affected.\n\n\nUsers are recommended to upgrade to version 11.0.8, 10.1.42 or 9.0.106, which fix the issue.",
+          "Severity": "HIGH",
+          "CweIDs": [
+            "CWE-770"
+          ],
+          "VendorSeverity": {
+            "alma": 3,
+            "amazon": 2,
+            "bitnami": 3,
+            "ghsa": 3,
+            "oracle-oval": 3,
+            "photon": 3,
+            "redhat": 2,
+            "ubuntu": 2
+          },
+          "CVSS": {
+            "bitnami": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+              "V3Score": 7.5
+            },
+            "ghsa": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+              "V3Score": 7.5
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L",
+              "V3Score": 5.3
+            }
+          },
+          "References": [
+            "http://www.openwall.com/lists/oss-security/2025/06/16/1",
+            "https://access.redhat.com/errata/RHSA-2025:14178",
+            "https://access.redhat.com/security/cve/CVE-2025-48988",
+            "https://bugzilla.redhat.com/2373015",
+            "https://bugzilla.redhat.com/2373018",
+            "https://bugzilla.redhat.com/2373020",
+            "https://bugzilla.redhat.com/2373309",
+            "https://bugzilla.redhat.com/2379374",
+            "https://bugzilla.redhat.com/2379382",
+            "https://bugzilla.redhat.com/2379386",
+            "https://errata.almalinux.org/10/ALSA-2025-14178.html",
+            "https://github.com/apache/tomcat",
+            "https://github.com/apache/tomcat/commit/2b0ab14fb55d4edc896e5f1817f2ab76f714ae5e",
+            "https://github.com/apache/tomcat/commit/2b0ab14fb55d4edc896e5f1817f2ab76f714ae5e (11.0.8)",
+            "https://github.com/apache/tomcat/commit/cdde8e655bc1c5c60a07efd216251d77c52fd7f6",
+            "https://github.com/apache/tomcat/commit/cdde8e655bc1c5c60a07efd216251d77c52fd7f6 (10.1.42)",
+            "https://github.com/apache/tomcat/commit/ee8042ffce4cb9324dfd79efda5984f37bbb6910",
+            "https://github.com/apache/tomcat/commit/ee8042ffce4cb9324dfd79efda5984f37bbb6910 (9.0.106)",
+            "https://linux.oracle.com/cve/CVE-2025-48988.html",
+            "https://linux.oracle.com/errata/ELSA-2025-14181.html",
+            "https://lists.apache.org/thread/nzkqsok8t42qofgqfmck536mtyzygp18",
+            "https://nvd.nist.gov/vuln/detail/CVE-2025-48988",
+            "https://tomcat.apache.org/security-10.html",
+            "https://tomcat.apache.org/security-11.html",
+            "https://tomcat.apache.org/security-9.html",
+            "https://www.cve.org/CVERecord?id=CVE-2025-48988"
+          ],
+          "PublishedDate": "2025-06-16T15:15:24.563Z",
+          "LastModifiedDate": "2025-08-08T12:15:28.443Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2025-48989",
+          "PkgName": "org.apache.tomcat.embed:tomcat-embed-core",
+          "PkgPath": "fdp/app.jar/BOOT-INF/lib/tomcat-embed-core-10.1.41.jar",
+          "PkgIdentifier": {
+            "PURL": "pkg:maven/org.apache.tomcat.embed/tomcat-embed-core@10.1.41"
+          },
+          "InstalledVersion": "10.1.41",
+          "FixedVersion": "11.0.10, 10.1.44, 9.0.108",
+          "Status": "fixed",
+          "Layer": {
+            "DiffID": "sha256:d63c30d49d09ca7e045988813414e43c0bdc7d4d788e540fa827676b635c4876"
+          },
+          "SeveritySource": "ghsa",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2025-48989",
+          "DataSource": {
+            "ID": "ghsa",
+            "Name": "GitHub Security Advisory Maven",
+            "URL": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Amaven"
+          },
+          "Title": "tomcat: http/2 \"MadeYouReset\" DoS attack through HTTP/2 control frames",
+          "Description": "Improper Resource Shutdown or Release vulnerability in Apache Tomcat made Tomcat vulnerable to the made you reset attack.\n\nThis issue affects Apache Tomcat: from 11.0.0-M1 through 11.0.9, from 10.1.0-M1 through 10.1.43 and from 9.0.0.M1 through 9.0.107. Older, EOL versions may also be affected.\n\nUsers are recommended to upgrade to one of versions 11.0.10, 10.1.44 or 9.0.108 which fix the issue.",
+          "Severity": "HIGH",
+          "CweIDs": [
+            "CWE-404"
+          ],
+          "VendorSeverity": {
+            "alma": 3,
+            "bitnami": 3,
+            "ghsa": 3,
+            "oracle-oval": 3,
+            "redhat": 3,
+            "ubuntu": 2
+          },
+          "CVSS": {
+            "bitnami": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+              "V3Score": 7.5
+            },
+            "ghsa": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+              "V3Score": 7.5
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+              "V3Score": 7.5
+            }
+          },
+          "References": [
+            "https://access.redhat.com/errata/RHSA-2025:14178",
+            "https://access.redhat.com/security/cve/CVE-2025-48989",
+            "https://bugzilla.redhat.com/2373015",
+            "https://bugzilla.redhat.com/2373018",
+            "https://bugzilla.redhat.com/2373020",
+            "https://bugzilla.redhat.com/2373309",
+            "https://bugzilla.redhat.com/2379374",
+            "https://bugzilla.redhat.com/2379382",
+            "https://bugzilla.redhat.com/2379386",
+            "https://errata.almalinux.org/10/ALSA-2025-14178.html",
+            "https://github.com/apache/tomcat",
+            "https://github.com/apache/tomcat/commit/73c04a10395774bda71a0b37802cf983662ce255",
+            "https://github.com/apache/tomcat/commit/73c04a10395774bda71a0b37802cf983662ce255 (10.1.44)",
+            "https://github.com/apache/tomcat/commit/f362c8eb3b8ec5b7f312f7f5610731c0fb299a06",
+            "https://github.com/apache/tomcat/commit/f362c8eb3b8ec5b7f312f7f5610731c0fb299a06 (11.0.10)",
+            "https://github.com/apache/tomcat/commit/f36b8a4eea4ce8a0bc035079e1d259d29f5eb7bf",
+            "https://github.com/apache/tomcat/commit/f36b8a4eea4ce8a0bc035079e1d259d29f5eb7bf (9.0.108)",
+            "https://kb.cert.org/vuls/id/767506",
+            "https://linux.oracle.com/cve/CVE-2025-48989.html",
+            "https://linux.oracle.com/errata/ELSA-2025-14181.html",
+            "https://lists.apache.org/thread/9ydfg0xr0tchmglcprhxgwhj0hfwxlyf",
+            "https://nvd.nist.gov/vuln/detail/CVE-2025-48989",
+            "https://tomcat.apache.org/security-10.html",
+            "https://tomcat.apache.org/security-11.html",
+            "https://tomcat.apache.org/security-9.html",
+            "https://www.cve.org/CVERecord?id=CVE-2025-48989"
+          ],
+          "PublishedDate": "2025-08-13T13:15:34.153Z",
+          "LastModifiedDate": "2025-08-18T18:34:04.98Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2024-22201",
+          "PkgName": "org.eclipse.jetty.http2:http2-common",
+          "PkgPath": "fdp/app.jar/BOOT-INF/lib/http2-common-9.4.41.v20210516.jar",
+          "PkgIdentifier": {
+            "PURL": "pkg:maven/org.eclipse.jetty.http2/http2-common@9.4.41.v20210516"
+          },
+          "InstalledVersion": "9.4.41.v20210516",
+          "FixedVersion": "9.4.54, 10.0.20, 11.0.20",
+          "Status": "fixed",
+          "Layer": {
+            "DiffID": "sha256:d63c30d49d09ca7e045988813414e43c0bdc7d4d788e540fa827676b635c4876"
+          },
+          "SeveritySource": "ghsa",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2024-22201",
+          "DataSource": {
+            "ID": "ghsa",
+            "Name": "GitHub Security Advisory Maven",
+            "URL": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Amaven"
+          },
+          "Title": "jetty: stop accepting new connections from valid clients",
+          "Description": "Jetty is a Java based web server and servlet engine. An HTTP/2 SSL connection that is established and TCP congested will be leaked when it times out. An attacker can cause many connections to end up in this state, and the server may run out of file descriptors, eventually causing the server to stop accepting new connections from valid clients. The vulnerability is patched in 9.4.54, 10.0.20, 11.0.20, and 12.0.6.",
+          "Severity": "HIGH",
+          "CweIDs": [
+            "CWE-400",
+            "CWE-770"
+          ],
+          "VendorSeverity": {
+            "ghsa": 3,
+            "nvd": 3,
+            "redhat": 2
+          },
+          "CVSS": {
+            "ghsa": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+              "V3Score": 7.5
+            },
+            "nvd": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+              "V3Score": 7.5
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+              "V3Score": 7.5
+            }
+          },
+          "References": [
+            "http://www.openwall.com/lists/oss-security/2024/03/20/2",
+            "https://access.redhat.com/security/cve/CVE-2024-22201",
+            "https://github.com/jetty/jetty.project",
+            "https://github.com/jetty/jetty.project/commit/0839a208cdc3fcfe25206a77af59ba9fda260188",
+            "https://github.com/jetty/jetty.project/commit/b953871c9a5ff4fbca4a2499848f75182dbd9810",
+            "https://github.com/jetty/jetty.project/issues/11256",
+            "https://github.com/jetty/jetty.project/issues/11259",
+            "https://github.com/jetty/jetty.project/security/advisories/GHSA-rggv-cv7r-mw98",
+            "https://lists.debian.org/debian-lts-announce/2024/04/msg00002.html",
+            "https://nvd.nist.gov/vuln/detail/CVE-2024-22201",
+            "https://security.netapp.com/advisory/ntap-20240329-0001",
+            "https://security.netapp.com/advisory/ntap-20240329-0001/",
+            "https://www.cve.org/CVERecord?id=CVE-2024-22201"
+          ],
+          "PublishedDate": "2024-02-26T16:27:56.343Z",
+          "LastModifiedDate": "2025-02-13T18:16:46.81Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2025-5115",
+          "PkgName": "org.eclipse.jetty.http2:http2-common",
+          "PkgPath": "fdp/app.jar/BOOT-INF/lib/http2-common-9.4.41.v20210516.jar",
+          "PkgIdentifier": {
+            "PURL": "pkg:maven/org.eclipse.jetty.http2/http2-common@9.4.41.v20210516"
+          },
+          "InstalledVersion": "9.4.41.v20210516",
+          "FixedVersion": "9.4.58, 10.0.26, 11.0.26",
+          "Status": "fixed",
+          "Layer": {
+            "DiffID": "sha256:d63c30d49d09ca7e045988813414e43c0bdc7d4d788e540fa827676b635c4876"
+          },
+          "SeveritySource": "ghsa",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2025-5115",
+          "DataSource": {
+            "ID": "ghsa",
+            "Name": "GitHub Security Advisory Maven",
+            "URL": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Amaven"
+          },
+          "Title": "jetty: HTTP/2 (including DNS over HTTPS) contains a design flaw and is vulnerable to \"MadeYouReset\" DoS attack through HTTP/2 control frames",
+          "Description": "In Eclipse Jetty, versions \u003c=9.4.57, \u003c=10.0.25, \u003c=11.0.25, \u003c=12.0.21, \u003c=12.1.0.alpha2, an HTTP/2 client may trigger the server to send RST_STREAM frames, for example by sending frames that are malformed or that should not be sent in a particular stream state, therefore forcing the server to consume resources such as CPU and memory.\n\n\nFor example, a client can open a stream and then send WINDOW_UPDATE frames with window size increment of 0, which is illegal.\nPer specification  https://www.rfc-editor.org/rfc/rfc9113.html#name-window_update , the server should send a RST_STREAM frame.\nThe client can now open another stream and send another bad WINDOW_UPDATE, therefore causing the server to consume more resources than necessary, as this case does not exceed the max number of concurrent streams, yet the client is able to create an enormous amount of streams in a short period of time.\n\n\nThe attack can be performed with other conditions (for example, a DATA frame for a closed stream) that cause the server to send a RST_STREAM frame.\n\n\n\nLinks:\n\n\n\n  *   https://github.com/jetty/jetty.project/security/advisories/GHSA-mmxm-8w33-wc4h",
+          "Severity": "HIGH",
+          "CweIDs": [
+            "CWE-400"
+          ],
+          "VendorSeverity": {
+            "ghsa": 3,
+            "redhat": 3
+          },
+          "CVSS": {
+            "ghsa": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+              "V3Score": 7.5
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+              "V3Score": 7.5
+            }
+          },
+          "References": [
+            "https://access.redhat.com/security/cve/CVE-2025-5115",
+            "https://github.com/jetty/jetty.project",
+            "https://github.com/jetty/jetty.project/commit/f9ee3904788b08203ed62c95a560d951da37bdb1",
+            "https://github.com/jetty/jetty.project/pull/13449",
+            "https://github.com/jetty/jetty.project/releases/tag/jetty-10.0.26",
+            "https://github.com/jetty/jetty.project/releases/tag/jetty-11.0.26",
+            "https://github.com/jetty/jetty.project/releases/tag/jetty-12.0.25",
+            "https://github.com/jetty/jetty.project/releases/tag/jetty-12.1.0",
+            "https://github.com/jetty/jetty.project/releases/tag/jetty-9.4.58.v20250814",
+            "https://github.com/jetty/jetty.project/security/advisories/GHSA-mmxm-8w33-wc4h",
+            "https://kb.cert.org/vuls/id/767506",
+            "https://nvd.nist.gov/vuln/detail/CVE-2025-5115",
+            "https://www.cve.org/CVERecord?id=CVE-2025-5115"
+          ],
+          "PublishedDate": "2025-08-20T20:15:33.377Z",
+          "LastModifiedDate": "2025-08-22T18:09:17.71Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2023-36478",
+          "PkgName": "org.eclipse.jetty.http2:http2-hpack",
+          "PkgPath": "fdp/app.jar/BOOT-INF/lib/http2-hpack-9.4.41.v20210516.jar",
+          "PkgIdentifier": {
+            "PURL": "pkg:maven/org.eclipse.jetty.http2/http2-hpack@9.4.41.v20210516"
+          },
+          "InstalledVersion": "9.4.41.v20210516",
+          "FixedVersion": "10.0.16, 11.0.16, 9.4.53",
+          "Status": "fixed",
+          "Layer": {
+            "DiffID": "sha256:d63c30d49d09ca7e045988813414e43c0bdc7d4d788e540fa827676b635c4876"
+          },
+          "SeveritySource": "ghsa",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2023-36478",
+          "DataSource": {
+            "ID": "ghsa",
+            "Name": "GitHub Security Advisory Maven",
+            "URL": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Amaven"
+          },
+          "Title": "jetty: hpack header values cause denial of service in http/2",
+          "Description": "Eclipse Jetty provides a web server and servlet container. In versions 11.0.0 through 11.0.15, 10.0.0 through 10.0.15, and 9.0.0 through 9.4.52, an integer overflow in `MetaDataBuilder.checkSize` allows for HTTP/2 HPACK header values to\nexceed their size limit. `MetaDataBuilder.java` determines if a header name or value exceeds the size limit, and throws an exception if the limit is exceeded. However, when length is very large and huffman is true, the multiplication by 4 in line 295\nwill overflow, and length will become negative. `(_size+length)` will now be negative, and the check on line 296 will not be triggered. Furthermore, `MetaDataBuilder.checkSize` allows for user-entered HPACK header value sizes to be negative, potentially leading to a very large buffer allocation later on when the user-entered size is multiplied by 2. This means that if a user provides a negative length value (or, more precisely, a length value which, when multiplied by the 4/3 fudge factor, is negative), and this length value is a very large positive number when multiplied by 2, then the user can cause a very large buffer to be allocated on the server. Users of HTTP/2 can be impacted by a remote denial of service attack. The issue has been fixed in versions 11.0.16, 10.0.16, and 9.4.53. There are no known workarounds.",
+          "Severity": "HIGH",
+          "CweIDs": [
+            "CWE-190",
+            "CWE-400"
+          ],
+          "VendorSeverity": {
+            "bitnami": 3,
+            "ghsa": 3,
+            "nvd": 3,
+            "redhat": 3
+          },
+          "CVSS": {
+            "bitnami": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+              "V3Score": 7.5
+            },
+            "ghsa": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+              "V3Score": 7.5
+            },
+            "nvd": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+              "V3Score": 7.5
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+              "V3Score": 7.5
+            }
+          },
+          "References": [
+            "http://www.openwall.com/lists/oss-security/2023/10/18/4",
+            "https://access.redhat.com/security/cve/CVE-2023-36478",
+            "https://github.com/eclipse/jetty.project",
+            "https://github.com/eclipse/jetty.project/pull/9634",
+            "https://github.com/eclipse/jetty.project/releases/tag/jetty-10.0.16",
+            "https://github.com/eclipse/jetty.project/releases/tag/jetty-11.0.16",
+            "https://github.com/eclipse/jetty.project/releases/tag/jetty-9.4.53.v20231009",
+            "https://github.com/eclipse/jetty.project/security/advisories/GHSA-wgh7-54f2-x98r",
+            "https://github.com/jetty/jetty.project/security/advisories/GHSA-wgh7-54f2-x98r",
+            "https://lists.debian.org/debian-lts-announce/2023/10/msg00045.html",
+            "https://nvd.nist.gov/vuln/detail/CVE-2023-36478",
+            "https://security.netapp.com/advisory/ntap-20231116-0011",
+            "https://security.netapp.com/advisory/ntap-20231116-0011/",
+            "https://security.netapp.com/advisory/ntap-20240621-0006",
+            "https://security.netapp.com/advisory/ntap-20240621-0006/",
+            "https://www.cve.org/CVERecord?id=CVE-2023-36478",
+            "https://www.debian.org/security/2023/dsa-5540"
+          ],
+          "PublishedDate": "2023-10-10T17:15:11.737Z",
+          "LastModifiedDate": "2024-11-21T08:09:47.717Z"
+        }
+      ]
+    }
+  ]
+}

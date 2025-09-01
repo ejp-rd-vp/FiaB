@@ -1,0 +1,1387 @@
+{
+  "SchemaVersion": 2,
+  "CreatedAt": "2025-09-01T14:01:58.696672103+02:00",
+  "ArtifactName": "fairdatasystems/gdb:2025-09-01",
+  "ArtifactType": "container_image",
+  "Metadata": {
+    "OS": {
+      "Family": "ubuntu",
+      "Name": "24.04"
+    },
+    "ImageID": "sha256:3d9bc71ce4f35a87d4bb9f15d8e2bbff06255948b97abf3e47434439674907e7",
+    "DiffIDs": [
+      "sha256:a46a5fb872b554648d9d0262f302b2c1ded46eeb1ef4dc727ecc5274605937af",
+      "sha256:edca3f566ebeec80175a71f80235ed8dc2dc1d02ce97d216b70c98bcd237ea10",
+      "sha256:85cb617515fa9afb8c21183928cf5fb53c98ab474e64515ad33c085ede42a3ca",
+      "sha256:8862a2d0f12597d6b44af2eb66003b0471c743cf4421388688347ffd4730f628",
+      "sha256:5a56e3514de9c7d24344f3a37ddb45e32efe3e748b555e77b87079f0deb497cd",
+      "sha256:d5f9d1eeb51dfc86d78004b516c4bb5bbe72585043bd19eaaa61b949a130e8d2",
+      "sha256:5f70bf18a086007016e948b04aed3b82103a36bea41755b6cddfaf10ace3c6ef",
+      "sha256:57887584431c4aee66c247626dd0c7815fc98d33068a2089aefaed41356a39fc",
+      "sha256:a1febb7676d05a3286da87dc831718e4e04e294342c771769412a541f365bb93"
+    ],
+    "RepoTags": [
+      "fairdatasystems/gdb:2025-09-01"
+    ],
+    "RepoDigests": [
+      "fairdatasystems/gdb@sha256:ec7821f5918b64314d4e8ee93f8e6f96a475e796ffe547dec74de2cbe6982ddc"
+    ],
+    "ImageConfig": {
+      "architecture": "amd64",
+      "container": "765ccc371505a356c0e32824db75877974252f7e984935cc1bb3c108a430d460",
+      "created": "2025-09-01T11:59:43.791168364Z",
+      "docker_version": "26.1.3",
+      "history": [
+        {
+          "created": "2024-10-11T03:48:01Z",
+          "created_by": "/bin/sh -c #(nop)  ARG RELEASE",
+          "empty_layer": true
+        },
+        {
+          "created": "2024-10-11T03:48:01Z",
+          "created_by": "/bin/sh -c #(nop)  ARG LAUNCHPAD_BUILD_ARCH",
+          "empty_layer": true
+        },
+        {
+          "created": "2024-10-11T03:48:01Z",
+          "created_by": "/bin/sh -c #(nop)  LABEL org.opencontainers.image.ref.name=ubuntu",
+          "empty_layer": true
+        },
+        {
+          "created": "2024-10-11T03:48:01Z",
+          "created_by": "/bin/sh -c #(nop)  LABEL org.opencontainers.image.version=24.04",
+          "empty_layer": true
+        },
+        {
+          "created": "2024-10-11T03:48:03Z",
+          "created_by": "/bin/sh -c #(nop) ADD file:34dc4f3ab7a694ecde47ff7a610be18591834c45f1d7251813267798412604e5 in / "
+        },
+        {
+          "created": "2024-10-11T03:48:04Z",
+          "created_by": "/bin/sh -c #(nop)  CMD [\"/bin/bash\"]",
+          "empty_layer": true
+        },
+        {
+          "created": "2024-10-23T15:41:32Z",
+          "created_by": "ENV JAVA_HOME=/opt/java/openjdk",
+          "comment": "buildkit.dockerfile.v0",
+          "empty_layer": true
+        },
+        {
+          "created": "2024-10-23T15:41:32Z",
+          "created_by": "ENV PATH=/opt/java/openjdk/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+          "comment": "buildkit.dockerfile.v0",
+          "empty_layer": true
+        },
+        {
+          "created": "2024-10-23T15:41:32Z",
+          "created_by": "ENV LANG=en_US.UTF-8 LANGUAGE=en_US:en LC_ALL=en_US.UTF-8",
+          "comment": "buildkit.dockerfile.v0",
+          "empty_layer": true
+        },
+        {
+          "created": "2024-10-23T15:41:32Z",
+          "created_by": "RUN /bin/sh -c set -eux;     apt-get update;     DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends         curl         wget         gnupg         fontconfig         ca-certificates p11-kit         tzdata         locales     ;     echo \"en_US.UTF-8 UTF-8\" \u003e\u003e /etc/locale.gen;     locale-gen en_US.UTF-8;     rm -rf /var/lib/apt/lists/* # buildkit",
+          "comment": "buildkit.dockerfile.v0"
+        },
+        {
+          "created": "2024-10-23T15:41:32Z",
+          "created_by": "ENV JAVA_VERSION=jdk-11.0.25+9",
+          "comment": "buildkit.dockerfile.v0",
+          "empty_layer": true
+        },
+        {
+          "created": "2024-10-23T15:41:32Z",
+          "created_by": "RUN /bin/sh -c set -eux;     ARCH=\"$(dpkg --print-architecture)\";     case \"${ARCH}\" in        amd64)          ESUM='191baa2e052627614022171400a917d28f0987dc54da48aaf07b06f552bb9884';          BINARY_URL='https://github.com/adoptium/temurin11-binaries/releases/download/jdk-11.0.25%2B9/OpenJDK11U-jdk_x64_linux_hotspot_11.0.25_9.tar.gz';          ;;        arm64)          ESUM='f2087cc3abdd509b74facf8e43e81e36244d14c70dec080b8f3a662695417ca7';          BINARY_URL='https://github.com/adoptium/temurin11-binaries/releases/download/jdk-11.0.25%2B9/OpenJDK11U-jdk_aarch64_linux_hotspot_11.0.25_9.tar.gz';          ;;        armhf)          ESUM='6bdd7da08c9f8fedded8da0411b6566c16cb9a904d164b68a0b7f11c8376673a';          BINARY_URL='https://github.com/adoptium/temurin11-binaries/releases/download/jdk-11.0.25%2B9/OpenJDK11U-jdk_arm_linux_hotspot_11.0.25_9.tar.gz';          ;;        ppc64el)          ESUM='0014ffdae26d2b8f840b4842e3f9d4edc3576b4a961770708273d8ecc86ba5b6';          BINARY_URL='https://github.com/adoptium/temurin11-binaries/releases/download/jdk-11.0.25%2B9/OpenJDK11U-jdk_ppc64le_linux_hotspot_11.0.25_9.tar.gz';          ;;        s390x)          ESUM='5fb661da82943f42a14bed94beda6d4dd3188987bd13b77e8b6f907054a73e9d';          BINARY_URL='https://github.com/adoptium/temurin11-binaries/releases/download/jdk-11.0.25%2B9/OpenJDK11U-jdk_s390x_linux_hotspot_11.0.25_9.tar.gz';          ;;        *)          echo \"Unsupported arch: ${ARCH}\";          exit 1;          ;;     esac;     wget --progress=dot:giga -O /tmp/openjdk.tar.gz ${BINARY_URL};     wget --progress=dot:giga -O /tmp/openjdk.tar.gz.sig ${BINARY_URL}.sig;     export GNUPGHOME=\"$(mktemp -d)\";     gpg --batch --keyserver keyserver.ubuntu.com --recv-keys 3B04D753C9050D9A5D343F39843C48A565F8F04B;     gpg --batch --verify /tmp/openjdk.tar.gz.sig /tmp/openjdk.tar.gz;     rm -r \"${GNUPGHOME}\" /tmp/openjdk.tar.gz.sig;     echo \"${ESUM} */tmp/openjdk.tar.gz\" | sha256sum -c -;     mkdir -p \"$JAVA_HOME\";     tar --extract         --file /tmp/openjdk.tar.gz         --directory \"$JAVA_HOME\"         --strip-components 1         --no-same-owner     ;     rm -f /tmp/openjdk.tar.gz ${JAVA_HOME}/lib/src.zip;     find \"$JAVA_HOME/lib\" -name '*.so' -exec dirname '{}' ';' | sort -u \u003e /etc/ld.so.conf.d/docker-openjdk.conf;     ldconfig;     java -Xshare:dump; # buildkit",
+          "comment": "buildkit.dockerfile.v0"
+        },
+        {
+          "created": "2024-10-23T15:41:32Z",
+          "created_by": "RUN /bin/sh -c set -eux;     echo \"Verifying install ...\";     fileEncoding=\"$(echo 'System.out.println(System.getProperty(\"file.encoding\"))' | jshell -s -)\"; [ \"$fileEncoding\" = 'UTF-8' ]; rm -rf ~/.java;     echo \"javac --version\"; javac --version;     echo \"java --version\"; java --version;     echo \"Complete.\" # buildkit",
+          "comment": "buildkit.dockerfile.v0"
+        },
+        {
+          "created": "2024-10-23T15:41:32Z",
+          "created_by": "COPY --chmod=755 entrypoint.sh /__cacert_entrypoint.sh # buildkit",
+          "comment": "buildkit.dockerfile.v0"
+        },
+        {
+          "created": "2024-10-23T15:41:32Z",
+          "created_by": "ENTRYPOINT [\"/__cacert_entrypoint.sh\"]",
+          "comment": "buildkit.dockerfile.v0",
+          "empty_layer": true
+        },
+        {
+          "created": "2024-10-23T15:41:32Z",
+          "created_by": "CMD [\"jshell\"]",
+          "comment": "buildkit.dockerfile.v0",
+          "empty_layer": true
+        },
+        {
+          "created": "2024-11-11T15:09:55Z",
+          "created_by": "ARG graphdb_parent_dir=/opt/graphdb",
+          "comment": "buildkit.dockerfile.v0",
+          "empty_layer": true
+        },
+        {
+          "created": "2024-11-11T15:09:55Z",
+          "created_by": "ENV GRAPHDB_HOME=/opt/graphdb/home",
+          "comment": "buildkit.dockerfile.v0",
+          "empty_layer": true
+        },
+        {
+          "created": "2024-11-11T15:09:55Z",
+          "created_by": "ENV GRAPHDB_INSTALL_DIR=/opt/graphdb/dist",
+          "comment": "buildkit.dockerfile.v0",
+          "empty_layer": true
+        },
+        {
+          "created": "2024-11-11T15:09:55Z",
+          "created_by": "ENV PATH=/opt/graphdb/dist/bin:/opt/java/openjdk/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+          "comment": "buildkit.dockerfile.v0",
+          "empty_layer": true
+        },
+        {
+          "created": "2024-11-11T15:09:55Z",
+          "created_by": "COPY graphdb/ /opt/graphdb/dist/ # buildkit",
+          "comment": "buildkit.dockerfile.v0"
+        },
+        {
+          "created": "2024-11-11T15:09:55Z",
+          "created_by": "WORKDIR /tmp",
+          "comment": "buildkit.dockerfile.v0"
+        },
+        {
+          "created": "2024-11-11T15:09:59Z",
+          "created_by": "RUN |1 graphdb_parent_dir=/opt/graphdb /bin/sh -c apt-get update \u0026\u0026     apt-get install -y net-tools less \u0026\u0026     mkdir -p ${GRAPHDB_HOME} \u0026\u0026     apt-get clean # buildkit",
+          "comment": "buildkit.dockerfile.v0"
+        },
+        {
+          "created": "2024-11-11T15:09:59Z",
+          "created_by": "ENTRYPOINT [\"/opt/graphdb/dist/bin/graphdb\"]",
+          "comment": "buildkit.dockerfile.v0",
+          "empty_layer": true
+        },
+        {
+          "created": "2024-11-11T15:09:59Z",
+          "created_by": "CMD [\"-Dgraphdb.home=/opt/graphdb/home\" \"-Dgraphdb.distribution=docker\"]",
+          "comment": "buildkit.dockerfile.v0",
+          "empty_layer": true
+        },
+        {
+          "created": "2024-11-11T15:09:59Z",
+          "created_by": "EXPOSE map[7200/tcp:{}]",
+          "comment": "buildkit.dockerfile.v0",
+          "empty_layer": true
+        },
+        {
+          "created": "2024-11-11T15:09:59Z",
+          "created_by": "EXPOSE map[7300/tcp:{}]",
+          "comment": "buildkit.dockerfile.v0",
+          "empty_layer": true
+        },
+        {
+          "created": "2025-09-01T11:59:43Z",
+          "created_by": "-Dgraphdb.home=/opt/graphdb/home -Dgraphdb.distribution=docker"
+        }
+      ],
+      "os": "linux",
+      "rootfs": {
+        "type": "layers",
+        "diff_ids": [
+          "sha256:a46a5fb872b554648d9d0262f302b2c1ded46eeb1ef4dc727ecc5274605937af",
+          "sha256:edca3f566ebeec80175a71f80235ed8dc2dc1d02ce97d216b70c98bcd237ea10",
+          "sha256:85cb617515fa9afb8c21183928cf5fb53c98ab474e64515ad33c085ede42a3ca",
+          "sha256:8862a2d0f12597d6b44af2eb66003b0471c743cf4421388688347ffd4730f628",
+          "sha256:5a56e3514de9c7d24344f3a37ddb45e32efe3e748b555e77b87079f0deb497cd",
+          "sha256:d5f9d1eeb51dfc86d78004b516c4bb5bbe72585043bd19eaaa61b949a130e8d2",
+          "sha256:5f70bf18a086007016e948b04aed3b82103a36bea41755b6cddfaf10ace3c6ef",
+          "sha256:57887584431c4aee66c247626dd0c7815fc98d33068a2089aefaed41356a39fc",
+          "sha256:a1febb7676d05a3286da87dc831718e4e04e294342c771769412a541f365bb93"
+        ]
+      },
+      "config": {
+        "Cmd": [
+          "-Dgraphdb.home=/opt/graphdb/home",
+          "-Dgraphdb.distribution=docker"
+        ],
+        "Entrypoint": [
+          "/opt/graphdb/dist/bin/graphdb"
+        ],
+        "Env": [
+          "PATH=/opt/graphdb/dist/bin:/opt/java/openjdk/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+          "JAVA_HOME=/opt/java/openjdk",
+          "LANG=en_US.UTF-8",
+          "LANGUAGE=en_US:en",
+          "LC_ALL=en_US.UTF-8",
+          "JAVA_VERSION=jdk-11.0.25+9",
+          "GRAPHDB_HOME=/opt/graphdb/home",
+          "GRAPHDB_INSTALL_DIR=/opt/graphdb/dist"
+        ],
+        "Hostname": "765ccc371505",
+        "Image": "ontotext/graphdb:10.8.0",
+        "Labels": {
+          "org.opencontainers.image.ref.name": "ubuntu",
+          "org.opencontainers.image.version": "24.04"
+        },
+        "WorkingDir": "/tmp"
+      }
+    }
+  },
+  "Results": [
+    {
+      "Target": "fairdatasystems/gdb:2025-09-01 (ubuntu 24.04)",
+      "Class": "os-pkgs",
+      "Type": "ubuntu"
+    },
+    {
+      "Target": "Java",
+      "Class": "lang-pkgs",
+      "Type": "jar",
+      "Vulnerabilities": [
+        {
+          "VulnerabilityID": "CVE-2025-48734",
+          "PkgName": "commons-beanutils:commons-beanutils",
+          "PkgPath": "opt/graphdb/dist/lib/commons-beanutils-1.9.4.jar",
+          "PkgIdentifier": {
+            "PURL": "pkg:maven/commons-beanutils/commons-beanutils@1.9.4"
+          },
+          "InstalledVersion": "1.9.4",
+          "FixedVersion": "1.11.0",
+          "Status": "fixed",
+          "Layer": {
+            "DiffID": "sha256:d5f9d1eeb51dfc86d78004b516c4bb5bbe72585043bd19eaaa61b949a130e8d2"
+          },
+          "SeveritySource": "ghsa",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2025-48734",
+          "DataSource": {
+            "ID": "ghsa",
+            "Name": "GitHub Security Advisory Maven",
+            "URL": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Amaven"
+          },
+          "Title": "commons-beanutils: Apache Commons BeanUtils: PropertyUtilsBean does not suppresses an enum's declaredClass property by default",
+          "Description": "Improper Access Control vulnerability in Apache Commons.\n\n\n\nA special BeanIntrospector class was added in version 1.9.2. This can be used to stop attackers from using the declared class property of Java enum objects to get access to the classloader. However this protection was not enabled by default. PropertyUtilsBean (and consequently BeanUtilsBean) now disallows declared class level property access by default.\n\n\n\n\n\nReleases 1.11.0 and 2.0.0-M2 address a potential security issue when accessing enum properties in an uncontrolled way. If an application using Commons BeanUtils passes property paths from an external source directly to the getProperty() method of PropertyUtilsBean, an attacker can access the enum’s class loader via the “declaredClass” property available on all Java “enum” objects. Accessing the enum’s “declaredClass” allows remote attackers to access the ClassLoader and execute arbitrary code. The same issue exists with PropertyUtilsBean.getNestedProperty().\nStarting in versions 1.11.0 and 2.0.0-M2 a special BeanIntrospector suppresses the “declaredClass” property. Note that this new BeanIntrospector is enabled by default, but you can disable it to regain the old behavior; see section 2.5 of the user's guide and the unit tests.\n\nThis issue affects Apache Commons BeanUtils 1.x before 1.11.0, and 2.x before 2.0.0-M2.Users of the artifact commons-beanutils:commons-beanutils\n\n 1.x are recommended to upgrade to version 1.11.0, which fixes the issue.\n\n\nUsers of the artifact org.apache.commons:commons-beanutils2\n\n 2.x are recommended to upgrade to version 2.0.0-M2, which fixes the issue.",
+          "Severity": "HIGH",
+          "CweIDs": [
+            "CWE-284"
+          ],
+          "VendorSeverity": {
+            "alma": 3,
+            "amazon": 3,
+            "ghsa": 3,
+            "oracle-oval": 3,
+            "redhat": 3
+          },
+          "CVSS": {
+            "ghsa": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+              "V3Score": 8.8
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+              "V3Score": 8.8
+            }
+          },
+          "References": [
+            "http://www.openwall.com/lists/oss-security/2025/05/28/6",
+            "https://access.redhat.com/errata/RHSA-2025:9166",
+            "https://access.redhat.com/security/cve/CVE-2025-48734",
+            "https://bugzilla.redhat.com/2368956",
+            "https://errata.almalinux.org/10/ALSA-2025-9166.html",
+            "https://github.com/advisories/GHSA-wxr5-93ph-8wr9",
+            "https://github.com/apache/commons-beanutils",
+            "https://github.com/apache/commons-beanutils/commit/28ad955a1613ed5885870cc7da52093c1ce739dc",
+            "https://github.com/apache/commons-beanutils/commit/bd20740da25b69552ddef8523beec0837297eaf9",
+            "https://linux.oracle.com/cve/CVE-2025-48734.html",
+            "https://linux.oracle.com/errata/ELSA-2025-9318.html",
+            "https://lists.apache.org/thread/s0hb3jkfj5f3ryx6c57zqtfohb0of1g9",
+            "https://nvd.nist.gov/vuln/detail/CVE-2025-48734",
+            "https://www.cve.org/CVERecord?id=CVE-2025-48734",
+            "https://www.openwall.com/lists/oss-security/2025/05/28/6"
+          ],
+          "PublishedDate": "2025-05-28T14:15:34.07Z",
+          "LastModifiedDate": "2025-06-09T18:56:26.37Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2025-48976",
+          "PkgName": "commons-fileupload:commons-fileupload",
+          "PkgPath": "opt/graphdb/dist/lib/commons-fileupload-1.5.jar",
+          "PkgIdentifier": {
+            "PURL": "pkg:maven/commons-fileupload/commons-fileupload@1.5"
+          },
+          "InstalledVersion": "1.5",
+          "FixedVersion": "1.6.0",
+          "Status": "fixed",
+          "Layer": {
+            "DiffID": "sha256:d5f9d1eeb51dfc86d78004b516c4bb5bbe72585043bd19eaaa61b949a130e8d2"
+          },
+          "SeveritySource": "ghsa",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2025-48976",
+          "DataSource": {
+            "ID": "ghsa",
+            "Name": "GitHub Security Advisory Maven",
+            "URL": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Amaven"
+          },
+          "Title": "apache-commons-fileupload: Apache Commons FileUpload DoS via part headers",
+          "Description": "Allocation of resources for multipart headers with insufficient limits enabled a DoS vulnerability in Apache Commons FileUpload.\n\nThis issue affects Apache Commons FileUpload: from 1.0 before 1.6; from 2.0.0-M1 before 2.0.0-M4.\n\nUsers are recommended to upgrade to versions 1.6 or 2.0.0-M4, which fix the issue.",
+          "Severity": "HIGH",
+          "CweIDs": [
+            "CWE-770"
+          ],
+          "VendorSeverity": {
+            "alma": 3,
+            "amazon": 3,
+            "ghsa": 3,
+            "oracle-oval": 3,
+            "redhat": 2,
+            "ubuntu": 2
+          },
+          "CVSS": {
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L",
+              "V3Score": 5.3
+            }
+          },
+          "References": [
+            "http://www.openwall.com/lists/oss-security/2025/06/16/4",
+            "https://access.redhat.com/errata/RHSA-2025:14178",
+            "https://access.redhat.com/security/cve/CVE-2025-48976",
+            "https://bugzilla.redhat.com/2373015",
+            "https://bugzilla.redhat.com/2373018",
+            "https://bugzilla.redhat.com/2373020",
+            "https://bugzilla.redhat.com/2373309",
+            "https://bugzilla.redhat.com/2379374",
+            "https://bugzilla.redhat.com/2379382",
+            "https://bugzilla.redhat.com/2379386",
+            "https://errata.almalinux.org/10/ALSA-2025-14178.html",
+            "https://github.com/apache/commons-fileupload",
+            "https://github.com/apache/commons-fileupload/commit/2108495a4775910b8559f18ed5a779d60542ee96 (commons-fileupload-1.6.0-RC1)",
+            "https://github.com/apache/commons-fileupload/commit/b247774a72a044f5d5380ae947140ee80af4e78b",
+            "https://github.com/apache/commons-fileupload/commit/bf68f63cfb312ef4710fb3dfb4d8e4e1665f4497",
+            "https://github.com/apache/tomcat/commit/667ddd76e2a0e762f3a784d86f0d25e7fd7cdb86 (10.1.42)",
+            "https://github.com/apache/tomcat/commit/74f69ffaf61e54c727603e7e831fe20f0ac5d2a7 (11.0.8)",
+            "https://github.com/apache/tomcat/commit/97790a35a27d236fa053e660676c3f8196284d93",
+            "https://github.com/apache/tomcat/commit/97790a35a27d236fa053e660676c3f8196284d93 (9.0.106)",
+            "https://linux.oracle.com/cve/CVE-2025-48976.html",
+            "https://linux.oracle.com/errata/ELSA-2025-14181.html",
+            "https://lists.apache.org/thread/fbs3wrr3p67vkjcxogqqqqz45pqtso12",
+            "https://nvd.nist.gov/vuln/detail/CVE-2025-48976",
+            "https://www.cve.org/CVERecord?id=CVE-2025-48976"
+          ],
+          "PublishedDate": "2025-06-16T15:15:24.46Z",
+          "LastModifiedDate": "2025-07-15T14:21:41.997Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2025-55163",
+          "PkgName": "io.netty:netty-codec-http2",
+          "PkgPath": "opt/graphdb/dist/lib/netty-codec-http2-4.1.110.Final.jar",
+          "PkgIdentifier": {
+            "PURL": "pkg:maven/io.netty/netty-codec-http2@4.1.110.Final"
+          },
+          "InstalledVersion": "4.1.110.Final",
+          "FixedVersion": "4.2.4.Final, 4.1.124.Final",
+          "Status": "fixed",
+          "Layer": {
+            "DiffID": "sha256:d5f9d1eeb51dfc86d78004b516c4bb5bbe72585043bd19eaaa61b949a130e8d2"
+          },
+          "SeveritySource": "ghsa",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2025-55163",
+          "DataSource": {
+            "ID": "ghsa",
+            "Name": "GitHub Security Advisory Maven",
+            "URL": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Amaven"
+          },
+          "Title": "netty: netty-codec-http2: Netty MadeYouReset HTTP/2 DDoS Vulnerability",
+          "Description": "Netty is an asynchronous, event-driven network application framework. Prior to versions 4.1.124.Final and 4.2.4.Final, Netty is vulnerable to MadeYouReset DDoS. This is a logical vulnerability in the HTTP/2 protocol, that uses malformed HTTP/2 control frames in order to break the max concurrent streams limit - which results in resource exhaustion and distributed denial of service. This issue has been patched in versions 4.1.124.Final and 4.2.4.Final.",
+          "Severity": "HIGH",
+          "CweIDs": [
+            "CWE-770"
+          ],
+          "VendorSeverity": {
+            "ghsa": 3,
+            "redhat": 3
+          },
+          "CVSS": {
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+              "V3Score": 7.5
+            }
+          },
+          "References": [
+            "https://access.redhat.com/security/cve/CVE-2025-55163",
+            "https://github.com/netty/netty",
+            "https://github.com/netty/netty/security/advisories/GHSA-prj3-ccx8-p6x4",
+            "https://kb.cert.org/vuls/id/767506",
+            "https://nvd.nist.gov/vuln/detail/CVE-2025-55163",
+            "https://www.cve.org/CVERecord?id=CVE-2025-55163"
+          ],
+          "PublishedDate": "2025-08-13T15:15:39.39Z",
+          "LastModifiedDate": "2025-08-13T17:33:46.673Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2025-24970",
+          "PkgName": "io.netty:netty-handler",
+          "PkgPath": "opt/graphdb/dist/lib/netty-handler-4.1.110.Final.jar",
+          "PkgIdentifier": {
+            "PURL": "pkg:maven/io.netty/netty-handler@4.1.110.Final"
+          },
+          "InstalledVersion": "4.1.110.Final",
+          "FixedVersion": "4.1.118.Final",
+          "Status": "fixed",
+          "Layer": {
+            "DiffID": "sha256:d5f9d1eeb51dfc86d78004b516c4bb5bbe72585043bd19eaaa61b949a130e8d2"
+          },
+          "SeveritySource": "ghsa",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2025-24970",
+          "DataSource": {
+            "ID": "ghsa",
+            "Name": "GitHub Security Advisory Maven",
+            "URL": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Amaven"
+          },
+          "Title": "io.netty:netty-handler: SslHandler doesn't correctly validate packets which can lead to native crash when using native SSLEngine",
+          "Description": "Netty, an asynchronous, event-driven network application framework, has a vulnerability starting in version 4.1.91.Final and prior to version 4.1.118.Final. When a special crafted packet is received via SslHandler it doesn't correctly handle validation of such a packet in all cases which can lead to a native crash. Version 4.1.118.Final contains a patch. As workaround its possible to either disable the usage of the native SSLEngine or change the code manually.",
+          "Severity": "HIGH",
+          "CweIDs": [
+            "CWE-20"
+          ],
+          "VendorSeverity": {
+            "ghsa": 3,
+            "redhat": 3
+          },
+          "CVSS": {
+            "ghsa": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+              "V3Score": 7.5
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+              "V3Score": 7.5
+            }
+          },
+          "References": [
+            "https://access.redhat.com/security/cve/CVE-2025-24970",
+            "https://github.com/netty/netty",
+            "https://github.com/netty/netty/commit/87f40725155b2f89adfde68c7732f97c153676c4",
+            "https://github.com/netty/netty/security/advisories/GHSA-4g8c-wm8x-jfhw",
+            "https://nvd.nist.gov/vuln/detail/CVE-2025-24970",
+            "https://security.netapp.com/advisory/ntap-20250221-0005",
+            "https://security.netapp.com/advisory/ntap-20250221-0005/",
+            "https://www.cve.org/CVERecord?id=CVE-2025-24970",
+            "https://www.vicarius.io/vsociety/posts/cve-2025-24970-netty-vulnerability-detection",
+            "https://www.vicarius.io/vsociety/posts/cve-2025-24970-netty-vulnerability-mitigation"
+          ],
+          "PublishedDate": "2025-02-10T22:15:38.057Z",
+          "LastModifiedDate": "2025-04-16T16:15:30.067Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2025-24970",
+          "PkgName": "io.netty:netty-handler",
+          "PkgPath": "opt/graphdb/dist/lib/plugins/solr-connector/netty-handler.jar",
+          "PkgIdentifier": {
+            "PURL": "pkg:maven/io.netty/netty-handler@4.1.110.Final"
+          },
+          "InstalledVersion": "4.1.110.Final",
+          "FixedVersion": "4.1.118.Final",
+          "Status": "fixed",
+          "Layer": {
+            "DiffID": "sha256:d5f9d1eeb51dfc86d78004b516c4bb5bbe72585043bd19eaaa61b949a130e8d2"
+          },
+          "SeveritySource": "ghsa",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2025-24970",
+          "DataSource": {
+            "ID": "ghsa",
+            "Name": "GitHub Security Advisory Maven",
+            "URL": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Amaven"
+          },
+          "Title": "io.netty:netty-handler: SslHandler doesn't correctly validate packets which can lead to native crash when using native SSLEngine",
+          "Description": "Netty, an asynchronous, event-driven network application framework, has a vulnerability starting in version 4.1.91.Final and prior to version 4.1.118.Final. When a special crafted packet is received via SslHandler it doesn't correctly handle validation of such a packet in all cases which can lead to a native crash. Version 4.1.118.Final contains a patch. As workaround its possible to either disable the usage of the native SSLEngine or change the code manually.",
+          "Severity": "HIGH",
+          "CweIDs": [
+            "CWE-20"
+          ],
+          "VendorSeverity": {
+            "ghsa": 3,
+            "redhat": 3
+          },
+          "CVSS": {
+            "ghsa": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+              "V3Score": 7.5
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+              "V3Score": 7.5
+            }
+          },
+          "References": [
+            "https://access.redhat.com/security/cve/CVE-2025-24970",
+            "https://github.com/netty/netty",
+            "https://github.com/netty/netty/commit/87f40725155b2f89adfde68c7732f97c153676c4",
+            "https://github.com/netty/netty/security/advisories/GHSA-4g8c-wm8x-jfhw",
+            "https://nvd.nist.gov/vuln/detail/CVE-2025-24970",
+            "https://security.netapp.com/advisory/ntap-20250221-0005",
+            "https://security.netapp.com/advisory/ntap-20250221-0005/",
+            "https://www.cve.org/CVERecord?id=CVE-2025-24970",
+            "https://www.vicarius.io/vsociety/posts/cve-2025-24970-netty-vulnerability-detection",
+            "https://www.vicarius.io/vsociety/posts/cve-2025-24970-netty-vulnerability-mitigation"
+          ],
+          "PublishedDate": "2025-02-10T22:15:38.057Z",
+          "LastModifiedDate": "2025-04-16T16:15:30.067Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2024-57699",
+          "PkgName": "net.minidev:json-smart",
+          "PkgPath": "opt/graphdb/dist/lib/json-smart-2.5.0.jar",
+          "PkgIdentifier": {
+            "PURL": "pkg:maven/net.minidev/json-smart@2.5.0"
+          },
+          "InstalledVersion": "2.5.0",
+          "FixedVersion": "2.5.2",
+          "Status": "fixed",
+          "Layer": {
+            "DiffID": "sha256:d5f9d1eeb51dfc86d78004b516c4bb5bbe72585043bd19eaaa61b949a130e8d2"
+          },
+          "SeveritySource": "ghsa",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2024-57699",
+          "DataSource": {
+            "ID": "ghsa",
+            "Name": "GitHub Security Advisory Maven",
+            "URL": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Amaven"
+          },
+          "Title": "json-smart: Potential DoS via stack exhaustion (incomplete fix for CVE-2023-1370)",
+          "Description": "A security issue was found in Netplex Json-smart 2.5.0 through 2.5.1. When loading a specially crafted JSON input, containing a large number of ’{’, a stack exhaustion can be trigger, which could allow an attacker to cause a Denial of Service (DoS). This issue exists because of an incomplete fix for CVE-2023-1370.",
+          "Severity": "HIGH",
+          "CweIDs": [
+            "CWE-674"
+          ],
+          "VendorSeverity": {
+            "ghsa": 3,
+            "redhat": 3
+          },
+          "CVSS": {
+            "ghsa": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+              "V3Score": 7.5
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+              "V3Score": 7.5
+            }
+          },
+          "References": [
+            "https://access.redhat.com/security/cve/CVE-2024-57699",
+            "https://github.com/TurtleLiu/Vul_PoC/tree/main/CVE-2024-57699",
+            "https://github.com/netplex/json-smart-v2",
+            "https://github.com/netplex/json-smart-v2/issues/232",
+            "https://github.com/netplex/json-smart-v2/issues/233",
+            "https://github.com/netplex/json-smart-v2/issues/236",
+            "https://github.com/netplex/json-smart-v2/releases/tag/2.5.2",
+            "https://nvd.nist.gov/vuln/detail/CVE-2024-57699",
+            "https://nvd.nist.gov/vuln/detail/cve-2023-1370",
+            "https://www.cve.org/CVERecord?id=CVE-2024-57699"
+          ],
+          "PublishedDate": "2025-02-05T22:15:33.183Z",
+          "LastModifiedDate": "2025-02-06T16:15:41.17Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2025-24813",
+          "PkgName": "org.apache.tomcat.embed:tomcat-embed-core",
+          "PkgPath": "opt/graphdb/dist/lib/tomcat-embed-core-9.0.90.jar",
+          "PkgIdentifier": {
+            "PURL": "pkg:maven/org.apache.tomcat.embed/tomcat-embed-core@9.0.90"
+          },
+          "InstalledVersion": "9.0.90",
+          "FixedVersion": "11.0.3, 10.1.35, 9.0.99",
+          "Status": "fixed",
+          "Layer": {
+            "DiffID": "sha256:d5f9d1eeb51dfc86d78004b516c4bb5bbe72585043bd19eaaa61b949a130e8d2"
+          },
+          "SeveritySource": "ghsa",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2025-24813",
+          "DataSource": {
+            "ID": "ghsa",
+            "Name": "GitHub Security Advisory Maven",
+            "URL": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Amaven"
+          },
+          "Title": "tomcat: Potential RCE and/or information disclosure and/or information corruption with partial PUT",
+          "Description": "Path Equivalence: 'file.Name' (Internal Dot) leading to Remote Code Execution and/or Information disclosure and/or malicious content added to uploaded files via write enabled Default Servlet in Apache Tomcat.\n\nThis issue affects Apache Tomcat: from 11.0.0-M1 through 11.0.2, from 10.1.0-M1 through 10.1.34, from 9.0.0.M1 through 9.0.98.\nThe following versions were EOL at the time the CVE was created but are \nknown to be affected: 8.5.0 though 8.5.100. Other, older, EOL versions \nmay also be affected.\n\n\nIf all of the following were true, a malicious user was able to view       security sensitive files and/or inject content into those files:\n- writes enabled for the default servlet (disabled by default)\n- support for partial PUT (enabled by default)\n- a target URL for security sensitive uploads that was a sub-directory of a target URL for public uploads\n- attacker knowledge of the names of security sensitive files being uploaded\n- the security sensitive files also being uploaded via partial PUT\n\nIf all of the following were true, a malicious user was able to       perform remote code execution:\n- writes enabled for the default servlet (disabled by default)\n- support for partial PUT (enabled by default)\n- application was using Tomcat's file based session persistence with the default storage location\n- application included a library that may be leveraged in a deserialization attack\n\nUsers are recommended to upgrade to version 11.0.3, 10.1.35 or 9.0.99, which fixes the issue.",
+          "Severity": "CRITICAL",
+          "CweIDs": [
+            "CWE-44",
+            "CWE-502",
+            "CWE-706"
+          ],
+          "VendorSeverity": {
+            "alma": 2,
+            "amazon": 3,
+            "bitnami": 4,
+            "ghsa": 4,
+            "nvd": 4,
+            "oracle-oval": 2,
+            "photon": 4,
+            "redhat": 2,
+            "rocky": 2,
+            "ubuntu": 3
+          },
+          "CVSS": {
+            "bitnami": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+              "V3Score": 9.8
+            },
+            "ghsa": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+              "V3Score": 9.8
+            },
+            "nvd": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+              "V3Score": 9.8
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:L/A:L",
+              "V3Score": 8.6
+            }
+          },
+          "References": [
+            "http://www.openwall.com/lists/oss-security/2025/03/10/5",
+            "https://access.redhat.com/errata/RHSA-2025:7497",
+            "https://access.redhat.com/security/cve/CVE-2025-24813",
+            "https://bugzilla.redhat.com/2326972",
+            "https://bugzilla.redhat.com/2332815",
+            "https://bugzilla.redhat.com/2351129",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=2332817",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=2351129",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-50379",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-24813",
+            "https://errata.almalinux.org/10/ALSA-2025-7497.html",
+            "https://errata.rockylinux.org/RLSA-2025:3683",
+            "https://github.com/absholi7ly/POC-CVE-2025-24813/blob/main/README.md",
+            "https://github.com/apache/tomcat",
+            "https://github.com/apache/tomcat/commit/0a668e0c27f2b7ca0cc7c6eea32253b9b5ecb29c",
+            "https://github.com/apache/tomcat/commit/eb61aade8f8daccaecabf07d428b877975622f72",
+            "https://github.com/apache/tomcat/commit/f6c01d6577cf9a1e06792be47e623d36acc3b5dc",
+            "https://linux.oracle.com/cve/CVE-2025-24813.html",
+            "https://linux.oracle.com/errata/ELSA-2025-7497.html",
+            "https://lists.apache.org/thread/j5fkjv2k477os90nczf2v9l61fb0kkgq",
+            "https://lists.debian.org/debian-lts-announce/2025/04/msg00003.html",
+            "https://nvd.nist.gov/vuln/detail/CVE-2025-24813",
+            "https://security.netapp.com/advisory/ntap-20250321-0001",
+            "https://security.netapp.com/advisory/ntap-20250321-0001/",
+            "https://ubuntu.com/security/notices/USN-7525-1",
+            "https://ubuntu.com/security/notices/USN-7525-2",
+            "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+            "https://www.cve.org/CVERecord?id=CVE-2025-24813",
+            "https://www.vicarius.io/vsociety/posts/cve-2025-24813-detect-apache-tomcat-rce",
+            "https://www.vicarius.io/vsociety/posts/cve-2025-24813-mitigate-apache-tomcat-rce",
+            "https://www.vicarius.io/vsociety/posts/cve-2025-24813-tomcat-detect-vulnerability",
+            "https://www.vicarius.io/vsociety/posts/cve-2025-24813-tomcat-mitigation-vulnerability"
+          ],
+          "PublishedDate": "2025-03-10T17:15:35.067Z",
+          "LastModifiedDate": "2025-08-08T17:56:59.513Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2024-50379",
+          "PkgName": "org.apache.tomcat.embed:tomcat-embed-core",
+          "PkgPath": "opt/graphdb/dist/lib/tomcat-embed-core-9.0.90.jar",
+          "PkgIdentifier": {
+            "PURL": "pkg:maven/org.apache.tomcat.embed/tomcat-embed-core@9.0.90"
+          },
+          "InstalledVersion": "9.0.90",
+          "FixedVersion": "11.0.2, 10.1.34, 9.0.98",
+          "Status": "fixed",
+          "Layer": {
+            "DiffID": "sha256:d5f9d1eeb51dfc86d78004b516c4bb5bbe72585043bd19eaaa61b949a130e8d2"
+          },
+          "SeveritySource": "ghsa",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2024-50379",
+          "DataSource": {
+            "ID": "ghsa",
+            "Name": "GitHub Security Advisory Maven",
+            "URL": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Amaven"
+          },
+          "Title": "tomcat: RCE due to TOCTOU issue in JSP compilation",
+          "Description": "Time-of-check Time-of-use (TOCTOU) Race Condition vulnerability during JSP compilation in Apache Tomcat permits an RCE on case insensitive file systems when the default servlet is enabled for write (non-default configuration).\n\nThis issue affects Apache Tomcat: from 11.0.0-M1 through 11.0.1, from 10.1.0-M1 through 10.1.33, from 9.0.0.M1 through 9.0.97.\n\nThe following versions were EOL at the time the CVE was created but are \nknown to be affected: 8.5.0 though 8.5.100. Other, older, EOL versions may also be affected.\n\nUsers are recommended to upgrade to version 11.0.2, 10.1.34 or 9.0.98, which fixes the issue.",
+          "Severity": "HIGH",
+          "CweIDs": [
+            "CWE-367"
+          ],
+          "VendorSeverity": {
+            "alma": 2,
+            "amazon": 3,
+            "bitnami": 4,
+            "ghsa": 3,
+            "oracle-oval": 2,
+            "photon": 4,
+            "redhat": 2,
+            "rocky": 2,
+            "ubuntu": 2
+          },
+          "CVSS": {
+            "bitnami": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+              "V3Score": 9.8
+            },
+            "ghsa": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+              "V3Score": 9.8
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H",
+              "V3Score": 8.1
+            }
+          },
+          "References": [
+            "http://www.openwall.com/lists/oss-security/2024/12/17/4",
+            "http://www.openwall.com/lists/oss-security/2024/12/18/2",
+            "https://access.redhat.com/errata/RHSA-2025:3645",
+            "https://access.redhat.com/security/cve/CVE-2024-50379",
+            "https://bugzilla.redhat.com/2332817",
+            "https://bugzilla.redhat.com/2351129",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=2332817",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=2351129",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-50379",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-24813",
+            "https://errata.almalinux.org/9/ALSA-2025-3645.html",
+            "https://errata.rockylinux.org/RLSA-2025:3683",
+            "https://github.com/apache/tomcat",
+            "https://github.com/apache/tomcat/commit/05ddeeaa54df1e2dc427d0164bedd6b79f78d81f",
+            "https://github.com/apache/tomcat/commit/05ddeeaa54df1e2dc427d0164bedd6b79f78d81f (10.1.34)",
+            "https://github.com/apache/tomcat/commit/43b507ebac9d268b1ea3d908e296cc6e46795c00",
+            "https://github.com/apache/tomcat/commit/43b507ebac9d268b1ea3d908e296cc6e46795c00 (9.0.98)",
+            "https://github.com/apache/tomcat/commit/631500b0c9b2a2a2abb707e3de2e10a5936e5d41",
+            "https://github.com/apache/tomcat/commit/631500b0c9b2a2a2abb707e3de2e10a5936e5d41 (9.0.98)",
+            "https://github.com/apache/tomcat/commit/684247ae85fa633b9197b32391de59fc54703842",
+            "https://github.com/apache/tomcat/commit/8554f6b1722b33a2ce8b0a3fad37825f3a75f2d2",
+            "https://github.com/apache/tomcat/commit/8554f6b1722b33a2ce8b0a3fad37825f3a75f2d2 (10.1.34)",
+            "https://github.com/apache/tomcat/commit/cc7a98b57c6dc1df21979fcff94a36e068f4456c",
+            "https://linux.oracle.com/cve/CVE-2024-50379.html",
+            "https://linux.oracle.com/errata/ELSA-2025-3683.html",
+            "https://lists.apache.org/thread/y6lj6q1xnp822g6ro70tn19sgtjmr80r",
+            "https://nvd.nist.gov/vuln/detail/CVE-2024-50379",
+            "https://security.netapp.com/advisory/ntap-20250103-0003",
+            "https://security.netapp.com/advisory/ntap-20250103-0003/",
+            "https://tomcat.apache.org/security-10.html#Fixed_in_Apache_Tomcat_10.1.34",
+            "https://tomcat.apache.org/security-11.html#Fixed_in_Apache_Tomcat_11.0.2",
+            "https://tomcat.apache.org/security-9.html#Fixed_in_Apache_Tomcat_9.0.98",
+            "https://ubuntu.com/security/notices/USN-7705-1",
+            "https://www.cve.org/CVERecord?id=CVE-2024-50379"
+          ],
+          "PublishedDate": "2024-12-17T13:15:18.81Z",
+          "LastModifiedDate": "2025-08-08T12:15:25.913Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2024-56337",
+          "PkgName": "org.apache.tomcat.embed:tomcat-embed-core",
+          "PkgPath": "opt/graphdb/dist/lib/tomcat-embed-core-9.0.90.jar",
+          "PkgIdentifier": {
+            "PURL": "pkg:maven/org.apache.tomcat.embed/tomcat-embed-core@9.0.90"
+          },
+          "InstalledVersion": "9.0.90",
+          "FixedVersion": "11.0.2, 10.1.34, 9.0.98",
+          "Status": "fixed",
+          "Layer": {
+            "DiffID": "sha256:d5f9d1eeb51dfc86d78004b516c4bb5bbe72585043bd19eaaa61b949a130e8d2"
+          },
+          "SeveritySource": "ghsa",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2024-56337",
+          "DataSource": {
+            "ID": "ghsa",
+            "Name": "GitHub Security Advisory Maven",
+            "URL": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Amaven"
+          },
+          "Title": "tomcat: Incomplete fix for CVE-2024-50379 - RCE due to TOCTOU issue in JSP compilation",
+          "Description": "Time-of-check Time-of-use (TOCTOU) Race Condition vulnerability in Apache Tomcat.\n\nThis issue affects Apache Tomcat: from 11.0.0-M1 through 11.0.1, from 10.1.0-M1 through 10.1.33, from 9.0.0.M1 through 9.0.97.\nThe following versions were EOL at the time the CVE was created but are \nknown to be affected: 8.5.0 though 8.5.100. Other, older, EOL versions \nmay also be affected.\n\n\nThe mitigation for CVE-2024-50379 was incomplete.\n\nUsers running Tomcat on a case insensitive file system with the default servlet write enabled (readonly initialisation \nparameter set to the non-default value of false) may need additional configuration to fully mitigate CVE-2024-50379 depending on which version of Java they are using with Tomcat:\n- running on Java 8 or Java 11: the system property sun.io.useCanonCaches must be explicitly set to false (it defaults to true)\n- running on Java 17: the system property sun.io.useCanonCaches, if set, must be set to false (it defaults to false)\n- running on Java 21 onwards: no further configuration is required (the system property and the problematic cache have been removed)\n\nTomcat 11.0.3, 10.1.35 and 9.0.99 onwards will include checks that sun.io.useCanonCaches is set appropriately before allowing the default servlet to be write enabled on a case insensitive file system. Tomcat will also set sun.io.useCanonCaches to false by default where it can.",
+          "Severity": "HIGH",
+          "CweIDs": [
+            "CWE-367"
+          ],
+          "VendorSeverity": {
+            "alma": 3,
+            "amazon": 3,
+            "bitnami": 4,
+            "ghsa": 3,
+            "oracle-oval": 3,
+            "photon": 4,
+            "redhat": 2,
+            "rocky": 3,
+            "ubuntu": 2
+          },
+          "CVSS": {
+            "bitnami": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+              "V3Score": 9.8
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H",
+              "V3Score": 8.1
+            }
+          },
+          "References": [
+            "https://access.redhat.com/errata/RHSA-2025:11332",
+            "https://access.redhat.com/security/cve/CVE-2024-56337",
+            "https://bugzilla.redhat.com/2333521",
+            "https://bugzilla.redhat.com/2362783",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=2333521",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=2362783",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-56337",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-31650",
+            "https://errata.almalinux.org/10/ALSA-2025-11332.html",
+            "https://errata.rockylinux.org/RLSA-2025:11333",
+            "https://github.com/apache/tomcat",
+            "https://linux.oracle.com/cve/CVE-2024-56337.html",
+            "https://linux.oracle.com/errata/ELSA-2025-11335.html",
+            "https://lists.apache.org/thread/b2b9qrgjrz1kvo4ym8y2wkfdvwoq6qbp",
+            "https://nvd.nist.gov/vuln/detail/CVE-2024-56337",
+            "https://security.netapp.com/advisory/ntap-20250103-0002",
+            "https://security.netapp.com/advisory/ntap-20250103-0002/",
+            "https://tomcat.apache.org/security-10.html#Fixed_in_Apache_Tomcat_10.1.34",
+            "https://tomcat.apache.org/security-11.html#Fixed_in_Apache_Tomcat_11.0.2",
+            "https://tomcat.apache.org/security-9.html#Fixed_in_Apache_Tomcat_9.0.98",
+            "https://www.cve.org/CVERecord?id=CVE-2024-50379",
+            "https://www.cve.org/CVERecord?id=CVE-2024-56337"
+          ],
+          "PublishedDate": "2024-12-20T16:15:24.26Z",
+          "LastModifiedDate": "2025-08-08T12:15:27.34Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2025-48988",
+          "PkgName": "org.apache.tomcat.embed:tomcat-embed-core",
+          "PkgPath": "opt/graphdb/dist/lib/tomcat-embed-core-9.0.90.jar",
+          "PkgIdentifier": {
+            "PURL": "pkg:maven/org.apache.tomcat.embed/tomcat-embed-core@9.0.90"
+          },
+          "InstalledVersion": "9.0.90",
+          "FixedVersion": "11.0.8, 10.1.42, 9.0.106",
+          "Status": "fixed",
+          "Layer": {
+            "DiffID": "sha256:d5f9d1eeb51dfc86d78004b516c4bb5bbe72585043bd19eaaa61b949a130e8d2"
+          },
+          "SeveritySource": "ghsa",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2025-48988",
+          "DataSource": {
+            "ID": "ghsa",
+            "Name": "GitHub Security Advisory Maven",
+            "URL": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Amaven"
+          },
+          "Title": "tomcat: Apache Tomcat DoS in multipart upload",
+          "Description": "Allocation of Resources Without Limits or Throttling vulnerability in Apache Tomcat.\n\nThis issue affects Apache Tomcat: from 11.0.0-M1 through 11.0.7, from 10.1.0-M1 through 10.1.41, from 9.0.0.M1 through 9.0.105.\nThe following versions were EOL at the time the CVE was created but are \nknown to be affected: 8.5.0 though 8.5.100. Other, older, EOL versions \nmay also be affected.\n\n\nUsers are recommended to upgrade to version 11.0.8, 10.1.42 or 9.0.106, which fix the issue.",
+          "Severity": "HIGH",
+          "CweIDs": [
+            "CWE-770"
+          ],
+          "VendorSeverity": {
+            "alma": 3,
+            "amazon": 2,
+            "bitnami": 3,
+            "ghsa": 3,
+            "oracle-oval": 3,
+            "photon": 3,
+            "redhat": 2,
+            "ubuntu": 2
+          },
+          "CVSS": {
+            "bitnami": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+              "V3Score": 7.5
+            },
+            "ghsa": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+              "V3Score": 7.5
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L",
+              "V3Score": 5.3
+            }
+          },
+          "References": [
+            "http://www.openwall.com/lists/oss-security/2025/06/16/1",
+            "https://access.redhat.com/errata/RHSA-2025:14178",
+            "https://access.redhat.com/security/cve/CVE-2025-48988",
+            "https://bugzilla.redhat.com/2373015",
+            "https://bugzilla.redhat.com/2373018",
+            "https://bugzilla.redhat.com/2373020",
+            "https://bugzilla.redhat.com/2373309",
+            "https://bugzilla.redhat.com/2379374",
+            "https://bugzilla.redhat.com/2379382",
+            "https://bugzilla.redhat.com/2379386",
+            "https://errata.almalinux.org/10/ALSA-2025-14178.html",
+            "https://github.com/apache/tomcat",
+            "https://github.com/apache/tomcat/commit/2b0ab14fb55d4edc896e5f1817f2ab76f714ae5e",
+            "https://github.com/apache/tomcat/commit/2b0ab14fb55d4edc896e5f1817f2ab76f714ae5e (11.0.8)",
+            "https://github.com/apache/tomcat/commit/cdde8e655bc1c5c60a07efd216251d77c52fd7f6",
+            "https://github.com/apache/tomcat/commit/cdde8e655bc1c5c60a07efd216251d77c52fd7f6 (10.1.42)",
+            "https://github.com/apache/tomcat/commit/ee8042ffce4cb9324dfd79efda5984f37bbb6910",
+            "https://github.com/apache/tomcat/commit/ee8042ffce4cb9324dfd79efda5984f37bbb6910 (9.0.106)",
+            "https://linux.oracle.com/cve/CVE-2025-48988.html",
+            "https://linux.oracle.com/errata/ELSA-2025-14181.html",
+            "https://lists.apache.org/thread/nzkqsok8t42qofgqfmck536mtyzygp18",
+            "https://nvd.nist.gov/vuln/detail/CVE-2025-48988",
+            "https://tomcat.apache.org/security-10.html",
+            "https://tomcat.apache.org/security-11.html",
+            "https://tomcat.apache.org/security-9.html",
+            "https://www.cve.org/CVERecord?id=CVE-2025-48988"
+          ],
+          "PublishedDate": "2025-06-16T15:15:24.563Z",
+          "LastModifiedDate": "2025-08-08T12:15:28.443Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2025-48989",
+          "PkgName": "org.apache.tomcat.embed:tomcat-embed-core",
+          "PkgPath": "opt/graphdb/dist/lib/tomcat-embed-core-9.0.90.jar",
+          "PkgIdentifier": {
+            "PURL": "pkg:maven/org.apache.tomcat.embed/tomcat-embed-core@9.0.90"
+          },
+          "InstalledVersion": "9.0.90",
+          "FixedVersion": "11.0.10, 10.1.44, 9.0.108",
+          "Status": "fixed",
+          "Layer": {
+            "DiffID": "sha256:d5f9d1eeb51dfc86d78004b516c4bb5bbe72585043bd19eaaa61b949a130e8d2"
+          },
+          "SeveritySource": "ghsa",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2025-48989",
+          "DataSource": {
+            "ID": "ghsa",
+            "Name": "GitHub Security Advisory Maven",
+            "URL": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Amaven"
+          },
+          "Title": "tomcat: http/2 \"MadeYouReset\" DoS attack through HTTP/2 control frames",
+          "Description": "Improper Resource Shutdown or Release vulnerability in Apache Tomcat made Tomcat vulnerable to the made you reset attack.\n\nThis issue affects Apache Tomcat: from 11.0.0-M1 through 11.0.9, from 10.1.0-M1 through 10.1.43 and from 9.0.0.M1 through 9.0.107. Older, EOL versions may also be affected.\n\nUsers are recommended to upgrade to one of versions 11.0.10, 10.1.44 or 9.0.108 which fix the issue.",
+          "Severity": "HIGH",
+          "CweIDs": [
+            "CWE-404"
+          ],
+          "VendorSeverity": {
+            "alma": 3,
+            "bitnami": 3,
+            "ghsa": 3,
+            "oracle-oval": 3,
+            "redhat": 3,
+            "ubuntu": 2
+          },
+          "CVSS": {
+            "bitnami": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+              "V3Score": 7.5
+            },
+            "ghsa": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+              "V3Score": 7.5
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+              "V3Score": 7.5
+            }
+          },
+          "References": [
+            "https://access.redhat.com/errata/RHSA-2025:14178",
+            "https://access.redhat.com/security/cve/CVE-2025-48989",
+            "https://bugzilla.redhat.com/2373015",
+            "https://bugzilla.redhat.com/2373018",
+            "https://bugzilla.redhat.com/2373020",
+            "https://bugzilla.redhat.com/2373309",
+            "https://bugzilla.redhat.com/2379374",
+            "https://bugzilla.redhat.com/2379382",
+            "https://bugzilla.redhat.com/2379386",
+            "https://errata.almalinux.org/10/ALSA-2025-14178.html",
+            "https://github.com/apache/tomcat",
+            "https://github.com/apache/tomcat/commit/73c04a10395774bda71a0b37802cf983662ce255",
+            "https://github.com/apache/tomcat/commit/73c04a10395774bda71a0b37802cf983662ce255 (10.1.44)",
+            "https://github.com/apache/tomcat/commit/f362c8eb3b8ec5b7f312f7f5610731c0fb299a06",
+            "https://github.com/apache/tomcat/commit/f362c8eb3b8ec5b7f312f7f5610731c0fb299a06 (11.0.10)",
+            "https://github.com/apache/tomcat/commit/f36b8a4eea4ce8a0bc035079e1d259d29f5eb7bf",
+            "https://github.com/apache/tomcat/commit/f36b8a4eea4ce8a0bc035079e1d259d29f5eb7bf (9.0.108)",
+            "https://kb.cert.org/vuls/id/767506",
+            "https://linux.oracle.com/cve/CVE-2025-48989.html",
+            "https://linux.oracle.com/errata/ELSA-2025-14181.html",
+            "https://lists.apache.org/thread/9ydfg0xr0tchmglcprhxgwhj0hfwxlyf",
+            "https://nvd.nist.gov/vuln/detail/CVE-2025-48989",
+            "https://tomcat.apache.org/security-10.html",
+            "https://tomcat.apache.org/security-11.html",
+            "https://tomcat.apache.org/security-9.html",
+            "https://www.cve.org/CVERecord?id=CVE-2025-48989"
+          ],
+          "PublishedDate": "2025-08-13T13:15:34.153Z",
+          "LastModifiedDate": "2025-08-18T18:34:04.98Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2024-51504",
+          "PkgName": "org.apache.zookeeper:zookeeper",
+          "PkgPath": "opt/graphdb/dist/lib/plugins/solr-connector/zookeeper.jar",
+          "PkgIdentifier": {
+            "PURL": "pkg:maven/org.apache.zookeeper/zookeeper@3.9.2"
+          },
+          "InstalledVersion": "3.9.2",
+          "FixedVersion": "3.9.3",
+          "Status": "fixed",
+          "Layer": {
+            "DiffID": "sha256:d5f9d1eeb51dfc86d78004b516c4bb5bbe72585043bd19eaaa61b949a130e8d2"
+          },
+          "SeveritySource": "ghsa",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2024-51504",
+          "DataSource": {
+            "ID": "ghsa",
+            "Name": "GitHub Security Advisory Maven",
+            "URL": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Amaven"
+          },
+          "Title": "org.apache.zookeeper: Apache ZooKeeper: Authentication bypass with IP-based authentication in Admin Server",
+          "Description": "When using IPAuthenticationProvider in ZooKeeper Admin Server there is a possibility of Authentication Bypass by Spoofing -- this only impacts IP based authentication implemented in ZooKeeper Admin Server. Default configuration of client's IP address detection in IPAuthenticationProvider, which uses HTTP request headers, is weak and allows an attacker to bypass authentication via spoofing client's IP address in request headers. Default configuration honors X-Forwarded-For HTTP header to read client's IP address. X-Forwarded-For request header is mainly used by proxy servers to identify the client and can be easily spoofed by an attacker pretending that the request comes from a different IP address. Admin Server commands, such as snapshot and restore arbitrarily can be executed on successful exploitation which could potentially lead to information leakage or service availability issues. Users are recommended to upgrade to version 3.9.3, which fixes this issue.",
+          "Severity": "HIGH",
+          "CweIDs": [
+            "CWE-290"
+          ],
+          "VendorSeverity": {
+            "bitnami": 4,
+            "ghsa": 3,
+            "redhat": 3
+          },
+          "CVSS": {
+            "bitnami": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:H",
+              "V3Score": 9.1
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:L",
+              "V3Score": 7.3
+            }
+          },
+          "References": [
+            "http://www.openwall.com/lists/oss-security/2024/11/06/5",
+            "https://access.redhat.com/security/cve/CVE-2024-51504",
+            "https://github.com/apache/zookeeper",
+            "https://github.com/apache/zookeeper/commit/2c2b74c1c11b6531aabb1bf06782e859048d5983",
+            "https://lists.apache.org/thread/b3qrmpkto5r6989qr61fw9y2x646kqlh",
+            "https://nvd.nist.gov/vuln/detail/CVE-2024-51504",
+            "https://www.cve.org/CVERecord?id=CVE-2024-51504"
+          ],
+          "PublishedDate": "2024-11-07T10:15:08.297Z",
+          "LastModifiedDate": "2024-11-21T09:45:38.483Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2025-5115",
+          "PkgName": "org.eclipse.jetty.http2:http2-common",
+          "PkgPath": "opt/graphdb/dist/lib/plugins/solr-connector/http2-common.jar",
+          "PkgIdentifier": {
+            "PURL": "pkg:maven/org.eclipse.jetty.http2/http2-common@10.0.20"
+          },
+          "InstalledVersion": "10.0.20",
+          "FixedVersion": "9.4.58, 10.0.26, 11.0.26",
+          "Status": "fixed",
+          "Layer": {
+            "DiffID": "sha256:d5f9d1eeb51dfc86d78004b516c4bb5bbe72585043bd19eaaa61b949a130e8d2"
+          },
+          "SeveritySource": "ghsa",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2025-5115",
+          "DataSource": {
+            "ID": "ghsa",
+            "Name": "GitHub Security Advisory Maven",
+            "URL": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Amaven"
+          },
+          "Title": "jetty: HTTP/2 (including DNS over HTTPS) contains a design flaw and is vulnerable to \"MadeYouReset\" DoS attack through HTTP/2 control frames",
+          "Description": "In Eclipse Jetty, versions \u003c=9.4.57, \u003c=10.0.25, \u003c=11.0.25, \u003c=12.0.21, \u003c=12.1.0.alpha2, an HTTP/2 client may trigger the server to send RST_STREAM frames, for example by sending frames that are malformed or that should not be sent in a particular stream state, therefore forcing the server to consume resources such as CPU and memory.\n\n\nFor example, a client can open a stream and then send WINDOW_UPDATE frames with window size increment of 0, which is illegal.\nPer specification  https://www.rfc-editor.org/rfc/rfc9113.html#name-window_update , the server should send a RST_STREAM frame.\nThe client can now open another stream and send another bad WINDOW_UPDATE, therefore causing the server to consume more resources than necessary, as this case does not exceed the max number of concurrent streams, yet the client is able to create an enormous amount of streams in a short period of time.\n\n\nThe attack can be performed with other conditions (for example, a DATA frame for a closed stream) that cause the server to send a RST_STREAM frame.\n\n\n\nLinks:\n\n\n\n  *   https://github.com/jetty/jetty.project/security/advisories/GHSA-mmxm-8w33-wc4h",
+          "Severity": "HIGH",
+          "CweIDs": [
+            "CWE-400"
+          ],
+          "VendorSeverity": {
+            "ghsa": 3,
+            "redhat": 3
+          },
+          "CVSS": {
+            "ghsa": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+              "V3Score": 7.5
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+              "V3Score": 7.5
+            }
+          },
+          "References": [
+            "https://access.redhat.com/security/cve/CVE-2025-5115",
+            "https://github.com/jetty/jetty.project",
+            "https://github.com/jetty/jetty.project/commit/f9ee3904788b08203ed62c95a560d951da37bdb1",
+            "https://github.com/jetty/jetty.project/pull/13449",
+            "https://github.com/jetty/jetty.project/releases/tag/jetty-10.0.26",
+            "https://github.com/jetty/jetty.project/releases/tag/jetty-11.0.26",
+            "https://github.com/jetty/jetty.project/releases/tag/jetty-12.0.25",
+            "https://github.com/jetty/jetty.project/releases/tag/jetty-12.1.0",
+            "https://github.com/jetty/jetty.project/releases/tag/jetty-9.4.58.v20250814",
+            "https://github.com/jetty/jetty.project/security/advisories/GHSA-mmxm-8w33-wc4h",
+            "https://kb.cert.org/vuls/id/767506",
+            "https://nvd.nist.gov/vuln/detail/CVE-2025-5115",
+            "https://www.cve.org/CVERecord?id=CVE-2025-5115"
+          ],
+          "PublishedDate": "2025-08-20T20:15:33.377Z",
+          "LastModifiedDate": "2025-08-22T18:09:17.71Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2025-22235",
+          "PkgName": "org.springframework.boot:spring-boot",
+          "PkgPath": "opt/graphdb/dist/lib/spring-boot-2.7.18.jar",
+          "PkgIdentifier": {
+            "PURL": "pkg:maven/org.springframework.boot/spring-boot@2.7.18"
+          },
+          "InstalledVersion": "2.7.18",
+          "FixedVersion": "3.3.11, 3.4.5",
+          "Status": "fixed",
+          "Layer": {
+            "DiffID": "sha256:d5f9d1eeb51dfc86d78004b516c4bb5bbe72585043bd19eaaa61b949a130e8d2"
+          },
+          "SeveritySource": "ghsa",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2025-22235",
+          "DataSource": {
+            "ID": "ghsa",
+            "Name": "GitHub Security Advisory Maven",
+            "URL": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Amaven"
+          },
+          "Title": "org.springframework.boot/spring-boot: Spring Boot EndpointRequest.to() creates wrong matcher if actuator endpoint is not exposed",
+          "Description": "EndpointRequest.to() creates a matcher for null/** if the actuator endpoint, for which the EndpointRequest has been created, is disabled or not exposed.\n\nYour application may be affected by this if all the following conditions are met:\n\n  *  You use Spring Security\n  *  EndpointRequest.to() has been used in a Spring Security chain configuration\n  *  The endpoint which EndpointRequest references is disabled or not exposed via web\n  *  Your application handles requests to /null and this path needs protection\n\n\nYou are not affected if any of the following is true:\n\n  *  You don't use Spring Security\n  *  You don't use EndpointRequest.to()\n  *  The endpoint which EndpointRequest.to() refers to is enabled and is exposed\n  *  Your application does not handle requests to /null or this path does not need protection",
+          "Severity": "HIGH",
+          "CweIDs": [
+            "CWE-20"
+          ],
+          "VendorSeverity": {
+            "ghsa": 3,
+            "redhat": 3
+          },
+          "CVSS": {
+            "ghsa": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:L",
+              "V3Score": 7.3
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:L",
+              "V3Score": 7.3
+            }
+          },
+          "References": [
+            "https://access.redhat.com/security/cve/CVE-2025-22235",
+            "https://github.com/advisories/GHSA-rc42-6c7j-7h5r",
+            "https://github.com/spring-projects/spring-boot",
+            "https://nvd.nist.gov/vuln/detail/CVE-2025-22235",
+            "https://security.netapp.com/advisory/ntap-20250516-0010",
+            "https://security.netapp.com/advisory/ntap-20250516-0010/",
+            "https://spring.io/security/cve-2025-22235",
+            "https://www.cve.org/CVERecord?id=CVE-2025-22235"
+          ],
+          "PublishedDate": "2025-04-28T08:15:15.273Z",
+          "LastModifiedDate": "2025-05-16T23:15:19.6Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2025-22228",
+          "PkgName": "org.springframework.security:spring-security-crypto",
+          "PkgPath": "opt/graphdb/dist/lib/spring-security-crypto-5.8.14.jar",
+          "PkgIdentifier": {
+            "PURL": "pkg:maven/org.springframework.security/spring-security-crypto@5.8.14"
+          },
+          "InstalledVersion": "5.8.14",
+          "FixedVersion": "6.3.8, 6.4.4, 6.2.10, 6.1.14, 6.0.16, 5.8.18, 5.7.16",
+          "Status": "fixed",
+          "Layer": {
+            "DiffID": "sha256:d5f9d1eeb51dfc86d78004b516c4bb5bbe72585043bd19eaaa61b949a130e8d2"
+          },
+          "SeveritySource": "ghsa",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2025-22228",
+          "DataSource": {
+            "ID": "ghsa",
+            "Name": "GitHub Security Advisory Maven",
+            "URL": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Amaven"
+          },
+          "Title": "spring-security-core: Spring Security BCryptPasswordEncoder does not enforce maximum password length",
+          "Description": "BCryptPasswordEncoder.matches(CharSequence,String) will incorrectly return true for passwords larger than 72 characters as long as the first 72 characters are the same.",
+          "Severity": "HIGH",
+          "CweIDs": [
+            "CWE-287"
+          ],
+          "VendorSeverity": {
+            "ghsa": 3,
+            "redhat": 3
+          },
+          "CVSS": {
+            "ghsa": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:N",
+              "V3Score": 7.4
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:N",
+              "V3Score": 7.4
+            }
+          },
+          "References": [
+            "https://access.redhat.com/security/cve/CVE-2025-22228",
+            "https://github.com/spring-projects/spring-security",
+            "https://github.com/spring-projects/spring-security/commit/46f0dc6dfc8402cd556c598fdf2d31f9d46cdbf3",
+            "https://nvd.nist.gov/vuln/detail/CVE-2025-22228",
+            "https://security.netapp.com/advisory/ntap-20250425-0009",
+            "https://security.netapp.com/advisory/ntap-20250425-0009/",
+            "https://spring.io/security/cve-2025-22228",
+            "https://www.cve.org/CVERecord?id=CVE-2025-22228"
+          ],
+          "PublishedDate": "2025-03-20T06:15:23.087Z",
+          "LastModifiedDate": "2025-04-25T23:15:16.877Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2024-38821",
+          "PkgName": "org.springframework.security:spring-security-web",
+          "PkgPath": "opt/graphdb/dist/lib/spring-security-web-5.8.14.jar",
+          "PkgIdentifier": {
+            "PURL": "pkg:maven/org.springframework.security/spring-security-web@5.8.14"
+          },
+          "InstalledVersion": "5.8.14",
+          "FixedVersion": "5.7.13, 5.8.15, 6.2.7, 6.0.13, 6.1.11, 6.3.4",
+          "Status": "fixed",
+          "Layer": {
+            "DiffID": "sha256:d5f9d1eeb51dfc86d78004b516c4bb5bbe72585043bd19eaaa61b949a130e8d2"
+          },
+          "SeveritySource": "ghsa",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2024-38821",
+          "DataSource": {
+            "ID": "ghsa",
+            "Name": "GitHub Security Advisory Maven",
+            "URL": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Amaven"
+          },
+          "Title": "Spring-WebFlux: Authorization Bypass of Static Resources in WebFlux Applications",
+          "Description": "Spring WebFlux applications that have Spring Security authorization rules on static resources can be bypassed under certain circumstances.\n\nFor this to impact an application, all of the following must be true:\n\n  *  It must be a WebFlux application\n  *  It must be using Spring's static resources support\n  *  It must have a non-permitAll authorization rule applied to the static resources support",
+          "Severity": "CRITICAL",
+          "CweIDs": [
+            "CWE-770"
+          ],
+          "VendorSeverity": {
+            "ghsa": 4,
+            "redhat": 2
+          },
+          "CVSS": {
+            "ghsa": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:N",
+              "V3Score": 9.1
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:N",
+              "V3Score": 7.4
+            }
+          },
+          "References": [
+            "https://access.redhat.com/security/cve/CVE-2024-38821",
+            "https://github.com/spring-projects/spring-security",
+            "https://github.com/spring-projects/spring-security/commit/0e257b56ce35402558a260ffa6b368982f9a7934",
+            "https://github.com/spring-projects/spring-security/commit/4ce7cde15599c0447163fd46bac616e03318bf5b",
+            "https://nvd.nist.gov/vuln/detail/CVE-2024-38821",
+            "https://security.netapp.com/advisory/ntap-20250124-0006",
+            "https://security.netapp.com/advisory/ntap-20250124-0006/",
+            "https://spring.io/security/cve-2024-38821",
+            "https://www.cve.org/CVERecord?id=CVE-2024-38821"
+          ],
+          "PublishedDate": "2024-10-28T07:15:07.633Z",
+          "LastModifiedDate": "2025-01-24T20:15:32.427Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2024-38816",
+          "PkgName": "org.springframework:spring-webmvc",
+          "PkgPath": "opt/graphdb/dist/lib/spring-webmvc-5.3.39.jar",
+          "PkgIdentifier": {
+            "PURL": "pkg:maven/org.springframework/spring-webmvc@5.3.39"
+          },
+          "InstalledVersion": "5.3.39",
+          "FixedVersion": "6.1.13",
+          "Status": "fixed",
+          "Layer": {
+            "DiffID": "sha256:d5f9d1eeb51dfc86d78004b516c4bb5bbe72585043bd19eaaa61b949a130e8d2"
+          },
+          "SeveritySource": "ghsa",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2024-38816",
+          "DataSource": {
+            "ID": "ghsa",
+            "Name": "GitHub Security Advisory Maven",
+            "URL": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Amaven"
+          },
+          "Title": "spring-webmvc: Path Traversal Vulnerability in Spring Applications Using RouterFunctions and FileSystemResource",
+          "Description": "Applications serving static resources through the functional web frameworks WebMvc.fn or WebFlux.fn are vulnerable to path traversal attacks. An attacker can craft malicious HTTP requests and obtain any file on the file system that is also accessible to the process in which the Spring application is running.\n\nSpecifically, an application is vulnerable when both of the following are true:\n\n  *  the web application uses RouterFunctions to serve static resources\n  *  resource handling is explicitly configured with a FileSystemResource location\n\n\nHowever, malicious requests are blocked and rejected when any of the following is true:\n\n  *  the  Spring Security HTTP Firewall https://docs.spring.io/spring-security/reference/servlet/exploits/firewall.html  is in use\n  *  the application runs on Tomcat or Jetty",
+          "Severity": "HIGH",
+          "CweIDs": [
+            "CWE-22"
+          ],
+          "VendorSeverity": {
+            "ghsa": 3,
+            "redhat": 3
+          },
+          "CVSS": {
+            "ghsa": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N",
+              "V3Score": 7.5
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N",
+              "V3Score": 7.5
+            }
+          },
+          "References": [
+            "https://access.redhat.com/security/cve/CVE-2024-38816",
+            "https://github.com/spring-projects/spring-framework",
+            "https://github.com/spring-projects/spring-framework/commit/d86bf8b2056429edf5494456cffcb2b243331c49",
+            "https://nvd.nist.gov/vuln/detail/CVE-2024-38816",
+            "https://security.netapp.com/advisory/ntap-20241227-0001",
+            "https://security.netapp.com/advisory/ntap-20241227-0001/",
+            "https://spring.io/security/cve-2024-38816",
+            "https://www.cve.org/CVERecord?id=CVE-2024-38816"
+          ],
+          "PublishedDate": "2024-09-13T06:15:11.19Z",
+          "LastModifiedDate": "2025-03-18T15:15:52.397Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2024-38819",
+          "PkgName": "org.springframework:spring-webmvc",
+          "PkgPath": "opt/graphdb/dist/lib/spring-webmvc-5.3.39.jar",
+          "PkgIdentifier": {
+            "PURL": "pkg:maven/org.springframework/spring-webmvc@5.3.39"
+          },
+          "InstalledVersion": "5.3.39",
+          "FixedVersion": "6.1.14",
+          "Status": "fixed",
+          "Layer": {
+            "DiffID": "sha256:d5f9d1eeb51dfc86d78004b516c4bb5bbe72585043bd19eaaa61b949a130e8d2"
+          },
+          "SeveritySource": "ghsa",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2024-38819",
+          "DataSource": {
+            "ID": "ghsa",
+            "Name": "GitHub Security Advisory Maven",
+            "URL": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Amaven"
+          },
+          "Title": "org.springframework:spring-webmvc: Path traversal vulnerability in functional web frameworks",
+          "Description": "Applications serving static resources through the functional web frameworks WebMvc.fn or WebFlux.fn are vulnerable to path traversal attacks. An attacker can craft malicious HTTP requests and obtain any file on the file system that is also accessible to the process in which the Spring application is running.",
+          "Severity": "HIGH",
+          "CweIDs": [
+            "CWE-22"
+          ],
+          "VendorSeverity": {
+            "ghsa": 3,
+            "redhat": 3
+          },
+          "CVSS": {
+            "ghsa": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N",
+              "V3Score": 7.5
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N",
+              "V3Score": 7.5
+            }
+          },
+          "References": [
+            "https://access.redhat.com/security/cve/CVE-2024-38819",
+            "https://github.com/spring-projects/spring-framework",
+            "https://github.com/spring-projects/spring-framework/commit/3bfbe30a7814c9ea1556d40df9bd87ddb3ba372d",
+            "https://github.com/spring-projects/spring-framework/commit/fb7890d73975a3d9e0763e0926df2bd0a608e87e",
+            "https://github.com/spring-projects/spring-framework/issues/33689",
+            "https://nvd.nist.gov/vuln/detail/CVE-2024-38819",
+            "https://security.netapp.com/advisory/ntap-20250110-0010",
+            "https://security.netapp.com/advisory/ntap-20250110-0010/",
+            "https://spring.io/security/cve-2024-38819",
+            "https://www.cve.org/CVERecord?id=CVE-2024-38819"
+          ],
+          "PublishedDate": "2024-12-19T18:15:10.557Z",
+          "LastModifiedDate": "2025-01-10T13:15:09.287Z"
+        }
+      ]
+    }
+  ]
+}

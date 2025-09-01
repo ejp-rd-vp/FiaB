@@ -1,12 +1,9 @@
 timestamp=$(date +"%Y-%m-%d")
-outputfile=("./security_scan_output/scanresults_${timestamp}.txt")
-touch ${outputfile}
 
 
 image="ontotext/graphdb:10.8.0"
 name="gdb"
-echo "GRAPHDB\n\n" > ${outputfile}
-echo "FDP\n\n" >> ${outputfile}
+outputfile=("./security_scan_output/scanresults_${name}_${timestamp}.txt")
 docker run -d --name ${name} ${image}
 # use the appropriate distribution upgrade tool for that container’s operating system
 echo "update"
@@ -29,24 +26,18 @@ echo "pushed"
 GDB="fairdatasystems/${name}:${timestamp}"
 # run a scan to determine success
 echo "trivy"
-trivy image --scanners vuln --severity CRITICAL,HIGH -f table  --timeout 1800s fairdatasystems/${name}:${timestamp}  >> ${outputfile}
-echo "END\n\n"
-echo "END OF GRAPHDB\n\n\n\n\n\n" >> ${outputfile}
+trivy image --scanners vuln --format json --severity CRITICAL,HIGH  --timeout 1800s fairdatasystems/${name}:${timestamp}  >> ${outputfile}
+echo "END"
 
 
-# fairdata/fairdatapoint:1.16.2
-image="fairdata/fairdatapoint:1.16.2"
+# fairdata/fairdatapoint:1.17.5
+image="fairdata/fairdatapoint:1.17.5"
 name="fdp"
-echo "FDP\n\n" >> ${outputfile}
+outputfile=("./security_scan_output/scanresults_${name}_${timestamp}.txt")
 docker run -d --name ${name} ${image}
 # use the appropriate distribution upgrade tool for that container’s operating system
 echo "update"
-docker exec -it ${name} apt-get -y update 
-echo "dist-upgrade"
-docker exec -it ${name} apt-get -y dist-upgrade 
-echo "autoclean"
-docker start ${name}
-docker exec -it ${name} apt-get -y autoclean
+docker exec -it -u root ${name} apk upgrade  --no-cache
 # Commit the patched container, with a new name, overwriting the previous version
 echo "commit"
 docker commit ${name} fairdatasystems/${name}:${timestamp}
@@ -60,18 +51,17 @@ echo "pushed"
 FDP="fairdatasystems/${name}:${timestamp}"
 # run a scan to determine success
 echo "trivy"
-trivy image --scanners vuln --severity CRITICAL,HIGH -f table  --timeout 1800s fairdatasystems/${name}:${timestamp}  >> ${outputfile}
-echo "END\n\n"
-echo "END OF FDP\n\n\n\n\n\n" >> ${outputfile}
+trivy image --scanners vuln  --format json  --severity CRITICAL,HIGH --timeout 1800s fairdatasystems/${name}:${timestamp}  >> ${outputfile}
+echo "END"
 
 
 # fairdata/fairdatapoint-client:1.16.3
-image="fairdata/fairdatapoint-client:1.16.3"
+image="fairdata/fairdatapoint-client:1.17.1"
 name="fdpclient"
-echo "FDPCLIENT\n\n" >> ${outputfile}
+outputfile=("./security_scan_output/scanresults_${name}_${timestamp}.json")
 docker run -d --name ${name} ${image} tail -f /dev/null
 # use the appropriate distribution upgrade tool for that container’s operating system
-docker exec -it ${name} apk upgrade --no-cache
+docker exec -it -u root ${name} apk upgrade --no-cache
 # Commit the patched container, with a new name, overwriting the previous version
 docker commit ${name} fairdatasystems/${name}:${timestamp}
 # stop the temporary container
@@ -83,16 +73,15 @@ docker push fairdatasystems/${name}:${timestamp}
 echo "pushed"
 FDPC="fairdatasystems/${name}:${timestamp}"
 # run a scan to determine success
-trivy image --scanners vuln --severity CRITICAL,HIGH -f table  --timeout 1800s fairdatasystems/${name}:${timestamp} >> ${outputfile}
-echo "END OF FDPCLKIENT\n\n\n\n\n\n" >> ${outputfile}
-
+trivy image --scanners vuln  --format json  --severity CRITICAL,HIGH --timeout 1800s fairdatasystems/${name}:${timestamp} >> ${outputfile}
+echo "END"
 
 
 
 # mongo:7.0
 image="mongo:7.0"
 name="mdb"
-echo "MDB\n\n" >> ${outputfile}
+outputfile=("./security_scan_output/scanresults_${name}_${timestamp}.json")
 docker run -d --name ${name} ${image}
 # use the appropriate distribution upgrade tool for that container’s operating system
 echo "update"
@@ -115,17 +104,15 @@ echo "pushed"
 MDB="fairdatasystems/${name}:${timestamp}"
 # run a scan to determine success
 echo "trivy"
-trivy image --scanners vuln --severity CRITICAL,HIGH -f table  --timeout 1800s fairdatasystems/${name}:${timestamp}  >> ${outputfile}
-echo "END\n\n"
-echo "END OF MDB\n\n\n\n\n\n" >> ${outputfile}
+trivy image --scanners vuln  --format json  --severity CRITICAL,HIGH  --timeout 1800s fairdatasystems/${name}:${timestamp}  >> ${outputfile}
+echo "END"
 
 
 
-# markw/cde-box-daemon:0.5.4
-#image="markw/cde-box-daemon:0.5.4"
+# markw/cde-box-daemon:0.7.0
 image="markw/cde-box-daemon:0.7.0"
 name="cdeb"
-echo "CDEB\n\n" >> ${outputfile}
+outputfile=("./security_scan_output/scanresults_${name}_${timestamp}.json")
 docker run -d --name ${name} ${image}
 # use the appropriate distribution upgrade tool for that container’s operating system
 echo "update"
@@ -148,18 +135,17 @@ echo "pushed"
 CDEB="fairdatasystems/${name}:${timestamp}"
 # run a scan to determine success
 echo "trivy"
-trivy image --scanners vuln --severity CRITICAL,HIGH -f table  --timeout 1800s fairdatasystems/${name}:${timestamp}  >> ${outputfile}
-echo "END\n\n"
-echo "END OF CDEB\n\n\n\n\n\n" >> ${outputfile}
+trivy image --scanners vuln  --format json  --severity CRITICAL,HIGH --timeout 1800s fairdatasystems/${name}:${timestamp}  >> ${outputfile}
+echo "END"
 
 
 # pabloalarconm/care-sm-toolkit:0.0.19
-image="pabloalarconm/care-sm-toolkit:0.1.6"
+image="pabloalarconm/care-sm-toolkit:0.3.0"
 name="care"
-echo "CARE\n\n" >> ${outputfile}
+outputfile=("./security_scan_output/scanresults_${name}_${timestamp}.json")
 docker run -d --name ${name} ${image}
 # use the appropriate distribution upgrade tool for that container’s operating system
-docker exec -it ${name} apk upgrade --no-cache
+docker exec -it -u root ${name} apk upgrade --no-cache
 # Commit the patched container, with a new name, overwriting the previous version
 docker commit ${name} fairdatasystems/${name}:${timestamp}
 # stop the temporary container
@@ -172,9 +158,8 @@ echo "pushed"
 CARE="fairdatasystems/${name}:${timestamp}"
 # run a scan to determine success
 echo "trivy"
-trivy image --scanners vuln --severity CRITICAL,HIGH -f table  --timeout 1800s fairdatasystems/${name}:${timestamp}  >> ${outputfile}
-echo "END\n\n"
-echo "END OF CARE\n\n\n\n\n\n" >> ${outputfile}
+trivy image --scanners vuln  --format json  --severity CRITICAL,HIGH  --timeout 1800s fairdatasystems/${name}:${timestamp}  >> ${outputfile}
+echo "END"
 
 
 
@@ -182,10 +167,10 @@ echo "END OF CARE\n\n\n\n\n\n" >> ${outputfile}
 # markw/yarrrml-rml-ejp:0.1.1
 image="markw/yarrrml-rml-ejp:0.1.1"
 name="yrml"
-echo "YRML\n\n" >> ${outputfile}
+outputfile=("./security_scan_output/scanresults_${name}_${timestamp}.json")
 docker run -d --name ${name} ${image}  tail -f /dev/null
 # use the appropriate distribution upgrade tool for that container’s operating system
-docker exec -it ${name} apk upgrade --no-cache
+docker exec -it -u root ${name} apk upgrade --no-cache
 # Commit the patched container, with a new name, overwriting the previous version
 docker commit ${name} fairdatasystems/${name}:${timestamp}
 # stop the temporary container
@@ -197,17 +182,16 @@ docker push fairdatasystems/${name}:${timestamp}
 echo "pushed"
 YRDF="fairdatasystems/${name}:${timestamp}"
 # run a scan to determine success
-trivy image --scanners vuln --severity CRITICAL,HIGH -f table  --timeout 1800s fairdatasystems/${name}:${timestamp} >> ${outputfile}
-echo "END OF YRML\n\n\n\n\n\n" >> ${outputfile}
-
+trivy image --scanners vuln  --format json  --severity CRITICAL,HIGH  --timeout 1800s fairdatasystems/${name}:${timestamp} >> ${outputfile}
+echo "END"
 
 # pabloalarconm/beacon-api4care-sm:4.1.0 
 image="pabloalarconm/beacon-api4care-sm:4.1.0"
 name="beacon"
-echo "BEACON\n\n" >> ${outputfile}
+outputfile=("./security_scan_output/scanresults_${name}_${timestamp}.json")
 docker run -d --name ${name} ${image}
 # use the appropriate distribution upgrade tool for that container’s operating system
-docker exec -it ${name} apk upgrade --no-cache
+docker exec -it -u root ${name} apk upgrade --no-cache
 # Commit the patched container, with a new name, overwriting the previous version
 docker commit ${name} fairdatasystems/${name}:${timestamp}
 # stop the temporary container
@@ -219,8 +203,8 @@ docker push fairdatasystems/${name}:${timestamp}
 echo "pushed"
 BEACON="fairdatasystems/${name}:${timestamp}"
 # run a scan to determine success
-trivy image --scanners vuln --severity CRITICAL,HIGH -f table  --timeout 1800s fairdatasystems/${name}:${timestamp} >> ${outputfile}
-echo "END OF BEACON\n\n\n\n\n\n" >> ${outputfile}
+trivy image --scanners vuln  --format json  --severity CRITICAL,HIGH  --timeout 1800s fairdatasystems/${name}:${timestamp} >> ${outputfile}
+echo "END"
 
 cp docker-compose-template-template.yml docker-compose-template-tmp.yml
 sed -i'' -e "s!{FDP}!${FDP}!" "docker-compose-template-tmp.yml"

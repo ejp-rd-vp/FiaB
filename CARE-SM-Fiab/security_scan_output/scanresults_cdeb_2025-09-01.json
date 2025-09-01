@@ -1,0 +1,1590 @@
+{
+  "SchemaVersion": 2,
+  "CreatedAt": "2025-09-01T14:15:51.07130606+02:00",
+  "ArtifactName": "fairdatasystems/cdeb:2025-09-01",
+  "ArtifactType": "container_image",
+  "Metadata": {
+    "OS": {
+      "Family": "alpine",
+      "Name": "3.21.0"
+    },
+    "ImageID": "sha256:83cebc7a84f9b0986d3a99fd54874b15c13db8ebf3308b20ea026da6d8412cfb",
+    "DiffIDs": [
+      "sha256:3e01818d79cd3467f1d60e54224f3f6ce5170eceb54e265d96bb82344b8c24e7",
+      "sha256:78086eb5a8b11846f0ab615800af6154d64e20179f94bb50f0b782e888560b69",
+      "sha256:a25a2a97bf5677cb7d6767ab36b96d0467faa928ce3cb5ad8afd70ed423255ff",
+      "sha256:b2ab39784df45424e54e32ae8bf7847bab5e06e00a1a8f60670b108103215f2b",
+      "sha256:dafb4a57e1c18f10915ea609cbd31fe1e58a62e38847021addb46792aef78279",
+      "sha256:35908afe3075dceadea04a7148ccfc6942b00ab5797e5c92204c80f5540d09cc",
+      "sha256:3b37fa857872e8feb358610d4dee42d9f6ce0bdb88f133ab32ee3a30d5d2130e",
+      "sha256:da20daa04a1a7ceff8108fe9c3f695b942f6b8a33fe6f0f758ee59fb12f51935",
+      "sha256:b8b9cf089788016ff26709a8e3c3ec2e512f499fa3c5b3d0787915d5a54894be",
+      "sha256:c0502e7b7baed7f854535d6477afdd76b5e5c1fc267b3cc4fccaba397a14e54a",
+      "sha256:5601ec68794e823f37538d8446573f026359811198d200db32e1cd7108c28c3e",
+      "sha256:7e514b5073a9b83dbfcb6aee669f1c0cf6682d8433861e48c65fd11720d1dfde"
+    ],
+    "RepoTags": [
+      "fairdatasystems/cdeb:2025-09-01"
+    ],
+    "RepoDigests": [
+      "fairdatasystems/cdeb@sha256:d49bc718c93e3ddc77edb15d510dabc3d253ca83dc7141b4538a1f04c275dee4"
+    ],
+    "ImageConfig": {
+      "architecture": "amd64",
+      "container": "a529b17b0dab1faf51e6d9ba0dc796a5a5f5240f343d7372e2e5904a664c40c5",
+      "created": "2025-09-01T12:15:15.79909367Z",
+      "docker_version": "26.1.3",
+      "history": [
+        {
+          "created": "2024-12-05T12:49:04Z",
+          "created_by": "ADD alpine-minirootfs-3.21.0-x86_64.tar.gz / # buildkit",
+          "comment": "buildkit.dockerfile.v0"
+        },
+        {
+          "created": "2024-12-05T12:49:04Z",
+          "created_by": "CMD [\"/bin/sh\"]",
+          "comment": "buildkit.dockerfile.v0",
+          "empty_layer": true
+        },
+        {
+          "created": "2024-12-06T12:18:01Z",
+          "created_by": "RUN /bin/sh -c set -eux; \tapk add --no-cache \t\tbzip2 \t\tca-certificates \t\tgmp-dev \t\tlibffi-dev \t\tprocps \t\tyaml-dev \t\tzlib-dev \t; # buildkit",
+          "comment": "buildkit.dockerfile.v0"
+        },
+        {
+          "created": "2024-12-06T12:18:01Z",
+          "created_by": "RUN /bin/sh -c set -eux; \tmkdir -p /usr/local/etc; \techo 'gem: --no-document' \u003e\u003e /usr/local/etc/gemrc # buildkit",
+          "comment": "buildkit.dockerfile.v0"
+        },
+        {
+          "created": "2024-12-06T12:18:01Z",
+          "created_by": "ENV LANG=C.UTF-8",
+          "comment": "buildkit.dockerfile.v0",
+          "empty_layer": true
+        },
+        {
+          "created": "2024-12-06T12:18:01Z",
+          "created_by": "ENV RUBY_VERSION=3.3.6",
+          "comment": "buildkit.dockerfile.v0",
+          "empty_layer": true
+        },
+        {
+          "created": "2024-12-06T12:18:01Z",
+          "created_by": "ENV RUBY_DOWNLOAD_URL=https://cache.ruby-lang.org/pub/ruby/3.3/ruby-3.3.6.tar.xz",
+          "comment": "buildkit.dockerfile.v0",
+          "empty_layer": true
+        },
+        {
+          "created": "2024-12-06T12:18:01Z",
+          "created_by": "ENV RUBY_DOWNLOAD_SHA256=540975969d1af42190d26ff629bc93b1c3f4bffff4ab253e245e125085e66266",
+          "comment": "buildkit.dockerfile.v0",
+          "empty_layer": true
+        },
+        {
+          "created": "2024-12-06T12:18:01Z",
+          "created_by": "RUN /bin/sh -c set -eux; \t\tapk add --no-cache --virtual .ruby-builddeps \t\tautoconf \t\tbzip2 \t\tbzip2-dev \t\tca-certificates \t\tcoreutils \t\tdpkg-dev dpkg \t\tg++ \t\tgcc \t\tgdbm-dev \t\tglib-dev \t\tlibc-dev \t\tlibffi-dev \t\tlibxml2-dev \t\tlibxslt-dev \t\tlinux-headers \t\tmake \t\tncurses-dev \t\topenssl \t\topenssl-dev \t\tpatch \t\tprocps \t\truby \t\ttar \t\txz \t\tyaml-dev \t\tzlib-dev \t; \t\trustArch=; \tapkArch=\"$(apk --print-arch)\"; \tcase \"$apkArch\" in \t\t'x86_64') rustArch='x86_64-unknown-linux-musl'; rustupUrl='https://static.rust-lang.org/rustup/archive/1.26.0/x86_64-unknown-linux-musl/rustup-init'; rustupSha256='7aa9e2a380a9958fc1fc426a3323209b2c86181c6816640979580f62ff7d48d4' ;; \t\t'aarch64') rustArch='aarch64-unknown-linux-musl'; rustupUrl='https://static.rust-lang.org/rustup/archive/1.26.0/aarch64-unknown-linux-musl/rustup-init'; rustupSha256='b1962dfc18e1fd47d01341e6897cace67cddfabf547ef394e8883939bd6e002e' ;; \tesac; \t\tif [ -n \"$rustArch\" ]; then \t\tmkdir -p /tmp/rust; \t\t\t\twget -O /tmp/rust/rustup-init \"$rustupUrl\"; \t\techo \"$rustupSha256 */tmp/rust/rustup-init\" | sha256sum --check --strict; \t\tchmod +x /tmp/rust/rustup-init; \t\t\t\texport RUSTUP_HOME='/tmp/rust/rustup' CARGO_HOME='/tmp/rust/cargo'; \t\texport PATH=\"$CARGO_HOME/bin:$PATH\"; \t\t/tmp/rust/rustup-init -y --no-modify-path --profile minimal --default-toolchain '1.74.1' --default-host \"$rustArch\"; \t\t\t\trustc --version; \t\tcargo --version; \tfi; \t\twget -O ruby.tar.xz \"$RUBY_DOWNLOAD_URL\"; \techo \"$RUBY_DOWNLOAD_SHA256 *ruby.tar.xz\" | sha256sum --check --strict; \t\tmkdir -p /usr/src/ruby; \ttar -xJf ruby.tar.xz -C /usr/src/ruby --strip-components=1; \trm ruby.tar.xz; \t\tcd /usr/src/ruby; \t\twget -O 'thread-stack-fix.patch' 'https://bugs.ruby-lang.org/attachments/download/7081/0001-thread_pthread.c-make-get_main_stack-portable-on-lin.patch'; \techo '3ab628a51d92fdf0d2b5835e93564857aea73e0c1de00313864a94a6255cb645 *thread-stack-fix.patch' | sha256sum --check --strict; \tpatch -p1 -i thread-stack-fix.patch; \trm thread-stack-fix.patch; \t\t{ \t\techo '#define ENABLE_PATH_CHECK 0'; \t\techo; \t\tcat file.c; \t} \u003e file.c.new; \tmv file.c.new file.c; \t\tautoconf; \tgnuArch=\"$(dpkg-architecture --query DEB_BUILD_GNU_TYPE)\"; \t./configure \t\t--build=\"$gnuArch\" \t\t--disable-install-doc \t\t--enable-shared \t\t${rustArch:+--enable-yjit} \t; \tmake -j \"$(nproc)\"; \tmake install; \t\trm -rf /tmp/rust; \trunDeps=\"$( \t\tscanelf --needed --nobanner --format '%n#p' --recursive /usr/local \t\t\t| tr ',' '\\n' \t\t\t| sort -u \t\t\t| awk 'system(\"[ -e /usr/local/lib/\" $1 \" ]\") == 0 { next } { print \"so:\" $1 }' \t)\"; \tapk add --no-network --virtual .ruby-rundeps $runDeps; \tapk del --no-network .ruby-builddeps; \t\tcd /; \trm -r /usr/src/ruby; \tif \t\tapk --no-network list --installed \t\t\t| grep -v '^[.]ruby-rundeps' \t\t\t| grep -i ruby \t; then \t\texit 1; \tfi; \t[ \"$(command -v ruby)\" = '/usr/local/bin/ruby' ]; \truby --version; \tgem --version; \tbundle --version # buildkit",
+          "comment": "buildkit.dockerfile.v0"
+        },
+        {
+          "created": "2024-12-06T12:18:01Z",
+          "created_by": "ENV GEM_HOME=/usr/local/bundle",
+          "comment": "buildkit.dockerfile.v0",
+          "empty_layer": true
+        },
+        {
+          "created": "2024-12-06T12:18:01Z",
+          "created_by": "ENV BUNDLE_SILENCE_ROOT_WARNING=1 BUNDLE_APP_CONFIG=/usr/local/bundle",
+          "comment": "buildkit.dockerfile.v0",
+          "empty_layer": true
+        },
+        {
+          "created": "2024-12-06T12:18:01Z",
+          "created_by": "ENV PATH=/usr/local/bundle/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+          "comment": "buildkit.dockerfile.v0",
+          "empty_layer": true
+        },
+        {
+          "created": "2024-12-06T12:18:01Z",
+          "created_by": "RUN /bin/sh -c set -eux; \tmkdir \"$GEM_HOME\"; \tchmod 1777 \"$GEM_HOME\" # buildkit",
+          "comment": "buildkit.dockerfile.v0"
+        },
+        {
+          "created": "2024-12-06T12:18:01Z",
+          "created_by": "CMD [\"irb\"]",
+          "comment": "buildkit.dockerfile.v0",
+          "empty_layer": true
+        },
+        {
+          "created": "2024-12-14T12:22:23.656387772Z",
+          "created_by": "/bin/sh -c apk update \u0026\u0026 apk add --no-cache build-base git make gcc libffi-dev ruby-dev zlib-dev"
+        },
+        {
+          "created": "2024-12-14T12:22:34.782031171Z",
+          "created_by": "/bin/sh -c gem install bundler"
+        },
+        {
+          "created": "2024-12-14T12:22:40.44921944Z",
+          "created_by": "/bin/sh -c bundle config --global frozen 1"
+        },
+        {
+          "created": "2024-12-14T12:22:43.588152907Z",
+          "created_by": "/bin/sh -c mkdir -p /app"
+        },
+        {
+          "created": "2024-12-14T12:22:44.716890361Z",
+          "created_by": "/bin/sh -c #(nop) COPY dir:e8826b167598408798b5e1153309011b5d78db6d36cefa3f1f9f4f4eef6507ea in /app "
+        },
+        {
+          "created": "2024-12-14T12:22:45.896259675Z",
+          "created_by": "/bin/sh -c #(nop) WORKDIR /app",
+          "empty_layer": true
+        },
+        {
+          "created": "2024-12-14T12:26:34.084746063Z",
+          "created_by": "/bin/sh -c bundle install"
+        },
+        {
+          "created": "2024-12-14T12:26:39.981845334Z",
+          "created_by": "/bin/sh -c git clone https://github.com/CARE-SM/CARE-SM-Implementation.git"
+        },
+        {
+          "created": "2024-12-14T12:26:40.719219547Z",
+          "created_by": "/bin/sh -c #(nop)  ENTRYPOINT [\"sh\" \"entrypoint-cdev2.sh\"]",
+          "empty_layer": true
+        },
+        {
+          "created": "2025-09-01T12:15:15.79909367Z",
+          "empty_layer": true
+        }
+      ],
+      "os": "linux",
+      "rootfs": {
+        "type": "layers",
+        "diff_ids": [
+          "sha256:3e01818d79cd3467f1d60e54224f3f6ce5170eceb54e265d96bb82344b8c24e7",
+          "sha256:78086eb5a8b11846f0ab615800af6154d64e20179f94bb50f0b782e888560b69",
+          "sha256:a25a2a97bf5677cb7d6767ab36b96d0467faa928ce3cb5ad8afd70ed423255ff",
+          "sha256:b2ab39784df45424e54e32ae8bf7847bab5e06e00a1a8f60670b108103215f2b",
+          "sha256:dafb4a57e1c18f10915ea609cbd31fe1e58a62e38847021addb46792aef78279",
+          "sha256:35908afe3075dceadea04a7148ccfc6942b00ab5797e5c92204c80f5540d09cc",
+          "sha256:3b37fa857872e8feb358610d4dee42d9f6ce0bdb88f133ab32ee3a30d5d2130e",
+          "sha256:da20daa04a1a7ceff8108fe9c3f695b942f6b8a33fe6f0f758ee59fb12f51935",
+          "sha256:b8b9cf089788016ff26709a8e3c3ec2e512f499fa3c5b3d0787915d5a54894be",
+          "sha256:c0502e7b7baed7f854535d6477afdd76b5e5c1fc267b3cc4fccaba397a14e54a",
+          "sha256:5601ec68794e823f37538d8446573f026359811198d200db32e1cd7108c28c3e",
+          "sha256:7e514b5073a9b83dbfcb6aee669f1c0cf6682d8433861e48c65fd11720d1dfde"
+        ]
+      },
+      "config": {
+        "Entrypoint": [
+          "sh",
+          "entrypoint-cdev2.sh"
+        ],
+        "Env": [
+          "PATH=/usr/local/bundle/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+          "LANG=C.UTF-8",
+          "RUBY_VERSION=3.3.6",
+          "RUBY_DOWNLOAD_URL=https://cache.ruby-lang.org/pub/ruby/3.3/ruby-3.3.6.tar.xz",
+          "RUBY_DOWNLOAD_SHA256=540975969d1af42190d26ff629bc93b1c3f4bffff4ab253e245e125085e66266",
+          "GEM_HOME=/usr/local/bundle",
+          "BUNDLE_SILENCE_ROOT_WARNING=1",
+          "BUNDLE_APP_CONFIG=/usr/local/bundle"
+        ],
+        "Hostname": "a529b17b0dab",
+        "Image": "markw/cde-box-daemon:0.7.0",
+        "WorkingDir": "/app"
+      }
+    }
+  },
+  "Results": [
+    {
+      "Target": "fairdatasystems/cdeb:2025-09-01 (alpine 3.21.0)",
+      "Class": "os-pkgs",
+      "Type": "alpine",
+      "Vulnerabilities": [
+        {
+          "VulnerabilityID": "CVE-2025-0840",
+          "PkgID": "binutils@2.43.1-r1",
+          "PkgName": "binutils",
+          "PkgIdentifier": {
+            "PURL": "pkg:apk/alpine/binutils@2.43.1-r1?arch=x86_64\u0026distro=3.21.0"
+          },
+          "InstalledVersion": "2.43.1-r1",
+          "FixedVersion": "2.43.1-r2",
+          "Status": "fixed",
+          "Layer": {
+            "DiffID": "sha256:35908afe3075dceadea04a7148ccfc6942b00ab5797e5c92204c80f5540d09cc"
+          },
+          "SeveritySource": "nvd",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2025-0840",
+          "DataSource": {
+            "ID": "alpine",
+            "Name": "Alpine Secdb",
+            "URL": "https://secdb.alpinelinux.org/"
+          },
+          "Title": "binutils: GNU Binutils objdump.c disassemble_bytes stack-based overflow",
+          "Description": "A vulnerability, which was classified as problematic, was found in GNU Binutils up to 2.43. This affects the function disassemble_bytes of the file binutils/objdump.c. The manipulation of the argument buf leads to stack-based buffer overflow. It is possible to initiate the attack remotely. The complexity of an attack is rather high. The exploitability is told to be difficult. The exploit has been disclosed to the public and may be used. Upgrading to version 2.44 is able to address this issue. The identifier of the patch is baac6c221e9d69335bf41366a1c7d87d8ab2f893. It is recommended to upgrade the affected component.",
+          "Severity": "HIGH",
+          "CweIDs": [
+            "CWE-119",
+            "CWE-121",
+            "CWE-787"
+          ],
+          "VendorSeverity": {
+            "amazon": 2,
+            "azure": 2,
+            "cbl-mariner": 2,
+            "nvd": 3,
+            "photon": 3,
+            "redhat": 2,
+            "ubuntu": 2
+          },
+          "CVSS": {
+            "nvd": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:H/I:H/A:H",
+              "V3Score": 7.5
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:L/I:L/A:L",
+              "V3Score": 5
+            }
+          },
+          "References": [
+            "https://access.redhat.com/security/cve/CVE-2025-0840",
+            "https://nvd.nist.gov/vuln/detail/CVE-2025-0840",
+            "https://sourceware.org/bugzilla/attachment.cgi?id=15882",
+            "https://sourceware.org/bugzilla/show_bug.cgi?id=32560",
+            "https://sourceware.org/git/gitweb.cgi?p=binutils-gdb.git;h=baac6c221e9d69335bf41366a1c7d87d8ab2f893",
+            "https://ubuntu.com/security/notices/USN-7306-1",
+            "https://ubuntu.com/security/notices/USN-7423-2",
+            "https://vuldb.com/?ctiid.293997",
+            "https://vuldb.com/?id.293997",
+            "https://vuldb.com/?submit.485255",
+            "https://www.cve.org/CVERecord?id=CVE-2025-0840",
+            "https://www.gnu.org/"
+          ],
+          "PublishedDate": "2025-01-29T20:15:35.007Z",
+          "LastModifiedDate": "2025-03-04T14:53:43.637Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2025-31498",
+          "PkgID": "c-ares@1.34.3-r0",
+          "PkgName": "c-ares",
+          "PkgIdentifier": {
+            "PURL": "pkg:apk/alpine/c-ares@1.34.3-r0?arch=x86_64\u0026distro=3.21.0"
+          },
+          "InstalledVersion": "1.34.3-r0",
+          "FixedVersion": "1.34.5-r0",
+          "Status": "fixed",
+          "Layer": {
+            "DiffID": "sha256:35908afe3075dceadea04a7148ccfc6942b00ab5797e5c92204c80f5540d09cc"
+          },
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2025-31498",
+          "DataSource": {
+            "ID": "alpine",
+            "Name": "Alpine Secdb",
+            "URL": "https://secdb.alpinelinux.org/"
+          },
+          "Title": "c-ares: c-ares has a use-after-free in read_answers()",
+          "Description": "c-ares is an asynchronous resolver library. From 1.32.3 through 1.34.4, there is a use-after-free in read_answers() when process_answer() may re-enqueue a query either due to a DNS Cookie Failure or when the upstream server does not properly support EDNS, or possibly on TCP queries if the remote closed the connection immediately after a response. If there was an issue trying to put that new transaction on the wire, it would close the connection handle, but read_answers() was still expecting the connection handle to be available to possibly dequeue other responses. In theory a remote attacker might be able to trigger this by flooding the target with ICMP UNREACHABLE packets if they also control the upstream nameserver and can return a result with one of those conditions, this has been untested. Otherwise only a local attacker might be able to change system behavior to make send()/write() return a failure condition. This vulnerability is fixed in 1.34.5.",
+          "Severity": "HIGH",
+          "CweIDs": [
+            "CWE-416"
+          ],
+          "VendorSeverity": {
+            "alma": 2,
+            "amazon": 2,
+            "azure": 3,
+            "oracle-oval": 2,
+            "redhat": 2,
+            "ubuntu": 2
+          },
+          "CVSS": {
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:L/A:H",
+              "V3Score": 7
+            }
+          },
+          "References": [
+            "http://www.openwall.com/lists/oss-security/2025/04/08/3",
+            "https://access.redhat.com/errata/RHSA-2025:7502",
+            "https://access.redhat.com/security/cve/CVE-2025-31498",
+            "https://bugzilla.redhat.com/2358271",
+            "https://errata.almalinux.org/10/ALSA-2025-7502.html",
+            "https://github.com/c-ares/c-ares/commit/29d38719112639d8c0ba910254a3dd4f482ea2d1",
+            "https://github.com/c-ares/c-ares/pull/821",
+            "https://github.com/c-ares/c-ares/security/advisories/GHSA-6hxc-62jh-p29v",
+            "https://linux.oracle.com/cve/CVE-2025-31498.html",
+            "https://linux.oracle.com/errata/ELSA-2025-7502.html",
+            "https://nvd.nist.gov/vuln/detail/CVE-2025-31498",
+            "https://ubuntu.com/security/notices/USN-7477-1",
+            "https://www.cve.org/CVERecord?id=CVE-2025-31498"
+          ],
+          "PublishedDate": "2025-04-08T14:15:35.293Z",
+          "LastModifiedDate": "2025-04-08T15:15:50.31Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2025-46334",
+          "PkgID": "git@2.47.1-r0",
+          "PkgName": "git",
+          "PkgIdentifier": {
+            "PURL": "pkg:apk/alpine/git@2.47.1-r0?arch=x86_64\u0026distro=3.21.0"
+          },
+          "InstalledVersion": "2.47.1-r0",
+          "FixedVersion": "2.47.3-r0",
+          "Status": "fixed",
+          "Layer": {
+            "DiffID": "sha256:35908afe3075dceadea04a7148ccfc6942b00ab5797e5c92204c80f5540d09cc"
+          },
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2025-46334",
+          "DataSource": {
+            "ID": "alpine",
+            "Name": "Alpine Secdb",
+            "URL": "https://secdb.alpinelinux.org/"
+          },
+          "Description": "Git GUI allows you to use the Git source control management tools via a GUI. A malicious repository can ship versions of sh.exe or typical textconv filter programs such as astextplain. Due to the unfortunate design of Tcl on Windows, the search path when looking for an executable always includes the current directory. The mentioned programs are invoked when the user selects Git Bash or Browse Files from the menu. This vulnerability is fixed in 2.43.7, 2.44.4, 2.45.4, 2.46.4, 2.47.3, 2.48.2, 2.49.1, and 2.50.1.",
+          "Severity": "HIGH",
+          "CweIDs": [
+            "CWE-78"
+          ],
+          "VendorSeverity": {
+            "photon": 3
+          },
+          "References": [
+            "https://github.com/j6t/git-gui/compare/dcda716dbc9c90bcac4611bd1076747671ee0906..a1ccd2512072cf52835050f4c97a4fba9f0ec8f9",
+            "https://github.com/j6t/git-gui/security/advisories/GHSA-7px4-9hg2-fvhx"
+          ],
+          "PublishedDate": "2025-07-10T15:15:28.417Z",
+          "LastModifiedDate": "2025-07-15T13:24:41.097Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2025-48384",
+          "PkgID": "git@2.47.1-r0",
+          "PkgName": "git",
+          "PkgIdentifier": {
+            "PURL": "pkg:apk/alpine/git@2.47.1-r0?arch=x86_64\u0026distro=3.21.0"
+          },
+          "InstalledVersion": "2.47.1-r0",
+          "FixedVersion": "2.47.3-r0",
+          "Status": "fixed",
+          "Layer": {
+            "DiffID": "sha256:35908afe3075dceadea04a7148ccfc6942b00ab5797e5c92204c80f5540d09cc"
+          },
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2025-48384",
+          "DataSource": {
+            "ID": "alpine",
+            "Name": "Alpine Secdb",
+            "URL": "https://secdb.alpinelinux.org/"
+          },
+          "Title": "git: Git arbitrary code execution",
+          "Description": "Git is a fast, scalable, distributed revision control system with an unusually rich command set that provides both high-level operations and full access to internals. When reading a config value, Git strips any trailing carriage return and line feed (CRLF). When writing a config entry, values with a trailing CR are not quoted, causing the CR to be lost when the config is later read. When initializing a submodule, if the submodule path contains a trailing CR, the altered path is read resulting in the submodule being checked out to an incorrect location. If a symlink exists that points the altered path to the submodule hooks directory, and the submodule contains an executable post-checkout hook, the script may be unintentionally executed after checkout. This vulnerability is fixed in v2.43.7, v2.44.4, v2.45.4, v2.46.4, v2.47.3, v2.48.2, v2.49.1, and v2.50.1.",
+          "Severity": "HIGH",
+          "CweIDs": [
+            "CWE-59",
+            "CWE-436"
+          ],
+          "VendorSeverity": {
+            "alma": 3,
+            "amazon": 3,
+            "azure": 3,
+            "bitnami": 3,
+            "cbl-mariner": 3,
+            "oracle-oval": 3,
+            "photon": 3,
+            "redhat": 3,
+            "rocky": 3,
+            "ubuntu": 3
+          },
+          "CVSS": {
+            "bitnami": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:H/PR:L/UI:R/S:C/C:H/I:H/A:H",
+              "V3Score": 8.1
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:H/PR:L/UI:R/S:C/C:H/I:H/A:H",
+              "V3Score": 8
+            }
+          },
+          "References": [
+            "https://access.redhat.com/errata/RHSA-2025:11533",
+            "https://access.redhat.com/security/cve/CVE-2025-48384",
+            "https://bugzilla.redhat.com/2337824",
+            "https://bugzilla.redhat.com/2337956",
+            "https://bugzilla.redhat.com/2378806",
+            "https://bugzilla.redhat.com/2378808",
+            "https://bugzilla.redhat.com/2379124",
+            "https://bugzilla.redhat.com/2379125",
+            "https://bugzilla.redhat.com/2379326",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=2337824",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=2337956",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=2378806",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=2378808",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=2379124",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=2379125",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=2379326",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-50349",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-52006",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-27613",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-27614",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-46835",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-48384",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-48385",
+            "https://dgl.cx/2025/07/git-clone-submodule-cve-2025-48384",
+            "https://errata.almalinux.org/10/ALSA-2025-11533.html",
+            "https://errata.rockylinux.org/RLSA-2025:11534",
+            "https://github.com/git/git/commit/05e9cd64ee23bbadcea6bcffd6660ed02b8eab89",
+            "https://github.com/git/git/security/advisories/GHSA-vwqx-4fm8-6qc9",
+            "https://linux.oracle.com/cve/CVE-2025-48384.html",
+            "https://linux.oracle.com/errata/ELSA-2025-11688.html",
+            "https://nvd.nist.gov/vuln/detail/CVE-2025-48384",
+            "https://ubuntu.com/security/notices/USN-7626-1",
+            "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+            "https://www.cve.org/CVERecord?id=CVE-2025-48384",
+            "https://www.openwall.com/lists/oss-security/2025/07/08/4"
+          ],
+          "PublishedDate": "2025-07-08T19:15:42.8Z",
+          "LastModifiedDate": "2025-08-26T14:45:27.957Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2025-48385",
+          "PkgID": "git@2.47.1-r0",
+          "PkgName": "git",
+          "PkgIdentifier": {
+            "PURL": "pkg:apk/alpine/git@2.47.1-r0?arch=x86_64\u0026distro=3.21.0"
+          },
+          "InstalledVersion": "2.47.1-r0",
+          "FixedVersion": "2.47.3-r0",
+          "Status": "fixed",
+          "Layer": {
+            "DiffID": "sha256:35908afe3075dceadea04a7148ccfc6942b00ab5797e5c92204c80f5540d09cc"
+          },
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2025-48385",
+          "DataSource": {
+            "ID": "alpine",
+            "Name": "Alpine Secdb",
+            "URL": "https://secdb.alpinelinux.org/"
+          },
+          "Title": "git: Git arbitrary file writes",
+          "Description": "Git is a fast, scalable, distributed revision control system with an unusually rich command set that provides both high-level operations and full access to internals. When cloning a repository Git knows to optionally fetch a bundle advertised by the remote server, which allows the server-side to offload parts of the clone to a CDN. The Git client does not perform sufficient validation of the advertised bundles, which allows the remote side to perform protocol injection. This protocol injection can cause the client to write the fetched bundle to a location controlled by the adversary. The fetched content is fully controlled by the server, which can in the worst case lead to arbitrary code execution. The use of bundle URIs is not enabled by default and can be controlled by the bundle.heuristic config option. Some cases of the vulnerability require that the adversary is in control of where a repository will be cloned to. This either requires social engineering or a recursive clone with submodules. These cases can thus be avoided by disabling recursive clones. This vulnerability is fixed in v2.43.7, v2.44.4, v2.45.4, v2.46.4, v2.47.3, v2.48.2, v2.49.1, and v2.50.1.",
+          "Severity": "HIGH",
+          "CweIDs": [
+            "CWE-73",
+            "CWE-88"
+          ],
+          "VendorSeverity": {
+            "alma": 3,
+            "amazon": 3,
+            "azure": 3,
+            "bitnami": 3,
+            "cbl-mariner": 3,
+            "oracle-oval": 3,
+            "photon": 3,
+            "redhat": 3,
+            "rocky": 3,
+            "ubuntu": 2
+          },
+          "CVSS": {
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:L",
+              "V3Score": 8.3
+            }
+          },
+          "References": [
+            "https://access.redhat.com/errata/RHSA-2025:11533",
+            "https://access.redhat.com/security/cve/CVE-2025-48385",
+            "https://bugzilla.redhat.com/2337824",
+            "https://bugzilla.redhat.com/2337956",
+            "https://bugzilla.redhat.com/2378806",
+            "https://bugzilla.redhat.com/2378808",
+            "https://bugzilla.redhat.com/2379124",
+            "https://bugzilla.redhat.com/2379125",
+            "https://bugzilla.redhat.com/2379326",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=2337824",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=2337956",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=2378806",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=2378808",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=2379124",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=2379125",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=2379326",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-50349",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-52006",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-27613",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-27614",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-46835",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-48384",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-48385",
+            "https://errata.almalinux.org/10/ALSA-2025-11533.html",
+            "https://errata.rockylinux.org/RLSA-2025:11534",
+            "https://github.com/git/git/security/advisories/GHSA-m98c-vgpc-9655",
+            "https://linux.oracle.com/cve/CVE-2025-48385.html",
+            "https://linux.oracle.com/errata/ELSA-2025-11534.html",
+            "https://nvd.nist.gov/vuln/detail/CVE-2025-48385",
+            "https://ubuntu.com/security/notices/USN-7626-1",
+            "https://www.cve.org/CVERecord?id=CVE-2025-48385",
+            "https://www.openwall.com/lists/oss-security/2025/07/08/4"
+          ],
+          "PublishedDate": "2025-07-08T19:15:43.097Z",
+          "LastModifiedDate": "2025-07-10T13:18:53.83Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2025-46334",
+          "PkgID": "git-init-template@2.47.1-r0",
+          "PkgName": "git-init-template",
+          "PkgIdentifier": {
+            "PURL": "pkg:apk/alpine/git-init-template@2.47.1-r0?arch=x86_64\u0026distro=3.21.0"
+          },
+          "InstalledVersion": "2.47.1-r0",
+          "FixedVersion": "2.47.3-r0",
+          "Status": "fixed",
+          "Layer": {
+            "DiffID": "sha256:35908afe3075dceadea04a7148ccfc6942b00ab5797e5c92204c80f5540d09cc"
+          },
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2025-46334",
+          "DataSource": {
+            "ID": "alpine",
+            "Name": "Alpine Secdb",
+            "URL": "https://secdb.alpinelinux.org/"
+          },
+          "Description": "Git GUI allows you to use the Git source control management tools via a GUI. A malicious repository can ship versions of sh.exe or typical textconv filter programs such as astextplain. Due to the unfortunate design of Tcl on Windows, the search path when looking for an executable always includes the current directory. The mentioned programs are invoked when the user selects Git Bash or Browse Files from the menu. This vulnerability is fixed in 2.43.7, 2.44.4, 2.45.4, 2.46.4, 2.47.3, 2.48.2, 2.49.1, and 2.50.1.",
+          "Severity": "HIGH",
+          "CweIDs": [
+            "CWE-78"
+          ],
+          "VendorSeverity": {
+            "photon": 3
+          },
+          "References": [
+            "https://github.com/j6t/git-gui/compare/dcda716dbc9c90bcac4611bd1076747671ee0906..a1ccd2512072cf52835050f4c97a4fba9f0ec8f9",
+            "https://github.com/j6t/git-gui/security/advisories/GHSA-7px4-9hg2-fvhx"
+          ],
+          "PublishedDate": "2025-07-10T15:15:28.417Z",
+          "LastModifiedDate": "2025-07-15T13:24:41.097Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2025-48384",
+          "PkgID": "git-init-template@2.47.1-r0",
+          "PkgName": "git-init-template",
+          "PkgIdentifier": {
+            "PURL": "pkg:apk/alpine/git-init-template@2.47.1-r0?arch=x86_64\u0026distro=3.21.0"
+          },
+          "InstalledVersion": "2.47.1-r0",
+          "FixedVersion": "2.47.3-r0",
+          "Status": "fixed",
+          "Layer": {
+            "DiffID": "sha256:35908afe3075dceadea04a7148ccfc6942b00ab5797e5c92204c80f5540d09cc"
+          },
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2025-48384",
+          "DataSource": {
+            "ID": "alpine",
+            "Name": "Alpine Secdb",
+            "URL": "https://secdb.alpinelinux.org/"
+          },
+          "Title": "git: Git arbitrary code execution",
+          "Description": "Git is a fast, scalable, distributed revision control system with an unusually rich command set that provides both high-level operations and full access to internals. When reading a config value, Git strips any trailing carriage return and line feed (CRLF). When writing a config entry, values with a trailing CR are not quoted, causing the CR to be lost when the config is later read. When initializing a submodule, if the submodule path contains a trailing CR, the altered path is read resulting in the submodule being checked out to an incorrect location. If a symlink exists that points the altered path to the submodule hooks directory, and the submodule contains an executable post-checkout hook, the script may be unintentionally executed after checkout. This vulnerability is fixed in v2.43.7, v2.44.4, v2.45.4, v2.46.4, v2.47.3, v2.48.2, v2.49.1, and v2.50.1.",
+          "Severity": "HIGH",
+          "CweIDs": [
+            "CWE-59",
+            "CWE-436"
+          ],
+          "VendorSeverity": {
+            "alma": 3,
+            "amazon": 3,
+            "azure": 3,
+            "bitnami": 3,
+            "cbl-mariner": 3,
+            "oracle-oval": 3,
+            "photon": 3,
+            "redhat": 3,
+            "rocky": 3,
+            "ubuntu": 3
+          },
+          "CVSS": {
+            "bitnami": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:H/PR:L/UI:R/S:C/C:H/I:H/A:H",
+              "V3Score": 8.1
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:H/PR:L/UI:R/S:C/C:H/I:H/A:H",
+              "V3Score": 8
+            }
+          },
+          "References": [
+            "https://access.redhat.com/errata/RHSA-2025:11533",
+            "https://access.redhat.com/security/cve/CVE-2025-48384",
+            "https://bugzilla.redhat.com/2337824",
+            "https://bugzilla.redhat.com/2337956",
+            "https://bugzilla.redhat.com/2378806",
+            "https://bugzilla.redhat.com/2378808",
+            "https://bugzilla.redhat.com/2379124",
+            "https://bugzilla.redhat.com/2379125",
+            "https://bugzilla.redhat.com/2379326",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=2337824",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=2337956",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=2378806",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=2378808",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=2379124",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=2379125",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=2379326",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-50349",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-52006",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-27613",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-27614",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-46835",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-48384",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-48385",
+            "https://dgl.cx/2025/07/git-clone-submodule-cve-2025-48384",
+            "https://errata.almalinux.org/10/ALSA-2025-11533.html",
+            "https://errata.rockylinux.org/RLSA-2025:11534",
+            "https://github.com/git/git/commit/05e9cd64ee23bbadcea6bcffd6660ed02b8eab89",
+            "https://github.com/git/git/security/advisories/GHSA-vwqx-4fm8-6qc9",
+            "https://linux.oracle.com/cve/CVE-2025-48384.html",
+            "https://linux.oracle.com/errata/ELSA-2025-11688.html",
+            "https://nvd.nist.gov/vuln/detail/CVE-2025-48384",
+            "https://ubuntu.com/security/notices/USN-7626-1",
+            "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+            "https://www.cve.org/CVERecord?id=CVE-2025-48384",
+            "https://www.openwall.com/lists/oss-security/2025/07/08/4"
+          ],
+          "PublishedDate": "2025-07-08T19:15:42.8Z",
+          "LastModifiedDate": "2025-08-26T14:45:27.957Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2025-48385",
+          "PkgID": "git-init-template@2.47.1-r0",
+          "PkgName": "git-init-template",
+          "PkgIdentifier": {
+            "PURL": "pkg:apk/alpine/git-init-template@2.47.1-r0?arch=x86_64\u0026distro=3.21.0"
+          },
+          "InstalledVersion": "2.47.1-r0",
+          "FixedVersion": "2.47.3-r0",
+          "Status": "fixed",
+          "Layer": {
+            "DiffID": "sha256:35908afe3075dceadea04a7148ccfc6942b00ab5797e5c92204c80f5540d09cc"
+          },
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2025-48385",
+          "DataSource": {
+            "ID": "alpine",
+            "Name": "Alpine Secdb",
+            "URL": "https://secdb.alpinelinux.org/"
+          },
+          "Title": "git: Git arbitrary file writes",
+          "Description": "Git is a fast, scalable, distributed revision control system with an unusually rich command set that provides both high-level operations and full access to internals. When cloning a repository Git knows to optionally fetch a bundle advertised by the remote server, which allows the server-side to offload parts of the clone to a CDN. The Git client does not perform sufficient validation of the advertised bundles, which allows the remote side to perform protocol injection. This protocol injection can cause the client to write the fetched bundle to a location controlled by the adversary. The fetched content is fully controlled by the server, which can in the worst case lead to arbitrary code execution. The use of bundle URIs is not enabled by default and can be controlled by the bundle.heuristic config option. Some cases of the vulnerability require that the adversary is in control of where a repository will be cloned to. This either requires social engineering or a recursive clone with submodules. These cases can thus be avoided by disabling recursive clones. This vulnerability is fixed in v2.43.7, v2.44.4, v2.45.4, v2.46.4, v2.47.3, v2.48.2, v2.49.1, and v2.50.1.",
+          "Severity": "HIGH",
+          "CweIDs": [
+            "CWE-73",
+            "CWE-88"
+          ],
+          "VendorSeverity": {
+            "alma": 3,
+            "amazon": 3,
+            "azure": 3,
+            "bitnami": 3,
+            "cbl-mariner": 3,
+            "oracle-oval": 3,
+            "photon": 3,
+            "redhat": 3,
+            "rocky": 3,
+            "ubuntu": 2
+          },
+          "CVSS": {
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:L",
+              "V3Score": 8.3
+            }
+          },
+          "References": [
+            "https://access.redhat.com/errata/RHSA-2025:11533",
+            "https://access.redhat.com/security/cve/CVE-2025-48385",
+            "https://bugzilla.redhat.com/2337824",
+            "https://bugzilla.redhat.com/2337956",
+            "https://bugzilla.redhat.com/2378806",
+            "https://bugzilla.redhat.com/2378808",
+            "https://bugzilla.redhat.com/2379124",
+            "https://bugzilla.redhat.com/2379125",
+            "https://bugzilla.redhat.com/2379326",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=2337824",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=2337956",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=2378806",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=2378808",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=2379124",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=2379125",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=2379326",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-50349",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-52006",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-27613",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-27614",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-46835",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-48384",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-48385",
+            "https://errata.almalinux.org/10/ALSA-2025-11533.html",
+            "https://errata.rockylinux.org/RLSA-2025:11534",
+            "https://github.com/git/git/security/advisories/GHSA-m98c-vgpc-9655",
+            "https://linux.oracle.com/cve/CVE-2025-48385.html",
+            "https://linux.oracle.com/errata/ELSA-2025-11534.html",
+            "https://nvd.nist.gov/vuln/detail/CVE-2025-48385",
+            "https://ubuntu.com/security/notices/USN-7626-1",
+            "https://www.cve.org/CVERecord?id=CVE-2025-48385",
+            "https://www.openwall.com/lists/oss-security/2025/07/08/4"
+          ],
+          "PublishedDate": "2025-07-08T19:15:43.097Z",
+          "LastModifiedDate": "2025-07-10T13:18:53.83Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2024-12797",
+          "PkgID": "libcrypto3@3.3.2-r4",
+          "PkgName": "libcrypto3",
+          "PkgIdentifier": {
+            "PURL": "pkg:apk/alpine/libcrypto3@3.3.2-r4?arch=x86_64\u0026distro=3.21.0"
+          },
+          "InstalledVersion": "3.3.2-r4",
+          "FixedVersion": "3.3.3-r0",
+          "Status": "fixed",
+          "Layer": {
+            "DiffID": "sha256:3e01818d79cd3467f1d60e54224f3f6ce5170eceb54e265d96bb82344b8c24e7"
+          },
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2024-12797",
+          "DataSource": {
+            "ID": "alpine",
+            "Name": "Alpine Secdb",
+            "URL": "https://secdb.alpinelinux.org/"
+          },
+          "Title": "openssl: RFC7250 handshakes with unauthenticated servers don't abort as expected",
+          "Description": "Issue summary: Clients using RFC7250 Raw Public Keys (RPKs) to authenticate a\nserver may fail to notice that the server was not authenticated, because\nhandshakes don't abort as expected when the SSL_VERIFY_PEER verification mode\nis set.\n\nImpact summary: TLS and DTLS connections using raw public keys may be\nvulnerable to man-in-middle attacks when server authentication failure is not\ndetected by clients.\n\nRPKs are disabled by default in both TLS clients and TLS servers.  The issue\nonly arises when TLS clients explicitly enable RPK use by the server, and the\nserver, likewise, enables sending of an RPK instead of an X.509 certificate\nchain.  The affected clients are those that then rely on the handshake to\nfail when the server's RPK fails to match one of the expected public keys,\nby setting the verification mode to SSL_VERIFY_PEER.\n\nClients that enable server-side raw public keys can still find out that raw\npublic key verification failed by calling SSL_get_verify_result(), and those\nthat do, and take appropriate action, are not affected.  This issue was\nintroduced in the initial implementation of RPK support in OpenSSL 3.2.\n\nThe FIPS modules in 3.4, 3.3, 3.2, 3.1 and 3.0 are not affected by this issue.",
+          "Severity": "HIGH",
+          "CweIDs": [
+            "CWE-392"
+          ],
+          "VendorSeverity": {
+            "alma": 3,
+            "azure": 3,
+            "cbl-mariner": 3,
+            "ghsa": 1,
+            "oracle-oval": 3,
+            "redhat": 3,
+            "ubuntu": 3
+          },
+          "CVSS": {
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:N",
+              "V3Score": 7.4
+            }
+          },
+          "References": [
+            "http://www.openwall.com/lists/oss-security/2025/02/11/3",
+            "http://www.openwall.com/lists/oss-security/2025/02/11/4",
+            "https://access.redhat.com/errata/RHSA-2025:1330",
+            "https://access.redhat.com/security/cve/CVE-2024-12797",
+            "https://bugzilla.redhat.com/2342757",
+            "https://errata.almalinux.org/9/ALSA-2025-1330.html",
+            "https://github.com/openssl/openssl/commit/738d4f9fdeaad57660dcba50a619fafced3fd5e9",
+            "https://github.com/openssl/openssl/commit/798779d43494549b611233f92652f0da5328fbe7",
+            "https://github.com/openssl/openssl/commit/87ebd203feffcf92ad5889df92f90bb0ee10a699",
+            "https://github.com/pyca/cryptography",
+            "https://github.com/pyca/cryptography/security/advisories/GHSA-79v4-65xg-pq4g",
+            "https://linux.oracle.com/cve/CVE-2024-12797.html",
+            "https://linux.oracle.com/errata/ELSA-2025-1330.html",
+            "https://nvd.nist.gov/vuln/detail/CVE-2024-12797",
+            "https://openssl-library.org/news/secadv/20250211.txt",
+            "https://security.netapp.com/advisory/ntap-20250214-0001/",
+            "https://ubuntu.com/security/notices/USN-7264-1",
+            "https://www.cve.org/CVERecord?id=CVE-2024-12797"
+          ],
+          "PublishedDate": "2025-02-11T16:15:38.827Z",
+          "LastModifiedDate": "2025-02-18T14:15:27.107Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2024-8176",
+          "PkgID": "libexpat@2.6.4-r0",
+          "PkgName": "libexpat",
+          "PkgIdentifier": {
+            "PURL": "pkg:apk/alpine/libexpat@2.6.4-r0?arch=x86_64\u0026distro=3.21.0"
+          },
+          "InstalledVersion": "2.6.4-r0",
+          "FixedVersion": "2.7.0-r0",
+          "Status": "fixed",
+          "Layer": {
+            "DiffID": "sha256:35908afe3075dceadea04a7148ccfc6942b00ab5797e5c92204c80f5540d09cc"
+          },
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2024-8176",
+          "DataSource": {
+            "ID": "alpine",
+            "Name": "Alpine Secdb",
+            "URL": "https://secdb.alpinelinux.org/"
+          },
+          "Title": "libexpat: expat: Improper Restriction of XML Entity Expansion Depth in libexpat",
+          "Description": "A stack overflow vulnerability exists in the libexpat library due to the way it handles recursive entity expansion in XML documents. When parsing an XML document with deeply nested entity references, libexpat can be forced to recurse indefinitely, exhausting the stack space and causing a crash. This issue could lead to denial of service (DoS) or, in some cases, exploitable memory corruption, depending on the environment and library usage.",
+          "Severity": "HIGH",
+          "CweIDs": [
+            "CWE-674"
+          ],
+          "VendorSeverity": {
+            "alma": 2,
+            "azure": 3,
+            "cbl-mariner": 3,
+            "oracle-oval": 2,
+            "photon": 3,
+            "redhat": 2,
+            "rocky": 2,
+            "ubuntu": 2
+          },
+          "CVSS": {
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+              "V3Score": 7.5
+            }
+          },
+          "References": [
+            "http://www.openwall.com/lists/oss-security/2025/03/15/1",
+            "https://access.redhat.com/errata/RHSA-2025:13681",
+            "https://access.redhat.com/errata/RHSA-2025:3531",
+            "https://access.redhat.com/errata/RHSA-2025:3734",
+            "https://access.redhat.com/errata/RHSA-2025:3913",
+            "https://access.redhat.com/errata/RHSA-2025:4048",
+            "https://access.redhat.com/errata/RHSA-2025:4446",
+            "https://access.redhat.com/errata/RHSA-2025:4447",
+            "https://access.redhat.com/errata/RHSA-2025:4448",
+            "https://access.redhat.com/errata/RHSA-2025:4449",
+            "https://access.redhat.com/errata/RHSA-2025:7444",
+            "https://access.redhat.com/errata/RHSA-2025:7512",
+            "https://access.redhat.com/errata/RHSA-2025:8385",
+            "https://access.redhat.com/security/cve/CVE-2024-8176",
+            "https://blog.hartwork.org/posts/expat-2-7-0-released/",
+            "https://bugzilla.redhat.com/2310137",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=2310137",
+            "https://bugzilla.suse.com/show_bug.cgi?id=1239618",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-8176",
+            "https://errata.almalinux.org/10/ALSA-2025-7512.html",
+            "https://errata.rockylinux.org/RLSA-2025:4048",
+            "https://github.com/libexpat/libexpat/blob/R_2_7_0/expat/Changes#L40-L52",
+            "https://github.com/libexpat/libexpat/issues/893",
+            "https://gitlab.alpinelinux.org/alpine/aports/-/commit/d068c3ff36fc6f4789988a09c69b434db757db53",
+            "https://linux.oracle.com/cve/CVE-2024-8176.html",
+            "https://linux.oracle.com/errata/ELSA-2025-7512.html",
+            "https://nvd.nist.gov/vuln/detail/CVE-2024-8176",
+            "https://security-tracker.debian.org/tracker/CVE-2024-8176",
+            "https://security.netapp.com/advisory/ntap-20250328-0009/",
+            "https://ubuntu.com/security/CVE-2024-8176",
+            "https://ubuntu.com/security/notices/USN-7424-1",
+            "https://www.cve.org/CVERecord?id=CVE-2024-8176",
+            "https://www.kb.cert.org/vuls/id/760160"
+          ],
+          "PublishedDate": "2025-03-14T09:15:14.157Z",
+          "LastModifiedDate": "2025-08-14T16:15:31.497Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2024-12797",
+          "PkgID": "libssl3@3.3.2-r4",
+          "PkgName": "libssl3",
+          "PkgIdentifier": {
+            "PURL": "pkg:apk/alpine/libssl3@3.3.2-r4?arch=x86_64\u0026distro=3.21.0"
+          },
+          "InstalledVersion": "3.3.2-r4",
+          "FixedVersion": "3.3.3-r0",
+          "Status": "fixed",
+          "Layer": {
+            "DiffID": "sha256:3e01818d79cd3467f1d60e54224f3f6ce5170eceb54e265d96bb82344b8c24e7"
+          },
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2024-12797",
+          "DataSource": {
+            "ID": "alpine",
+            "Name": "Alpine Secdb",
+            "URL": "https://secdb.alpinelinux.org/"
+          },
+          "Title": "openssl: RFC7250 handshakes with unauthenticated servers don't abort as expected",
+          "Description": "Issue summary: Clients using RFC7250 Raw Public Keys (RPKs) to authenticate a\nserver may fail to notice that the server was not authenticated, because\nhandshakes don't abort as expected when the SSL_VERIFY_PEER verification mode\nis set.\n\nImpact summary: TLS and DTLS connections using raw public keys may be\nvulnerable to man-in-middle attacks when server authentication failure is not\ndetected by clients.\n\nRPKs are disabled by default in both TLS clients and TLS servers.  The issue\nonly arises when TLS clients explicitly enable RPK use by the server, and the\nserver, likewise, enables sending of an RPK instead of an X.509 certificate\nchain.  The affected clients are those that then rely on the handshake to\nfail when the server's RPK fails to match one of the expected public keys,\nby setting the verification mode to SSL_VERIFY_PEER.\n\nClients that enable server-side raw public keys can still find out that raw\npublic key verification failed by calling SSL_get_verify_result(), and those\nthat do, and take appropriate action, are not affected.  This issue was\nintroduced in the initial implementation of RPK support in OpenSSL 3.2.\n\nThe FIPS modules in 3.4, 3.3, 3.2, 3.1 and 3.0 are not affected by this issue.",
+          "Severity": "HIGH",
+          "CweIDs": [
+            "CWE-392"
+          ],
+          "VendorSeverity": {
+            "alma": 3,
+            "azure": 3,
+            "cbl-mariner": 3,
+            "ghsa": 1,
+            "oracle-oval": 3,
+            "redhat": 3,
+            "ubuntu": 3
+          },
+          "CVSS": {
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:N",
+              "V3Score": 7.4
+            }
+          },
+          "References": [
+            "http://www.openwall.com/lists/oss-security/2025/02/11/3",
+            "http://www.openwall.com/lists/oss-security/2025/02/11/4",
+            "https://access.redhat.com/errata/RHSA-2025:1330",
+            "https://access.redhat.com/security/cve/CVE-2024-12797",
+            "https://bugzilla.redhat.com/2342757",
+            "https://errata.almalinux.org/9/ALSA-2025-1330.html",
+            "https://github.com/openssl/openssl/commit/738d4f9fdeaad57660dcba50a619fafced3fd5e9",
+            "https://github.com/openssl/openssl/commit/798779d43494549b611233f92652f0da5328fbe7",
+            "https://github.com/openssl/openssl/commit/87ebd203feffcf92ad5889df92f90bb0ee10a699",
+            "https://github.com/pyca/cryptography",
+            "https://github.com/pyca/cryptography/security/advisories/GHSA-79v4-65xg-pq4g",
+            "https://linux.oracle.com/cve/CVE-2024-12797.html",
+            "https://linux.oracle.com/errata/ELSA-2025-1330.html",
+            "https://nvd.nist.gov/vuln/detail/CVE-2024-12797",
+            "https://openssl-library.org/news/secadv/20250211.txt",
+            "https://security.netapp.com/advisory/ntap-20250214-0001/",
+            "https://ubuntu.com/security/notices/USN-7264-1",
+            "https://www.cve.org/CVERecord?id=CVE-2024-12797"
+          ],
+          "PublishedDate": "2025-02-11T16:15:38.827Z",
+          "LastModifiedDate": "2025-02-18T14:15:27.107Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2025-27219",
+          "PkgID": "ruby@3.3.6-r0",
+          "PkgName": "ruby",
+          "PkgIdentifier": {
+            "PURL": "pkg:apk/alpine/ruby@3.3.6-r0?arch=x86_64\u0026distro=3.21.0"
+          },
+          "InstalledVersion": "3.3.6-r0",
+          "FixedVersion": "3.3.8-r0",
+          "Status": "fixed",
+          "Layer": {
+            "DiffID": "sha256:35908afe3075dceadea04a7148ccfc6942b00ab5797e5c92204c80f5540d09cc"
+          },
+          "SeveritySource": "nvd",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2025-27219",
+          "DataSource": {
+            "ID": "alpine",
+            "Name": "Alpine Secdb",
+            "URL": "https://secdb.alpinelinux.org/"
+          },
+          "Title": "CGI: Denial of Service in CGI::Cookie.parse",
+          "Description": "In the CGI gem before 0.4.2 for Ruby, the CGI::Cookie.parse method in the CGI library contains a potential Denial of Service (DoS) vulnerability. The method does not impose any limit on the length of the raw cookie value it processes. This oversight can lead to excessive resource consumption when parsing extremely large cookies.",
+          "Severity": "HIGH",
+          "CweIDs": [
+            "CWE-770"
+          ],
+          "VendorSeverity": {
+            "alma": 2,
+            "amazon": 2,
+            "azure": 2,
+            "cbl-mariner": 2,
+            "ghsa": 2,
+            "nvd": 3,
+            "oracle-oval": 2,
+            "photon": 3,
+            "redhat": 2,
+            "ruby-advisory-db": 2,
+            "ubuntu": 2
+          },
+          "CVSS": {
+            "ghsa": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:N/I:N/A:L",
+              "V3Score": 5.8
+            },
+            "nvd": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+              "V3Score": 7.5
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L",
+              "V3Score": 5.3
+            }
+          },
+          "References": [
+            "https://access.redhat.com/errata/RHSA-2025:8131",
+            "https://access.redhat.com/security/cve/CVE-2025-27219",
+            "https://bugzilla.redhat.com/2344680",
+            "https://bugzilla.redhat.com/2349699",
+            "https://bugzilla.redhat.com/2349700",
+            "https://errata.almalinux.org/10/ALSA-2025-8131.html",
+            "https://github.com/ruby/cgi",
+            "https://github.com/ruby/cgi/pull/52",
+            "https://github.com/ruby/cgi/pull/53",
+            "https://github.com/ruby/cgi/pull/54",
+            "https://github.com/rubysec/ruby-advisory-db/blob/master/gems/cgi/CVE-2025-27219.yml",
+            "https://hackerone.com/reports/2936778",
+            "https://hackerone.com/reports/3013913",
+            "https://linux.oracle.com/cve/CVE-2025-27219.html",
+            "https://linux.oracle.com/errata/ELSA-2025-8131.html",
+            "https://nvd.nist.gov/vuln/detail/CVE-2025-27219",
+            "https://ubuntu.com/security/notices/USN-7418-1",
+            "https://ubuntu.com/security/notices/USN-7442-1",
+            "https://www.cve.org/CVERecord?id=CVE-2025-27219",
+            "https://www.ruby-lang.org/en/news/2025/02/26/security-advisories",
+            "https://www.ruby-lang.org/en/news/2025/02/26/security-advisories/",
+            "https://www.suse.com/security/cve/CVE-2025-27219.html"
+          ],
+          "PublishedDate": "2025-03-04T00:15:31.55Z",
+          "LastModifiedDate": "2025-03-05T14:05:15.387Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2025-27219",
+          "PkgID": "ruby-dev@3.3.6-r0",
+          "PkgName": "ruby-dev",
+          "PkgIdentifier": {
+            "PURL": "pkg:apk/alpine/ruby-dev@3.3.6-r0?arch=x86_64\u0026distro=3.21.0"
+          },
+          "InstalledVersion": "3.3.6-r0",
+          "FixedVersion": "3.3.8-r0",
+          "Status": "fixed",
+          "Layer": {
+            "DiffID": "sha256:35908afe3075dceadea04a7148ccfc6942b00ab5797e5c92204c80f5540d09cc"
+          },
+          "SeveritySource": "nvd",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2025-27219",
+          "DataSource": {
+            "ID": "alpine",
+            "Name": "Alpine Secdb",
+            "URL": "https://secdb.alpinelinux.org/"
+          },
+          "Title": "CGI: Denial of Service in CGI::Cookie.parse",
+          "Description": "In the CGI gem before 0.4.2 for Ruby, the CGI::Cookie.parse method in the CGI library contains a potential Denial of Service (DoS) vulnerability. The method does not impose any limit on the length of the raw cookie value it processes. This oversight can lead to excessive resource consumption when parsing extremely large cookies.",
+          "Severity": "HIGH",
+          "CweIDs": [
+            "CWE-770"
+          ],
+          "VendorSeverity": {
+            "alma": 2,
+            "amazon": 2,
+            "azure": 2,
+            "cbl-mariner": 2,
+            "ghsa": 2,
+            "nvd": 3,
+            "oracle-oval": 2,
+            "photon": 3,
+            "redhat": 2,
+            "ruby-advisory-db": 2,
+            "ubuntu": 2
+          },
+          "CVSS": {
+            "ghsa": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:N/I:N/A:L",
+              "V3Score": 5.8
+            },
+            "nvd": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+              "V3Score": 7.5
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L",
+              "V3Score": 5.3
+            }
+          },
+          "References": [
+            "https://access.redhat.com/errata/RHSA-2025:8131",
+            "https://access.redhat.com/security/cve/CVE-2025-27219",
+            "https://bugzilla.redhat.com/2344680",
+            "https://bugzilla.redhat.com/2349699",
+            "https://bugzilla.redhat.com/2349700",
+            "https://errata.almalinux.org/10/ALSA-2025-8131.html",
+            "https://github.com/ruby/cgi",
+            "https://github.com/ruby/cgi/pull/52",
+            "https://github.com/ruby/cgi/pull/53",
+            "https://github.com/ruby/cgi/pull/54",
+            "https://github.com/rubysec/ruby-advisory-db/blob/master/gems/cgi/CVE-2025-27219.yml",
+            "https://hackerone.com/reports/2936778",
+            "https://hackerone.com/reports/3013913",
+            "https://linux.oracle.com/cve/CVE-2025-27219.html",
+            "https://linux.oracle.com/errata/ELSA-2025-8131.html",
+            "https://nvd.nist.gov/vuln/detail/CVE-2025-27219",
+            "https://ubuntu.com/security/notices/USN-7418-1",
+            "https://ubuntu.com/security/notices/USN-7442-1",
+            "https://www.cve.org/CVERecord?id=CVE-2025-27219",
+            "https://www.ruby-lang.org/en/news/2025/02/26/security-advisories",
+            "https://www.ruby-lang.org/en/news/2025/02/26/security-advisories/",
+            "https://www.suse.com/security/cve/CVE-2025-27219.html"
+          ],
+          "PublishedDate": "2025-03-04T00:15:31.55Z",
+          "LastModifiedDate": "2025-03-05T14:05:15.387Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2025-27219",
+          "PkgID": "ruby-libs@3.3.6-r0",
+          "PkgName": "ruby-libs",
+          "PkgIdentifier": {
+            "PURL": "pkg:apk/alpine/ruby-libs@3.3.6-r0?arch=x86_64\u0026distro=3.21.0"
+          },
+          "InstalledVersion": "3.3.6-r0",
+          "FixedVersion": "3.3.8-r0",
+          "Status": "fixed",
+          "Layer": {
+            "DiffID": "sha256:35908afe3075dceadea04a7148ccfc6942b00ab5797e5c92204c80f5540d09cc"
+          },
+          "SeveritySource": "nvd",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2025-27219",
+          "DataSource": {
+            "ID": "alpine",
+            "Name": "Alpine Secdb",
+            "URL": "https://secdb.alpinelinux.org/"
+          },
+          "Title": "CGI: Denial of Service in CGI::Cookie.parse",
+          "Description": "In the CGI gem before 0.4.2 for Ruby, the CGI::Cookie.parse method in the CGI library contains a potential Denial of Service (DoS) vulnerability. The method does not impose any limit on the length of the raw cookie value it processes. This oversight can lead to excessive resource consumption when parsing extremely large cookies.",
+          "Severity": "HIGH",
+          "CweIDs": [
+            "CWE-770"
+          ],
+          "VendorSeverity": {
+            "alma": 2,
+            "amazon": 2,
+            "azure": 2,
+            "cbl-mariner": 2,
+            "ghsa": 2,
+            "nvd": 3,
+            "oracle-oval": 2,
+            "photon": 3,
+            "redhat": 2,
+            "ruby-advisory-db": 2,
+            "ubuntu": 2
+          },
+          "CVSS": {
+            "ghsa": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:N/I:N/A:L",
+              "V3Score": 5.8
+            },
+            "nvd": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+              "V3Score": 7.5
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L",
+              "V3Score": 5.3
+            }
+          },
+          "References": [
+            "https://access.redhat.com/errata/RHSA-2025:8131",
+            "https://access.redhat.com/security/cve/CVE-2025-27219",
+            "https://bugzilla.redhat.com/2344680",
+            "https://bugzilla.redhat.com/2349699",
+            "https://bugzilla.redhat.com/2349700",
+            "https://errata.almalinux.org/10/ALSA-2025-8131.html",
+            "https://github.com/ruby/cgi",
+            "https://github.com/ruby/cgi/pull/52",
+            "https://github.com/ruby/cgi/pull/53",
+            "https://github.com/ruby/cgi/pull/54",
+            "https://github.com/rubysec/ruby-advisory-db/blob/master/gems/cgi/CVE-2025-27219.yml",
+            "https://hackerone.com/reports/2936778",
+            "https://hackerone.com/reports/3013913",
+            "https://linux.oracle.com/cve/CVE-2025-27219.html",
+            "https://linux.oracle.com/errata/ELSA-2025-8131.html",
+            "https://nvd.nist.gov/vuln/detail/CVE-2025-27219",
+            "https://ubuntu.com/security/notices/USN-7418-1",
+            "https://ubuntu.com/security/notices/USN-7442-1",
+            "https://www.cve.org/CVERecord?id=CVE-2025-27219",
+            "https://www.ruby-lang.org/en/news/2025/02/26/security-advisories",
+            "https://www.ruby-lang.org/en/news/2025/02/26/security-advisories/",
+            "https://www.suse.com/security/cve/CVE-2025-27219.html"
+          ],
+          "PublishedDate": "2025-03-04T00:15:31.55Z",
+          "LastModifiedDate": "2025-03-05T14:05:15.387Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2025-27219",
+          "PkgID": "ruby-rdoc@3.3.6-r0",
+          "PkgName": "ruby-rdoc",
+          "PkgIdentifier": {
+            "PURL": "pkg:apk/alpine/ruby-rdoc@3.3.6-r0?arch=x86_64\u0026distro=3.21.0"
+          },
+          "InstalledVersion": "3.3.6-r0",
+          "FixedVersion": "3.3.8-r0",
+          "Status": "fixed",
+          "Layer": {
+            "DiffID": "sha256:35908afe3075dceadea04a7148ccfc6942b00ab5797e5c92204c80f5540d09cc"
+          },
+          "SeveritySource": "nvd",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2025-27219",
+          "DataSource": {
+            "ID": "alpine",
+            "Name": "Alpine Secdb",
+            "URL": "https://secdb.alpinelinux.org/"
+          },
+          "Title": "CGI: Denial of Service in CGI::Cookie.parse",
+          "Description": "In the CGI gem before 0.4.2 for Ruby, the CGI::Cookie.parse method in the CGI library contains a potential Denial of Service (DoS) vulnerability. The method does not impose any limit on the length of the raw cookie value it processes. This oversight can lead to excessive resource consumption when parsing extremely large cookies.",
+          "Severity": "HIGH",
+          "CweIDs": [
+            "CWE-770"
+          ],
+          "VendorSeverity": {
+            "alma": 2,
+            "amazon": 2,
+            "azure": 2,
+            "cbl-mariner": 2,
+            "ghsa": 2,
+            "nvd": 3,
+            "oracle-oval": 2,
+            "photon": 3,
+            "redhat": 2,
+            "ruby-advisory-db": 2,
+            "ubuntu": 2
+          },
+          "CVSS": {
+            "ghsa": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:N/I:N/A:L",
+              "V3Score": 5.8
+            },
+            "nvd": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+              "V3Score": 7.5
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L",
+              "V3Score": 5.3
+            }
+          },
+          "References": [
+            "https://access.redhat.com/errata/RHSA-2025:8131",
+            "https://access.redhat.com/security/cve/CVE-2025-27219",
+            "https://bugzilla.redhat.com/2344680",
+            "https://bugzilla.redhat.com/2349699",
+            "https://bugzilla.redhat.com/2349700",
+            "https://errata.almalinux.org/10/ALSA-2025-8131.html",
+            "https://github.com/ruby/cgi",
+            "https://github.com/ruby/cgi/pull/52",
+            "https://github.com/ruby/cgi/pull/53",
+            "https://github.com/ruby/cgi/pull/54",
+            "https://github.com/rubysec/ruby-advisory-db/blob/master/gems/cgi/CVE-2025-27219.yml",
+            "https://hackerone.com/reports/2936778",
+            "https://hackerone.com/reports/3013913",
+            "https://linux.oracle.com/cve/CVE-2025-27219.html",
+            "https://linux.oracle.com/errata/ELSA-2025-8131.html",
+            "https://nvd.nist.gov/vuln/detail/CVE-2025-27219",
+            "https://ubuntu.com/security/notices/USN-7418-1",
+            "https://ubuntu.com/security/notices/USN-7442-1",
+            "https://www.cve.org/CVERecord?id=CVE-2025-27219",
+            "https://www.ruby-lang.org/en/news/2025/02/26/security-advisories",
+            "https://www.ruby-lang.org/en/news/2025/02/26/security-advisories/",
+            "https://www.suse.com/security/cve/CVE-2025-27219.html"
+          ],
+          "PublishedDate": "2025-03-04T00:15:31.55Z",
+          "LastModifiedDate": "2025-03-05T14:05:15.387Z"
+        }
+      ]
+    },
+    {
+      "Target": "Ruby",
+      "Class": "lang-pkgs",
+      "Type": "gemspec",
+      "Vulnerabilities": [
+        {
+          "VulnerabilityID": "CVE-2025-43857",
+          "PkgName": "net-imap",
+          "PkgPath": "usr/local/lib/ruby/gems/3.3.0/specifications/net-imap-0.4.9.1.gemspec",
+          "PkgIdentifier": {
+            "PURL": "pkg:gem/net-imap@0.4.9.1"
+          },
+          "InstalledVersion": "0.4.9.1",
+          "FixedVersion": "~\u003e 0.2.5, ~\u003e 0.3.9, ~\u003e 0.4.20, \u003e= 0.5.7",
+          "Status": "fixed",
+          "Layer": {
+            "DiffID": "sha256:b2ab39784df45424e54e32ae8bf7847bab5e06e00a1a8f60670b108103215f2b"
+          },
+          "SeveritySource": "nvd",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2025-43857",
+          "DataSource": {
+            "ID": "ruby-advisory-db",
+            "Name": "Ruby Advisory Database",
+            "URL": "https://github.com/rubysec/ruby-advisory-db"
+          },
+          "Title": "net-imap: net-imap rubygem vulnerable to possible DoS by memory exhaustion",
+          "Description": "Net::IMAP implements Internet Message Access Protocol (IMAP) client functionality in Ruby. Prior to versions 0.5.7, 0.4.20, 0.3.9, and 0.2.5, there is a possibility for denial of service by memory exhaustion when net-imap reads server responses. At any time while the client is connected, a malicious server can send can send a \"literal\" byte count, which is automatically read by the client's receiver thread. The response reader immediately allocates memory for the number of bytes indicated by the server response. This should not be an issue when securely connecting to trusted IMAP servers that are well-behaved. It can affect insecure connections and buggy, untrusted, or compromised servers (for example, connecting to a user supplied hostname). This issue has been patched in versions 0.5.7, 0.4.20, 0.3.9, and 0.2.5.",
+          "Severity": "HIGH",
+          "CweIDs": [
+            "CWE-400",
+            "CWE-405",
+            "CWE-770",
+            "CWE-789"
+          ],
+          "VendorSeverity": {
+            "ghsa": 2,
+            "nvd": 3,
+            "redhat": 2
+          },
+          "CVSS": {
+            "nvd": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+              "V3Score": 7.5
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:H",
+              "V3Score": 6.5
+            }
+          },
+          "References": [
+            "https://access.redhat.com/security/cve/CVE-2025-43857",
+            "https://github.com/advisories/GHSA-j3g3-5qv5-52mj",
+            "https://github.com/ruby/net-imap",
+            "https://github.com/ruby/net-imap/pull/442",
+            "https://github.com/ruby/net-imap/pull/444",
+            "https://github.com/ruby/net-imap/pull/444/commits/0ae8576c1a90bcd9573f81bdad4b4b824642d105#diff-53721cb4d9c3fb86b95cc8476ca2df90968ad8c481645220c607034399151462",
+            "https://github.com/ruby/net-imap/pull/445",
+            "https://github.com/ruby/net-imap/pull/446",
+            "https://github.com/ruby/net-imap/pull/447",
+            "https://github.com/ruby/net-imap/security/advisories/GHSA-j3g3-5qv5-52mj",
+            "https://github.com/rubysec/ruby-advisory-db/blob/master/gems/net-imap/CVE-2025-43857.yml",
+            "https://hackerone.com/reports/3108869",
+            "https://nvd.nist.gov/vuln/detail/CVE-2025-43857",
+            "https://www.cve.org/CVERecord?id=CVE-2025-43857",
+            "https://www.ruby-lang.org/en/news/2025/04/28/dos-net-imap-cve-2025-43857"
+          ],
+          "PublishedDate": "2025-04-28T16:15:33.44Z",
+          "LastModifiedDate": "2025-05-12T19:36:55.893Z"
+        },
+        {
+          "VulnerabilityID": "GHSA-353f-x4gh-cqq8",
+          "PkgName": "nokogiri",
+          "PkgPath": "usr/local/bundle/specifications/nokogiri-1.17.2-x86_64-linux.gemspec",
+          "PkgIdentifier": {
+            "PURL": "pkg:gem/nokogiri@1.17.2"
+          },
+          "InstalledVersion": "1.17.2",
+          "FixedVersion": "\u003e= 1.18.9",
+          "Status": "fixed",
+          "Layer": {
+            "DiffID": "sha256:5601ec68794e823f37538d8446573f026359811198d200db32e1cd7108c28c3e"
+          },
+          "SeveritySource": "ghsa",
+          "PrimaryURL": "https://github.com/advisories/GHSA-353f-x4gh-cqq8",
+          "DataSource": {
+            "ID": "ruby-advisory-db",
+            "Name": "Ruby Advisory Database",
+            "URL": "https://github.com/rubysec/ruby-advisory-db"
+          },
+          "Title": "Nokogiri patches vendored libxml2 to resolve multiple CVEs",
+          "Description": "## Summary\n\nNokogiri v1.18.9 patches the vendored libxml2 to address\nCVE-2025-6021, CVE-2025-6170, CVE-2025-49794, CVE-2025-49795,\nand CVE-2025-49796.\n\n## Impact and severity\n\n### CVE-2025-6021\n\nA flaw was found in libxml2's xmlBuildQName function, where integer\noverflows in buffer size calculations can lead to a stack-based\nbuffer overflow. This issue can result in memory corruption or a\ndenial of service when processing crafted input.\n\nNVD claims a severity of 7.5 High\n(CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H)\n\nFixed by applying https://gitlab.gnome.org/GNOME/libxml2/-/commit/17d950ae\n\n### CVE-2025-6170\n\nA flaw was found in the interactive shell of the xmllint command-line\ntool, used for parsing XML files. When a user inputs an overly long\ncommand, the program does not check the input size properly, which\ncan cause it to crash. This issue might allow attackers to run\nharmful code in rare configurations without modern protections.\n\nNVD claims a severity of 2.5 Low\n(CVSS:3.1/AV:L/AC:H/PR:N/UI:R/S:U/C:N/I:N/A:L)\n\nFixed by applying https://gitlab.gnome.org/GNOME/libxml2/-/commit/5e9ec5c1\n\n### CVE-2025-49794\n\nA use-after-free vulnerability was found in libxml2. This issue\noccurs when parsing XPath elements under certain circumstances when\nthe XML schematron has the \u003csch:name path=\"...\"/\u003e schema elements.\nThis flaw allows a malicious actor to craft a malicious XML document\nused as input for libxml, resulting in the program's crash using\nlibxml or other possible undefined behaviors.\n\nNVD claims a severity of 9.1 Critical\n(CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:H/A:H)\n\nFixed by applying https://gitlab.gnome.org/GNOME/libxml2/-/commit/81cef8c5\n\n### CVE-2025-49795\n\nA NULL pointer dereference vulnerability was found in libxml2 when\nprocessing XPath XML expressions. This flaw allows an attacker to\ncraft a malicious XML input to libxml2, leading to a denial of service.\n\nNVD claims a severity of 7.5 High\n(CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H)\n\nFixed by applying https://gitlab.gnome.org/GNOME/libxml2/-/commit/62048278\n\n### CVE-2025-49796\n\nA vulnerability was found in libxml2. Processing certain sch:name\nelements from the input XML file can trigger a memory corruption\nissue. This flaw allows an attacker to craft a malicious XML input\nfile that can lead libxml to crash, resulting in a denial of service\nor other possible undefined behavior due to sensitive data being\ncorrupted in memory.\n\nNVD claims a severity of 9.1 Critical\n(CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:H/A:H)\n\nFixed by applying https://gitlab.gnome.org/GNOME/libxml2/-/commit/81cef8c5\n\n## Affected Versions\n\n- Nokogiri \u003c 1.18.9 when using CRuby (MRI) with vendored libxml2\n\n## Patched Versions\n\n- Nokogiri \u003e= 1.18.9\n\n## Mitigation\n\nUpgrade to Nokogiri v1.18.9 or later.\n\nUsers who are unable to upgrade Nokogiri may also choose a more\ncomplicated mitigation: compile and link Nokogiri against patched\nexternal libxml2 libraries which will also address these same issues.\n",
+          "Severity": "CRITICAL",
+          "VendorSeverity": {
+            "ghsa": 4
+          },
+          "References": [
+            "https://github.com/advisories/GHSA-353f-x4gh-cqq8",
+            "https://github.com/sparklemotion/nokogiri",
+            "https://github.com/sparklemotion/nokogiri/pull/3526",
+            "https://github.com/sparklemotion/nokogiri/security/advisories/GHSA-353f-x4gh-cqq8",
+            "https://nvd.nist.gov/vuln/detail/CVE-2025-49794",
+            "https://nvd.nist.gov/vuln/detail/CVE-2025-49795",
+            "https://nvd.nist.gov/vuln/detail/CVE-2025-49796",
+            "https://nvd.nist.gov/vuln/detail/CVE-2025-6021",
+            "https://nvd.nist.gov/vuln/detail/CVE-2025-6170"
+          ],
+          "PublishedDate": "2025-07-21T19:35:18Z",
+          "LastModifiedDate": "2025-07-21T19:35:18Z"
+        },
+        {
+          "VulnerabilityID": "GHSA-mrxw-mxhj-p664",
+          "PkgName": "nokogiri",
+          "PkgPath": "usr/local/bundle/specifications/nokogiri-1.17.2-x86_64-linux.gemspec",
+          "PkgIdentifier": {
+            "PURL": "pkg:gem/nokogiri@1.17.2"
+          },
+          "InstalledVersion": "1.17.2",
+          "FixedVersion": "\u003e= 1.18.4",
+          "Status": "fixed",
+          "Layer": {
+            "DiffID": "sha256:5601ec68794e823f37538d8446573f026359811198d200db32e1cd7108c28c3e"
+          },
+          "SeveritySource": "ruby-advisory-db",
+          "PrimaryURL": "https://github.com/advisories/GHSA-mrxw-mxhj-p664",
+          "DataSource": {
+            "ID": "ruby-advisory-db",
+            "Name": "Ruby Advisory Database",
+            "URL": "https://github.com/rubysec/ruby-advisory-db"
+          },
+          "Title": "Nokogiri updates packaged libxslt to v1.1.43 to resolve multiple CVEs",
+          "Description": "## Summary\n\nNokogiri v1.18.4 upgrades its dependency libxslt to\n[v1.1.43](https://gitlab.gnome.org/GNOME/libxslt/-/releases/v1.1.43).\n\nlibxslt v1.1.43 resolves:\n\n- CVE-2025-24855: Fix use-after-free of XPath context node\n- CVE-2024-55549: Fix UAF related to excluded namespaces\n\n## Impact\n\n### CVE-2025-24855\n\n- \"Use-after-free due to xsltEvalXPathStringNs leaking xpathCtxt-\u003enode\"\n- MITRE has rated this 7.8 High CVSS:3.1/AV:L/AC:H/PR:N/UI:N/S:C/C:N/I:H/A:H\n- Upstream report: https://gitlab.gnome.org/GNOME/libxslt/-/issues/128\n- NVD entry: https://nvd.nist.gov/vuln/detail/CVE-2025-24855\n\n### CVE-2024-55549\n\n- \"Use-after-free related to excluded result prefixes\"\n- MITRE has rated this 7.8 High CVSS:3.1/AV:L/AC:H/PR:N/UI:N/S:C/C:N/I:H/A:H\n- Upstream report: https://gitlab.gnome.org/GNOME/libxslt/-/issues/127\n- NVD entry: https://nvd.nist.gov/vuln/detail/CVE-2024-55549\n",
+          "Severity": "HIGH",
+          "VendorSeverity": {
+            "ghsa": 3,
+            "ruby-advisory-db": 3
+          },
+          "CVSS": {
+            "ghsa": {
+              "V3Vector": "CVSS:3.1/AV:L/AC:H/PR:N/UI:N/S:C/C:N/I:H/A:H",
+              "V3Score": 7.8
+            }
+          },
+          "References": [
+            "https://github.com/advisories/GHSA-mrxw-mxhj-p664",
+            "https://github.com/sparklemotion/nokogiri",
+            "https://github.com/sparklemotion/nokogiri/security/advisories/GHSA-mrxw-mxhj-p664",
+            "https://gitlab.gnome.org/GNOME/libxslt/-/issues/127",
+            "https://gitlab.gnome.org/GNOME/libxslt/-/issues/128",
+            "https://nvd.nist.gov/vuln/detail/CVE-2024-55549",
+            "https://nvd.nist.gov/vuln/detail/CVE-2025-24855"
+          ],
+          "PublishedDate": "2025-03-14T18:51:37Z",
+          "LastModifiedDate": "2025-03-21T15:43:15Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2025-27610",
+          "PkgName": "rack",
+          "PkgPath": "usr/local/bundle/specifications/rack-3.1.8.gemspec",
+          "PkgIdentifier": {
+            "PURL": "pkg:gem/rack@3.1.8"
+          },
+          "InstalledVersion": "3.1.8",
+          "FixedVersion": "~\u003e 2.2.13, ~\u003e 3.0.14, \u003e= 3.1.12",
+          "Status": "fixed",
+          "Layer": {
+            "DiffID": "sha256:5601ec68794e823f37538d8446573f026359811198d200db32e1cd7108c28c3e"
+          },
+          "SeveritySource": "ruby-advisory-db",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2025-27610",
+          "DataSource": {
+            "ID": "ruby-advisory-db",
+            "Name": "Ruby Advisory Database",
+            "URL": "https://github.com/rubysec/ruby-advisory-db"
+          },
+          "Title": "rack: rubygem-rack: Local File Inclusion in Rack::Static",
+          "Description": "Rack provides an interface for developing web applications in Ruby. Prior to versions 2.2.13, 3.0.14, and 3.1.12, `Rack::Static` can serve files under the specified `root:` even if `urls:` are provided, which may expose other files under the specified `root:` unexpectedly. The vulnerability occurs because `Rack::Static` does not properly sanitize user-supplied paths before serving files. Specifically, encoded path traversal sequences are not correctly validated, allowing attackers to access files outside the designated static file directory. By exploiting this vulnerability, an attacker can gain access to all files under the specified `root:` directory, provided they are able to determine then path of the file. Versions 2.2.13, 3.0.14, and 3.1.12 contain a patch for the issue. Other mitigations include removing usage of `Rack::Static`, or ensuring that `root:` points at a directory path which only contains files which should be accessed publicly. It is likely that a CDN or similar static file server would also mitigate the issue.",
+          "Severity": "HIGH",
+          "CweIDs": [
+            "CWE-23"
+          ],
+          "VendorSeverity": {
+            "ghsa": 3,
+            "redhat": 3,
+            "ruby-advisory-db": 3,
+            "ubuntu": 2
+          },
+          "CVSS": {
+            "ghsa": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N",
+              "V3Score": 7.5
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N",
+              "V3Score": 7.5
+            }
+          },
+          "References": [
+            "https://access.redhat.com/security/cve/CVE-2025-27610",
+            "https://github.com/advisories/GHSA-7wqh-767x-r66v",
+            "https://github.com/rack/rack",
+            "https://github.com/rack/rack/commit/50caab74fa01ee8f5dbdee7bb2782126d20c6583",
+            "https://github.com/rack/rack/security/advisories/GHSA-7wqh-767x-r66v",
+            "https://github.com/rubysec/ruby-advisory-db/blob/master/gems/rack/CVE-2025-27610.yml",
+            "https://nvd.nist.gov/vuln/detail/CVE-2025-27610",
+            "https://ubuntu.com/security/notices/USN-7366-1",
+            "https://ubuntu.com/security/notices/USN-7366-2",
+            "https://www.cve.org/CVERecord?id=CVE-2025-27610"
+          ],
+          "PublishedDate": "2025-03-10T23:15:35.073Z",
+          "LastModifiedDate": "2025-03-10T23:15:35.073Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2025-46727",
+          "PkgName": "rack",
+          "PkgPath": "usr/local/bundle/specifications/rack-3.1.8.gemspec",
+          "PkgIdentifier": {
+            "PURL": "pkg:gem/rack@3.1.8"
+          },
+          "InstalledVersion": "3.1.8",
+          "FixedVersion": "~\u003e 2.2.14, ~\u003e 3.0.16, \u003e= 3.1.14",
+          "Status": "fixed",
+          "Layer": {
+            "DiffID": "sha256:5601ec68794e823f37538d8446573f026359811198d200db32e1cd7108c28c3e"
+          },
+          "SeveritySource": "ruby-advisory-db",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2025-46727",
+          "DataSource": {
+            "ID": "ruby-advisory-db",
+            "Name": "Ruby Advisory Database",
+            "URL": "https://github.com/rubysec/ruby-advisory-db"
+          },
+          "Title": "rubygem-rack: Unbounded-Parameter DoS in Rack::QueryParser",
+          "Description": "Rack is a modular Ruby web server interface. Prior to versions 2.2.14, 3.0.16, and 3.1.14, `Rack::QueryParser` parses query strings and `application/x-www-form-urlencoded` bodies into Ruby data structures without imposing any limit on the number of parameters, allowing attackers to send requests with extremely large numbers of parameters. The vulnerability arises because `Rack::QueryParser` iterates over each `\u0026`-separated key-value pair and adds it to a Hash without enforcing an upper bound on the total number of parameters. This allows an attacker to send a single request containing hundreds of thousands (or more) of parameters, which consumes excessive memory and CPU during parsing. An attacker can trigger denial of service by sending specifically crafted HTTP requests, which can cause memory exhaustion or pin CPU resources, stalling or crashing the Rack server. This results in full service disruption until the affected worker is restarted. Versions 2.2.14, 3.0.16, and 3.1.14 fix the issue. Some other mitigations are available. One may use middleware to enforce a maximum query string size or parameter count, or employ a reverse proxy (such as Nginx) to limit request sizes and reject oversized query strings or bodies. Limiting request body sizes and query string lengths at the web server or CDN level is an effective mitigation.",
+          "Severity": "HIGH",
+          "CweIDs": [
+            "CWE-400",
+            "CWE-770"
+          ],
+          "VendorSeverity": {
+            "amazon": 3,
+            "ghsa": 3,
+            "nvd": 3,
+            "oracle-oval": 3,
+            "redhat": 3,
+            "ruby-advisory-db": 3,
+            "ubuntu": 2
+          },
+          "CVSS": {
+            "ghsa": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+              "V3Score": 7.5
+            },
+            "nvd": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+              "V3Score": 7.5
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+              "V3Score": 7.5
+            }
+          },
+          "References": [
+            "https://access.redhat.com/security/cve/CVE-2025-46727",
+            "https://github.com/advisories/GHSA-gjh7-p2fx-99vx",
+            "https://github.com/rack/rack",
+            "https://github.com/rack/rack/commit/2bb5263b464b65ba4b648996a579dbd180d2b712",
+            "https://github.com/rack/rack/commit/3f5a4249118d09d199fe480466c8c6717e43b6e3",
+            "https://github.com/rack/rack/commit/cd6b70a1f2a1016b73dc906f924869f4902c2d74",
+            "https://github.com/rack/rack/security/advisories/GHSA-gjh7-p2fx-99vx",
+            "https://github.com/rubysec/ruby-advisory-db/blob/master/gems/rack/CVE-2025-46727.yml",
+            "https://linux.oracle.com/cve/CVE-2025-46727.html",
+            "https://linux.oracle.com/errata/ELSA-2025-8319.html",
+            "https://nvd.nist.gov/vuln/detail/CVE-2025-46727",
+            "https://ubuntu.com/security/notices/USN-7507-1",
+            "https://www.cve.org/CVERecord?id=CVE-2025-46727"
+          ],
+          "PublishedDate": "2025-05-07T23:15:54.267Z",
+          "LastModifiedDate": "2025-06-17T19:44:47.01Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2025-49007",
+          "PkgName": "rack",
+          "PkgPath": "usr/local/bundle/specifications/rack-3.1.8.gemspec",
+          "PkgIdentifier": {
+            "PURL": "pkg:gem/rack@3.1.8"
+          },
+          "InstalledVersion": "3.1.8",
+          "FixedVersion": "\u003e= 3.1.16",
+          "Status": "fixed",
+          "Layer": {
+            "DiffID": "sha256:5601ec68794e823f37538d8446573f026359811198d200db32e1cd7108c28c3e"
+          },
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2025-49007",
+          "DataSource": {
+            "ID": "ruby-advisory-db",
+            "Name": "Ruby Advisory Database",
+            "URL": "https://github.com/rubysec/ruby-advisory-db"
+          },
+          "Title": "rack: rubygem-rack: Rack Content-Disposition Denial of Service",
+          "Description": "Rack is a modular Ruby web server interface. Starting in version 3.1.0 and prior to version 3.1.16, there is a denial of service vulnerability in the Content-Disposition parsing component of Rack. This is very similar to the previous security issue CVE-2022-44571. Carefully crafted input can cause Content-Disposition header parsing in Rack to take an unexpected amount of time, possibly resulting in a denial of service attack vector. This header is used typically used in multipart parsing. Any applications that parse multipart posts using Rack (virtually all Rails applications) are impacted. Version 3.1.16 contains a patch for the vulnerability.",
+          "Severity": "HIGH",
+          "CweIDs": [
+            "CWE-770"
+          ],
+          "VendorSeverity": {
+            "ghsa": 2,
+            "redhat": 3
+          },
+          "CVSS": {
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+              "V3Score": 7.5
+            }
+          },
+          "References": [
+            "https://access.redhat.com/security/cve/CVE-2025-49007",
+            "https://github.com/advisories/GHSA-47m2-26rw-j2jw",
+            "https://github.com/rack/rack",
+            "https://github.com/rack/rack/commit/4795831a0a310c2d31102749e551b38faab6401f",
+            "https://github.com/rack/rack/commit/aed514df37e33907df3c971ed3ca9a0a20ac2901",
+            "https://github.com/rack/rack/security/advisories/GHSA-47m2-26rw-j2jw",
+            "https://github.com/rubysec/ruby-advisory-db/blob/master/gems/rack/CVE-2025-49007.yml",
+            "https://nvd.nist.gov/vuln/detail/CVE-2025-49007",
+            "https://www.cve.org/CVERecord?id=CVE-2025-49007"
+          ],
+          "PublishedDate": "2025-06-04T23:15:21.54Z",
+          "LastModifiedDate": "2025-06-05T20:12:23.777Z"
+        }
+      ]
+    }
+  ]
+}

@@ -1,8 +1,0 @@
-END OF BEACON\n\n\n\n\n\n
-FDPCLIENT\n\n
-
-fairdatasystems/fdpclient:2024-12-09 (alpine 3.17.2)
-====================================================
-Total: 0 (HIGH: 0, CRITICAL: 0)
-
-END OF FDPCLKIENT\n\n\n\n\n\n

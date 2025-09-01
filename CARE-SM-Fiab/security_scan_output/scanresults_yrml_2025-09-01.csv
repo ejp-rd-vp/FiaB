@@ -1,0 +1,55 @@
+Target,VulnerabilityID,Package,InstalledVersion,FixedVersion,Severity,Title,PrimaryURL
+Java,CVE-2023-6378,ch.qos.logback:logback-classic,1.2.11,"1.3.12, 1.4.12, 1.2.13",HIGH,logback: serialization vulnerability in logback receiver,https://avd.aquasec.com/nvd/cve-2023-6378
+Java,CVE-2023-6378,ch.qos.logback:logback-core,1.2.11,"1.3.12, 1.4.12, 1.2.13",HIGH,logback: serialization vulnerability in logback receiver,https://avd.aquasec.com/nvd/cve-2023-6378
+Java,CVE-2022-24614,com.drewnoakes:metadata-extractor,2.16.0,2.18.0,HIGH,metadata-extractor: Out-of-memory when reading a specially crafted JPEG file,https://avd.aquasec.com/nvd/cve-2022-24614
+Java,CVE-2022-24614,com.drewnoakes:metadata-extractor,2.16.0,2.18.0,HIGH,metadata-extractor: Out-of-memory when reading a specially crafted JPEG file,https://avd.aquasec.com/nvd/cve-2022-24614
+Java,CVE-2025-52999,com.fasterxml.jackson.core:jackson-core,2.13.2,2.15.0,HIGH,com.fasterxml.jackson.core/jackson-core: jackson-core Potential StackoverflowError,https://avd.aquasec.com/nvd/cve-2025-52999
+Java,CVE-2025-52999,com.fasterxml.jackson.core:jackson-core,2.13.4,2.15.0,HIGH,com.fasterxml.jackson.core/jackson-core: jackson-core Potential StackoverflowError,https://avd.aquasec.com/nvd/cve-2025-52999
+Java,CVE-2025-52999,com.fasterxml.jackson.core:jackson-core,2.13.4,2.15.0,HIGH,com.fasterxml.jackson.core/jackson-core: jackson-core Potential StackoverflowError,https://avd.aquasec.com/nvd/cve-2025-52999
+Java,CVE-2020-36518,com.fasterxml.jackson.core:jackson-databind,2.12.4,"2.13.2.1, 2.12.6.1",HIGH,jackson-databind: denial of service via a large depth of nested objects,https://avd.aquasec.com/nvd/cve-2020-36518
+Java,CVE-2021-46877,com.fasterxml.jackson.core:jackson-databind,2.12.4,"2.12.6, 2.13.1",HIGH,jackson-databind: Possible DoS if using JDK serialization to serialize JsonNode,https://avd.aquasec.com/nvd/cve-2021-46877
+Java,CVE-2022-42003,com.fasterxml.jackson.core:jackson-databind,2.12.4,"2.12.7.1, 2.13.4.2",HIGH,jackson-databind: deep wrapper array nesting wrt UNWRAP_SINGLE_VALUE_ARRAYS,https://avd.aquasec.com/nvd/cve-2022-42003
+Java,CVE-2022-42004,com.fasterxml.jackson.core:jackson-databind,2.12.4,"2.12.7.1, 2.13.4",HIGH,jackson-databind: use of deeply nested arrays,https://avd.aquasec.com/nvd/cve-2022-42004
+Java,CVE-2022-42003,com.fasterxml.jackson.core:jackson-databind,2.13.2.2,"2.12.7.1, 2.13.4.2",HIGH,jackson-databind: deep wrapper array nesting wrt UNWRAP_SINGLE_VALUE_ARRAYS,https://avd.aquasec.com/nvd/cve-2022-42003
+Java,CVE-2022-42004,com.fasterxml.jackson.core:jackson-databind,2.13.2.2,"2.12.7.1, 2.13.4",HIGH,jackson-databind: use of deeply nested arrays,https://avd.aquasec.com/nvd/cve-2022-42004
+Java,CVE-2024-7254,com.google.protobuf:protobuf-java,3.21.9,"3.25.5, 4.27.5, 4.28.2",HIGH,protobuf: StackOverflow vulnerability in Protocol Buffers,https://avd.aquasec.com/nvd/cve-2024-7254
+Java,CVE-2024-7254,com.google.protobuf:protobuf-java,3.21.9,"3.25.5, 4.27.5, 4.28.2",HIGH,protobuf: StackOverflow vulnerability in Protocol Buffers,https://avd.aquasec.com/nvd/cve-2024-7254
+Java,CVE-2024-7254,com.google.protobuf:protobuf-java,3.21.9,"3.25.5, 4.27.5, 4.28.2",HIGH,protobuf: StackOverflow vulnerability in Protocol Buffers,https://avd.aquasec.com/nvd/cve-2024-7254
+Java,CVE-2022-40151,com.thoughtworks.xstream:xstream,1.4.19,1.4.20,HIGH,xstream: Xstream to serialise XML data was vulnerable to Denial of Service attacks,https://avd.aquasec.com/nvd/cve-2022-40151
+Java,CVE-2022-41966,com.thoughtworks.xstream:xstream,1.4.19,1.4.20,HIGH,xstream: Denial of Service by injecting recursive collections or maps based on element's hash values raising a stack overflow,https://avd.aquasec.com/nvd/cve-2022-41966
+Java,CVE-2024-47072,com.thoughtworks.xstream:xstream,1.4.19,1.4.21,HIGH,com.thoughtworks.xstream: XStream is vulnerable to a Denial of Service attack due to stack overflow from a manipulated binary input stream,https://avd.aquasec.com/nvd/cve-2024-47072
+Java,CVE-2025-48734,commons-beanutils:commons-beanutils,1.9.4,1.11.0,HIGH,commons-beanutils: Apache Commons BeanUtils: PropertyUtilsBean does not suppresses an enum's declaredClass property by default,https://avd.aquasec.com/nvd/cve-2025-48734
+Java,CVE-2025-48734,commons-beanutils:commons-beanutils,1.9.4,1.11.0,HIGH,commons-beanutils: Apache Commons BeanUtils: PropertyUtilsBean does not suppresses an enum's declaredClass property by default,https://avd.aquasec.com/nvd/cve-2025-48734
+Java,CVE-2025-48734,commons-beanutils:commons-beanutils,1.9.4,1.11.0,HIGH,commons-beanutils: Apache Commons BeanUtils: PropertyUtilsBean does not suppresses an enum's declaredClass property by default,https://avd.aquasec.com/nvd/cve-2025-48734
+Java,CVE-2023-24998,commons-fileupload:commons-fileupload,1.4,1.5,HIGH,FileUpload: FileUpload DoS with excessive parts,https://avd.aquasec.com/nvd/cve-2023-24998
+Java,CVE-2025-48976,commons-fileupload:commons-fileupload,1.4,1.6.0,HIGH,apache-commons-fileupload: Apache Commons FileUpload DoS via part headers,https://avd.aquasec.com/nvd/cve-2025-48976
+Java,CVE-2024-47554,commons-io:commons-io,2.11.0,2.14.0,HIGH,apache-commons-io: Possible denial of service attack on untrusted input to XmlStreamReader,https://avd.aquasec.com/nvd/cve-2024-47554
+Java,CVE-2024-47554,commons-io:commons-io,2.11.0,2.14.0,HIGH,apache-commons-io: Possible denial of service attack on untrusted input to XmlStreamReader,https://avd.aquasec.com/nvd/cve-2024-47554
+Java,CVE-2024-47554,commons-io:commons-io,2.11.0,2.14.0,HIGH,apache-commons-io: Possible denial of service attack on untrusted input to XmlStreamReader,https://avd.aquasec.com/nvd/cve-2024-47554
+Java,CVE-2024-47554,commons-io:commons-io,2.12.0,2.14.0,HIGH,apache-commons-io: Possible denial of service attack on untrusted input to XmlStreamReader,https://avd.aquasec.com/nvd/cve-2024-47554
+Java,CVE-2024-47554,commons-io:commons-io,2.12.0,2.14.0,HIGH,apache-commons-io: Possible denial of service attack on untrusted input to XmlStreamReader,https://avd.aquasec.com/nvd/cve-2024-47554
+Java,CVE-2024-47554,commons-io:commons-io,2.2,2.14.0,HIGH,apache-commons-io: Possible denial of service attack on untrusted input to XmlStreamReader,https://avd.aquasec.com/nvd/cve-2024-47554
+Java,CVE-2024-47554,commons-io:commons-io,2.5,2.14.0,HIGH,apache-commons-io: Possible denial of service attack on untrusted input to XmlStreamReader,https://avd.aquasec.com/nvd/cve-2024-47554
+Java,CVE-2024-47554,commons-io:commons-io,2.6,2.14.0,HIGH,apache-commons-io: Possible denial of service attack on untrusted input to XmlStreamReader,https://avd.aquasec.com/nvd/cve-2024-47554
+Java,CVE-2024-47554,commons-io:commons-io,2.6,2.14.0,HIGH,apache-commons-io: Possible denial of service attack on untrusted input to XmlStreamReader,https://avd.aquasec.com/nvd/cve-2024-47554
+Java,CVE-2024-47554,commons-io:commons-io,2.8.0,2.14.0,HIGH,apache-commons-io: Possible denial of service attack on untrusted input to XmlStreamReader,https://avd.aquasec.com/nvd/cve-2024-47554
+Java,CVE-2022-29599,org.apache.maven.shared:maven-shared-utils,3.1.0,3.3.3,CRITICAL,maven-shared-utils: Command injection via Commandline class,https://avd.aquasec.com/nvd/cve-2022-29599
+Java,CVE-2022-29599,org.apache.maven.shared:maven-shared-utils,3.2.1,3.3.3,CRITICAL,maven-shared-utils: Command injection via Commandline class,https://avd.aquasec.com/nvd/cve-2022-29599
+Java,CVE-2021-26291,org.apache.maven:maven-compat,3.0.4,3.8.1,CRITICAL,maven: Block repositories using http by default,https://avd.aquasec.com/nvd/cve-2021-26291
+Java,CVE-2021-26291,org.apache.maven:maven-core,2.2.1,3.8.1,CRITICAL,maven: Block repositories using http by default,https://avd.aquasec.com/nvd/cve-2021-26291
+Java,CVE-2021-26291,org.apache.maven:maven-core,3.0,3.8.1,CRITICAL,maven: Block repositories using http by default,https://avd.aquasec.com/nvd/cve-2021-26291
+Java,CVE-2021-26291,org.apache.maven:maven-core,3.0.4,3.8.1,CRITICAL,maven: Block repositories using http by default,https://avd.aquasec.com/nvd/cve-2021-26291
+Java,CVE-2025-54988,org.apache.tika:tika-parser-pdf-module,2.3.0,3.2.2,CRITICAL,org.apache.tika/tika-parser-pdf-module: Apache Tika PDF parser module: XXE vulnerability in PDFParser's handling of XFA,https://avd.aquasec.com/nvd/cve-2025-54988
+Java,CVE-2025-54988,org.apache.tika:tika-parser-pdf-module,2.3.0,3.2.2,CRITICAL,org.apache.tika/tika-parser-pdf-module: Apache Tika PDF parser module: XXE vulnerability in PDFParser's handling of XFA,https://avd.aquasec.com/nvd/cve-2025-54988
+Java,CVE-2023-37460,org.codehaus.plexus:plexus-archiver,4.4.0,4.8.0,HIGH,plexus-archiver: Arbitrary File Creation in AbstractUnArchiver,https://avd.aquasec.com/nvd/cve-2023-37460
+Java,CVE-2017-1000487,org.codehaus.plexus:plexus-utils,2.0.4,3.0.16,CRITICAL,plexus-utils: Mishandled strings in Commandline class allow for command injection,https://avd.aquasec.com/nvd/cve-2017-1000487
+Java,CVE-2022-4244,org.codehaus.plexus:plexus-utils,2.0.4,3.0.24,HIGH,codehaus-plexus: Directory Traversal,https://avd.aquasec.com/nvd/cve-2022-4244
+Java,CVE-2022-4244,org.codehaus.plexus:plexus-utils,3.0.21,3.0.24,HIGH,codehaus-plexus: Directory Traversal,https://avd.aquasec.com/nvd/cve-2022-4244
+Java,CVE-2024-22201,org.eclipse.jetty.http2:http2-common,9.4.49.v20220914,"9.4.54, 10.0.20, 11.0.20",HIGH,jetty: stop accepting new connections from valid clients,https://avd.aquasec.com/nvd/cve-2024-22201
+Java,CVE-2025-5115,org.eclipse.jetty.http2:http2-common,9.4.49.v20220914,"9.4.58, 10.0.26, 11.0.26",HIGH,"jetty: HTTP/2 (including DNS over HTTPS) contains a design flaw and is vulnerable to ""MadeYouReset"" DoS attack through HTTP/2 control frames",https://avd.aquasec.com/nvd/cve-2025-5115
+Java,CVE-2023-36478,org.eclipse.jetty.http2:http2-hpack,9.4.49.v20220914,"10.0.16, 11.0.16, 9.4.53",HIGH,jetty: hpack header values cause denial of service in http/2,https://avd.aquasec.com/nvd/cve-2023-36478
+Java,CVE-2024-13009,org.eclipse.jetty:jetty-server,9.4.49.v20220914,9.4.57.v20241219,HIGH,jetty-server: Jetty: Gzip Request Body Buffer Corruption,https://avd.aquasec.com/nvd/cve-2024-13009
+Java,CVE-2024-1597,org.postgresql:postgresql,42.6.0,"42.2.28, 42.3.9, 42.4.4, 42.5.5, 42.6.1, 42.7.2",CRITICAL,pgjdbc: PostgreSQL JDBC Driver allows attacker to inject SQL if using PreferQueryMode=SIMPLE,https://avd.aquasec.com/nvd/cve-2024-1597
+Node.js,CVE-2024-4068,braces,3.0.2,3.0.3,HIGH,braces: fails to limit the number of characters it can handle,https://avd.aquasec.com/nvd/cve-2024-4068
+Ruby,CVE-2025-27610,rack,2.2.9,"~> 2.2.13, ~> 3.0.14, >= 3.1.12",HIGH,rack: rubygem-rack: Local File Inclusion in Rack::Static,https://avd.aquasec.com/nvd/cve-2025-27610
+Ruby,CVE-2025-46727,rack,2.2.9,"~> 2.2.14, ~> 3.0.16, >= 3.1.14",HIGH,rubygem-rack: Unbounded-Parameter DoS in Rack::QueryParser,https://avd.aquasec.com/nvd/cve-2025-46727
