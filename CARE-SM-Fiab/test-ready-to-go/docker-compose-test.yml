@@ -1,0 +1,132 @@
+version: "3"
+services:
+
+
+  fdp:
+    image: fairdatasystems/fdp:2025-05-21
+    restart: always
+    hostname: fdp
+    volumes:
+      - ./fdp/application-test.yml:/fdp/application.yml:ro
+    depends_on:
+      - mongo
+      - graphdb
+    networks:
+      - test-default
+
+
+  # FAIR Data Point client
+  fdp_client:
+    image: fairdatasystems/fdpclient:2025-05-21
+    hostname: fdpclient
+    restart: always
+    environment:
+      FDP_HOST: fdp
+    volumes:
+      - ./fdp/variables.scss:/src/scss/custom/_variables.scss:ro
+      - ./fdp/assets:/usr/share/nginx/html/assets:ro
+      - ./fdp/favicon.ico:/usr/share/nginx/html/favicon.ico:ro
+    depends_on:
+      - fdp
+    ports:
+      - 7070:80  # You should/must close this port, if you are using hitch
+    command: ./start.sh 
+    networks:
+      - test-default
+
+
+  graphdb:
+    image: fairdatasystems/gdb:2025-05-21
+    restart: always
+    hostname: graphdb
+    ports:
+      - 127.0.0.1:7200:7200
+    volumes:
+      - test-graphdb:/opt/graphdb/home
+    networks:
+      - test-default
+
+      
+  # Mongo for FDP server    
+  mongo:
+    image: fairdatasystems/mdb:2025-05-21
+    hostname: mongo
+    restart: always
+    volumes:
+      - test-mongo-data:/data/db
+      - test-mongo-init:/docker-entrypoint-initdb.d/
+    networks:
+      - test-default
+
+  cde-box-daemon:
+    image:  fairdatasystems/cdeb:2025-05-21    # to use the CARE-SM models with teh care-sm-toolkit
+    environment:
+      GraphDB_User: ${GraphDB_User}
+      GraphDB_Pass: ${GraphDB_Pass}
+      baseURI: ${baseURI}
+      GRAPHDB_REPONAME: ${GRAPHDB_REPONAME}
+    depends_on:
+      - caresm
+      - yarrrml-rdfizer
+    ports:
+      - 127.0.0.1:4567:4567
+    volumes:
+      - ./data:/data
+    networks:
+      - test-default
+
+  caresm:
+    image: fairdatasystems/care:2025-05-21
+    hostname: caresm
+    volumes:
+      - ./data:/code/data
+    networks:
+      - test-default
+
+  yarrrml-rdfizer:
+    image: fairdatasystems/yrml:2025-05-21
+    hostname: yarrrml-rdfizer
+    environment:
+      # (nquads (default), trig, trix, jsonld, hdt, turtle)
+      - SERIALIZATION=nquads
+#    ports:
+#      - "4567:4567"
+    volumes:
+      - ./data:/mnt/data
+    networks:
+      - test-default
+
+  beacon_count:
+    image: fairdatasystems/beacon:2025-05-21
+    hostname: beacon_count
+    restart: always
+    ports:
+      - "8000:8000"
+    environment:
+      - TRIPLESTORE_URL=${DATA_SPARQL_ENDPOINT}
+      - TRIPLESTORE_USERNAME=${GraphDB_User}
+      - TRIPLESTORE_PASSWORD=${GraphDB_Pass}
+      - FILTER_SEX=True
+      - FILTER_DISEASE=True
+      - FILTER_SYMPTOM=True
+      - FILTER_GENE_VARIANT=True
+      - FILTER_BIRTHYEAR=True
+      - FILTER_AGE_SYMPTOM_ONSET=True
+      - FILTER_AGE_DIAGNOSIS=True
+      - URL_SERVER=http://my.server.org/beaconAPI/  # DO NOT include the path e.g. /individuals
+    networks:
+      - test-default
+
+
+volumes:
+  test-graphdb:
+    external: true
+  test-mongo-data:
+    external: true
+  test-mongo-init:
+    external: true
+  test-fdp-server:
+    external: true
+
+networks:
+  test-default:

@@ -165,7 +165,7 @@ echo "END"
 
 
 # markw/yarrrml-rml-ejp:0.1.1
-image="markw/yarrrml-rml-ejp:0.1.1"
+image="markw/yarrrml-rml-ejp:0.1.2"
 name="yrml"
 outputfile=("./security_scan_output/scanresults_${name}_${timestamp}.json")
 docker run -d --name ${name} ${image}  tail -f /dev/null
