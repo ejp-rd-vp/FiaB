@@ -1,148 +1,148 @@
 {
   "SchemaVersion": 2,
-  "CreatedAt": "2025-09-01T14:02:56.366388117+02:00",
-  "ArtifactName": "fairdatasystems/fdp:2025-09-01",
+  "CreatedAt": "2025-09-08T13:00:38.047954092+02:00",
+  "ArtifactName": "fairdatasystems/fdp:2025-09-08",
   "ArtifactType": "container_image",
   "Metadata": {
     "OS": {
       "Family": "alpine",
-      "Name": "3.21.3"
+      "Name": "3.22.1"
     },
-    "ImageID": "sha256:ae0018f91b9a1d13c3f2ea42a02ec5848ccc718f8cf424fbc64f3a00ad601f7a",
+    "ImageID": "sha256:bff3873ff14fa0d7bb31c17ee3d8eebd377bfdd076a60e94a8812b5443f9d188",
     "DiffIDs": [
-      "sha256:08000c18d16dadf9553d747a58cf44023423a9ab010aab96cf263d2216b8b350",
-      "sha256:c6dd83b959a067bfbcec9e8e8077860513d3128edfe3de736639933df3f3cdbf",
-      "sha256:b79a4762dbfbcc0ecd91df51ba3aa7f709502882cfe8c5334aec06a325b43e81",
-      "sha256:33a84851963e71e7078496bce6e9a55013d73c9f1f52ab765dcce9f8b99d9b3c",
-      "sha256:6658b6f192538e3356af9bbee35a986460692b2aed33f61954c48e9303f7db72",
-      "sha256:c7df21f7a26b1fc3c5b6d82ba3e894a66d11b4987b40d78b684fe470e4c03f3c",
-      "sha256:7ddd679fb4b044fa9979c8b97a06e6427ef041ad8e8d5bd8b9d1a48686a170e0",
-      "sha256:d63c30d49d09ca7e045988813414e43c0bdc7d4d788e540fa827676b635c4876",
-      "sha256:5a83fe5a44062f13f165ebec877c0e72acf22a177399810584e9c2868ca41768"
+      "sha256:418dccb7d85a63a6aa574439840f7a6fa6fd2321b3e2394568a317735e867d35",
+      "sha256:63dc0d0c169d1bcc6c50b7d5112b27e6c6a47e679952ee4d67ac8fe60210451a",
+      "sha256:9445de0fc9736c73b9774fa9a89906e0f32bdb8bf213383aa026793ba5d5947f",
+      "sha256:12924cee7f3f1f784d0d80b6f5547667126d9d1dc1209850d85174d8e03d2bc2",
+      "sha256:01cf94e636de6d02446973c697fb596d7121ac36a2733d38112d77d44003011f",
+      "sha256:13e47f1b6dce207c00bd72f2bf935e028bf00f4ce7ea6141ef3c1e146ca9273d",
+      "sha256:a720167ce02caa5f41c784c3b897a61fb847e7280dacba276a01e73ed5100768",
+      "sha256:6e99e3e91f6c0006d90070138ae4dddf79f185149d461e11a54e3c023c78af6a",
+      "sha256:28c1e5139e2c0baf6ab8ada4d902156c5b1142eb9724e0858f0a86c1b34e27f5"
     ],
     "RepoTags": [
-      "fairdatasystems/fdp:2025-09-01"
+      "fairdatasystems/fdp:2025-09-08"
     ],
     "RepoDigests": [
-      "fairdatasystems/fdp@sha256:7f01948732600851869787abdde10552dd3316395465a3fb3b53560dafbeaebe"
+      "fairdatasystems/fdp@sha256:0cf6d030981f6809f97c11f1ff60b6f78c4bb3ad4d87fb4013d1e6b0bee4aae1"
     ],
     "ImageConfig": {
       "architecture": "amd64",
-      "container": "b1853846afe59472531624f0507cbe477f1b9474156f79a29fb9662dd5f9b38c",
-      "created": "2025-09-01T12:02:20.84335737Z",
+      "container": "01689452f87252d0206720089cc83ac836fa3a90b85567586de9fbe42bbc76a7",
+      "created": "2025-09-08T10:59:58.855286762Z",
       "docker_version": "26.1.3",
       "history": [
         {
-          "created": "2025-02-14T03:28:36Z",
-          "created_by": "ADD alpine-minirootfs-3.21.3-x86_64.tar.gz / # buildkit",
+          "created": "2025-07-15T11:01:16Z",
+          "created_by": "ADD alpine-minirootfs-3.22.1-x86_64.tar.gz / # buildkit",
           "comment": "buildkit.dockerfile.v0"
         },
         {
-          "created": "2025-02-14T03:28:36Z",
+          "created": "2025-07-15T11:01:16Z",
           "created_by": "CMD [\"/bin/sh\"]",
           "comment": "buildkit.dockerfile.v0",
           "empty_layer": true
         },
         {
-          "created": "2025-04-23T14:48:05Z",
+          "created": "2025-08-01T11:04:34Z",
           "created_by": "ENV JAVA_HOME=/opt/java/openjdk",
           "comment": "buildkit.dockerfile.v0",
           "empty_layer": true
         },
         {
-          "created": "2025-04-23T14:48:05Z",
+          "created": "2025-08-01T11:04:34Z",
           "created_by": "ENV PATH=/opt/java/openjdk/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
           "comment": "buildkit.dockerfile.v0",
           "empty_layer": true
         },
         {
-          "created": "2025-04-23T14:48:05Z",
+          "created": "2025-08-01T11:04:34Z",
           "created_by": "ENV LANG=en_US.UTF-8 LANGUAGE=en_US:en LC_ALL=en_US.UTF-8",
           "comment": "buildkit.dockerfile.v0",
           "empty_layer": true
         },
         {
-          "created": "2025-04-23T14:48:05Z",
+          "created": "2025-08-01T11:04:34Z",
           "created_by": "RUN /bin/sh -c set -eux;     apk add --no-cache         fontconfig ttf-dejavu         gnupg         ca-certificates p11-kit-trust         musl-locales musl-locales-lang         binutils         tzdata         coreutils         openssl     ;     rm -rf /var/cache/apk/* # buildkit",
           "comment": "buildkit.dockerfile.v0"
         },
         {
-          "created": "2025-04-23T14:48:05Z",
-          "created_by": "ENV JAVA_VERSION=jdk-21.0.7+6",
+          "created": "2025-08-01T11:04:34Z",
+          "created_by": "ENV JAVA_VERSION=jdk-21.0.8+9",
           "comment": "buildkit.dockerfile.v0",
           "empty_layer": true
         },
         {
-          "created": "2025-04-23T14:48:05Z",
-          "created_by": "RUN /bin/sh -c set -eux;     ARCH=\"$(apk --print-arch)\";     case \"${ARCH}\" in        aarch64)          ESUM='76dbb5152f15e509a5fc965936b2b912f806bb977853ab028c362c5340b1c4e9';          BINARY_URL='https://github.com/adoptium/temurin21-binaries/releases/download/jdk-21.0.7%2B6/OpenJDK21U-jdk_aarch64_alpine-linux_hotspot_21.0.7_6.tar.gz';          ;;        x86_64)          ESUM='79ecc4b213d21ae5c389bea13c6ed23ca4804a45b7b076983356c28105580013';          BINARY_URL='https://github.com/adoptium/temurin21-binaries/releases/download/jdk-21.0.7%2B6/OpenJDK21U-jdk_x64_alpine-linux_hotspot_21.0.7_6.tar.gz';          ;;        *)          echo \"Unsupported arch: ${ARCH}\";          exit 1;          ;;     esac;     wget -O /tmp/openjdk.tar.gz ${BINARY_URL};     wget -O /tmp/openjdk.tar.gz.sig ${BINARY_URL}.sig;     export GNUPGHOME=\"$(mktemp -d)\";     gpg --batch --keyserver keyserver.ubuntu.com --recv-keys 3B04D753C9050D9A5D343F39843C48A565F8F04B;     gpg --batch --verify /tmp/openjdk.tar.gz.sig /tmp/openjdk.tar.gz;     rm -rf \"${GNUPGHOME}\" /tmp/openjdk.tar.gz.sig;     echo \"${ESUM} */tmp/openjdk.tar.gz\" | sha256sum -c -;     mkdir -p \"$JAVA_HOME\";     tar --extract         --file /tmp/openjdk.tar.gz         --directory \"$JAVA_HOME\"         --strip-components 1         --no-same-owner     ;     rm -f /tmp/openjdk.tar.gz ${JAVA_HOME}/lib/src.zip; # buildkit",
+          "created": "2025-08-01T11:04:34Z",
+          "created_by": "RUN /bin/sh -c set -eux;     ARCH=\"$(apk --print-arch)\";     case \"${ARCH}\" in        aarch64)          ESUM='4773cfdc59d66b75f4a68ac843b2b5854791840114cf8bb1b56fb6f7826ae498';          BINARY_URL='https://github.com/adoptium/temurin21-binaries/releases/download/jdk-21.0.8%2B9/OpenJDK21U-jdk_aarch64_alpine-linux_hotspot_21.0.8_9.tar.gz';          ;;        x86_64)          ESUM='73c4cbe10f4f385383d9cb54d34f2bee2c68b5265f9e3d954f3326948c40c0be';          BINARY_URL='https://github.com/adoptium/temurin21-binaries/releases/download/jdk-21.0.8%2B9/OpenJDK21U-jdk_x64_alpine-linux_hotspot_21.0.8_9.tar.gz';          ;;        *)          echo \"Unsupported arch: ${ARCH}\";          exit 1;          ;;     esac;     wget -O /tmp/openjdk.tar.gz ${BINARY_URL};     wget -O /tmp/openjdk.tar.gz.sig ${BINARY_URL}.sig;     export GNUPGHOME=\"$(mktemp -d)\";     gpg --batch --keyserver keyserver.ubuntu.com --recv-keys 3B04D753C9050D9A5D343F39843C48A565F8F04B;     gpg --batch --verify /tmp/openjdk.tar.gz.sig /tmp/openjdk.tar.gz;     rm -rf \"${GNUPGHOME}\" /tmp/openjdk.tar.gz.sig;     echo \"${ESUM} */tmp/openjdk.tar.gz\" | sha256sum -c -;     mkdir -p \"$JAVA_HOME\";     tar --extract         --file /tmp/openjdk.tar.gz         --directory \"$JAVA_HOME\"         --strip-components 1         --no-same-owner     ;     rm -f /tmp/openjdk.tar.gz ${JAVA_HOME}/lib/src.zip; # buildkit",
           "comment": "buildkit.dockerfile.v0"
         },
         {
-          "created": "2025-04-23T14:48:05Z",
+          "created": "2025-08-01T11:04:34Z",
           "created_by": "RUN /bin/sh -c set -eux;     echo \"Verifying install ...\";     fileEncoding=\"$(echo 'System.out.println(System.getProperty(\"file.encoding\"))' | jshell -s -)\"; [ \"$fileEncoding\" = 'UTF-8' ]; rm -rf ~/.java;     echo \"javac --version\"; javac --version;     echo \"java --version\"; java --version;     echo \"Complete.\" # buildkit",
           "comment": "buildkit.dockerfile.v0"
         },
         {
-          "created": "2025-04-23T14:48:05Z",
+          "created": "2025-08-01T11:04:34Z",
           "created_by": "COPY --chmod=755 entrypoint.sh /__cacert_entrypoint.sh # buildkit",
           "comment": "buildkit.dockerfile.v0"
         },
         {
-          "created": "2025-04-23T14:48:05Z",
+          "created": "2025-08-01T11:04:34Z",
           "created_by": "ENTRYPOINT [\"/__cacert_entrypoint.sh\"]",
           "comment": "buildkit.dockerfile.v0",
           "empty_layer": true
         },
         {
-          "created": "2025-04-23T14:48:05Z",
+          "created": "2025-08-01T11:04:34Z",
           "created_by": "CMD [\"jshell\"]",
           "comment": "buildkit.dockerfile.v0",
           "empty_layer": true
         },
         {
-          "created": "2025-07-03T07:45:08Z",
+          "created": "2025-09-05T12:46:32Z",
           "created_by": "RUN /bin/sh -c addgroup -S spring \u0026\u0026 adduser -S spring -G spring # buildkit",
           "comment": "buildkit.dockerfile.v0"
         },
         {
-          "created": "2025-07-03T07:45:08Z",
+          "created": "2025-09-05T12:46:32Z",
           "created_by": "USER spring:spring",
           "comment": "buildkit.dockerfile.v0",
           "empty_layer": true
         },
         {
-          "created": "2025-07-03T07:45:08Z",
+          "created": "2025-09-05T12:46:32Z",
           "created_by": "WORKDIR /fdp",
           "comment": "buildkit.dockerfile.v0"
         },
         {
-          "created": "2025-07-03T07:45:47Z",
+          "created": "2025-09-05T12:47:15Z",
           "created_by": "COPY /builder/target/fdp-spring-boot.jar /fdp/app.jar # buildkit",
           "comment": "buildkit.dockerfile.v0"
         },
         {
-          "created": "2025-07-03T07:45:47Z",
+          "created": "2025-09-05T12:47:15Z",
           "created_by": "ENTRYPOINT [\"java\" \"-jar\" \"app.jar\"]",
           "comment": "buildkit.dockerfile.v0",
           "empty_layer": true
         },
         {
-          "created": "2025-09-01T12:02:20Z"
+          "created": "2025-09-08T10:59:58Z"
         }
       ],
       "os": "linux",
       "rootfs": {
         "type": "layers",
         "diff_ids": [
-          "sha256:08000c18d16dadf9553d747a58cf44023423a9ab010aab96cf263d2216b8b350",
-          "sha256:c6dd83b959a067bfbcec9e8e8077860513d3128edfe3de736639933df3f3cdbf",
-          "sha256:b79a4762dbfbcc0ecd91df51ba3aa7f709502882cfe8c5334aec06a325b43e81",
-          "sha256:33a84851963e71e7078496bce6e9a55013d73c9f1f52ab765dcce9f8b99d9b3c",
-          "sha256:6658b6f192538e3356af9bbee35a986460692b2aed33f61954c48e9303f7db72",
-          "sha256:c7df21f7a26b1fc3c5b6d82ba3e894a66d11b4987b40d78b684fe470e4c03f3c",
-          "sha256:7ddd679fb4b044fa9979c8b97a06e6427ef041ad8e8d5bd8b9d1a48686a170e0",
-          "sha256:d63c30d49d09ca7e045988813414e43c0bdc7d4d788e540fa827676b635c4876",
-          "sha256:5a83fe5a44062f13f165ebec877c0e72acf22a177399810584e9c2868ca41768"
+          "sha256:418dccb7d85a63a6aa574439840f7a6fa6fd2321b3e2394568a317735e867d35",
+          "sha256:63dc0d0c169d1bcc6c50b7d5112b27e6c6a47e679952ee4d67ac8fe60210451a",
+          "sha256:9445de0fc9736c73b9774fa9a89906e0f32bdb8bf213383aa026793ba5d5947f",
+          "sha256:12924cee7f3f1f784d0d80b6f5547667126d9d1dc1209850d85174d8e03d2bc2",
+          "sha256:01cf94e636de6d02446973c697fb596d7121ac36a2733d38112d77d44003011f",
+          "sha256:13e47f1b6dce207c00bd72f2bf935e028bf00f4ce7ea6141ef3c1e146ca9273d",
+          "sha256:a720167ce02caa5f41c784c3b897a61fb847e7280dacba276a01e73ed5100768",
+          "sha256:6e99e3e91f6c0006d90070138ae4dddf79f185149d461e11a54e3c023c78af6a",
+          "sha256:28c1e5139e2c0baf6ab8ada4d902156c5b1142eb9724e0858f0a86c1b34e27f5"
         ]
       },
       "config": {
@@ -157,10 +157,10 @@
           "LANG=en_US.UTF-8",
           "LANGUAGE=en_US:en",
           "LC_ALL=en_US.UTF-8",
-          "JAVA_VERSION=jdk-21.0.7+6"
+          "JAVA_VERSION=jdk-21.0.8+9"
         ],
-        "Hostname": "b1853846afe5",
-        "Image": "fairdata/fairdatapoint:1.17.5",
+        "Hostname": "01689452f872",
+        "Image": "fairdata/fairdatapoint:1.17.6",
         "User": "spring:spring",
         "WorkingDir": "/fdp"
       }
@@ -168,7 +168,7 @@
   },
   "Results": [
     {
-      "Target": "fairdatasystems/fdp:2025-09-01 (alpine 3.21.3)",
+      "Target": "fairdatasystems/fdp:2025-09-08 (alpine 3.22.1)",
       "Class": "os-pkgs",
       "Type": "alpine"
     },
@@ -188,7 +188,7 @@
           "FixedVersion": "1.11.0",
           "Status": "fixed",
           "Layer": {
-            "DiffID": "sha256:d63c30d49d09ca7e045988813414e43c0bdc7d4d788e540fa827676b635c4876"
+            "DiffID": "sha256:6e99e3e91f6c0006d90070138ae4dddf79f185149d461e11a54e3c023c78af6a"
           },
           "SeveritySource": "ghsa",
           "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2025-48734",
@@ -222,10 +222,10 @@
           },
           "References": [
             "http://www.openwall.com/lists/oss-security/2025/05/28/6",
-            "https://access.redhat.com/errata/RHSA-2025:9166",
+            "https://access.redhat.com/errata/RHSA-2025:9114",
             "https://access.redhat.com/security/cve/CVE-2025-48734",
             "https://bugzilla.redhat.com/2368956",
-            "https://errata.almalinux.org/10/ALSA-2025-9166.html",
+            "https://errata.almalinux.org/9/ALSA-2025-9114.html",
             "https://github.com/advisories/GHSA-wxr5-93ph-8wr9",
             "https://github.com/apache/commons-beanutils",
             "https://github.com/apache/commons-beanutils/commit/28ad955a1613ed5885870cc7da52093c1ce739dc",
@@ -251,7 +251,7 @@
           "FixedVersion": "11.0.8, 10.1.42, 9.0.106",
           "Status": "fixed",
           "Layer": {
-            "DiffID": "sha256:d63c30d49d09ca7e045988813414e43c0bdc7d4d788e540fa827676b635c4876"
+            "DiffID": "sha256:6e99e3e91f6c0006d90070138ae4dddf79f185149d461e11a54e3c023c78af6a"
           },
           "SeveritySource": "ghsa",
           "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2025-48988",
@@ -268,7 +268,7 @@
           ],
           "VendorSeverity": {
             "alma": 3,
-            "amazon": 2,
+            "amazon": 3,
             "bitnami": 3,
             "ghsa": 3,
             "oracle-oval": 3,
@@ -292,7 +292,7 @@
           },
           "References": [
             "http://www.openwall.com/lists/oss-security/2025/06/16/1",
-            "https://access.redhat.com/errata/RHSA-2025:14178",
+            "https://access.redhat.com/errata/RHSA-2025:14181",
             "https://access.redhat.com/security/cve/CVE-2025-48988",
             "https://bugzilla.redhat.com/2373015",
             "https://bugzilla.redhat.com/2373018",
@@ -301,7 +301,7 @@
             "https://bugzilla.redhat.com/2379374",
             "https://bugzilla.redhat.com/2379382",
             "https://bugzilla.redhat.com/2379386",
-            "https://errata.almalinux.org/10/ALSA-2025-14178.html",
+            "https://errata.almalinux.org/9/ALSA-2025-14181.html",
             "https://github.com/apache/tomcat",
             "https://github.com/apache/tomcat/commit/2b0ab14fb55d4edc896e5f1817f2ab76f714ae5e",
             "https://github.com/apache/tomcat/commit/2b0ab14fb55d4edc896e5f1817f2ab76f714ae5e (11.0.8)",
@@ -332,7 +332,7 @@
           "FixedVersion": "11.0.10, 10.1.44, 9.0.108",
           "Status": "fixed",
           "Layer": {
-            "DiffID": "sha256:d63c30d49d09ca7e045988813414e43c0bdc7d4d788e540fa827676b635c4876"
+            "DiffID": "sha256:6e99e3e91f6c0006d90070138ae4dddf79f185149d461e11a54e3c023c78af6a"
           },
           "SeveritySource": "ghsa",
           "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2025-48989",
@@ -370,7 +370,7 @@
             }
           },
           "References": [
-            "https://access.redhat.com/errata/RHSA-2025:14178",
+            "https://access.redhat.com/errata/RHSA-2025:14181",
             "https://access.redhat.com/security/cve/CVE-2025-48989",
             "https://bugzilla.redhat.com/2373015",
             "https://bugzilla.redhat.com/2373018",
@@ -379,7 +379,7 @@
             "https://bugzilla.redhat.com/2379374",
             "https://bugzilla.redhat.com/2379382",
             "https://bugzilla.redhat.com/2379386",
-            "https://errata.almalinux.org/10/ALSA-2025-14178.html",
+            "https://errata.almalinux.org/9/ALSA-2025-14181.html",
             "https://github.com/apache/tomcat",
             "https://github.com/apache/tomcat/commit/73c04a10395774bda71a0b37802cf983662ce255",
             "https://github.com/apache/tomcat/commit/73c04a10395774bda71a0b37802cf983662ce255 (10.1.44)",
@@ -411,7 +411,7 @@
           "FixedVersion": "9.4.54, 10.0.20, 11.0.20",
           "Status": "fixed",
           "Layer": {
-            "DiffID": "sha256:d63c30d49d09ca7e045988813414e43c0bdc7d4d788e540fa827676b635c4876"
+            "DiffID": "sha256:6e99e3e91f6c0006d90070138ae4dddf79f185149d461e11a54e3c023c78af6a"
           },
           "SeveritySource": "ghsa",
           "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2024-22201",
@@ -475,7 +475,7 @@
           "FixedVersion": "9.4.58, 10.0.26, 11.0.26",
           "Status": "fixed",
           "Layer": {
-            "DiffID": "sha256:d63c30d49d09ca7e045988813414e43c0bdc7d4d788e540fa827676b635c4876"
+            "DiffID": "sha256:6e99e3e91f6c0006d90070138ae4dddf79f185149d461e11a54e3c023c78af6a"
           },
           "SeveritySource": "ghsa",
           "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2025-5115",
@@ -533,7 +533,7 @@
           "FixedVersion": "10.0.16, 11.0.16, 9.4.53",
           "Status": "fixed",
           "Layer": {
-            "DiffID": "sha256:d63c30d49d09ca7e045988813414e43c0bdc7d4d788e540fa827676b635c4876"
+            "DiffID": "sha256:6e99e3e91f6c0006d90070138ae4dddf79f185149d461e11a54e3c023c78af6a"
           },
           "SeveritySource": "ghsa",
           "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2023-36478",

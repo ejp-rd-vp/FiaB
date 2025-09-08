@@ -1,0 +1,7 @@
+Target,VulnerabilityID,Package,InstalledVersion,FixedVersion,Severity,Title,PrimaryURL
+Java,CVE-2025-48734,commons-beanutils:commons-beanutils,1.9.4,1.11.0,HIGH,commons-beanutils: Apache Commons BeanUtils: PropertyUtilsBean does not suppresses an enum's declaredClass property by default,https://avd.aquasec.com/nvd/cve-2025-48734
+Java,CVE-2025-48988,org.apache.tomcat.embed:tomcat-embed-core,10.1.41,"11.0.8, 10.1.42, 9.0.106",HIGH,tomcat: Apache Tomcat DoS in multipart upload,https://avd.aquasec.com/nvd/cve-2025-48988
+Java,CVE-2025-48989,org.apache.tomcat.embed:tomcat-embed-core,10.1.41,"11.0.10, 10.1.44, 9.0.108",HIGH,"tomcat: http/2 ""MadeYouReset"" DoS attack through HTTP/2 control frames",https://avd.aquasec.com/nvd/cve-2025-48989
+Java,CVE-2024-22201,org.eclipse.jetty.http2:http2-common,9.4.41.v20210516,"9.4.54, 10.0.20, 11.0.20",HIGH,jetty: stop accepting new connections from valid clients,https://avd.aquasec.com/nvd/cve-2024-22201
+Java,CVE-2025-5115,org.eclipse.jetty.http2:http2-common,9.4.41.v20210516,"9.4.58, 10.0.26, 11.0.26",HIGH,"jetty: HTTP/2 (including DNS over HTTPS) contains a design flaw and is vulnerable to ""MadeYouReset"" DoS attack through HTTP/2 control frames",https://avd.aquasec.com/nvd/cve-2025-5115
+Java,CVE-2023-36478,org.eclipse.jetty.http2:http2-hpack,9.4.41.v20210516,"10.0.16, 11.0.16, 9.4.53",HIGH,jetty: hpack header values cause denial of service in http/2,https://avd.aquasec.com/nvd/cve-2023-36478

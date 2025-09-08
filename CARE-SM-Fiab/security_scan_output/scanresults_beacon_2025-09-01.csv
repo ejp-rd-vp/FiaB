@@ -1,4 +1,0 @@
-Target,VulnerabilityID,Package,InstalledVersion,FixedVersion,Severity,Title,PrimaryURL
-Python,CVE-2025-43859,h11,0.14.0,0.16.0,CRITICAL,h11: h11 accepts some malformed Chunked-Encoding bodies,https://avd.aquasec.com/nvd/cve-2025-43859
-Python,CVE-2024-6345,setuptools,69.2.0,70.0.0,HIGH,pypa/setuptools: Remote code execution via download functions in the package_index module in pypa/setuptools,https://avd.aquasec.com/nvd/cve-2024-6345
-Python,CVE-2025-47273,setuptools,69.2.0,78.1.1,HIGH,setuptools: Path Traversal Vulnerability in setuptools PackageIndex,https://avd.aquasec.com/nvd/cve-2025-47273

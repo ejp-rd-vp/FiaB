@@ -3,7 +3,7 @@ timestamp=$(date +"%Y-%m-%d")
 
 image="ontotext/graphdb:10.8.0"
 name="gdb"
-outputfile=("./security_scan_output/scanresults_${name}_${timestamp}.txt")
+outputfile=("./security_scan_output/scanresults_${name}_${timestamp}.json")
 docker run -d --name ${name} ${image}
 echo ""
 echo ""
@@ -33,10 +33,10 @@ trivy image --scanners vuln --format json --severity CRITICAL,HIGH  --timeout 18
 echo "END"
 
 
-# fairdata/fairdatapoint:1.17.5
+# fairdata/fairdatapoint:1.17.6
 image="fairdata/fairdatapoint:1.17.6"
 name="fdp"
-outputfile=("./security_scan_output/scanresults_${name}_${timestamp}.txt")
+outputfile=("./security_scan_output/scanresults_${name}_${timestamp}.json")
 docker run -d --name ${name} ${image}
 # use the appropriate distribution upgrade tool for that container’s operating system
 echo ""
@@ -238,3 +238,4 @@ sed -i'' -e "s!{CARE}!${CARE}!" "docker-compose-template-tmp.yml"
 
 mv docker-compose-template-tmp.yml ./FAIR-ready-to-go/docker-compose-template.yml
 
+ruby parse-security-scans.rb ./security_scan_output/*.json

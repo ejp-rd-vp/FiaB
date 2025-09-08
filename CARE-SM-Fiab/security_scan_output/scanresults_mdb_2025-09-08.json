@@ -1,6 +1,6 @@
 {
   "SchemaVersion": 2,
-  "CreatedAt": "2025-09-08T10:43:03.171511107+02:00",
+  "CreatedAt": "2025-09-08T13:10:45.125281174+02:00",
   "ArtifactName": "fairdatasystems/mdb:2025-09-08",
   "ArtifactType": "container_image",
   "Metadata": {
@@ -8,7 +8,7 @@
       "Family": "ubuntu",
       "Name": "22.04"
     },
-    "ImageID": "sha256:acbd939b4b5fbc055970e8d6e69eaa44f6e3905f7a6a4a2b61102f0c04290a7b",
+    "ImageID": "sha256:a8c883000c53df8bb772027a22554f148a3906cb449ed2446b08683901086131",
     "DiffIDs": [
       "sha256:2573e0d8158209ed54ab25c87bcdcb00bd3d2539246960a3d592a1c599d70465",
       "sha256:3d7602297a7834b8989bf91f0b68a02050b9d59eb65a2f8c7ac88574c6140162",
@@ -18,482 +18,18 @@
       "sha256:794841dbfbee049e970efa90c90b66450b639265a2063017b26c5d6dbfa3c4ed",
       "sha256:0ecd3470da5215ecf4d22af4a7f3fcf74205111acb55910a3c0e867916c47485",
       "sha256:154876527ce89b63a8974623486220b83b9e9ee6ab356977c175370152c2f49b",
-      "sha256:a07ee40bc388af2b7e9a524cbb7459062a135420182f2ab506524121833d9efc"
-    ],
-    "RepoTags": [
-      "fairdatasystems/mdb:2025-09-08"
-    ],
-    "ImageConfig": {
-      "architecture": "amd64",
-      "container": "dd1b33e4aeeca65391ca18bf24c8323108a52937ee5cde1b3938b19222c91de3",
-      "created": "2025-09-08T08:42:09.139590241Z",
-      "docker_version": "26.1.3",
-      "history": [
-        {
-          "created": "2024-09-11T16:25:16Z",
-          "created_by": "/bin/sh -c #(nop)  ARG RELEASE",
-          "empty_layer": true
-        },
-        {
-          "created": "2024-09-11T16:25:16Z",
-          "created_by": "/bin/sh -c #(nop)  ARG LAUNCHPAD_BUILD_ARCH",
-          "empty_layer": true
-        },
-        {
-          "created": "2024-09-11T16:25:16Z",
-          "created_by": "/bin/sh -c #(nop)  LABEL org.opencontainers.image.ref.name=ubuntu",
-          "empty_layer": true
-        },
-        {
-          "created": "2024-09-11T16:25:16Z",
-          "created_by": "/bin/sh -c #(nop)  LABEL org.opencontainers.image.version=22.04",
-          "empty_layer": true
-        },
-        {
-          "created": "2024-09-11T16:25:17Z",
-          "created_by": "/bin/sh -c #(nop) ADD file:ebe009f86035c175ba244badd298a2582914415cf62783d510eab3a311a5d4e1 in / "
-        },
-        {
-          "created": "2024-09-11T16:25:18Z",
-          "created_by": "/bin/sh -c #(nop)  CMD [\"/bin/bash\"]",
-          "empty_layer": true
-        },
-        {
-          "created": "2024-10-25T04:11:28Z",
-          "created_by": "RUN /bin/sh -c set -eux; \tgroupadd --gid 999 --system mongodb; \tuseradd --uid 999 --system --gid mongodb --home-dir /data/db mongodb; \tmkdir -p /data/db /data/configdb; \tchown -R mongodb:mongodb /data/db /data/configdb # buildkit",
-          "comment": "buildkit.dockerfile.v0"
-        },
-        {
-          "created": "2024-10-25T04:11:28Z",
-          "created_by": "RUN /bin/sh -c set -eux; \tapt-get update; \tapt-get install -y --no-install-recommends \t\tca-certificates \t\tjq \t\tnumactl \t\tprocps \t; \trm -rf /var/lib/apt/lists/* # buildkit",
-          "comment": "buildkit.dockerfile.v0"
-        },
-        {
-          "created": "2024-10-25T04:11:28Z",
-          "created_by": "ENV GOSU_VERSION=1.17",
-          "comment": "buildkit.dockerfile.v0",
-          "empty_layer": true
-        },
-        {
-          "created": "2024-10-25T04:11:28Z",
-          "created_by": "ENV JSYAML_VERSION=3.13.1",
-          "comment": "buildkit.dockerfile.v0",
-          "empty_layer": true
-        },
-        {
-          "created": "2024-10-25T04:11:28Z",
-          "created_by": "ENV JSYAML_CHECKSUM=662e32319bdd378e91f67578e56a34954b0a2e33aca11d70ab9f4826af24b941",
-          "comment": "buildkit.dockerfile.v0",
-          "empty_layer": true
-        },
-        {
-          "created": "2024-10-25T04:11:28Z",
-          "created_by": "RUN /bin/sh -c set -eux; \t\tsavedAptMark=\"$(apt-mark showmanual)\"; \tapt-get update; \tapt-get install -y --no-install-recommends \t\tgnupg \t\twget \t; \trm -rf /var/lib/apt/lists/*; \t\tdpkgArch=\"$(dpkg --print-architecture | awk -F- '{ print $NF }')\"; \twget -O /usr/local/bin/gosu \"https://github.com/tianon/gosu/releases/download/$GOSU_VERSION/gosu-$dpkgArch\"; \twget -O /usr/local/bin/gosu.asc \"https://github.com/tianon/gosu/releases/download/$GOSU_VERSION/gosu-$dpkgArch.asc\"; \texport GNUPGHOME=\"$(mktemp -d)\"; \tgpg --batch --keyserver hkps://keys.openpgp.org --recv-keys B42F6819007F00F88E364FD4036A9C25BF357DD4; \tgpg --batch --verify /usr/local/bin/gosu.asc /usr/local/bin/gosu; \tgpgconf --kill all; \trm -rf \"$GNUPGHOME\" /usr/local/bin/gosu.asc; \t\tmkdir -p /opt/js-yaml/; \twget -O /opt/js-yaml/js-yaml.tgz https://registry.npmjs.org/js-yaml/-/js-yaml-${JSYAML_VERSION}.tgz; \techo \"$JSYAML_CHECKSUM */opt/js-yaml/js-yaml.tgz\" | sha256sum -c -; \ttar -xz --strip-components=1 -f /opt/js-yaml/js-yaml.tgz -C /opt/js-yaml package/dist/js-yaml.js package/package.json; \trm /opt/js-yaml/js-yaml.tgz; \tln -s /opt/js-yaml/dist/js-yaml.js /js-yaml.js; \t\texport GNUPGHOME=\"$(mktemp -d)\"; \twget -O KEYS 'https://pgp.mongodb.com/server-7.0.asc'; \tgpg --batch --import KEYS; \tmkdir -p /etc/apt/keyrings; \tgpg --batch --export --armor 'E58830201F7DD82CD808AA84160D26BB1785BA38' \u003e /etc/apt/keyrings/mongodb.asc; \tgpgconf --kill all; \trm -rf \"$GNUPGHOME\" KEYS; \t\tapt-mark auto '.*' \u003e /dev/null; \tapt-mark manual $savedAptMark \u003e /dev/null; \tapt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false; \t\tchmod +x /usr/local/bin/gosu; \tgosu --version; \tgosu nobody true # buildkit",
-          "comment": "buildkit.dockerfile.v0"
-        },
-        {
-          "created": "2024-10-25T04:11:28Z",
-          "created_by": "RUN /bin/sh -c mkdir /docker-entrypoint-initdb.d # buildkit",
-          "comment": "buildkit.dockerfile.v0"
-        },
-        {
-          "created": "2024-10-25T04:11:28Z",
-          "created_by": "ARG MONGO_PACKAGE=mongodb-org",
-          "comment": "buildkit.dockerfile.v0",
-          "empty_layer": true
-        },
-        {
-          "created": "2024-10-25T04:11:28Z",
-          "created_by": "ARG MONGO_REPO=repo.mongodb.org",
-          "comment": "buildkit.dockerfile.v0",
-          "empty_layer": true
-        },
-        {
-          "created": "2024-10-25T04:11:28Z",
-          "created_by": "ENV MONGO_PACKAGE=mongodb-org MONGO_REPO=repo.mongodb.org",
-          "comment": "buildkit.dockerfile.v0",
-          "empty_layer": true
-        },
-        {
-          "created": "2024-10-25T04:11:28Z",
-          "created_by": "ENV MONGO_MAJOR=7.0",
-          "comment": "buildkit.dockerfile.v0",
-          "empty_layer": true
-        },
-        {
-          "created": "2024-10-25T04:11:28Z",
-          "created_by": "RUN |2 MONGO_PACKAGE=mongodb-org MONGO_REPO=repo.mongodb.org /bin/sh -c echo \"deb [ signed-by=/etc/apt/keyrings/mongodb.asc ] http://$MONGO_REPO/apt/ubuntu jammy/${MONGO_PACKAGE%-unstable}/$MONGO_MAJOR multiverse\" | tee \"/etc/apt/sources.list.d/${MONGO_PACKAGE%-unstable}.list\" # buildkit",
-          "comment": "buildkit.dockerfile.v0"
-        },
-        {
-          "created": "2024-10-25T04:11:28Z",
-          "created_by": "ENV MONGO_VERSION=7.0.15",
-          "comment": "buildkit.dockerfile.v0",
-          "empty_layer": true
-        },
-        {
-          "created": "2024-10-25T04:11:28Z",
-          "created_by": "RUN |2 MONGO_PACKAGE=mongodb-org MONGO_REPO=repo.mongodb.org /bin/sh -c set -x \t\u0026\u0026 export DEBIAN_FRONTEND=noninteractive \t\u0026\u0026 apt-get update \t\u0026\u0026 apt-get install -y \t\t${MONGO_PACKAGE}=$MONGO_VERSION \t\t${MONGO_PACKAGE}-server=$MONGO_VERSION \t\t${MONGO_PACKAGE}-shell=$MONGO_VERSION \t\t${MONGO_PACKAGE}-mongos=$MONGO_VERSION \t\t${MONGO_PACKAGE}-tools=$MONGO_VERSION \t\t${MONGO_PACKAGE}-database=$MONGO_VERSION \t\t${MONGO_PACKAGE}-database-tools-extra=$MONGO_VERSION \t\u0026\u0026 rm -rf /var/lib/apt/lists/* \t\u0026\u0026 rm -rf /var/lib/mongodb \t\u0026\u0026 mv /etc/mongod.conf /etc/mongod.conf.orig # buildkit",
-          "comment": "buildkit.dockerfile.v0"
-        },
-        {
-          "created": "2024-10-25T04:11:28Z",
-          "created_by": "VOLUME [/data/db /data/configdb]",
-          "comment": "buildkit.dockerfile.v0",
-          "empty_layer": true
-        },
-        {
-          "created": "2024-10-25T04:11:28Z",
-          "created_by": "ENV HOME=/data/db",
-          "comment": "buildkit.dockerfile.v0",
-          "empty_layer": true
-        },
-        {
-          "created": "2024-10-25T04:11:28Z",
-          "created_by": "COPY docker-entrypoint.sh /usr/local/bin/ # buildkit",
-          "comment": "buildkit.dockerfile.v0"
-        },
-        {
-          "created": "2024-10-25T04:11:28Z",
-          "created_by": "ENTRYPOINT [\"docker-entrypoint.sh\"]",
-          "comment": "buildkit.dockerfile.v0",
-          "empty_layer": true
-        },
-        {
-          "created": "2024-10-25T04:11:28Z",
-          "created_by": "EXPOSE map[27017/tcp:{}]",
-          "comment": "buildkit.dockerfile.v0",
-          "empty_layer": true
-        },
-        {
-          "created": "2024-10-25T04:11:28Z",
-          "created_by": "CMD [\"mongod\"]",
-          "comment": "buildkit.dockerfile.v0",
-          "empty_layer": true
-        },
-        {
-          "created": "2025-09-08T08:42:09Z",
-          "created_by": "mongod"
-        }
-      ],
-      "os": "linux",
-      "rootfs": {
-        "type": "layers",
-        "diff_ids": [
-          "sha256:2573e0d8158209ed54ab25c87bcdcb00bd3d2539246960a3d592a1c599d70465",
-          "sha256:3d7602297a7834b8989bf91f0b68a02050b9d59eb65a2f8c7ac88574c6140162",
-          "sha256:561bdbff10569ca6993b0976f7c26f5e5b0f7dcf456144d2a498abe7cdc7d40c",
-          "sha256:d750163d77bbb30e7d954c3934c8ee339dbfbe266fa8ad6ef831fc33e11f1328",
-          "sha256:159721489058beb064353f7fd96529169859c96fcbc0b6262d8294177bfee9f7",
-          "sha256:794841dbfbee049e970efa90c90b66450b639265a2063017b26c5d6dbfa3c4ed",
-          "sha256:0ecd3470da5215ecf4d22af4a7f3fcf74205111acb55910a3c0e867916c47485",
-          "sha256:154876527ce89b63a8974623486220b83b9e9ee6ab356977c175370152c2f49b",
-          "sha256:a07ee40bc388af2b7e9a524cbb7459062a135420182f2ab506524121833d9efc"
-        ]
-      },
-      "config": {
-        "Cmd": [
-          "mongod"
-        ],
-        "Entrypoint": [
-          "docker-entrypoint.sh"
-        ],
-        "Env": [
-          "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
-          "GOSU_VERSION=1.17",
-          "JSYAML_VERSION=3.13.1",
-          "JSYAML_CHECKSUM=662e32319bdd378e91f67578e56a34954b0a2e33aca11d70ab9f4826af24b941",
-          "MONGO_PACKAGE=mongodb-org",
-          "MONGO_REPO=repo.mongodb.org",
-          "MONGO_MAJOR=7.0",
-          "MONGO_VERSION=7.0.15",
-          "HOME=/data/db"
-        ],
-        "Hostname": "dd1b33e4aeec",
-        "Image": "mongo:7.0",
-        "Labels": {
-          "org.opencontainers.image.ref.name": "ubuntu",
-          "org.opencontainers.image.version": "22.04"
-        },
-        "Volumes": {
-          "/data/configdb": {},
-          "/data/db": {}
-        }
-      }
-    }
-  },
-  "Results": [
-    {
-      "Target": "fairdatasystems/mdb:2025-09-08 (ubuntu 22.04)",
-      "Class": "os-pkgs",
-      "Type": "ubuntu"
-    }
-  ]
-}
-{
-  "SchemaVersion": 2,
-  "CreatedAt": "2025-09-08T10:57:43.10284089+02:00",
-  "ArtifactName": "fairdatasystems/mdb:2025-09-08",
-  "ArtifactType": "container_image",
-  "Metadata": {
-    "OS": {
-      "Family": "ubuntu",
-      "Name": "22.04"
-    },
-    "ImageID": "sha256:8ec350e90c355774a4d71c5200bd9df3edf5abb375ad6c25e87c4dcc6bf7c52d",
-    "DiffIDs": [
-      "sha256:2573e0d8158209ed54ab25c87bcdcb00bd3d2539246960a3d592a1c599d70465",
-      "sha256:3d7602297a7834b8989bf91f0b68a02050b9d59eb65a2f8c7ac88574c6140162",
-      "sha256:561bdbff10569ca6993b0976f7c26f5e5b0f7dcf456144d2a498abe7cdc7d40c",
-      "sha256:d750163d77bbb30e7d954c3934c8ee339dbfbe266fa8ad6ef831fc33e11f1328",
-      "sha256:159721489058beb064353f7fd96529169859c96fcbc0b6262d8294177bfee9f7",
-      "sha256:794841dbfbee049e970efa90c90b66450b639265a2063017b26c5d6dbfa3c4ed",
-      "sha256:0ecd3470da5215ecf4d22af4a7f3fcf74205111acb55910a3c0e867916c47485",
-      "sha256:154876527ce89b63a8974623486220b83b9e9ee6ab356977c175370152c2f49b",
-      "sha256:c458cc098dc1acfa32337b5efc32b990f2f518a014fb9192cf994295a377891a"
-    ],
-    "RepoTags": [
-      "fairdatasystems/mdb:2025-09-08"
-    ],
-    "ImageConfig": {
-      "architecture": "amd64",
-      "container": "4c68018428d473dbebea621644fe91eff76df8d7e8922d6d0c6811bc73b52485",
-      "created": "2025-09-08T08:56:46.428699273Z",
-      "docker_version": "26.1.3",
-      "history": [
-        {
-          "created": "2024-09-11T16:25:16Z",
-          "created_by": "/bin/sh -c #(nop)  ARG RELEASE",
-          "empty_layer": true
-        },
-        {
-          "created": "2024-09-11T16:25:16Z",
-          "created_by": "/bin/sh -c #(nop)  ARG LAUNCHPAD_BUILD_ARCH",
-          "empty_layer": true
-        },
-        {
-          "created": "2024-09-11T16:25:16Z",
-          "created_by": "/bin/sh -c #(nop)  LABEL org.opencontainers.image.ref.name=ubuntu",
-          "empty_layer": true
-        },
-        {
-          "created": "2024-09-11T16:25:16Z",
-          "created_by": "/bin/sh -c #(nop)  LABEL org.opencontainers.image.version=22.04",
-          "empty_layer": true
-        },
-        {
-          "created": "2024-09-11T16:25:17Z",
-          "created_by": "/bin/sh -c #(nop) ADD file:ebe009f86035c175ba244badd298a2582914415cf62783d510eab3a311a5d4e1 in / "
-        },
-        {
-          "created": "2024-09-11T16:25:18Z",
-          "created_by": "/bin/sh -c #(nop)  CMD [\"/bin/bash\"]",
-          "empty_layer": true
-        },
-        {
-          "created": "2024-10-25T04:11:28Z",
-          "created_by": "RUN /bin/sh -c set -eux; \tgroupadd --gid 999 --system mongodb; \tuseradd --uid 999 --system --gid mongodb --home-dir /data/db mongodb; \tmkdir -p /data/db /data/configdb; \tchown -R mongodb:mongodb /data/db /data/configdb # buildkit",
-          "comment": "buildkit.dockerfile.v0"
-        },
-        {
-          "created": "2024-10-25T04:11:28Z",
-          "created_by": "RUN /bin/sh -c set -eux; \tapt-get update; \tapt-get install -y --no-install-recommends \t\tca-certificates \t\tjq \t\tnumactl \t\tprocps \t; \trm -rf /var/lib/apt/lists/* # buildkit",
-          "comment": "buildkit.dockerfile.v0"
-        },
-        {
-          "created": "2024-10-25T04:11:28Z",
-          "created_by": "ENV GOSU_VERSION=1.17",
-          "comment": "buildkit.dockerfile.v0",
-          "empty_layer": true
-        },
-        {
-          "created": "2024-10-25T04:11:28Z",
-          "created_by": "ENV JSYAML_VERSION=3.13.1",
-          "comment": "buildkit.dockerfile.v0",
-          "empty_layer": true
-        },
-        {
-          "created": "2024-10-25T04:11:28Z",
-          "created_by": "ENV JSYAML_CHECKSUM=662e32319bdd378e91f67578e56a34954b0a2e33aca11d70ab9f4826af24b941",
-          "comment": "buildkit.dockerfile.v0",
-          "empty_layer": true
-        },
-        {
-          "created": "2024-10-25T04:11:28Z",
-          "created_by": "RUN /bin/sh -c set -eux; \t\tsavedAptMark=\"$(apt-mark showmanual)\"; \tapt-get update; \tapt-get install -y --no-install-recommends \t\tgnupg \t\twget \t; \trm -rf /var/lib/apt/lists/*; \t\tdpkgArch=\"$(dpkg --print-architecture | awk -F- '{ print $NF }')\"; \twget -O /usr/local/bin/gosu \"https://github.com/tianon/gosu/releases/download/$GOSU_VERSION/gosu-$dpkgArch\"; \twget -O /usr/local/bin/gosu.asc \"https://github.com/tianon/gosu/releases/download/$GOSU_VERSION/gosu-$dpkgArch.asc\"; \texport GNUPGHOME=\"$(mktemp -d)\"; \tgpg --batch --keyserver hkps://keys.openpgp.org --recv-keys B42F6819007F00F88E364FD4036A9C25BF357DD4; \tgpg --batch --verify /usr/local/bin/gosu.asc /usr/local/bin/gosu; \tgpgconf --kill all; \trm -rf \"$GNUPGHOME\" /usr/local/bin/gosu.asc; \t\tmkdir -p /opt/js-yaml/; \twget -O /opt/js-yaml/js-yaml.tgz https://registry.npmjs.org/js-yaml/-/js-yaml-${JSYAML_VERSION}.tgz; \techo \"$JSYAML_CHECKSUM */opt/js-yaml/js-yaml.tgz\" | sha256sum -c -; \ttar -xz --strip-components=1 -f /opt/js-yaml/js-yaml.tgz -C /opt/js-yaml package/dist/js-yaml.js package/package.json; \trm /opt/js-yaml/js-yaml.tgz; \tln -s /opt/js-yaml/dist/js-yaml.js /js-yaml.js; \t\texport GNUPGHOME=\"$(mktemp -d)\"; \twget -O KEYS 'https://pgp.mongodb.com/server-7.0.asc'; \tgpg --batch --import KEYS; \tmkdir -p /etc/apt/keyrings; \tgpg --batch --export --armor 'E58830201F7DD82CD808AA84160D26BB1785BA38' \u003e /etc/apt/keyrings/mongodb.asc; \tgpgconf --kill all; \trm -rf \"$GNUPGHOME\" KEYS; \t\tapt-mark auto '.*' \u003e /dev/null; \tapt-mark manual $savedAptMark \u003e /dev/null; \tapt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false; \t\tchmod +x /usr/local/bin/gosu; \tgosu --version; \tgosu nobody true # buildkit",
-          "comment": "buildkit.dockerfile.v0"
-        },
-        {
-          "created": "2024-10-25T04:11:28Z",
-          "created_by": "RUN /bin/sh -c mkdir /docker-entrypoint-initdb.d # buildkit",
-          "comment": "buildkit.dockerfile.v0"
-        },
-        {
-          "created": "2024-10-25T04:11:28Z",
-          "created_by": "ARG MONGO_PACKAGE=mongodb-org",
-          "comment": "buildkit.dockerfile.v0",
-          "empty_layer": true
-        },
-        {
-          "created": "2024-10-25T04:11:28Z",
-          "created_by": "ARG MONGO_REPO=repo.mongodb.org",
-          "comment": "buildkit.dockerfile.v0",
-          "empty_layer": true
-        },
-        {
-          "created": "2024-10-25T04:11:28Z",
-          "created_by": "ENV MONGO_PACKAGE=mongodb-org MONGO_REPO=repo.mongodb.org",
-          "comment": "buildkit.dockerfile.v0",
-          "empty_layer": true
-        },
-        {
-          "created": "2024-10-25T04:11:28Z",
-          "created_by": "ENV MONGO_MAJOR=7.0",
-          "comment": "buildkit.dockerfile.v0",
-          "empty_layer": true
-        },
-        {
-          "created": "2024-10-25T04:11:28Z",
-          "created_by": "RUN |2 MONGO_PACKAGE=mongodb-org MONGO_REPO=repo.mongodb.org /bin/sh -c echo \"deb [ signed-by=/etc/apt/keyrings/mongodb.asc ] http://$MONGO_REPO/apt/ubuntu jammy/${MONGO_PACKAGE%-unstable}/$MONGO_MAJOR multiverse\" | tee \"/etc/apt/sources.list.d/${MONGO_PACKAGE%-unstable}.list\" # buildkit",
-          "comment": "buildkit.dockerfile.v0"
-        },
-        {
-          "created": "2024-10-25T04:11:28Z",
-          "created_by": "ENV MONGO_VERSION=7.0.15",
-          "comment": "buildkit.dockerfile.v0",
-          "empty_layer": true
-        },
-        {
-          "created": "2024-10-25T04:11:28Z",
-          "created_by": "RUN |2 MONGO_PACKAGE=mongodb-org MONGO_REPO=repo.mongodb.org /bin/sh -c set -x \t\u0026\u0026 export DEBIAN_FRONTEND=noninteractive \t\u0026\u0026 apt-get update \t\u0026\u0026 apt-get install -y \t\t${MONGO_PACKAGE}=$MONGO_VERSION \t\t${MONGO_PACKAGE}-server=$MONGO_VERSION \t\t${MONGO_PACKAGE}-shell=$MONGO_VERSION \t\t${MONGO_PACKAGE}-mongos=$MONGO_VERSION \t\t${MONGO_PACKAGE}-tools=$MONGO_VERSION \t\t${MONGO_PACKAGE}-database=$MONGO_VERSION \t\t${MONGO_PACKAGE}-database-tools-extra=$MONGO_VERSION \t\u0026\u0026 rm -rf /var/lib/apt/lists/* \t\u0026\u0026 rm -rf /var/lib/mongodb \t\u0026\u0026 mv /etc/mongod.conf /etc/mongod.conf.orig # buildkit",
-          "comment": "buildkit.dockerfile.v0"
-        },
-        {
-          "created": "2024-10-25T04:11:28Z",
-          "created_by": "VOLUME [/data/db /data/configdb]",
-          "comment": "buildkit.dockerfile.v0",
-          "empty_layer": true
-        },
-        {
-          "created": "2024-10-25T04:11:28Z",
-          "created_by": "ENV HOME=/data/db",
-          "comment": "buildkit.dockerfile.v0",
-          "empty_layer": true
-        },
-        {
-          "created": "2024-10-25T04:11:28Z",
-          "created_by": "COPY docker-entrypoint.sh /usr/local/bin/ # buildkit",
-          "comment": "buildkit.dockerfile.v0"
-        },
-        {
-          "created": "2024-10-25T04:11:28Z",
-          "created_by": "ENTRYPOINT [\"docker-entrypoint.sh\"]",
-          "comment": "buildkit.dockerfile.v0",
-          "empty_layer": true
-        },
-        {
-          "created": "2024-10-25T04:11:28Z",
-          "created_by": "EXPOSE map[27017/tcp:{}]",
-          "comment": "buildkit.dockerfile.v0",
-          "empty_layer": true
-        },
-        {
-          "created": "2024-10-25T04:11:28Z",
-          "created_by": "CMD [\"mongod\"]",
-          "comment": "buildkit.dockerfile.v0",
-          "empty_layer": true
-        },
-        {
-          "created": "2025-09-08T08:56:46Z",
-          "created_by": "mongod"
-        }
-      ],
-      "os": "linux",
-      "rootfs": {
-        "type": "layers",
-        "diff_ids": [
-          "sha256:2573e0d8158209ed54ab25c87bcdcb00bd3d2539246960a3d592a1c599d70465",
-          "sha256:3d7602297a7834b8989bf91f0b68a02050b9d59eb65a2f8c7ac88574c6140162",
-          "sha256:561bdbff10569ca6993b0976f7c26f5e5b0f7dcf456144d2a498abe7cdc7d40c",
-          "sha256:d750163d77bbb30e7d954c3934c8ee339dbfbe266fa8ad6ef831fc33e11f1328",
-          "sha256:159721489058beb064353f7fd96529169859c96fcbc0b6262d8294177bfee9f7",
-          "sha256:794841dbfbee049e970efa90c90b66450b639265a2063017b26c5d6dbfa3c4ed",
-          "sha256:0ecd3470da5215ecf4d22af4a7f3fcf74205111acb55910a3c0e867916c47485",
-          "sha256:154876527ce89b63a8974623486220b83b9e9ee6ab356977c175370152c2f49b",
-          "sha256:c458cc098dc1acfa32337b5efc32b990f2f518a014fb9192cf994295a377891a"
-        ]
-      },
-      "config": {
-        "Cmd": [
-          "mongod"
-        ],
-        "Entrypoint": [
-          "docker-entrypoint.sh"
-        ],
-        "Env": [
-          "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
-          "GOSU_VERSION=1.17",
-          "JSYAML_VERSION=3.13.1",
-          "JSYAML_CHECKSUM=662e32319bdd378e91f67578e56a34954b0a2e33aca11d70ab9f4826af24b941",
-          "MONGO_PACKAGE=mongodb-org",
-          "MONGO_REPO=repo.mongodb.org",
-          "MONGO_MAJOR=7.0",
-          "MONGO_VERSION=7.0.15",
-          "HOME=/data/db"
-        ],
-        "Hostname": "4c68018428d4",
-        "Image": "mongo:7.0",
-        "Labels": {
-          "org.opencontainers.image.ref.name": "ubuntu",
-          "org.opencontainers.image.version": "22.04"
-        },
-        "Volumes": {
-          "/data/configdb": {},
-          "/data/db": {}
-        }
-      }
-    }
-  },
-  "Results": [
-    {
-      "Target": "fairdatasystems/mdb:2025-09-08 (ubuntu 22.04)",
-      "Class": "os-pkgs",
-      "Type": "ubuntu"
-    }
-  ]
-}
-{
-  "SchemaVersion": 2,
-  "CreatedAt": "2025-09-08T11:24:01.804088547+02:00",
-  "ArtifactName": "fairdatasystems/mdb:2025-09-08",
-  "ArtifactType": "container_image",
-  "Metadata": {
-    "OS": {
-      "Family": "ubuntu",
-      "Name": "22.04"
-    },
-    "ImageID": "sha256:a678bd1584d8b4936e193e3731cce2889661b283792ebefaf18f102057bf432d",
-    "DiffIDs": [
-      "sha256:2573e0d8158209ed54ab25c87bcdcb00bd3d2539246960a3d592a1c599d70465",
-      "sha256:3d7602297a7834b8989bf91f0b68a02050b9d59eb65a2f8c7ac88574c6140162",
-      "sha256:561bdbff10569ca6993b0976f7c26f5e5b0f7dcf456144d2a498abe7cdc7d40c",
-      "sha256:d750163d77bbb30e7d954c3934c8ee339dbfbe266fa8ad6ef831fc33e11f1328",
-      "sha256:159721489058beb064353f7fd96529169859c96fcbc0b6262d8294177bfee9f7",
-      "sha256:794841dbfbee049e970efa90c90b66450b639265a2063017b26c5d6dbfa3c4ed",
-      "sha256:0ecd3470da5215ecf4d22af4a7f3fcf74205111acb55910a3c0e867916c47485",
-      "sha256:154876527ce89b63a8974623486220b83b9e9ee6ab356977c175370152c2f49b",
-      "sha256:b9d7fad36f14330832cb8c3d0d158bc0f80df82dfa34d32b76461fe49884d721"
+      "sha256:2c05752e97f1849578bc6ce7d4f06702ffb0d8af46c5a1cf3a9aa04907044e85"
     ],
     "RepoTags": [
       "fairdatasystems/mdb:2025-09-08"
     ],
     "RepoDigests": [
-      "fairdatasystems/mdb@sha256:4a462ab7655747c3d9515c5458cd4b47a5c7dd55442ce8215d85c2a7441d7e10"
+      "fairdatasystems/mdb@sha256:161d340f715ba151f219238bd1dcf1faf2ce29812f165f913ea380b693fd02d6"
     ],
     "ImageConfig": {
       "architecture": "amd64",
-      "container": "f789014a4c34d97df581e3962345002d032a9183702f278657ef5a62c6e3a054",
-      "created": "2025-09-08T09:21:41.509917179Z",
+      "container": "a23e430e494d659f94a3997aa4dc498393d376306050182ea3a20e166a1ba42a",
+      "created": "2025-09-08T11:07:55.333535366Z",
       "docker_version": "26.1.3",
       "history": [
         {
@@ -639,7 +175,7 @@
           "empty_layer": true
         },
         {
-          "created": "2025-09-08T09:21:41Z",
+          "created": "2025-09-08T11:07:55Z",
           "created_by": "mongod"
         }
       ],
@@ -655,7 +191,7 @@
           "sha256:794841dbfbee049e970efa90c90b66450b639265a2063017b26c5d6dbfa3c4ed",
           "sha256:0ecd3470da5215ecf4d22af4a7f3fcf74205111acb55910a3c0e867916c47485",
           "sha256:154876527ce89b63a8974623486220b83b9e9ee6ab356977c175370152c2f49b",
-          "sha256:b9d7fad36f14330832cb8c3d0d158bc0f80df82dfa34d32b76461fe49884d721"
+          "sha256:2c05752e97f1849578bc6ce7d4f06702ffb0d8af46c5a1cf3a9aa04907044e85"
         ]
       },
       "config": {
@@ -676,7 +212,7 @@
           "MONGO_VERSION=7.0.15",
           "HOME=/data/db"
         ],
-        "Hostname": "f789014a4c34",
+        "Hostname": "a23e430e494d",
         "Image": "mongo:7.0",
         "Labels": {
           "org.opencontainers.image.ref.name": "ubuntu",

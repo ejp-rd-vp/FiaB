@@ -1,6 +1,6 @@
 {
   "SchemaVersion": 2,
-  "CreatedAt": "2025-09-08T11:24:26.005239662+02:00",
+  "CreatedAt": "2025-09-08T13:11:39.262159004+02:00",
   "ArtifactName": "fairdatasystems/cdeb:2025-09-08",
   "ArtifactType": "container_image",
   "Metadata": {
@@ -8,7 +8,7 @@
       "Family": "alpine",
       "Name": "3.21.0"
     },
-    "ImageID": "sha256:c519d7dba74f607aa99a09fda4710fc608032f38a29771c3bfe72e424cfb4a7d",
+    "ImageID": "sha256:a4eda26ddcd27120c62b393e1cf2cd3ca86c1bfdb25fd87902ba7221652009c6",
     "DiffIDs": [
       "sha256:3e01818d79cd3467f1d60e54224f3f6ce5170eceb54e265d96bb82344b8c24e7",
       "sha256:78086eb5a8b11846f0ab615800af6154d64e20179f94bb50f0b782e888560b69",
@@ -21,18 +21,19 @@
       "sha256:b8b9cf089788016ff26709a8e3c3ec2e512f499fa3c5b3d0787915d5a54894be",
       "sha256:c0502e7b7baed7f854535d6477afdd76b5e5c1fc267b3cc4fccaba397a14e54a",
       "sha256:5601ec68794e823f37538d8446573f026359811198d200db32e1cd7108c28c3e",
-      "sha256:7e514b5073a9b83dbfcb6aee669f1c0cf6682d8433861e48c65fd11720d1dfde"
+      "sha256:7e514b5073a9b83dbfcb6aee669f1c0cf6682d8433861e48c65fd11720d1dfde",
+      "sha256:72a48f54b9340285d4da9df175ba9fa89510d882eb576f00eaedf5c0dbd8d096"
     ],
     "RepoTags": [
       "fairdatasystems/cdeb:2025-09-08"
     ],
     "RepoDigests": [
-      "fairdatasystems/cdeb@sha256:b7a0931d5728117c0eba6d3de2e686e3a9777fe4ba91919690f89d911bf9e4bd"
+      "fairdatasystems/cdeb@sha256:02f94ea6af2e3f6fecf4dd22179feb3aca5d7c21e5211e3212d6dc199800946f"
     ],
     "ImageConfig": {
       "architecture": "amd64",
-      "container": "259d2007978d01b0a0a4c8712b9c4e2b7faa25d3be5b9a7718b06d1681c1ade0",
-      "created": "2025-09-08T09:24:02.318504847Z",
+      "container": "e5eaa83ecee440560896cfbc7327b149a65c74e3ed547382fcd6b12496977090",
+      "created": "2025-09-08T11:10:47.910126926Z",
       "docker_version": "26.1.3",
       "history": [
         {
@@ -115,46 +116,45 @@
           "empty_layer": true
         },
         {
-          "created": "2024-12-14T12:22:23.656387772Z",
+          "created": "2024-12-14T12:22:23Z",
           "created_by": "/bin/sh -c apk update \u0026\u0026 apk add --no-cache build-base git make gcc libffi-dev ruby-dev zlib-dev"
         },
         {
-          "created": "2024-12-14T12:22:34.782031171Z",
+          "created": "2024-12-14T12:22:34Z",
           "created_by": "/bin/sh -c gem install bundler"
         },
         {
-          "created": "2024-12-14T12:22:40.44921944Z",
+          "created": "2024-12-14T12:22:40Z",
           "created_by": "/bin/sh -c bundle config --global frozen 1"
         },
         {
-          "created": "2024-12-14T12:22:43.588152907Z",
+          "created": "2024-12-14T12:22:43Z",
           "created_by": "/bin/sh -c mkdir -p /app"
         },
         {
-          "created": "2024-12-14T12:22:44.716890361Z",
+          "created": "2024-12-14T12:22:44Z",
           "created_by": "/bin/sh -c #(nop) COPY dir:e8826b167598408798b5e1153309011b5d78db6d36cefa3f1f9f4f4eef6507ea in /app "
         },
         {
-          "created": "2024-12-14T12:22:45.896259675Z",
+          "created": "2024-12-14T12:22:45Z",
           "created_by": "/bin/sh -c #(nop) WORKDIR /app",
           "empty_layer": true
         },
         {
-          "created": "2024-12-14T12:26:34.084746063Z",
+          "created": "2024-12-14T12:26:34Z",
           "created_by": "/bin/sh -c bundle install"
         },
         {
-          "created": "2024-12-14T12:26:39.981845334Z",
+          "created": "2024-12-14T12:26:39Z",
           "created_by": "/bin/sh -c git clone https://github.com/CARE-SM/CARE-SM-Implementation.git"
         },
         {
-          "created": "2024-12-14T12:26:40.719219547Z",
+          "created": "2024-12-14T12:26:40Z",
           "created_by": "/bin/sh -c #(nop)  ENTRYPOINT [\"sh\" \"entrypoint-cdev2.sh\"]",
           "empty_layer": true
         },
         {
-          "created": "2025-09-08T09:24:02.318504847Z",
-          "empty_layer": true
+          "created": "2025-09-08T11:10:47Z"
         }
       ],
       "os": "linux",
@@ -172,7 +172,8 @@
           "sha256:b8b9cf089788016ff26709a8e3c3ec2e512f499fa3c5b3d0787915d5a54894be",
           "sha256:c0502e7b7baed7f854535d6477afdd76b5e5c1fc267b3cc4fccaba397a14e54a",
           "sha256:5601ec68794e823f37538d8446573f026359811198d200db32e1cd7108c28c3e",
-          "sha256:7e514b5073a9b83dbfcb6aee669f1c0cf6682d8433861e48c65fd11720d1dfde"
+          "sha256:7e514b5073a9b83dbfcb6aee669f1c0cf6682d8433861e48c65fd11720d1dfde",
+          "sha256:72a48f54b9340285d4da9df175ba9fa89510d882eb576f00eaedf5c0dbd8d096"
         ]
       },
       "config": {
@@ -190,7 +191,7 @@
           "BUNDLE_SILENCE_ROOT_WARNING=1",
           "BUNDLE_APP_CONFIG=/usr/local/bundle"
         ],
-        "Hostname": "259d2007978d",
+        "Hostname": "e5eaa83ecee4",
         "Image": "markw/cde-box-daemon:0.7.0",
         "WorkingDir": "/app"
       }

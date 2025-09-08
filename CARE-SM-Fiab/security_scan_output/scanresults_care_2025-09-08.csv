@@ -1,3 +1,11 @@
 Target,VulnerabilityID,Package,InstalledVersion,FixedVersion,Severity,Title,PrimaryURL
+fairdatasystems/care:2025-09-08 (alpine 3.19.1),CVE-2024-6119,libcrypto3,3.1.4-r6,3.1.7-r0,HIGH,openssl: Possible denial of service in X.509 name checks,https://avd.aquasec.com/nvd/cve-2024-6119
+fairdatasystems/care:2025-09-08 (alpine 3.19.1),CVE-2024-45491,libexpat,2.6.2-r0,2.6.3-r0,CRITICAL,libexpat: Integer Overflow or Wraparound,https://avd.aquasec.com/nvd/cve-2024-45491
+fairdatasystems/care:2025-09-08 (alpine 3.19.1),CVE-2024-45492,libexpat,2.6.2-r0,2.6.3-r0,CRITICAL,libexpat: integer overflow,https://avd.aquasec.com/nvd/cve-2024-45492
+fairdatasystems/care:2025-09-08 (alpine 3.19.1),CVE-2024-45490,libexpat,2.6.2-r0,2.6.3-r0,HIGH,libexpat: Negative Length Parsing Vulnerability in libexpat,https://avd.aquasec.com/nvd/cve-2024-45490
+fairdatasystems/care:2025-09-08 (alpine 3.19.1),CVE-2024-8176,libexpat,2.6.2-r0,2.7.0-r0,HIGH,libexpat: expat: Improper Restriction of XML Entity Expansion Depth in libexpat,https://avd.aquasec.com/nvd/cve-2024-8176
+fairdatasystems/care:2025-09-08 (alpine 3.19.1),CVE-2024-6119,libssl3,3.1.4-r6,3.1.7-r0,HIGH,openssl: Possible denial of service in X.509 name checks,https://avd.aquasec.com/nvd/cve-2024-6119
+fairdatasystems/care:2025-09-08 (alpine 3.19.1),CVE-2025-29087,sqlite-libs,3.44.2-r0,3.44.2-r1,HIGH,sqlite: Integer Overflow in SQLite concat_ws Function,https://avd.aquasec.com/nvd/cve-2025-29087
+fairdatasystems/care:2025-09-08 (alpine 3.19.1),CVE-2025-31115,xz-libs,5.4.5-r0,5.4.5-r1,HIGH,xz: XZ has a heap-use-after-free bug in threaded .xz decoder,https://avd.aquasec.com/nvd/cve-2025-31115
 Python,CVE-2024-6345,setuptools,69.2.0,70.0.0,HIGH,pypa/setuptools: Remote code execution via download functions in the package_index module in pypa/setuptools,https://avd.aquasec.com/nvd/cve-2024-6345
 Python,CVE-2025-47273,setuptools,69.2.0,78.1.1,HIGH,setuptools: Path Traversal Vulnerability in setuptools PackageIndex,https://avd.aquasec.com/nvd/cve-2025-47273

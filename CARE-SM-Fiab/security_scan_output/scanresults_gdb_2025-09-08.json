@@ -1,14 +1,14 @@
 {
   "SchemaVersion": 2,
-  "CreatedAt": "2025-09-01T14:01:58.696672103+02:00",
-  "ArtifactName": "fairdatasystems/gdb:2025-09-01",
+  "CreatedAt": "2025-09-08T12:59:41.809234556+02:00",
+  "ArtifactName": "fairdatasystems/gdb:2025-09-08",
   "ArtifactType": "container_image",
   "Metadata": {
     "OS": {
       "Family": "ubuntu",
       "Name": "24.04"
     },
-    "ImageID": "sha256:3d9bc71ce4f35a87d4bb9f15d8e2bbff06255948b97abf3e47434439674907e7",
+    "ImageID": "sha256:60871c92ea015678bd173194499d67090bbd4df6e479cd27f7fa4972f372c745",
     "DiffIDs": [
       "sha256:a46a5fb872b554648d9d0262f302b2c1ded46eeb1ef4dc727ecc5274605937af",
       "sha256:edca3f566ebeec80175a71f80235ed8dc2dc1d02ce97d216b70c98bcd237ea10",
@@ -18,18 +18,18 @@
       "sha256:d5f9d1eeb51dfc86d78004b516c4bb5bbe72585043bd19eaaa61b949a130e8d2",
       "sha256:5f70bf18a086007016e948b04aed3b82103a36bea41755b6cddfaf10ace3c6ef",
       "sha256:57887584431c4aee66c247626dd0c7815fc98d33068a2089aefaed41356a39fc",
-      "sha256:a1febb7676d05a3286da87dc831718e4e04e294342c771769412a541f365bb93"
+      "sha256:6f5d3a5ec4d6e3e323af88fe210027b334d15500214070878bed56ebeb39cfaa"
     ],
     "RepoTags": [
-      "fairdatasystems/gdb:2025-09-01"
+      "fairdatasystems/gdb:2025-09-08"
     ],
     "RepoDigests": [
-      "fairdatasystems/gdb@sha256:ec7821f5918b64314d4e8ee93f8e6f96a475e796ffe547dec74de2cbe6982ddc"
+      "fairdatasystems/gdb@sha256:b557318d4b716955f8fa3287a62eaa6c579522b6b0047e07eaad8d20deee1297"
     ],
     "ImageConfig": {
       "architecture": "amd64",
-      "container": "765ccc371505a356c0e32824db75877974252f7e984935cc1bb3c108a430d460",
-      "created": "2025-09-01T11:59:43.791168364Z",
+      "container": "7c8b8a410e9b819daeeadb056d5b04bc32d6e4a2b773ed7181b8d7af135fb6e2",
+      "created": "2025-09-08T10:58:52.60771636Z",
       "docker_version": "26.1.3",
       "history": [
         {
@@ -181,7 +181,7 @@
           "empty_layer": true
         },
         {
-          "created": "2025-09-01T11:59:43Z",
+          "created": "2025-09-08T10:58:52Z",
           "created_by": "-Dgraphdb.home=/opt/graphdb/home -Dgraphdb.distribution=docker"
         }
       ],
@@ -197,7 +197,7 @@
           "sha256:d5f9d1eeb51dfc86d78004b516c4bb5bbe72585043bd19eaaa61b949a130e8d2",
           "sha256:5f70bf18a086007016e948b04aed3b82103a36bea41755b6cddfaf10ace3c6ef",
           "sha256:57887584431c4aee66c247626dd0c7815fc98d33068a2089aefaed41356a39fc",
-          "sha256:a1febb7676d05a3286da87dc831718e4e04e294342c771769412a541f365bb93"
+          "sha256:6f5d3a5ec4d6e3e323af88fe210027b334d15500214070878bed56ebeb39cfaa"
         ]
       },
       "config": {
@@ -218,7 +218,7 @@
           "GRAPHDB_HOME=/opt/graphdb/home",
           "GRAPHDB_INSTALL_DIR=/opt/graphdb/dist"
         ],
-        "Hostname": "765ccc371505",
+        "Hostname": "7c8b8a410e9b",
         "Image": "ontotext/graphdb:10.8.0",
         "Labels": {
           "org.opencontainers.image.ref.name": "ubuntu",
@@ -230,7 +230,7 @@
   },
   "Results": [
     {
-      "Target": "fairdatasystems/gdb:2025-09-01 (ubuntu 24.04)",
+      "Target": "fairdatasystems/gdb:2025-09-08 (ubuntu 24.04)",
       "Class": "os-pkgs",
       "Type": "ubuntu"
     },
@@ -284,10 +284,10 @@
           },
           "References": [
             "http://www.openwall.com/lists/oss-security/2025/05/28/6",
-            "https://access.redhat.com/errata/RHSA-2025:9166",
+            "https://access.redhat.com/errata/RHSA-2025:9114",
             "https://access.redhat.com/security/cve/CVE-2025-48734",
             "https://bugzilla.redhat.com/2368956",
-            "https://errata.almalinux.org/10/ALSA-2025-9166.html",
+            "https://errata.almalinux.org/9/ALSA-2025-9114.html",
             "https://github.com/advisories/GHSA-wxr5-93ph-8wr9",
             "https://github.com/apache/commons-beanutils",
             "https://github.com/apache/commons-beanutils/commit/28ad955a1613ed5885870cc7da52093c1ce739dc",
@@ -344,7 +344,7 @@
           },
           "References": [
             "http://www.openwall.com/lists/oss-security/2025/06/16/4",
-            "https://access.redhat.com/errata/RHSA-2025:14178",
+            "https://access.redhat.com/errata/RHSA-2025:14181",
             "https://access.redhat.com/security/cve/CVE-2025-48976",
             "https://bugzilla.redhat.com/2373015",
             "https://bugzilla.redhat.com/2373018",
@@ -353,7 +353,7 @@
             "https://bugzilla.redhat.com/2379374",
             "https://bugzilla.redhat.com/2379382",
             "https://bugzilla.redhat.com/2379386",
-            "https://errata.almalinux.org/10/ALSA-2025-14178.html",
+            "https://errata.almalinux.org/9/ALSA-2025-14181.html",
             "https://github.com/apache/commons-fileupload",
             "https://github.com/apache/commons-fileupload/commit/2108495a4775910b8559f18ed5a779d60542ee96 (commons-fileupload-1.6.0-RC1)",
             "https://github.com/apache/commons-fileupload/commit/b247774a72a044f5d5380ae947140ee80af4e78b",
@@ -471,7 +471,7 @@
             "https://www.vicarius.io/vsociety/posts/cve-2025-24970-netty-vulnerability-mitigation"
           ],
           "PublishedDate": "2025-02-10T22:15:38.057Z",
-          "LastModifiedDate": "2025-04-16T16:15:30.067Z"
+          "LastModifiedDate": "2025-09-05T17:20:12.26Z"
         },
         {
           "VulnerabilityID": "CVE-2025-24970",
@@ -526,7 +526,7 @@
             "https://www.vicarius.io/vsociety/posts/cve-2025-24970-netty-vulnerability-mitigation"
           ],
           "PublishedDate": "2025-02-10T22:15:38.057Z",
-          "LastModifiedDate": "2025-04-16T16:15:30.067Z"
+          "LastModifiedDate": "2025-09-05T17:20:12.26Z"
         },
         {
           "VulnerabilityID": "CVE-2024-57699",
@@ -643,16 +643,15 @@
           },
           "References": [
             "http://www.openwall.com/lists/oss-security/2025/03/10/5",
-            "https://access.redhat.com/errata/RHSA-2025:7497",
+            "https://access.redhat.com/errata/RHSA-2025:3645",
             "https://access.redhat.com/security/cve/CVE-2025-24813",
-            "https://bugzilla.redhat.com/2326972",
-            "https://bugzilla.redhat.com/2332815",
+            "https://bugzilla.redhat.com/2332817",
             "https://bugzilla.redhat.com/2351129",
             "https://bugzilla.redhat.com/show_bug.cgi?id=2332817",
             "https://bugzilla.redhat.com/show_bug.cgi?id=2351129",
             "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-50379",
             "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-24813",
-            "https://errata.almalinux.org/10/ALSA-2025-7497.html",
+            "https://errata.almalinux.org/9/ALSA-2025-3645.html",
             "https://errata.rockylinux.org/RLSA-2025:3683",
             "https://github.com/absholi7ly/POC-CVE-2025-24813/blob/main/README.md",
             "https://github.com/apache/tomcat",
@@ -816,7 +815,7 @@
             }
           },
           "References": [
-            "https://access.redhat.com/errata/RHSA-2025:11332",
+            "https://access.redhat.com/errata/RHSA-2025:11335",
             "https://access.redhat.com/security/cve/CVE-2024-56337",
             "https://bugzilla.redhat.com/2333521",
             "https://bugzilla.redhat.com/2362783",
@@ -824,7 +823,7 @@
             "https://bugzilla.redhat.com/show_bug.cgi?id=2362783",
             "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-56337",
             "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-31650",
-            "https://errata.almalinux.org/10/ALSA-2025-11332.html",
+            "https://errata.almalinux.org/9/ALSA-2025-11335.html",
             "https://errata.rockylinux.org/RLSA-2025:11333",
             "https://github.com/apache/tomcat",
             "https://linux.oracle.com/cve/CVE-2024-56337.html",
@@ -870,7 +869,7 @@
           ],
           "VendorSeverity": {
             "alma": 3,
-            "amazon": 2,
+            "amazon": 3,
             "bitnami": 3,
             "ghsa": 3,
             "oracle-oval": 3,
@@ -894,7 +893,7 @@
           },
           "References": [
             "http://www.openwall.com/lists/oss-security/2025/06/16/1",
-            "https://access.redhat.com/errata/RHSA-2025:14178",
+            "https://access.redhat.com/errata/RHSA-2025:14181",
             "https://access.redhat.com/security/cve/CVE-2025-48988",
             "https://bugzilla.redhat.com/2373015",
             "https://bugzilla.redhat.com/2373018",
@@ -903,7 +902,7 @@
             "https://bugzilla.redhat.com/2379374",
             "https://bugzilla.redhat.com/2379382",
             "https://bugzilla.redhat.com/2379386",
-            "https://errata.almalinux.org/10/ALSA-2025-14178.html",
+            "https://errata.almalinux.org/9/ALSA-2025-14181.html",
             "https://github.com/apache/tomcat",
             "https://github.com/apache/tomcat/commit/2b0ab14fb55d4edc896e5f1817f2ab76f714ae5e",
             "https://github.com/apache/tomcat/commit/2b0ab14fb55d4edc896e5f1817f2ab76f714ae5e (11.0.8)",
@@ -972,7 +971,7 @@
             }
           },
           "References": [
-            "https://access.redhat.com/errata/RHSA-2025:14178",
+            "https://access.redhat.com/errata/RHSA-2025:14181",
             "https://access.redhat.com/security/cve/CVE-2025-48989",
             "https://bugzilla.redhat.com/2373015",
             "https://bugzilla.redhat.com/2373018",
@@ -981,7 +980,7 @@
             "https://bugzilla.redhat.com/2379374",
             "https://bugzilla.redhat.com/2379382",
             "https://bugzilla.redhat.com/2379386",
-            "https://errata.almalinux.org/10/ALSA-2025-14178.html",
+            "https://errata.almalinux.org/9/ALSA-2025-14181.html",
             "https://github.com/apache/tomcat",
             "https://github.com/apache/tomcat/commit/73c04a10395774bda71a0b37802cf983662ce255",
             "https://github.com/apache/tomcat/commit/73c04a10395774bda71a0b37802cf983662ce255 (10.1.44)",
@@ -1031,7 +1030,8 @@
           "VendorSeverity": {
             "bitnami": 4,
             "ghsa": 3,
-            "redhat": 3
+            "redhat": 3,
+            "ubuntu": 2
           },
           "CVSS": {
             "bitnami": {
