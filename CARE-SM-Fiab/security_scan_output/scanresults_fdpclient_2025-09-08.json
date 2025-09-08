@@ -1,6 +1,6 @@
 {
   "SchemaVersion": 2,
-  "CreatedAt": "2025-09-08T14:17:04.749270094+02:00",
+  "CreatedAt": "2025-09-08T14:48:29.528137918+02:00",
   "ArtifactName": "fairdatasystems/fdpclient:2025-09-08",
   "ArtifactType": "container_image",
   "Metadata": {
@@ -8,7 +8,7 @@
       "Family": "alpine",
       "Name": "3.22.0"
     },
-    "ImageID": "sha256:415ab71d0c62618a301d67f474bcc0d0503aa37dc268fc09575bb1dc65a82442",
+    "ImageID": "sha256:b990b0b0b901416f537a874ed1b8a737d347af094e06daf50796129ee08e5735",
     "DiffIDs": [
       "sha256:fd2758d7a50e2b78d275ee7d1c218489f2439084449d895fa17eede6c61ab2c4",
       "sha256:7b97c641cb43046a19147210c8310fb3e945511d823ff25d6a2a8cdeb306cf84",
@@ -35,12 +35,12 @@
       "fairdatasystems/fdpclient:2025-09-08"
     ],
     "RepoDigests": [
-      "fairdatasystems/fdpclient@sha256:384bfbc4f3b981c3bb820c6f2f03f21189b6ab35c6f5bed8004edbf58a62d9b3"
+      "fairdatasystems/fdpclient@sha256:6eefafd8d01383594b929262867a9b3ce3b7ee37a920c36b26df8d6b4af75e05"
     ],
     "ImageConfig": {
       "architecture": "amd64",
-      "container": "5a4d8de0c95401284b808df02e7ced076ead45e5b1f0448fcf9c59dbb64d13bd",
-      "created": "2025-09-08T12:16:39.728311343Z",
+      "container": "426c1e8c46843b469206754fb53678be2bafb176a0ef0d900b9cca29fc096cf7",
+      "created": "2025-09-08T12:48:05.98428225Z",
       "docker_version": "26.1.3",
       "history": [
         {
@@ -228,7 +228,7 @@
           "empty_layer": true
         },
         {
-          "created": "2025-09-08T12:16:39.728311343Z",
+          "created": "2025-09-08T12:48:05.98428225Z",
           "created_by": "tail -f /dev/null",
           "empty_layer": true
         }
@@ -277,7 +277,7 @@
           "NJS_RELEASE=1",
           "APP="
         ],
-        "Hostname": "5a4d8de0c954",
+        "Hostname": "426c1e8c4684",
         "Image": "fairdata/fairdatapoint-client:1.17.1",
         "Labels": {
           "maintainer": "NGINX Docker Maintainers \u003cdocker-maint@nginx.com\u003e"

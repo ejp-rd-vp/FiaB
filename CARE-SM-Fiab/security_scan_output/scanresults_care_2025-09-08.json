@@ -1,6 +1,6 @@
 {
   "SchemaVersion": 2,
-  "CreatedAt": "2025-09-08T14:22:24.642832307+02:00",
+  "CreatedAt": "2025-09-08T14:58:02.592692093+02:00",
   "ArtifactName": "fairdatasystems/care:2025-09-08",
   "ArtifactType": "container_image",
   "Metadata": {
@@ -8,7 +8,7 @@
       "Family": "alpine",
       "Name": "3.19.1"
     },
-    "ImageID": "sha256:19de1bced3bde2f1f737ced57e1b96b7afa262b9a0afd19c55f677bee167de6d",
+    "ImageID": "sha256:5eb79a29f295ef961b0f8c4e1e0ba7b27fcea091d264dbc7c5db4ad07ec8126e",
     "DiffIDs": [
       "sha256:d4fc045c9e3a848011de66f34b81f052d4f2c15a17bb196d637e526349601820",
       "sha256:4c9c2b9681abb404a680f956d25a7c0475872af4502ce47cdec2a2686f33d872",
@@ -18,18 +18,18 @@
       "sha256:7b0b5e1de3be9dfe8b9e1abfb50ea91838f9da16eb111a9ede1676cc8b856f7a",
       "sha256:90089e51e2e30c60e5183e41bc26a848c3ac0bcff306f9c25cdc7f26e4eb5a3c",
       "sha256:c69d247434760d91d4d502e8b709de64406a42a1402759a4d98a4486bad29c6d",
-      "sha256:9f61c465811f24683fd257012cb50e8247502e86003da9bd7395ac246c3198e2"
+      "sha256:e3bb90d29563c4527cd4055e4e393a88a4c3df0437f45c1e891a0fbbfa9f9d87"
     ],
     "RepoTags": [
       "fairdatasystems/care:2025-09-08"
     ],
     "RepoDigests": [
-      "fairdatasystems/care@sha256:b17b4a15e08b253f261356726b1f445d686250d2c00001ce3b9fcba0f10786b6"
+      "fairdatasystems/care@sha256:f91333bd4c1856738c6c5b10668cdc406dee3ff148e2570778bc4351bb7c2ee2"
     ],
     "ImageConfig": {
       "architecture": "amd64",
-      "container": "f10c9b6b8168e32d94b1dc494e378d2c00b773fa4f90caa767ca31a21000ffe0",
-      "created": "2025-09-08T12:21:56.113049843Z",
+      "container": "a55835e41b528db1fc5414f8cc096cec6470486281c6e544c6b750380c5d4f55",
+      "created": "2025-09-08T12:57:36.308683078Z",
       "docker_version": "26.1.3",
       "history": [
         {
@@ -131,7 +131,7 @@
           "empty_layer": true
         },
         {
-          "created": "2025-09-08T12:21:56Z",
+          "created": "2025-09-08T12:57:36Z",
           "created_by": "uvicorn --host 0.0.0.0 main:app"
         }
       ],
@@ -147,7 +147,7 @@
           "sha256:7b0b5e1de3be9dfe8b9e1abfb50ea91838f9da16eb111a9ede1676cc8b856f7a",
           "sha256:90089e51e2e30c60e5183e41bc26a848c3ac0bcff306f9c25cdc7f26e4eb5a3c",
           "sha256:c69d247434760d91d4d502e8b709de64406a42a1402759a4d98a4486bad29c6d",
-          "sha256:9f61c465811f24683fd257012cb50e8247502e86003da9bd7395ac246c3198e2"
+          "sha256:e3bb90d29563c4527cd4055e4e393a88a4c3df0437f45c1e891a0fbbfa9f9d87"
         ]
       },
       "config": {
@@ -166,7 +166,7 @@
           "PYTHON_GET_PIP_URL=https://github.com/pypa/get-pip/raw/dbf0c85f76fb6e1ab42aa672ffca6f0a675d9ee4/public/get-pip.py",
           "PYTHON_GET_PIP_SHA256=dfe9fd5c28dc98b5ac17979a953ea550cec37ae1b47a5116007395bfacff2ab9"
         ],
-        "Hostname": "f10c9b6b8168",
+        "Hostname": "a55835e41b52",
         "Image": "pabloalarconm/care-sm-toolkit:0.3.0",
         "WorkingDir": "/code"
       }

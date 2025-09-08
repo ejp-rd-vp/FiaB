@@ -1,6 +1,6 @@
 {
   "SchemaVersion": 2,
-  "CreatedAt": "2025-09-08T14:24:55.474561742+02:00",
+  "CreatedAt": "2025-09-08T15:00:10.65158204+02:00",
   "ArtifactName": "fairdatasystems/beacon:2025-09-08",
   "ArtifactType": "container_image",
   "Metadata": {
@@ -8,7 +8,7 @@
       "Family": "alpine",
       "Name": "3.19.1"
     },
-    "ImageID": "sha256:6d70e4e3443488d064f524eed59db1b92a95f95765381c482c129ad6cdc481e4",
+    "ImageID": "sha256:5db07b0aa11b5aa8fb06ae9581ed878b397c58c5152c4f019b4d11c71a401fee",
     "DiffIDs": [
       "sha256:d4fc045c9e3a848011de66f34b81f052d4f2c15a17bb196d637e526349601820",
       "sha256:4c9c2b9681abb404a680f956d25a7c0475872af4502ce47cdec2a2686f33d872",
@@ -18,18 +18,18 @@
       "sha256:5bb5153c1d441ea0660b21458df6f5423cbcaab034954958b9f0cbee4a57e585",
       "sha256:cfaf144070904fcf0afcbc1de237b3db0e243157937fb2ad24d8238c3ebdc973",
       "sha256:29bc8b2aede15a9927777174b00dd41d8b87e316a729288ba2f9c90eb10867c3",
-      "sha256:05f1189fcced147e1d2025a78cbcb0899b3f478568d0daf3a7f8c3fbfe251290"
+      "sha256:9cbff00bd55b2bd979823d3be165b4f997455264751a0f09c53966ceb5a7b1b5"
     ],
     "RepoTags": [
       "fairdatasystems/beacon:2025-09-08"
     ],
     "RepoDigests": [
-      "fairdatasystems/beacon@sha256:3377c030a59af63c11c0cc3b0cdeac203cbb267c3659e01db8d0fa759a3a4f6a"
+      "fairdatasystems/beacon@sha256:9582a596d06779e367626d2ed448778251cb1d2e53453202f9f9dc4e796a2c5a"
     ],
     "ImageConfig": {
       "architecture": "amd64",
-      "container": "9cbc7de78cf0084a36196d9b234b0bba1da30629781d26989f3670561fa15075",
-      "created": "2025-09-08T12:24:15.36584522Z",
+      "container": "8cb54df09c37324d724bd4428753c32b8c6a76de3f6650155da419d72bab77d3",
+      "created": "2025-09-08T12:59:41.547804477Z",
       "docker_version": "26.1.3",
       "history": [
         {
@@ -131,7 +131,7 @@
           "empty_layer": true
         },
         {
-          "created": "2025-09-08T12:24:15Z",
+          "created": "2025-09-08T12:59:41Z",
           "created_by": "uvicorn --host 0.0.0.0 main:app"
         }
       ],
@@ -147,7 +147,7 @@
           "sha256:5bb5153c1d441ea0660b21458df6f5423cbcaab034954958b9f0cbee4a57e585",
           "sha256:cfaf144070904fcf0afcbc1de237b3db0e243157937fb2ad24d8238c3ebdc973",
           "sha256:29bc8b2aede15a9927777174b00dd41d8b87e316a729288ba2f9c90eb10867c3",
-          "sha256:05f1189fcced147e1d2025a78cbcb0899b3f478568d0daf3a7f8c3fbfe251290"
+          "sha256:9cbff00bd55b2bd979823d3be165b4f997455264751a0f09c53966ceb5a7b1b5"
         ]
       },
       "config": {
@@ -166,7 +166,7 @@
           "PYTHON_GET_PIP_URL=https://github.com/pypa/get-pip/raw/dbf0c85f76fb6e1ab42aa672ffca6f0a675d9ee4/public/get-pip.py",
           "PYTHON_GET_PIP_SHA256=dfe9fd5c28dc98b5ac17979a953ea550cec37ae1b47a5116007395bfacff2ab9"
         ],
-        "Hostname": "9cbc7de78cf0",
+        "Hostname": "8cb54df09c37",
         "Image": "pabloalarconm/beacon-api4care-sm:4.1.0",
         "WorkingDir": "/code"
       }
