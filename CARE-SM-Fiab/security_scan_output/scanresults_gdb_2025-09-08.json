@@ -1,6 +1,6 @@
 {
   "SchemaVersion": 2,
-  "CreatedAt": "2025-09-08T12:59:41.809234556+02:00",
+  "CreatedAt": "2025-09-08T14:16:04.673971319+02:00",
   "ArtifactName": "fairdatasystems/gdb:2025-09-08",
   "ArtifactType": "container_image",
   "Metadata": {
@@ -8,7 +8,7 @@
       "Family": "ubuntu",
       "Name": "24.04"
     },
-    "ImageID": "sha256:60871c92ea015678bd173194499d67090bbd4df6e479cd27f7fa4972f372c745",
+    "ImageID": "sha256:e745b4fdd7df6d38f1455d29c0ee9b63ee5ec08402f1f8d480c5677047edf3ea",
     "DiffIDs": [
       "sha256:a46a5fb872b554648d9d0262f302b2c1ded46eeb1ef4dc727ecc5274605937af",
       "sha256:edca3f566ebeec80175a71f80235ed8dc2dc1d02ce97d216b70c98bcd237ea10",
@@ -18,18 +18,18 @@
       "sha256:d5f9d1eeb51dfc86d78004b516c4bb5bbe72585043bd19eaaa61b949a130e8d2",
       "sha256:5f70bf18a086007016e948b04aed3b82103a36bea41755b6cddfaf10ace3c6ef",
       "sha256:57887584431c4aee66c247626dd0c7815fc98d33068a2089aefaed41356a39fc",
-      "sha256:6f5d3a5ec4d6e3e323af88fe210027b334d15500214070878bed56ebeb39cfaa"
+      "sha256:295d1ab217853d2933c5acb8fed925de50aea21725ba6b150752820cfe955745"
     ],
     "RepoTags": [
       "fairdatasystems/gdb:2025-09-08"
     ],
     "RepoDigests": [
-      "fairdatasystems/gdb@sha256:b557318d4b716955f8fa3287a62eaa6c579522b6b0047e07eaad8d20deee1297"
+      "fairdatasystems/gdb@sha256:a941cd4181810fbbc1e8addc4aec0a8091801a9a56219c8b22e12f96b49d9a14"
     ],
     "ImageConfig": {
       "architecture": "amd64",
-      "container": "7c8b8a410e9b819daeeadb056d5b04bc32d6e4a2b773ed7181b8d7af135fb6e2",
-      "created": "2025-09-08T10:58:52.60771636Z",
+      "container": "8b95fc07a7ae8542a3202578158c06a51cf456df0590ae05184458c300b80bda",
+      "created": "2025-09-08T12:15:24.341274755Z",
       "docker_version": "26.1.3",
       "history": [
         {
@@ -181,7 +181,7 @@
           "empty_layer": true
         },
         {
-          "created": "2025-09-08T10:58:52Z",
+          "created": "2025-09-08T12:15:24Z",
           "created_by": "-Dgraphdb.home=/opt/graphdb/home -Dgraphdb.distribution=docker"
         }
       ],
@@ -197,7 +197,7 @@
           "sha256:d5f9d1eeb51dfc86d78004b516c4bb5bbe72585043bd19eaaa61b949a130e8d2",
           "sha256:5f70bf18a086007016e948b04aed3b82103a36bea41755b6cddfaf10ace3c6ef",
           "sha256:57887584431c4aee66c247626dd0c7815fc98d33068a2089aefaed41356a39fc",
-          "sha256:6f5d3a5ec4d6e3e323af88fe210027b334d15500214070878bed56ebeb39cfaa"
+          "sha256:295d1ab217853d2933c5acb8fed925de50aea21725ba6b150752820cfe955745"
         ]
       },
       "config": {
@@ -218,7 +218,7 @@
           "GRAPHDB_HOME=/opt/graphdb/home",
           "GRAPHDB_INSTALL_DIR=/opt/graphdb/dist"
         ],
-        "Hostname": "7c8b8a410e9b",
+        "Hostname": "8b95fc07a7ae",
         "Image": "ontotext/graphdb:10.8.0",
         "Labels": {
           "org.opencontainers.image.ref.name": "ubuntu",

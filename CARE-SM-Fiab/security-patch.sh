@@ -12,7 +12,7 @@ echo "updating ${name}"
 echo "update"
 docker exec -it ${name} apt-get -y update 
 echo "dist-upgrade"
-docker exec -it ${name} apt-get -y dist-upgrade 
+docker exec -it ${name} apt-get -y dist-upgrade --fix-missing
 echo "autoclean"
 docker start ${name}
 docker exec -it ${name} apt-get -y autoclean
@@ -29,7 +29,7 @@ echo "pushed"
 GDB="fairdatasystems/${name}:${timestamp}"
 # run a scan to determine success
 echo "trivy"
-trivy image --scanners vuln --format json --severity CRITICAL,HIGH  --timeout 1800s fairdatasystems/${name}:${timestamp}  >> ${outputfile}
+trivy image --scanners vuln --format json --severity CRITICAL,HIGH  --timeout 1800s fairdatasystems/${name}:${timestamp}  > ${outputfile}
 echo "END"
 
 
@@ -43,7 +43,7 @@ echo ""
 echo ""
 echo "updating ${name}"
 echo "update"
-docker exec -it -u root ${name} apk upgrade  --no-cache
+docker exec -it -u root ${name} apk update && upgrade  --no-cache --force-missing-repositories
 # Commit the patched container, with a new name, overwriting the previous version
 echo "commit"
 docker commit ${name} fairdatasystems/${name}:${timestamp}
@@ -57,7 +57,7 @@ echo "pushed"
 FDP="fairdatasystems/${name}:${timestamp}"
 # run a scan to determine success
 echo "trivy"
-trivy image --scanners vuln  --format json  --severity CRITICAL,HIGH --timeout 1800s fairdatasystems/${name}:${timestamp}  >> ${outputfile}
+trivy image --scanners vuln  --format json  --severity CRITICAL,HIGH --timeout 1800s fairdatasystems/${name}:${timestamp}  > ${outputfile}
 echo "END"
 
 
@@ -70,7 +70,7 @@ echo ""
 echo "updating ${name}"
 docker run -d --name ${name} ${image} tail -f /dev/null
 # use the appropriate distribution upgrade tool for that container’s operating system
-docker exec -it -u root ${name} apk upgrade --no-cache
+docker exec -it -u root ${name} update && apk upgrade --no-cache --force-missing-repositories
 # Commit the patched container, with a new name, overwriting the previous version
 docker commit ${name} fairdatasystems/${name}:${timestamp}
 # stop the temporary container
@@ -82,7 +82,7 @@ docker push fairdatasystems/${name}:${timestamp}
 echo "pushed"
 FDPC="fairdatasystems/${name}:${timestamp}"
 # run a scan to determine success
-trivy image --scanners vuln  --format json  --severity CRITICAL,HIGH --timeout 1800s fairdatasystems/${name}:${timestamp} >> ${outputfile}
+trivy image --scanners vuln  --format json  --severity CRITICAL,HIGH --timeout 1800s fairdatasystems/${name}:${timestamp} > ${outputfile}
 echo "END"
 
 
@@ -99,7 +99,7 @@ echo "updating ${name}"
 echo "update"
 docker exec -it ${name} apt-get -y update 
 echo "dist-upgrade"
-docker exec -it ${name} apt-get -y dist-upgrade 
+docker exec -it ${name} apt-get -y dist-upgrade   --fix-missing
 echo "autoclean"
 docker start ${name}
 docker exec -it ${name} apt-get -y autoclean
@@ -116,7 +116,7 @@ echo "pushed"
 MDB="fairdatasystems/${name}:${timestamp}"
 # run a scan to determine success
 echo "trivy"
-trivy image --scanners vuln  --format json  --severity CRITICAL,HIGH  --timeout 1800s fairdatasystems/${name}:${timestamp}  >> ${outputfile}
+trivy image --scanners vuln  --format json  --severity CRITICAL,HIGH  --timeout 1800s fairdatasystems/${name}:${timestamp}  > ${outputfile}
 echo "END"
 
 
@@ -132,7 +132,7 @@ echo ""
 echo "updating ${name}"
 echo "update"
 # use the appropriate distribution upgrade tool for that container’s operating system
-docker exec -it -u root ${name} apk upgrade --no-cache
+docker exec -it -u root ${name} apk update && upgrade --no-cache --force-missing-repositories
 # Commit the patched container, with a new name, overwriting the previous version
 echo "commit"
 docker commit ${name} fairdatasystems/${name}:${timestamp}
@@ -146,7 +146,7 @@ echo "pushed"
 CDEB="fairdatasystems/${name}:${timestamp}"
 # run a scan to determine success
 echo "trivy"
-trivy image --scanners vuln  --format json  --severity CRITICAL,HIGH --timeout 1800s fairdatasystems/${name}:${timestamp}  >> ${outputfile}
+trivy image --scanners vuln  --format json  --severity CRITICAL,HIGH --timeout 1800s fairdatasystems/${name}:${timestamp}  > ${outputfile}
 echo "END"
 
 
@@ -159,7 +159,7 @@ echo ""
 echo "updating ${name}"
 docker run -d --name ${name} ${image}
 # use the appropriate distribution upgrade tool for that container’s operating system
-docker exec -it -u root ${name} apk upgrade --no-cache
+docker exec -it -u root ${name} apk update && upgrade --no-cache --force-missing-repositories
 # Commit the patched container, with a new name, overwriting the previous version
 docker commit ${name} fairdatasystems/${name}:${timestamp}
 # stop the temporary container
@@ -172,7 +172,7 @@ echo "pushed"
 CARE="fairdatasystems/${name}:${timestamp}"
 # run a scan to determine success
 echo "trivy"
-trivy image --scanners vuln  --format json  --severity CRITICAL,HIGH  --timeout 1800s fairdatasystems/${name}:${timestamp}  >> ${outputfile}
+trivy image --scanners vuln  --format json  --severity CRITICAL,HIGH  --timeout 1800s fairdatasystems/${name}:${timestamp}  > ${outputfile}
 echo "END"
 
 
@@ -187,7 +187,7 @@ echo ""
 echo "updating ${name}"
 docker run -d --name ${name} ${image}  tail -f /dev/null
 # use the appropriate distribution upgrade tool for that container’s operating system
-docker exec -it -u root ${name} apk upgrade --no-cache
+docker exec -it -u root ${name} apk update && upgrade --no-cache --force-missing-repositories
 # Commit the patched container, with a new name, overwriting the previous version
 docker commit ${name} fairdatasystems/${name}:${timestamp}
 # stop the temporary container
@@ -199,7 +199,7 @@ docker push fairdatasystems/${name}:${timestamp}
 echo "pushed"
 YRDF="fairdatasystems/${name}:${timestamp}"
 # run a scan to determine success
-trivy image --scanners vuln  --format json  --severity CRITICAL,HIGH  --timeout 1800s fairdatasystems/${name}:${timestamp} >> ${outputfile}
+trivy image --scanners vuln  --format json  --severity CRITICAL,HIGH  --timeout 1800s fairdatasystems/${name}:${timestamp} > ${outputfile}
 echo "END"
 
 # pabloalarconm/beacon-api4care-sm:4.1.0 
@@ -211,7 +211,7 @@ echo ""
 echo "updating ${name}"
 docker run -d --name ${name} ${image}
 # use the appropriate distribution upgrade tool for that container’s operating system
-docker exec -it -u root ${name} apk upgrade --no-cache
+docker exec -it -u root ${name} apk update && upgrade --no-cache --force-missing-repositories
 # Commit the patched container, with a new name, overwriting the previous version
 docker commit ${name} fairdatasystems/${name}:${timestamp}
 # stop the temporary container
@@ -223,7 +223,7 @@ docker push fairdatasystems/${name}:${timestamp}
 echo "pushed"
 BEACON="fairdatasystems/${name}:${timestamp}"
 # run a scan to determine success
-trivy image --scanners vuln  --format json  --severity CRITICAL,HIGH  --timeout 1800s fairdatasystems/${name}:${timestamp} >> ${outputfile}
+trivy image --scanners vuln  --format json  --severity CRITICAL,HIGH  --timeout 1800s fairdatasystems/${name}:${timestamp} > ${outputfile}
 echo "END"
 
 cp docker-compose-template-template.yml docker-compose-template-tmp.yml

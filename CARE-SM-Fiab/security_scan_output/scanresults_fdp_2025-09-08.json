@@ -1,6 +1,6 @@
 {
   "SchemaVersion": 2,
-  "CreatedAt": "2025-09-08T13:00:38.047954092+02:00",
+  "CreatedAt": "2025-09-08T14:16:38.514420205+02:00",
   "ArtifactName": "fairdatasystems/fdp:2025-09-08",
   "ArtifactType": "container_image",
   "Metadata": {
@@ -8,7 +8,7 @@
       "Family": "alpine",
       "Name": "3.22.1"
     },
-    "ImageID": "sha256:bff3873ff14fa0d7bb31c17ee3d8eebd377bfdd076a60e94a8812b5443f9d188",
+    "ImageID": "sha256:8828e8fc53aef986f061758331dc9b93ae6f553e15f128e30fcf2b13dbb54ce3",
     "DiffIDs": [
       "sha256:418dccb7d85a63a6aa574439840f7a6fa6fd2321b3e2394568a317735e867d35",
       "sha256:63dc0d0c169d1bcc6c50b7d5112b27e6c6a47e679952ee4d67ac8fe60210451a",
@@ -18,18 +18,18 @@
       "sha256:13e47f1b6dce207c00bd72f2bf935e028bf00f4ce7ea6141ef3c1e146ca9273d",
       "sha256:a720167ce02caa5f41c784c3b897a61fb847e7280dacba276a01e73ed5100768",
       "sha256:6e99e3e91f6c0006d90070138ae4dddf79f185149d461e11a54e3c023c78af6a",
-      "sha256:28c1e5139e2c0baf6ab8ada4d902156c5b1142eb9724e0858f0a86c1b34e27f5"
+      "sha256:2d78673ed1973cf0372d903e39fef6cc68400096a05105b9d68fe3c915655e26"
     ],
     "RepoTags": [
       "fairdatasystems/fdp:2025-09-08"
     ],
     "RepoDigests": [
-      "fairdatasystems/fdp@sha256:0cf6d030981f6809f97c11f1ff60b6f78c4bb3ad4d87fb4013d1e6b0bee4aae1"
+      "fairdatasystems/fdp@sha256:ce98bc4d10c4703cf8fa3d480fd21c0ade0565d7e6111c39d09bfd56f87e1c1c"
     ],
     "ImageConfig": {
       "architecture": "amd64",
-      "container": "01689452f87252d0206720089cc83ac836fa3a90b85567586de9fbe42bbc76a7",
-      "created": "2025-09-08T10:59:58.855286762Z",
+      "container": "e902ad10340751607b07755420ab1fc07788deaa20801c1a2df8d461c57ea77d",
+      "created": "2025-09-08T12:16:07.33082407Z",
       "docker_version": "26.1.3",
       "history": [
         {
@@ -127,7 +127,7 @@
           "empty_layer": true
         },
         {
-          "created": "2025-09-08T10:59:58Z"
+          "created": "2025-09-08T12:16:07Z"
         }
       ],
       "os": "linux",
@@ -142,7 +142,7 @@
           "sha256:13e47f1b6dce207c00bd72f2bf935e028bf00f4ce7ea6141ef3c1e146ca9273d",
           "sha256:a720167ce02caa5f41c784c3b897a61fb847e7280dacba276a01e73ed5100768",
           "sha256:6e99e3e91f6c0006d90070138ae4dddf79f185149d461e11a54e3c023c78af6a",
-          "sha256:28c1e5139e2c0baf6ab8ada4d902156c5b1142eb9724e0858f0a86c1b34e27f5"
+          "sha256:2d78673ed1973cf0372d903e39fef6cc68400096a05105b9d68fe3c915655e26"
         ]
       },
       "config": {
@@ -159,7 +159,7 @@
           "LC_ALL=en_US.UTF-8",
           "JAVA_VERSION=jdk-21.0.8+9"
         ],
-        "Hostname": "01689452f872",
+        "Hostname": "e902ad103407",
         "Image": "fairdata/fairdatapoint:1.17.6",
         "User": "spring:spring",
         "WorkingDir": "/fdp"

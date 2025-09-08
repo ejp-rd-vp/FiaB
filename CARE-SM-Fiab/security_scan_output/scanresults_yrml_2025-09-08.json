@@ -1,6 +1,6 @@
 {
   "SchemaVersion": 2,
-  "CreatedAt": "2025-09-08T13:13:45.596568287+02:00",
+  "CreatedAt": "2025-09-08T14:24:12.447954486+02:00",
   "ArtifactName": "fairdatasystems/yrml:2025-09-08",
   "ArtifactType": "container_image",
   "Metadata": {
@@ -8,7 +8,7 @@
       "Family": "alpine",
       "Name": "3.19.1"
     },
-    "ImageID": "sha256:54d6a80605e15c1014813bc148d250210905e975b87b46ed0377c3ef4014487b",
+    "ImageID": "sha256:2eb669da6575378af803b71d2464b4bf161c28833cba0c538b998884a35c3c6d",
     "DiffIDs": [
       "sha256:d4fc045c9e3a848011de66f34b81f052d4f2c15a17bb196d637e526349601820",
       "sha256:21fa11835a3c429c57ff1fb70bebcdaa69774f8721e029247e718fa069cd4055",
@@ -22,18 +22,18 @@
       "sha256:0545c2de7dd51d18bdc7e5dd8991fbe590ed91394d30f7031b082b56160b684a",
       "sha256:0bf8ca07d2097b7aa3be81d44237df43d79371ac27ae3803a5ef598546ff98ca",
       "sha256:9b1d6462aeb78a6c6f91424f6786f64ac5419b92dafb33b6aaa8a0380794ae06",
-      "sha256:27a30e975e5b9b2a5c363a54648e550b4587deed9263abda90e717014d26682d"
+      "sha256:5b89ea3c9bf0a91021018bc0f67e3b253a0c13361d00753dad8465fd9eabff05"
     ],
     "RepoTags": [
       "fairdatasystems/yrml:2025-09-08"
     ],
     "RepoDigests": [
-      "fairdatasystems/yrml@sha256:a2a10a1150d17ad3d65239b20c6d5449dacfcff4cba91ea41eac963f694eba0e"
+      "fairdatasystems/yrml@sha256:4b676014f53ecfa6ef0c343b662328e9ddfa90613af72cbee474525a84a42904"
     ],
     "ImageConfig": {
       "architecture": "amd64",
-      "container": "78a50415a3e44f168f1d285f7f157bfb93ebfb2362c9322650c198f0b20f33c7",
-      "created": "2025-09-08T11:12:17.910840432Z",
+      "container": "56429f3d3681bf83c030cb537ce90c2da141f0da81c1580d983c95c969e44369",
+      "created": "2025-09-08T12:22:31.764268351Z",
       "docker_version": "26.1.3",
       "history": [
         {
@@ -140,7 +140,7 @@
           "empty_layer": true
         },
         {
-          "created": "2025-09-08T11:12:17Z",
+          "created": "2025-09-08T12:22:31Z",
           "created_by": "tail -f /dev/null"
         }
       ],
@@ -160,7 +160,7 @@
           "sha256:0545c2de7dd51d18bdc7e5dd8991fbe590ed91394d30f7031b082b56160b684a",
           "sha256:0bf8ca07d2097b7aa3be81d44237df43d79371ac27ae3803a5ef598546ff98ca",
           "sha256:9b1d6462aeb78a6c6f91424f6786f64ac5419b92dafb33b6aaa8a0380794ae06",
-          "sha256:27a30e975e5b9b2a5c363a54648e550b4587deed9263abda90e717014d26682d"
+          "sha256:5b89ea3c9bf0a91021018bc0f67e3b253a0c13361d00753dad8465fd9eabff05"
         ]
       },
       "config": {
@@ -180,7 +180,7 @@
           "LC_ALL=en_US.UTF-8",
           "JAVA_VERSION=jdk-22+36"
         ],
-        "Hostname": "78a50415a3e4",
+        "Hostname": "56429f3d3681",
         "Image": "markw/yarrrml-rml-ejp:0.1.2",
         "WorkingDir": "/usr/app"
       }

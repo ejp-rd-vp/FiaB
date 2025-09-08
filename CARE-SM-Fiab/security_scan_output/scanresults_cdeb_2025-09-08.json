@@ -1,6 +1,6 @@
 {
   "SchemaVersion": 2,
-  "CreatedAt": "2025-09-08T13:11:39.262159004+02:00",
+  "CreatedAt": "2025-09-08T14:21:51.420145569+02:00",
   "ArtifactName": "fairdatasystems/cdeb:2025-09-08",
   "ArtifactType": "container_image",
   "Metadata": {
@@ -8,7 +8,7 @@
       "Family": "alpine",
       "Name": "3.21.0"
     },
-    "ImageID": "sha256:a4eda26ddcd27120c62b393e1cf2cd3ca86c1bfdb25fd87902ba7221652009c6",
+    "ImageID": "sha256:e0f28fba9c3dbbd1412f3bfd83e678c7d8a3a7a106c8703cbc99b7fb8b60d609",
     "DiffIDs": [
       "sha256:3e01818d79cd3467f1d60e54224f3f6ce5170eceb54e265d96bb82344b8c24e7",
       "sha256:78086eb5a8b11846f0ab615800af6154d64e20179f94bb50f0b782e888560b69",
@@ -22,18 +22,18 @@
       "sha256:c0502e7b7baed7f854535d6477afdd76b5e5c1fc267b3cc4fccaba397a14e54a",
       "sha256:5601ec68794e823f37538d8446573f026359811198d200db32e1cd7108c28c3e",
       "sha256:7e514b5073a9b83dbfcb6aee669f1c0cf6682d8433861e48c65fd11720d1dfde",
-      "sha256:72a48f54b9340285d4da9df175ba9fa89510d882eb576f00eaedf5c0dbd8d096"
+      "sha256:655518054ba32da5df3c821631c90fc2a900b0a7f84233bc5db3984dc211e2df"
     ],
     "RepoTags": [
       "fairdatasystems/cdeb:2025-09-08"
     ],
     "RepoDigests": [
-      "fairdatasystems/cdeb@sha256:02f94ea6af2e3f6fecf4dd22179feb3aca5d7c21e5211e3212d6dc199800946f"
+      "fairdatasystems/cdeb@sha256:327b0df915a313bfb37fd3b738b1756dfd6a8377a073f876ef9481e640da7a66"
     ],
     "ImageConfig": {
       "architecture": "amd64",
-      "container": "e5eaa83ecee440560896cfbc7327b149a65c74e3ed547382fcd6b12496977090",
-      "created": "2025-09-08T11:10:47.910126926Z",
+      "container": "2bf1cd840aa67a637c88f0401c25d3f71cd5924f183a9f84b49cc3f1d2c6d677",
+      "created": "2025-09-08T12:21:09.079846505Z",
       "docker_version": "26.1.3",
       "history": [
         {
@@ -154,7 +154,7 @@
           "empty_layer": true
         },
         {
-          "created": "2025-09-08T11:10:47Z"
+          "created": "2025-09-08T12:21:09Z"
         }
       ],
       "os": "linux",
@@ -173,7 +173,7 @@
           "sha256:c0502e7b7baed7f854535d6477afdd76b5e5c1fc267b3cc4fccaba397a14e54a",
           "sha256:5601ec68794e823f37538d8446573f026359811198d200db32e1cd7108c28c3e",
           "sha256:7e514b5073a9b83dbfcb6aee669f1c0cf6682d8433861e48c65fd11720d1dfde",
-          "sha256:72a48f54b9340285d4da9df175ba9fa89510d882eb576f00eaedf5c0dbd8d096"
+          "sha256:655518054ba32da5df3c821631c90fc2a900b0a7f84233bc5db3984dc211e2df"
         ]
       },
       "config": {
@@ -191,7 +191,7 @@
           "BUNDLE_SILENCE_ROOT_WARNING=1",
           "BUNDLE_APP_CONFIG=/usr/local/bundle"
         ],
-        "Hostname": "e5eaa83ecee4",
+        "Hostname": "2bf1cd840aa6",
         "Image": "markw/cde-box-daemon:0.7.0",
         "WorkingDir": "/app"
       }

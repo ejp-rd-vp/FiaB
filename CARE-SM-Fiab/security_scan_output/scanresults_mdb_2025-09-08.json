@@ -1,6 +1,6 @@
 {
   "SchemaVersion": 2,
-  "CreatedAt": "2025-09-08T13:10:45.125281174+02:00",
+  "CreatedAt": "2025-09-08T14:20:19.292799189+02:00",
   "ArtifactName": "fairdatasystems/mdb:2025-09-08",
   "ArtifactType": "container_image",
   "Metadata": {
@@ -8,7 +8,7 @@
       "Family": "ubuntu",
       "Name": "22.04"
     },
-    "ImageID": "sha256:a8c883000c53df8bb772027a22554f148a3906cb449ed2446b08683901086131",
+    "ImageID": "sha256:74fefea74816c91e2211fa55ec04f4e24fd89efdf2a116d15db03765742ba516",
     "DiffIDs": [
       "sha256:2573e0d8158209ed54ab25c87bcdcb00bd3d2539246960a3d592a1c599d70465",
       "sha256:3d7602297a7834b8989bf91f0b68a02050b9d59eb65a2f8c7ac88574c6140162",
@@ -18,18 +18,18 @@
       "sha256:794841dbfbee049e970efa90c90b66450b639265a2063017b26c5d6dbfa3c4ed",
       "sha256:0ecd3470da5215ecf4d22af4a7f3fcf74205111acb55910a3c0e867916c47485",
       "sha256:154876527ce89b63a8974623486220b83b9e9ee6ab356977c175370152c2f49b",
-      "sha256:2c05752e97f1849578bc6ce7d4f06702ffb0d8af46c5a1cf3a9aa04907044e85"
+      "sha256:8d3c4cbc456cdc63e1e14795d5a862a2d79e3615aa48021cc3a130ab14f7cd3c"
     ],
     "RepoTags": [
       "fairdatasystems/mdb:2025-09-08"
     ],
     "RepoDigests": [
-      "fairdatasystems/mdb@sha256:161d340f715ba151f219238bd1dcf1faf2ce29812f165f913ea380b693fd02d6"
+      "fairdatasystems/mdb@sha256:e6e6feef0f666ca461c50c318c2c125ae08511bc066b0d3fa1e3ca3c64e0a129"
     ],
     "ImageConfig": {
       "architecture": "amd64",
-      "container": "a23e430e494d659f94a3997aa4dc498393d376306050182ea3a20e166a1ba42a",
-      "created": "2025-09-08T11:07:55.333535366Z",
+      "container": "b0ab1e05b4f4b8df66fce933f95a9ed7c1bcf20f326ec82ad359046d27003b0a",
+      "created": "2025-09-08T12:19:25.411466169Z",
       "docker_version": "26.1.3",
       "history": [
         {
@@ -175,7 +175,7 @@
           "empty_layer": true
         },
         {
-          "created": "2025-09-08T11:07:55Z",
+          "created": "2025-09-08T12:19:25Z",
           "created_by": "mongod"
         }
       ],
@@ -191,7 +191,7 @@
           "sha256:794841dbfbee049e970efa90c90b66450b639265a2063017b26c5d6dbfa3c4ed",
           "sha256:0ecd3470da5215ecf4d22af4a7f3fcf74205111acb55910a3c0e867916c47485",
           "sha256:154876527ce89b63a8974623486220b83b9e9ee6ab356977c175370152c2f49b",
-          "sha256:2c05752e97f1849578bc6ce7d4f06702ffb0d8af46c5a1cf3a9aa04907044e85"
+          "sha256:8d3c4cbc456cdc63e1e14795d5a862a2d79e3615aa48021cc3a130ab14f7cd3c"
         ]
       },
       "config": {
@@ -212,7 +212,7 @@
           "MONGO_VERSION=7.0.15",
           "HOME=/data/db"
         ],
-        "Hostname": "a23e430e494d",
+        "Hostname": "b0ab1e05b4f4",
         "Image": "mongo:7.0",
         "Labels": {
           "org.opencontainers.image.ref.name": "ubuntu",
