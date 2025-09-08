@@ -1,0 +1,22 @@
+Target,VulnerabilityID,Package,InstalledVersion,FixedVersion,Severity,Title,PrimaryURL
+fairdatasystems/cdeb:2025-09-08 (alpine 3.21.0),CVE-2025-0840,binutils,2.43.1-r1,2.43.1-r2,HIGH,binutils: GNU Binutils objdump.c disassemble_bytes stack-based overflow,https://avd.aquasec.com/nvd/cve-2025-0840
+fairdatasystems/cdeb:2025-09-08 (alpine 3.21.0),CVE-2025-31498,c-ares,1.34.3-r0,1.34.5-r0,HIGH,c-ares: c-ares has a use-after-free in read_answers(),https://avd.aquasec.com/nvd/cve-2025-31498
+fairdatasystems/cdeb:2025-09-08 (alpine 3.21.0),CVE-2025-46334,git,2.47.1-r0,2.47.3-r0,HIGH,N/A,https://avd.aquasec.com/nvd/cve-2025-46334
+fairdatasystems/cdeb:2025-09-08 (alpine 3.21.0),CVE-2025-48384,git,2.47.1-r0,2.47.3-r0,HIGH,git: Git arbitrary code execution,https://avd.aquasec.com/nvd/cve-2025-48384
+fairdatasystems/cdeb:2025-09-08 (alpine 3.21.0),CVE-2025-48385,git,2.47.1-r0,2.47.3-r0,HIGH,git: Git arbitrary file writes,https://avd.aquasec.com/nvd/cve-2025-48385
+fairdatasystems/cdeb:2025-09-08 (alpine 3.21.0),CVE-2025-46334,git-init-template,2.47.1-r0,2.47.3-r0,HIGH,N/A,https://avd.aquasec.com/nvd/cve-2025-46334
+fairdatasystems/cdeb:2025-09-08 (alpine 3.21.0),CVE-2025-48384,git-init-template,2.47.1-r0,2.47.3-r0,HIGH,git: Git arbitrary code execution,https://avd.aquasec.com/nvd/cve-2025-48384
+fairdatasystems/cdeb:2025-09-08 (alpine 3.21.0),CVE-2025-48385,git-init-template,2.47.1-r0,2.47.3-r0,HIGH,git: Git arbitrary file writes,https://avd.aquasec.com/nvd/cve-2025-48385
+fairdatasystems/cdeb:2025-09-08 (alpine 3.21.0),CVE-2024-12797,libcrypto3,3.3.2-r4,3.3.3-r0,HIGH,openssl: RFC7250 handshakes with unauthenticated servers don't abort as expected,https://avd.aquasec.com/nvd/cve-2024-12797
+fairdatasystems/cdeb:2025-09-08 (alpine 3.21.0),CVE-2024-8176,libexpat,2.6.4-r0,2.7.0-r0,HIGH,libexpat: expat: Improper Restriction of XML Entity Expansion Depth in libexpat,https://avd.aquasec.com/nvd/cve-2024-8176
+fairdatasystems/cdeb:2025-09-08 (alpine 3.21.0),CVE-2024-12797,libssl3,3.3.2-r4,3.3.3-r0,HIGH,openssl: RFC7250 handshakes with unauthenticated servers don't abort as expected,https://avd.aquasec.com/nvd/cve-2024-12797
+fairdatasystems/cdeb:2025-09-08 (alpine 3.21.0),CVE-2025-27219,ruby,3.3.6-r0,3.3.8-r0,HIGH,CGI: Denial of Service in CGI::Cookie.parse,https://avd.aquasec.com/nvd/cve-2025-27219
+fairdatasystems/cdeb:2025-09-08 (alpine 3.21.0),CVE-2025-27219,ruby-dev,3.3.6-r0,3.3.8-r0,HIGH,CGI: Denial of Service in CGI::Cookie.parse,https://avd.aquasec.com/nvd/cve-2025-27219
+fairdatasystems/cdeb:2025-09-08 (alpine 3.21.0),CVE-2025-27219,ruby-libs,3.3.6-r0,3.3.8-r0,HIGH,CGI: Denial of Service in CGI::Cookie.parse,https://avd.aquasec.com/nvd/cve-2025-27219
+fairdatasystems/cdeb:2025-09-08 (alpine 3.21.0),CVE-2025-27219,ruby-rdoc,3.3.6-r0,3.3.8-r0,HIGH,CGI: Denial of Service in CGI::Cookie.parse,https://avd.aquasec.com/nvd/cve-2025-27219
+Ruby,CVE-2025-43857,net-imap,0.4.9.1,"~> 0.2.5, ~> 0.3.9, ~> 0.4.20, >= 0.5.7",HIGH,net-imap: net-imap rubygem vulnerable to possible DoS by memory exhaustion,https://avd.aquasec.com/nvd/cve-2025-43857
+Ruby,GHSA-353f-x4gh-cqq8,nokogiri,1.17.2,>= 1.18.9,CRITICAL,Nokogiri patches vendored libxml2 to resolve multiple CVEs,https://github.com/advisories/GHSA-353f-x4gh-cqq8
+Ruby,GHSA-mrxw-mxhj-p664,nokogiri,1.17.2,>= 1.18.4,HIGH,Nokogiri updates packaged libxslt to v1.1.43 to resolve multiple CVEs,https://github.com/advisories/GHSA-mrxw-mxhj-p664
+Ruby,CVE-2025-27610,rack,3.1.8,"~> 2.2.13, ~> 3.0.14, >= 3.1.12",HIGH,rack: rubygem-rack: Local File Inclusion in Rack::Static,https://avd.aquasec.com/nvd/cve-2025-27610
+Ruby,CVE-2025-46727,rack,3.1.8,"~> 2.2.14, ~> 3.0.16, >= 3.1.14",HIGH,rubygem-rack: Unbounded-Parameter DoS in Rack::QueryParser,https://avd.aquasec.com/nvd/cve-2025-46727
+Ruby,CVE-2025-49007,rack,3.1.8,>= 3.1.16,HIGH,rack: rubygem-rack: Rack Content-Disposition Denial of Service,https://avd.aquasec.com/nvd/cve-2025-49007

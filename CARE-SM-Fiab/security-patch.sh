@@ -5,7 +5,10 @@ image="ontotext/graphdb:10.8.0"
 name="gdb"
 outputfile=("./security_scan_output/scanresults_${name}_${timestamp}.txt")
 docker run -d --name ${name} ${image}
+echo ""
+echo ""
 # use the appropriate distribution upgrade tool for that container’s operating system
+echo "updating ${name}"
 echo "update"
 docker exec -it ${name} apt-get -y update 
 echo "dist-upgrade"
@@ -31,11 +34,14 @@ echo "END"
 
 
 # fairdata/fairdatapoint:1.17.5
-image="fairdata/fairdatapoint:1.17.5"
+image="fairdata/fairdatapoint:1.17.6"
 name="fdp"
 outputfile=("./security_scan_output/scanresults_${name}_${timestamp}.txt")
 docker run -d --name ${name} ${image}
 # use the appropriate distribution upgrade tool for that container’s operating system
+echo ""
+echo ""
+echo "updating ${name}"
 echo "update"
 docker exec -it -u root ${name} apk upgrade  --no-cache
 # Commit the patched container, with a new name, overwriting the previous version
@@ -59,6 +65,9 @@ echo "END"
 image="fairdata/fairdatapoint-client:1.17.1"
 name="fdpclient"
 outputfile=("./security_scan_output/scanresults_${name}_${timestamp}.json")
+echo ""
+echo ""
+echo "updating ${name}"
 docker run -d --name ${name} ${image} tail -f /dev/null
 # use the appropriate distribution upgrade tool for that container’s operating system
 docker exec -it -u root ${name} apk upgrade --no-cache
@@ -84,6 +93,9 @@ name="mdb"
 outputfile=("./security_scan_output/scanresults_${name}_${timestamp}.json")
 docker run -d --name ${name} ${image}
 # use the appropriate distribution upgrade tool for that container’s operating system
+echo ""
+echo ""
+echo "updating ${name}"
 echo "update"
 docker exec -it ${name} apt-get -y update 
 echo "dist-upgrade"
@@ -115,13 +127,12 @@ name="cdeb"
 outputfile=("./security_scan_output/scanresults_${name}_${timestamp}.json")
 docker run -d --name ${name} ${image}
 # use the appropriate distribution upgrade tool for that container’s operating system
+echo ""
+echo ""
+echo "updating ${name}"
 echo "update"
-docker exec -it ${name} apt-get -y update 
-echo "dist-upgrade"
-docker exec -it ${name} apt-get -y dist-upgrade 
-echo "autoclean"
-docker start ${name}
-docker exec -it ${name} apt-get -y autoclean
+# use the appropriate distribution upgrade tool for that container’s operating system
+docker exec -it -u root ${name} apk upgrade --no-cache
 # Commit the patched container, with a new name, overwriting the previous version
 echo "commit"
 docker commit ${name} fairdatasystems/${name}:${timestamp}
@@ -143,6 +154,9 @@ echo "END"
 image="pabloalarconm/care-sm-toolkit:0.3.0"
 name="care"
 outputfile=("./security_scan_output/scanresults_${name}_${timestamp}.json")
+echo ""
+echo ""
+echo "updating ${name}"
 docker run -d --name ${name} ${image}
 # use the appropriate distribution upgrade tool for that container’s operating system
 docker exec -it -u root ${name} apk upgrade --no-cache
@@ -168,6 +182,9 @@ echo "END"
 image="markw/yarrrml-rml-ejp:0.1.2"
 name="yrml"
 outputfile=("./security_scan_output/scanresults_${name}_${timestamp}.json")
+echo ""
+echo ""
+echo "updating ${name}"
 docker run -d --name ${name} ${image}  tail -f /dev/null
 # use the appropriate distribution upgrade tool for that container’s operating system
 docker exec -it -u root ${name} apk upgrade --no-cache
@@ -189,6 +206,9 @@ echo "END"
 image="pabloalarconm/beacon-api4care-sm:4.1.0"
 name="beacon"
 outputfile=("./security_scan_output/scanresults_${name}_${timestamp}.json")
+echo ""
+echo ""
+echo "updating ${name}"
 docker run -d --name ${name} ${image}
 # use the appropriate distribution upgrade tool for that container’s operating system
 docker exec -it -u root ${name} apk upgrade --no-cache
