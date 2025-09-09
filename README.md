@@ -7,9 +7,7 @@ FAIR in a box is an offshoot of the original [CDE-in-a-box](https://github.com/e
 - *NEW* [Update Alert Mailing List](https://groups.google.com/g/fair-in-a-box-alerts/)
 - [Installation requirements](#requirements)
 - [Downloading](#downloading)
-- Installing
-  - [Upgrading from CDE v1 to CARE-SM](#upgrading)
-  - [Installing from scratch](#installing)
+- [Installing](#installing)
 - [Testing your installation](#testing)
 - [Using your FAIR-in-a-Box](#using)
 - [Customizing your FAIR-in-a-Box](#customizing)
@@ -53,104 +51,24 @@ git clone https://github.com/ejp-rd-vp/FiaB
 
 ## Installing
 
-<a name="upgrading"></a>
-
-### NOTE:   versions of FiaB
-
-There are two versions of FiaB.  One of them is compatible with Version 1 of the CDE models, the other is compatible with Version 2 CARE-SM models. Version 1 **is deprecated** and should no longer be used.  The installation folder for the CARE-SM FiaB is [CDE Version2 Models FiaB](https://github.com/ejp-rd-vp/FiaB/tree/main/CARE-SM-Fiab) 
-
-NOTE THAT THE TWO VERSIONS ARE MUTUALLY INCOMPATIBLE!  You cannot run them in parallel.  They have different Docker components for the transformation and different YARRRML templates.
-
-If you have already installed FiaB, it is possible to upgrade from CDE V1 to CARE-SM by changing the docker-compose file as follows:
-
-FROM docker-compose CDE VERSION 1:  remove the components:
-   * cde-box-daemon  (version 0.3.2)
-   * yarrrml_transform
-   * rdfizer
-  
-TO UPGRADE to docker-compose CARE-SM:  add the components (see sample below)
-   * cde-box-daemon (version 0.5.2)
-   * Add clause caresm
-   * Add clause yarrrml-rdfizer
-
-#### REPLACEMENT CODE for docker-compose.yml
-
-Note:  replace all instances of {PREFIX} with your local installation prefix, e.g. "ACME-default"
-
-Note:  replace {RDF_TRIGGER} with the port number that you have selected for your RDF transformation
-```
-  cde-box-daemon: 
-    image: markw/cde-box-daemon:0.5.2    # to use the version 2 CDE models with Hefesto
-    container_name: cde-box-daemon
-    environment:
-      GraphDB_User: ${GraphDB_User}
-      GraphDB_Pass: ${GraphDB_Pass}
-      baseURI: ${baseURI}
-      GRAPHDB_REPONAME: ${GRAPHDB_REPONAME}
-    depends_on:
-      - caresm
-      - yarrrml-rdfizer
-    ports:
-      - 127.0.0.1:{RDF_TRIGGER}:4567
-    volumes:
-      - ./data:/data
-      - ./config:/config
-    networks:
-      - {PREFIX}-default
-                
-  caresm:
-    image: pabloalarconm/care-sm-toolkit:0.0.3
-    hostname: caresm
-    volumes:
-      - ./data:/code/data
-    networks:
-      - {PREFIX}-default
-
-
-  yarrrml-rdfizer:
-    image: markw/yarrrml-rml-ejp:0.0.3
-    container_name: yarrrml-rdfizer
-    hostname: yarrrml-rdfizer
-    environment:
-      - SERIALIZATION=nquads
-    volumes:
-      - ./data:/mnt/data
-    networks:
-      - {PREFIX}-default
-
-```
-
-You should now be able to restart your docker-compose and be fully functional.  THERE IS NO NEED TO GO THROUGH THE "installing" section below!  Your FiaB is installed, and upgraded.
-
----
-
 
 <a name="installing"></a>
 
 ## Installing from scratch
 
-If you have never installed FiaB before, you `must` use the CARE-SM models - Version 1 models **are deprecated**!!!
+If you have never installed FiaB before, you `must` use the CARE-SM models - OLD CDE MODELS **are deprecated**!!!
 
-Once you have completed the "Downloading" section of this tutorial, you can run `run-me-to-install.sh` in the `./CARE-SM-Fiab/`` folder
+Once you have completed the "Downloading" section of this tutorial, you can run `run-me-to-install.sh` in the `./CARE-SM-Fiab/` folder
 
 ```
 bash ./run-me-to-install.sh
 ```
 
-### How to answer the questions
+This script will bootstrap your FAIR Data Point and its associated GraphDB.  It writes two databases into GraphDB.  One database holds your metadata, the other will hold your FAIRified data (assuming you execute an automated transformation).  Only the metadata database is required.  The data database is optional.
 
-You will then get prompted as to whether you are doing a production installation (i.e. you have a GUID already created - for example, using [W3ID](https://github.com/perma-id/w3id)) and you have already selected ports for your FDP, GraphDB, and Beacon (optional)). In addition, you must have an available port for the "RDFization trigger" - this port must be available on the server, but SHOULD NOT be exposed through the firewall.
+### How to answer the installation questions
 
-If you say "no", the installer will install your FDP onto localhost using defaults:
-
-
-   - installation prefix 'test'
-   - port 7070 for the FDP
-   - port 7200 for the GraphDB
-   - port 4567 for the RDFization trigger
-   - port 8000 for Beacon2
-
-If you say "yes", you will need to answer these questions yourself.   
+You will be prompted for details about your installation (i.e. you have a GUID already created - for example, using [W3ID](https://github.com/perma-id/w3id)) and you have already selected ports for your FDP, GraphDB, and Beacon (optional)). In addition, you must have an available port for the "RDFization trigger" - this port must be available on the server, but SHOULD NOT be exposed through the firewall.   *If you are only trying-out the FiaB, you should use a http://localhost:port (e.g. http://localhost:10000) URL as the answer to the first question - this will configure everything to run locally while you explore the functionality.  You will need to re-run the installer using your production URL to reconfigure everything from-scratch.  NOTE:  Local installations are http, NOT https!  Note:  the port number you put in the URL has to be the same as the port number you select in question 3 "what port is your FDP running on".
 
 The installation prefix is simply a short-name for your database.  NO SPACES, and better as lower-case letters.  For example:
    - crampdb
@@ -162,15 +80,16 @@ The installation prefix is simply a short-name for your database.  NO SPACES, an
 
 This prefix is used to isolate one installation of FDP from another, if you are hosting multiple FDPs on the same server.
 
-After about a minute, the installer will send a message to the screen asking you to check that the installation was successful. This message will last for 10 minutes, giving you enough time to explore the links in the message. After 10 minutes, the services will all automatically shut down. You can stop the installer by `CTRL-C` at any time.
+You will then select ports for the other components when prompted.  Any port is fine - for easy organization, you might select ports 10000, 10001, 10002, 10003 for the FDP, GraphDB, Beacon, and "trigger" ports.
 
-If the installation is successful using "test", you may then restart the `run-me-to-install`, this time answering the questions using your production information.
+After about a minute, the installer will send a message to the screen asking you to check that the installation was successful. This message will last for 10 minutes, giving you enough time to explore the links in the message. After 10 minutes, the services will all automatically shut down. You can stop the installer by `CTRL-C` at any time.  **PRES IT ONLY ONCE!!!!**  to allow the installer to shut down cleanly and delete extraneous images.
+
 
 ### Find the folder with your final server config... Ready-To-Go!
 
-The installer will create a folder containing all of your server configuration files.  You can copy this folder anywhere on your system, e.g. to keep your servers all in one folder outside of your GitHub copy of FiaB.
+The installer will create a sub-folder underneath the folder with `run-me-to-install` containing all of your server configuration files.  You can copy this folder anywhere on your system, e.g. to keep your servers all in one folder outside of your GitHub copy of FiaB.
 
-The folder will be called "prefix-ready-to-go"  (e.g. "ACME-ready-to-go").  Inside that folder is a customized docker-compose file (docker-compose-prefix.yml) for your deployment.  So for example, you would issue the commands:
+The folder will be called "prefix-ready-to-go"  (e.g. "ACME-ready-to-go").  Inside that folder is a customized docker-compose file (docker-compose-ACME.yml) for your deployment.  So for example, you would issue the commands:
 
 ```
 
