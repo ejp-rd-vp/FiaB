@@ -151,7 +151,7 @@ echo "END"
 
 
 # pabloalarconm/care-sm-toolkit:0.0.19
-image="pabloalarconm/care-sm-toolkit:0.3.0"
+image="pabloalarconm/care-sm-toolkit:1.0.1"
 name="care"
 outputfile=("./security_scan_output/scanresults_${name}_${timestamp}.json")
 echo ""
@@ -203,7 +203,7 @@ trivy image --scanners vuln  --format json  --severity CRITICAL,HIGH  --timeout 
 echo "END"
 
 # pabloalarconm/beacon-api4care-sm:4.1.0 
-image="pabloalarconm/beacon-api4care-sm:4.1.0"
+image="pabloalarconm/beacon-api4care-sm:4.2.0"
 name="beacon"
 outputfile=("./security_scan_output/scanresults_${name}_${timestamp}.json")
 echo ""
